@@ -19,8 +19,6 @@
 		static bool sInitialized;
 		static bool Initialized();
 
-		void FrameBufferSizeCallBack(GLFWwindow* window, int width, int height);
-		void processInput(GLFWwindow* window);
 
 		
 
