@@ -1,12 +1,13 @@
-#include <GLFW/glfw3.h>
 #include <iostream>
-#include <irrKlang/irrKlang.h>
+#include "AudioManager.h"
 #include "Graphics.h"
 
 using namespace irrklang;
 
 int main() 
 {
+	AudioManager audioManager();
+
 	Graphics* graphics = Graphics::Instance();
 
 	graphics->Init();

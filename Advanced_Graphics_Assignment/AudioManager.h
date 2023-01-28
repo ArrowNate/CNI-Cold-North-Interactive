@@ -5,22 +5,25 @@
 #include <iostream>
 #include <stdio.h>
 #include <irrKlang/irrKlang.h>
+#include <GLFW/glfw3.h>
 
 using namespace irrklang;
 
 class AudioManager
 {
-public:
-	ISoundEngine* SoundEngine = createIrrKlangDevice();
-
-//private:
-//	static AudioManager* sInstance;
-//
-//public:
-//	static AudioManager* Instance();
-//	static void Release();
+private:
+	ISoundEngine* SoundEngine;
 
 private:
+	static AudioManager* sInstance;
+	static AudioManager* Instance();
+	static void Release();
+	static bool sInitialized;
+	static bool Initialized();
+
+	virtual bool Init();
+
+public:
 	AudioManager();
 	~AudioManager();
 };
