@@ -139,8 +139,8 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Desktop\VS_Studios\LearningOpenGL\LearningOpenGL\glad.c" />
     <ClCompile Include="AssetManager.cpp" />
+    <ClCompile Include="glad.c" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
