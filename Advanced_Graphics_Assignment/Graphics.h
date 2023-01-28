@@ -1,8 +1,11 @@
-#include <glad/glad.h>
+#ifndef _GRAPHICS_H
+#define _GRAPHICS_H
+
+
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include "stb_image.h"
-
+#include "Font.h"
 
 class Graphics
 {
@@ -30,3 +33,4 @@ public:
 
 
 
+#endif
