@@ -3,6 +3,7 @@
 #include <GLFW/glfw3.h>
 #include "AssetManager.h"
 #include "Graphics.h"
+//#include "ScreenManager.h"
 
 class GameManager
 {
@@ -11,12 +12,26 @@ private:
 	const int FRAME_RATE = 60;
 
 	bool mQuit;
+	Graphics* mGraphics;
+	AssetManager* mAssetManager;
+	//Timer* mTimer;
+
+	//ScreenManager* mScreenManager;
 
 public:
 	static GameManager* Instance();
-	Graphics* mGraphics;
-	AssetManager* mAssetManager;
+	
 	static void Release();
+
+	void Run();
+
+	void Update();
+	void LateUpdate();
+
+	void Render();
+
+	GameManager();
+	~GameManager();
 };
 
 #endif
