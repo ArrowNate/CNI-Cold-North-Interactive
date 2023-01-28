@@ -50,6 +50,8 @@ bool Graphics::Init() {
 
         glfwSwapBuffers(pWindow);
         glfwPollEvents();
+
+        m_pFontTest = new Font("1 PLAYER GAME", "Antonio-Bold.ttf", 15, { 230,230,230 });
     }
 
     glfwTerminate();
