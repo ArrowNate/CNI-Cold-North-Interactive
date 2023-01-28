@@ -1,3 +1,8 @@
+<<<<<<< Updated upstream
+=======
+#include <GLFW/glfw3.h>
+#include <glad/glad.h>
+>>>>>>> Stashed changes
 
 #include "Graphics.h"
 

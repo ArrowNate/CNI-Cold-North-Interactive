@@ -139,6 +139,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+<<<<<<< Updated upstream
     <ClCompile Include="..\..\..\..\Desktop\VS_Studios\LearningOpenGL\LearningOpenGL\glad.c" />
     <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="Graphics.cpp" />
@@ -147,6 +148,13 @@
   <ItemGroup>
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="Graphics.h" />
+=======
+    <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="Main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GameManager.h" />
+>>>>>>> Stashed changes
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
