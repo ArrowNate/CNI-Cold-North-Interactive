@@ -1,7 +1,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
-
+#include "stb_image.h"
 
 
 	class Graphics
@@ -9,6 +9,9 @@
 		
 		//GLFWwindow* window;
 		static Graphics* sInstance;
+
+		const unsigned int SCR_WIDTH = 800;
+		const unsigned int SCR_HEIGHT = 600;
 
 	public:
 		//Graphics();
