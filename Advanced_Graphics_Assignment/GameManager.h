@@ -1,6 +1,8 @@
 #ifndef __GAMEMANAGER_H
 #define __GAMEMANAGER_H
 #include <GLFW/glfw3.h>
+#include "AssetManager.h"
+#include "Graphics.h"
 
 class GameManager
 {
@@ -12,16 +14,9 @@ private:
 
 public:
 	static GameManager* Instance();
+	Graphics* mGraphics;
+	AssetManager* mAssetManager;
 	static void Release();
-
-	void Run();
-
-	void Update();
-	void LateUpdate();
-
-	void Render();
-
-	GameManager();
-	~GameManager();
 };
+
 #endif
