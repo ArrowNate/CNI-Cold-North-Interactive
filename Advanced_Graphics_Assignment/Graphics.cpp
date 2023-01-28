@@ -1,10 +1,11 @@
 #include "Graphics.h"
 
-namespace OpenGLFramework {
+const unsigned int SCR_WIDTH = 800;
+const unsigned int SCR_HEIGHT = 600;
 
-	Graphics* Graphics::sInstance = nullptr;
+Graphics* Graphics::sInstance = nullptr;
 
-	Graphics* Graphics::Instance() { // singleton
+Graphics* Graphics::Instance() { // singleton
 		if (sInstance == nullptr) {
 			sInstance = new Graphics();
 		}
@@ -12,38 +13,38 @@ namespace OpenGLFramework {
 		return sInstance;
 	};
 
+void FrameBufferSizeCallBack(GLFWwindow* window, int width, int height)
+{
+	glViewport(0, 0, width, height);
+}
 	
-	
-	bool Graphics::Init() {
+bool Graphics::Init() {
 
 
-		glfwInit();
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+		
 
-		GLFWwindow* window = glfwCreateWindow(800, 600, "Plate Obliterator", NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "Plate Obliterator", NULL, NULL);
 
-		if (window == nullptr) {
+	if (window == nullptr) {
 			std::cout << "Failed to create GLFW window" << std::endl;
 			glfwTerminate();
 			return -1;
-		}
+	}
 
-		glfwMakeContextCurrent(window);
-		//glfwSetFramebufferSizeCallback(window, FrameBufferSizeCallBack);
+	glfwMakeContextCurrent(window);
+	//glfwSetFramebufferSizeCallback(window, FrameBufferSizeCallBack);
 
-		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-		{
+	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+	{
 			std::cout << "Failed to initialize GLAD" << std::endl;
 			return -1;
-		}
+	}
 
 
-		glViewport(0, 0, 800, 600);
+	glViewport(0, 0, 800, 600);
 
-		while (!glfwWindowShouldClose(window))
-		{
+	while (!glfwWindowShouldClose(window))
+	{
 			// input
 			// -----
 			processInput(window);
@@ -57,20 +58,27 @@ namespace OpenGLFramework {
 			// -------------------------------------------------------------------------------
 			glfwSwapBuffers(window);
 			glfwPollEvents();
-		}
-		glfwTerminate();
-		return 0;
 	}
-
+	glfwTerminate();
+	return 0;
 }
 
-void FrameBufferSizeCallBack(GLFWwindow* window, int width, int height)
-{
-	glViewport(0, 0, width, height);
-}
+
+
+
 
 void processInput(GLFWwindow* window)
 {
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 		glfwSetWindowShouldClose(window, true);
+}
+
+void Graphics::Release() {
+	delete sInstance;
+	sInstance = nullptr;
+	sInitialized = false;
+}
+
+bool Graphics::Initialized() {
+	return sInitialized;
 }

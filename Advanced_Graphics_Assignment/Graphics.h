@@ -3,7 +3,7 @@
 #include <iostream>
 
 
-namespace OpenGLFramework {
+
 	class Graphics
 	{
 		
@@ -11,21 +11,21 @@ namespace OpenGLFramework {
 		static Graphics* sInstance;
 
 	public:
-		Graphics();
-		~Graphics();
+		//Graphics();
+		//~Graphics();
 
 		static Graphics* Instance();
 		static void Release();
+		static bool sInitialized;
 		static bool Initialized();
 
 		void FrameBufferSizeCallBack(GLFWwindow* window, int width, int height);
 		void processInput(GLFWwindow* window);
 
-		const unsigned int SCR_WIDTH = 800;
-		const unsigned int SCR_HEIGHT = 600;
+		
 
 		virtual bool Init();
 	};
-}
+
 
 
