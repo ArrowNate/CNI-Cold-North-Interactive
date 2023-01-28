@@ -4,29 +4,29 @@
 #include "stb_image.h"
 
 
-	class Graphics
-	{
+class Graphics
+{
 		
-		//GLFWwindow* window;
-		static Graphics* sInstance;
+	//GLFWwindow* window;
+	static Graphics* sInstance;
 
-		const unsigned int SCR_WIDTH = 800;
-		const unsigned int SCR_HEIGHT = 600;
+	const unsigned int SCR_WIDTH = 800;
+	const unsigned int SCR_HEIGHT = 600;
 
-	public:
-		//Graphics();
-		//~Graphics();
+public:
+	//Graphics();
+	//~Graphics();
 
-		static Graphics* Instance();
-		static void Release();
-		static bool sInitialized;
-		static bool Initialized();
+	static Graphics* Instance();
+	static void Release();
+	static bool sInitialized;
+	static bool Initialized();
 
 
 		
 
-		virtual bool Init();
-	};
+	virtual bool Init();
+};
 
 
 
