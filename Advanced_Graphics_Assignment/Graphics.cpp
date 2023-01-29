@@ -44,7 +44,7 @@ bool Graphics::Init() {
         return -1;
     }
 
-    Shader ourShader("Assets/Shaders/text.vs", "Assets/Shaders/text.vs");
+    Shader ourShader("Assets/Shaders/shader.vs", "Assets/Shaders/shader.fs");
 
     float vertices[] = {
         // positions         // colors
@@ -83,7 +83,7 @@ bool Graphics::Init() {
         glBindVertexArray(VAO);
         glDrawArrays(GL_TRIANGLES, 0, 3);
 
-        m_pFontTest->RenderText(ourShader, "Testing", 540.0f, 570.0f, 0.5f, glm::vec3(0.3, 0.7f, 0.9f));
+        //m_pFontTest->RenderText(ourShader, "Testing", 540.0f, 570.0f, 0.5f, glm::vec3(0.3, 0.7f, 0.9f));
 
         glfwSwapBuffers(pWindow);
         glfwPollEvents();
