@@ -12,7 +12,7 @@ using namespace irrklang;
 class AudioManager
 {
 private:
-	ISoundEngine* SoundEngine;
+	ISoundDeviceList* SoundEngine;
 
 private:
 	static AudioManager* sInstance;

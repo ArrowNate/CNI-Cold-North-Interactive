@@ -33,7 +33,8 @@ AudioManager::AudioManager()
 
 AudioManager::~AudioManager()
 {
-
+	delete SoundEngine;
+	SoundEngine = nullptr;
 }
 
 void processInput(GLFWwindow* window)
