@@ -2,6 +2,10 @@
 
 void processInput(GLFWwindow* window);
 
+AudioManager* AudioManager::sInstance = nullptr;
+
+//SoundEngine = createIrrKlangDevice();
+
 AudioManager* AudioManager::Instance()
 {
 	if (sInstance == nullptr) {
@@ -17,6 +21,11 @@ void AudioManager::Release()
 	sInstance = nullptr;
 }
 
+bool AudioManager::Initialized()
+{
+	return false;
+}
+
 AudioManager::AudioManager()
 {
 	SoundEngine = createIrrKlangDevice();
@@ -29,6 +38,7 @@ AudioManager::~AudioManager()
 
 void processInput(GLFWwindow* window)
 {
-	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+	if (glfwGetKey(window, GLFW_KEY_M) == GLFW_PRESS) {
 		SoundEngine->play2D("breakout.mp3", true);
+	}
 }

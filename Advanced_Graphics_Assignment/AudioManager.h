@@ -21,7 +21,7 @@ private:
 	static bool sInitialized;
 	static bool Initialized();
 
-	virtual bool Init();
+	//virtual bool Init();
 
 public:
 	AudioManager();

@@ -1,7 +1,7 @@
 #include "Graphics.h"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
-void processInput(GLFWwindow* window);
+//void processInput(GLFWwindow* window);
 
 Graphics* Graphics::sInstance = nullptr;
 bool Graphics::sInitialized = false;
@@ -42,7 +42,7 @@ bool Graphics::Init() {
     while (!glfwWindowShouldClose(pWindow))
     {
 
-        processInput(pWindow);
+        //processInput(pWindow);
 
 
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
@@ -56,17 +56,14 @@ bool Graphics::Init() {
     return 0;
 }
 
-void processInput(GLFWwindow* window)
-{
-    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-        glfwSetWindowShouldClose(window, true);
-}
+//void processInput(GLFWwindow* window)
+//{
+//    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+//        glfwSetWindowShouldClose(window, true);
+//}
 
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
     glViewport(0, 0, width, height);
 }
-
-
-
