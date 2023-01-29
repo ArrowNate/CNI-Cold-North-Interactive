@@ -143,10 +143,14 @@
     <ClCompile Include="glad.c" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="PlayScreen.cpp" />
     <ClCompile Include="ScreenManager.cpp" />
+    <ClCompile Include="StartScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="PlayScreen.h" />
     <ClInclude Include="ScreenManager.h" />
+    <ClInclude Include="StartScreen.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetManager.h" />

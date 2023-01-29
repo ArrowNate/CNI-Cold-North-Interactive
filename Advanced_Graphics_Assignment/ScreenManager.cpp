@@ -19,7 +19,11 @@ void ScreenManager::Release()
 
 ScreenManager::ScreenManager() 
 {
-	mCurrentScreen = Logo;
+	delete m_pStartScreen;
+	m_pStartScreen = nullptr;
+
+	delete m_pPlayScreen;
+	m_pPlayScreen = nullptr;
 }
 
 void ScreenManager::Update()
@@ -28,11 +32,15 @@ void ScreenManager::Update()
 	switch (mCurrentScreen) 
 	{
 	case Start:
-
+		/*m_pStartScreen->Update();*/
 		break;
 
 	case Play:
+		m_pPlayScreen->Update();
 
+		/*if (m_pInput->KeyPressed(SDL_SCANCODE_ESCAPE)) {
+			mCurrentScreen = Start;
+		}*/
 		break;
 	
 	case Logo:
@@ -45,17 +53,14 @@ void ScreenManager::Render()
 {
 	switch (mCurrentScreen) {
 	case Start:
-
+		/*m_pStartScreen->Render();*/
 		break;
 
 	case Play:
-
-
+		m_pPlayScreen->Render();
 		break;
 
 	case Logo:
-
-
 
 		break;
 	}
