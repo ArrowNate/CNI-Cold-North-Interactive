@@ -8,8 +8,8 @@ class StartScreen : public GameEntity
 {
 private:
 	Graphics* m_pGraphics;
-	Shader* m_pShader;
-	Font* m_pTestingFont;
+	//Shader* m_pShader;
+	//Font* m_pTestingFont;
 
 public:
 	StartScreen();
