@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AssetManager.cpp" />
+    <ClCompile Include="GameEntity.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -148,6 +149,7 @@
     <ClCompile Include="StartScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GameEntity.h" />
     <ClInclude Include="PlayScreen.h" />
     <ClInclude Include="ScreenManager.h" />
     <ClInclude Include="StartScreen.h" />
