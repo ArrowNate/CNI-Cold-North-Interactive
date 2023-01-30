@@ -11,7 +11,7 @@ using namespace irrklang;
 
 class AudioManager
 {
-private:
+public:
 	ISoundDeviceList* SoundEngine;
 
 private:
@@ -26,6 +26,9 @@ private:
 public:
 	AudioManager();
 	~AudioManager();
+
+	void PlayMusic();
+	void processInput(GLFWwindow* window);
 };
 
 #endif // !_AUDIOMANAGER_H
