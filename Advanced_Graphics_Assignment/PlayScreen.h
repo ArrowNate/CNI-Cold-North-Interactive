@@ -1,6 +1,6 @@
 #ifndef PLAYSCREEN_H
 #define PLAYSCREEN_H
-
+#include "Graphics.h"
 class PlayScreen
 {
 private:

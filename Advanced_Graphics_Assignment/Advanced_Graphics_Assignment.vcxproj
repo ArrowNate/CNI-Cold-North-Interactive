@@ -104,13 +104,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\glfw-3.3.8\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Origins\SDL2_ttf-devel-2.20.1-VC\SDL2_ttf-2.20.1\include;$(ProjectDir)..\glfw-3.3.8\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;freetyped.lib;irrKlang.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\glfw-3.3.8\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;freetyped.lib;irrKlang.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Origins\SDL2_ttf-devel-2.20.1-VC\SDL2_ttf-2.20.1\lib\x64;$(ProjectDir)..\glfw-3.3.8\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(ProjectDir)..\Assets\*" "$(OutDir)Assets\" /y /s</Command>
