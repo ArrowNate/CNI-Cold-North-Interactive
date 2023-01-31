@@ -6,7 +6,11 @@ using namespace irrklang;
 
 int main() 
 {
-	AudioManager audioManager();
+	AudioManager* audio = AudioManager::Instance();
+
+	AudioManager::Release();
+
+	audio = nullptr;
 
 	glfwInit();
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);

@@ -11,10 +11,10 @@ using namespace irrklang;
 
 class AudioManager
 {
-public:
+private:
 	ISoundEngine* m_pSoundEngine;
 
-private:
+public:
 	static AudioManager* sInstance;
 	static AudioManager* Instance();
 	static void Release();

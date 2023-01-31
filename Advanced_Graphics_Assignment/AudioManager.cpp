@@ -1,10 +1,8 @@
 #include "AudioManager.h"
 
-using namespace irrklang;
-
 AudioManager* AudioManager::sInstance = nullptr;
 
-AudioManager* AudioManager::Instance()
+AudioManager* AudioManager::Instance() // A singleton assures that one of these objects exists in memory at any given time
 {
 	if (sInstance == nullptr) {
 		sInstance = new AudioManager();
@@ -37,7 +35,7 @@ AudioManager::~AudioManager()
 
 void AudioManager::PlayMusic()
 {
-
+	m_pSoundEngine->play2D("Assets/breakout.mp3", true);
 }
 
 void AudioManager::PauseMusic()
@@ -52,7 +50,5 @@ void AudioManager::PlaySFX()
 
 void AudioManager::processInput(GLFWwindow* window)
 {
-	if (glfwGetKey(window, GLFW_KEY_M) == GLFW_PRESS) {
-		m_pSoundEngine->play2D("Assets/breakout.mp3", true);
-	}
+	//m_pSoundEngine->play2D("Assets/breakout.mp3", true);
 }
