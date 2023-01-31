@@ -11,6 +11,10 @@
 #include "Font.h"
 #include "Shader.h"
 
+#include "Texture.h"
+
+#include <iostream>
+
 class Graphics
 {
 		
@@ -18,12 +22,15 @@ class Graphics
 	static Graphics* sInstance;
 	Font* m_pFontTest;
 
-	const unsigned int SCR_WIDTH = 800;
-	const unsigned int SCR_HEIGHT = 600;
+	Texture* m_pTesting;
+	Texture* m_pMoose;
+
+	const unsigned int SCR_WIDTH = 1024;
+	const unsigned int SCR_HEIGHT = 768;
 
 public:
 	//Graphics();
-	//~Graphics();
+	~Graphics();
 
 	static Graphics* Instance();
 	static void Release();

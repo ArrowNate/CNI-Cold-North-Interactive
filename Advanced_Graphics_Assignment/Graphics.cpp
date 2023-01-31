@@ -7,8 +7,6 @@ Graphics* Graphics::sInstance = nullptr;
 bool Graphics::sInitialized = false;
 
 
-
-
 Graphics* Graphics::Instance() { // singleton
 		if (sInstance == nullptr) {
 			sInstance = new Graphics();
@@ -25,18 +23,15 @@ void Graphics::Release() {
 	
 bool Graphics::Init() {
     
-    
-
-    // creating window, we can change resolution
-    GLFWwindow* pWindow = glfwCreateWindow(1000, 800, "Plate Obliterator", NULL, NULL);
-    if (pWindow == NULL)
+    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "PLATE OBLITERATOR", NULL, NULL);
+    if (window == NULL)
     {
         std::cout << "Failed to create GLFW window" << std::endl;
         glfwTerminate();
         return -1;
     }
-    glfwMakeContextCurrent(pWindow);
-    glfwSetFramebufferSizeCallback(pWindow, framebuffer_size_callback);
+    glfwMakeContextCurrent(window);
+    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
@@ -44,56 +39,42 @@ bool Graphics::Init() {
         return -1;
     }
 
-    Shader ourShader("Assets/Shaders/shader.vs", "Assets/Shaders/shader.fs");
+    //Remember to delete and nullptr the pointers!
+    //----------TEXTURE EXAMPLE-------------------------------
 
-    float vertices[] = {
-        // positions         // colors
-         0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,  // bottom right
-        -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,  // bottom left
-         0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f   // top 
-    };
+    
 
-    unsigned int VBO, VAO;
-    glGenVertexArrays(1, &VAO);
-    glGenBuffers(1, &VBO);
-    // bind the Vertex Array Object first, then bind and set vertex buffer(s), and then configure vertex attributes(s).
-    glBindVertexArray(VAO);
+    m_pTesting = new Texture("Assets/Textures/Moose11.jpg", .3, .3, .3, -.3, -.3, -.3, -.3, .3);
+    //Testing->Parent(this); // Parent not working yet
+    m_pTesting->Position(Vector3(1000, 800)); // this does not work yet either
 
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    m_pMoose = new Texture("Assets/Textures/moose3.jpg", .75, .75, .75, .25, -.25, .25, -.25, .75);
 
-    // position attribute
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
-    glEnableVertexAttribArray(0);
-    // color attribute
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
-    glEnableVertexAttribArray(1);
+    //----------TEXTURE EXAMPLE-------------------------------
+    
 
-    while (!glfwWindowShouldClose(pWindow))
+    // render loop
+    // -----------
+    while (!glfwWindowShouldClose(window))
     {
+        // input
+        // -----
+        processInput(window);
 
-        processInput(pWindow);
-
-
+        // render
+        // ------
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        // render the triangle
-        ourShader.Use();
-        glBindVertexArray(VAO);
-        glDrawArrays(GL_TRIANGLES, 0, 3);
+        //----------TEXTURE EXAMPLE-------------------------------
+        m_pTesting->Draw();
+        m_pMoose->Draw();
 
-        //m_pFontTest->RenderText(ourShader, "Testing", 540.0f, 570.0f, 0.5f, glm::vec3(0.3, 0.7f, 0.9f));
+        //----------TEXTURE EXAMPLE-------------------------------
 
-        glfwSwapBuffers(pWindow);
+        glfwSwapBuffers(window);
         glfwPollEvents();
-
-        
-
     }
-
-    glDeleteVertexArrays(1, &VAO);
-    glDeleteBuffers(1, &VBO);
 
     glfwTerminate();
     return 0;
@@ -111,5 +92,11 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
     glViewport(0, 0, width, height);
 }
 
+Graphics::~Graphics() {
+    delete m_pTesting;
+    m_pTesting = nullptr;
 
+    delete m_pMoose;
+    m_pMoose = nullptr;
+}
 
