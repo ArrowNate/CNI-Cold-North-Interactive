@@ -24,6 +24,7 @@
 #define __glad_h_
 
 #ifdef __gl_h_
+
 #endif
 #define __gl_h_
 
