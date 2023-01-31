@@ -44,11 +44,11 @@ bool Graphics::Init() {
 
     
 
-    m_pTesting = new Texture("Assets/Textures/CarnivalSetWaves.png", .3, .3, .3, -.3, -.3, -.3, -.3, .3, 0x1908);
+    m_pTesting = new Texture("Assets/Textures/CarnivalSetWaves.png", .3, .3, .3, -.3, -.3, -.3, -.3, .3, GL_RGBA);
     //Testing->Parent(this); // Parent not working yet
     m_pTesting->Position(Vector3(1000, 800)); // this does not work yet either
 
-    m_pMoose = new Texture("Assets/Textures/Moose3.jpg", .75, .75, .75, .25, -.25, .25, -.25, .75, 0x1907);
+    m_pMoose = new Texture("Assets/Textures/Moose3.jpg", .75, .75, .75, .25, -.25, .25, -.25, .75, GL_RGB);
 
     //----------TEXTURE EXAMPLE-------------------------------
     
