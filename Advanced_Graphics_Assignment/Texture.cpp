@@ -1,6 +1,6 @@
 #include "Texture.h"
 
-Texture::Texture(const char filename[50], float p1x, float p1y, float p2x, float p2y, float p3x, float p3y, float p4x, float p4y) {
+Texture::Texture(const char filename[50], float p1x, float p1y, float p2x, float p2y, float p3x, float p3y, float p4x, float p4y, GLint channel) {
 
 
 
@@ -59,7 +59,7 @@ Texture::Texture(const char filename[50], float p1x, float p1y, float p2x, float
     unsigned char* data = stbi_load(filename, &width, &height, &nrChannels, 0);
     if (data)
     {
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+        glTexImage2D(GL_TEXTURE_2D, 0, channel, width, height, 0, channel, GL_UNSIGNED_BYTE, data);
         glGenerateMipmap(GL_TEXTURE_2D);
     }
     else
