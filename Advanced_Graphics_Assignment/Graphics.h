@@ -9,9 +9,8 @@ class Graphics
 		
 	//GLFWwindow* window;
 	static Graphics* sInstance;
-
 	const unsigned int SCR_WIDTH = 1000;
-	const unsigned int SCR_HEIGHT = 1008;
+	const unsigned int SCR_HEIGHT = 786;
 
 public:
 	//Graphics();

@@ -3,9 +3,19 @@
 
 #include "GameEntity.h"
 
-class StartScreen : public GameEntity
+class StartScreen
 {
+private:
+	int mSelectedMode;
+public:
+	StartScreen();
+	~StartScreen();
 
+	void ChangeSelectedMode(int change);
+	int SelectedMode();
+
+	void Update();
+	void Render();
 };
 
 #endif // !_PLAYSCREEN_H

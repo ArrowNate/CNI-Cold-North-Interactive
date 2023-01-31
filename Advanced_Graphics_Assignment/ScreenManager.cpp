@@ -19,7 +19,8 @@ void ScreenManager::Release()
 
 ScreenManager::ScreenManager() 
 {
-
+	m_pStartScreen = new StartScreen();
+	m_pPlayScreen = new PlayScreen();
 }
 
 void ScreenManager::Update()
@@ -28,16 +29,11 @@ void ScreenManager::Update()
 	switch (mCurrentScreen) 
 	{
 	case Start:
-		/*if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)*/
 		break;
 
 	case Play:
-
 		break;
-	
-	case Logo:
 
-		break;
 	}
 }
 
@@ -45,22 +41,24 @@ void ScreenManager::Render()
 {
 	switch (mCurrentScreen) {
 	case Start:
+		if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
+
+		}
 		break;
 
 	case Play:
-		break;
+		if (glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS) {
 
-	case Logo:
-
+		}
 		break;
 	}
 }
 
 ScreenManager::~ScreenManager()
 {
+	delete m_pPlayScreen;
+	m_pPlayScreen = nullptr;
 
-
-
-
-
+	delete m_pStartScreen;
+	m_pStartScreen = nullptr;
 }

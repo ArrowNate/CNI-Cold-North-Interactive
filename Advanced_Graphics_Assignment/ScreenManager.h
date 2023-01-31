@@ -5,26 +5,26 @@
 #include "StartScreen.h"
 
 
-class ScreenManager {
+class ScreenManager : public Graphics{
 private:
 	static ScreenManager* sInstance;
 
-	enum Screens { Start, Play, Logo };
+	enum Screens { Start, Play};
 	Screens mCurrentScreen;
-	int ScreenChoice;
+	GLFWwindow* window;
 	PlayScreen* m_pPlayScreen;
 	StartScreen* m_pStartScreen;
 
 public:
+	ScreenManager();
+	~ScreenManager();
 	static ScreenManager* Instance();
 	static void Release();
-
+	
+	static void Init();
 	void Update();
 	void Render();
 
-private:
-	ScreenManager();
-	~ScreenManager();
 };
 
 #endif // !SCREENMANAGER_H
