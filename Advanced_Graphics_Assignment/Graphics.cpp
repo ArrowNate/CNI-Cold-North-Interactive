@@ -59,7 +59,7 @@ bool Graphics::Init() {
     {
         // input
         // -----
-        processInput(window);
+        //processInput(window);
 
         //processInput(pWindow);
 

@@ -30,7 +30,7 @@ public:
 	void PlayMusic();
 	void PauseMusic();
 	void PlaySFX();
-	void processInput(GLFWwindow* window);
+	//void processInput(GLFWwindow* window);
 };
 
 #endif // !_AUDIOMANAGER_H

@@ -1,7 +1,6 @@
 #ifndef _GRAPHICS_H
 #define _GRAPHICS_H
 
-
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include <glad/glad.h>
@@ -37,12 +36,7 @@ public:
 	static bool sInitialized;
 	static bool Initialized();
 
-
-		
-
 	virtual bool Init();
 };
-
-
 
 #endif
