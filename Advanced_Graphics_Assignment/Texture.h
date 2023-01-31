@@ -20,11 +20,12 @@ public:
 	//We will try to make a position function like in mario
 	// make sure your image has a square dimention or else it will be wonky, ex 512 x 512.
 	// 
-	//It has to be an .ppg or else we will need another arguement to take out the alpha channel
-	//and I dont want to do that tbh.
-	//
 	// keep the whole filename + folders under 50 characters
-	Texture(const char filename[50], float p1x, float p1y, float p2x, float p2y, float p3x, float p3y, float p4x, float p4y);
+	// 
+	// for channel it is for the file type:
+	// 0x1907 = jpg
+	// 0x1908 = png
+	Texture(const char filename[50], float p1x, float p1y, float p2x, float p2y, float p3x, float p3y, float p4x, float p4y, GLint channel);
 
 
 	
