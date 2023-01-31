@@ -23,8 +23,8 @@ public:
 	// keep the whole filename + folders under 50 characters
 	// 
 	// for channel it is for the file type:
-	// 0x1907 = jpg
-	// 0x1908 = png
+	// GL_RGB = jpg
+	// GL_RGBA = png
 	Texture(const char filename[50], float p1x, float p1y, float p2x, float p2y, float p3x, float p3y, float p4x, float p4y, GLint channel);
 
 
