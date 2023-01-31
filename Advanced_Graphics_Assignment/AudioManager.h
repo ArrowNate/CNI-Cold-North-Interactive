@@ -12,7 +12,7 @@ using namespace irrklang;
 class AudioManager
 {
 public:
-	ISoundDeviceList* SoundEngine;
+	ISoundEngine* m_pSoundEngine;
 
 private:
 	static AudioManager* sInstance;
@@ -28,6 +28,8 @@ public:
 	~AudioManager();
 
 	void PlayMusic();
+	void PauseMusic();
+	void PlaySFX();
 	void processInput(GLFWwindow* window);
 };
 
