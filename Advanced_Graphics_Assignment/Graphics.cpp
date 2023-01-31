@@ -6,6 +6,7 @@ void processInput(GLFWwindow* window);
 Graphics* Graphics::sInstance = nullptr;
 bool Graphics::sInitialized = false;
 
+
 Graphics* Graphics::Instance() { // singleton
 		if (sInstance == nullptr) {
 			sInstance = new Graphics();
@@ -21,17 +22,16 @@ void Graphics::Release() {
 }
 	
 bool Graphics::Init() {
-
-
-    GLFWwindow* pWindow = glfwCreateWindow(800, 600, "Plate Obliterator", NULL, NULL);
-    if (pWindow == NULL)
+    
+    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "PLATE OBLITERATOR", NULL, NULL);
+    if (window == NULL)
     {
         std::cout << "Failed to create GLFW window" << std::endl;
         glfwTerminate();
         return -1;
     }
-    glfwMakeContextCurrent(pWindow);
-    glfwSetFramebufferSizeCallback(pWindow, framebuffer_size_callback);
+    glfwMakeContextCurrent(window);
+    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
@@ -39,16 +39,40 @@ bool Graphics::Init() {
         return -1;
     }
 
-    while (!glfwWindowShouldClose(pWindow))
+    //Remember to delete and nullptr the pointers!
+    //----------TEXTURE EXAMPLE-------------------------------
+
+    
+
+    m_pTesting = new Texture("Assets/Textures/Moose11.jpg", .3, .3, .3, -.3, -.3, -.3, -.3, .3);
+    //Testing->Parent(this); // Parent not working yet
+    m_pTesting->Position(Vector3(1000, 800)); // this does not work yet either
+
+    m_pMoose = new Texture("Assets/Textures/moose3.jpg", .75, .75, .75, .25, -.25, .25, -.25, .75);
+
+    //----------TEXTURE EXAMPLE-------------------------------
+    
+
+    // render loop
+    // -----------
+    while (!glfwWindowShouldClose(window))
     {
+        // input
+        // -----
+        processInput(window);
 
-        processInput(pWindow);
-
-
+        // render
+        // ------
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        glfwSwapBuffers(pWindow);
+        //----------TEXTURE EXAMPLE-------------------------------
+        m_pTesting->Draw();
+        m_pMoose->Draw();
+
+        //----------TEXTURE EXAMPLE-------------------------------
+
+        glfwSwapBuffers(window);
         glfwPollEvents();
     }
 
@@ -68,5 +92,11 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
     glViewport(0, 0, width, height);
 }
 
+Graphics::~Graphics() {
+    delete m_pTesting;
+    m_pTesting = nullptr;
 
+    delete m_pMoose;
+    m_pMoose = nullptr;
+}
 

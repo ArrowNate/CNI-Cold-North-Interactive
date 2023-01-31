@@ -1,4 +1,3 @@
-
 #include "Graphics.h"
 
 
@@ -17,6 +16,9 @@ int main()
 	Graphics::Release();
 
 	graphics = nullptr;
+
+
+	
 
 	return 0;
 }
