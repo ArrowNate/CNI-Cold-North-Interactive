@@ -2,20 +2,21 @@
 #define _STARTSCREEN_H
 
 #include "GameEntity.h"
+#include "Graphics.h"
 
-class StartScreen
+class StartScreen : public GameEntity
 {
 private:
-	int mSelectedMode;
+	Graphics* m_pGraphics;
+	//Shader* m_pShader;
+	//Font* m_pTestingFont;
+
 public:
 	StartScreen();
 	~StartScreen();
 
-	void ChangeSelectedMode(int change);
-	int SelectedMode();
-
-	void Update();
-	void Render();
+	void Update() override;
+	void Render() override;
 };
 
 #endif // !_PLAYSCREEN_H

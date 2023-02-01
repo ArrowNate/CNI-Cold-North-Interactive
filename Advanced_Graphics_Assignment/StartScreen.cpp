@@ -1,47 +1,22 @@
 #include "StartScreen.h"
 
-StartScreen::StartScreen()
-{
-	//Title of Game:
-
-
-
-	//Backdrop Of StartScreen
-
-
+StartScreen::StartScreen() {
 	
-	//png of selector
-
-
-
+	//Shader ourShader("Assets/Shaders/text.vs", "Assets/Shaders/text.fs");
+	//m_pTestingFont->RenderText(ourShader, "(C) LearningOpen.com", 540.0f, 570.0f, 0.5f, glm::vec3(0.3, 0.7f, 0.9f));
 
 }
 
-StartScreen::~StartScreen()
-{
+StartScreen::~StartScreen() {
 
+	//delete m_pTestingFont;
+	//m_pTestingFont = nullptr;
+}
 
+void StartScreen::Update() {
 
 }
 
-void StartScreen::ChangeSelectedMode(int change)
-{
-	mSelectedMode += change;
-
-	if (mSelectedMode < 0) {
-		mSelectedMode = 1;
-	}
-	else if (mSelectedMode > 1) {
-		mSelectedMode = 0;
-	}
-
-	//selecting between credits screen and starting the game
-
-
-	//code for pointer positions
-}
-
-int StartScreen::SelectedMode() 
-{
-	return mSelectedMode;
+void StartScreen::Render() {
+	//m_pTestingFont->Render();
 }

@@ -1,20 +1,36 @@
-#include <glad/glad.h>
+#ifndef _GRAPHICS_H
+#define _GRAPHICS_H
+
+
 #include <GLFW/glfw3.h>
 #include <iostream>
-#include "stb_image.h"
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 
+#include "stb_image.h"
+#include "Font.h"
+#include "Shader.h"
+
+#include "Texture.h"
+
+#include <iostream>
 
 class Graphics
 {
 		
 	//GLFWwindow* window;
 	static Graphics* sInstance;
-	const unsigned int SCR_WIDTH = 1000;
-	const unsigned int SCR_HEIGHT = 786;
+	Font* m_pFontTest;
+
+	Texture* m_pTesting;
+	Texture* m_pMoose;
+
+	const unsigned int SCR_WIDTH = 1024;
+	const unsigned int SCR_HEIGHT = 768;
 
 public:
 	//Graphics();
-	//~Graphics();
+	~Graphics();
 
 	static Graphics* Instance();
 	static void Release();
@@ -29,3 +45,4 @@ public:
 
 
 
+#endif

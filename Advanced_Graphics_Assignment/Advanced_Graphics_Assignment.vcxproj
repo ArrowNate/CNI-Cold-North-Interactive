@@ -104,13 +104,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Origins\SDL2_ttf-devel-2.20.1-VC\SDL2_ttf-2.20.1\include;$(ProjectDir)..\glfw-3.3.8\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\glfw-3.3.8\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;freetyped.lib;irrKlang.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:\Origins\SDL2_ttf-devel-2.20.1-VC\SDL2_ttf-2.20.1\lib\x64;$(ProjectDir)..\glfw-3.3.8\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;freetyped.lib;irrKlang.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\glfw-3.3.8\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(ProjectDir)..\Assets\*" "$(OutDir)Assets\" /y /s</Command>
@@ -140,23 +140,26 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AssetManager.cpp" />
+    <ClCompile Include="Font.cpp" />
     <ClCompile Include="GameEntity.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="PlayScreen.cpp" />
-    <ClCompile Include="ScreenManager.cpp" />
+    <ClCompile Include="Shader.cpp" />
     <ClCompile Include="StartScreen.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="GameEntity.h" />
-    <ClInclude Include="PlayScreen.h" />
-    <ClInclude Include="ScreenManager.h" />
-    <ClInclude Include="StartScreen.h" />
+    <ClCompile Include="stb_image.cpp" />
+    <ClCompile Include="Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetManager.h" />
+    <ClInclude Include="Font.h" />
+    <ClInclude Include="GameEntity.h" />
     <ClInclude Include="Graphics.h" />
+    <ClInclude Include="MathHelper.h" />
+    <ClInclude Include="Shader.h" />
+    <ClInclude Include="StartScreen.h" />
+    <ClInclude Include="stb_image.h" />
+    <ClInclude Include="Texture.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

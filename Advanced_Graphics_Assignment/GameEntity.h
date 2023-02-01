@@ -3,13 +3,16 @@
 
 #include <GLFW/glfw3.h>
 
+
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include <iostream>
+ 
 #include "MathHelper.h"
 
-// There is already a glm::vec3 data type
+// There is already a glm::vec3 data type that holds x,y,x
 
 class GameEntity
 {
@@ -27,13 +30,13 @@ private:
 
 public:
 	GameEntity(float x = 0.0f, float y = 0.0f, float z = 0.0f);
-	GameEntity(float x = 0.0f, float y = 0.0f); // might delete, dont know if we need.
+	//GameEntity(float x = 0.0f, float y = 0.0f); // might delete, dont know if we need.
 	GameEntity(const Vector3& position);
-	GameEntity(const Vector2& position);// might delete, dont know if we need.
+	//GameEntity(const Vector2& position);// might delete, dont know if we need.
 	~GameEntity();
 
 	void Position(float x, float y, float z);
-	void Position(float x, float y); // might delete, dont know if we need.
+	//void Position(float x, float y); // might delete, dont know if we need.
 	void Position(const Vector3& pos);
 	Vector3 Position(Space space = World);
 
@@ -55,6 +58,5 @@ public:
 	virtual void Update() {};
 	virtual void Render() {};
 };
-
 
 #endif
