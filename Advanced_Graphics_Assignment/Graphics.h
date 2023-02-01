@@ -1,6 +1,7 @@
 #ifndef _GRAPHICS_H
 #define _GRAPHICS_H
 
+#include "StartScreen.h"
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include <glad/glad.h>
@@ -16,6 +17,7 @@
 
 class Graphics
 {
+	StartScreen* m_pTest;
 		
 	//GLFWwindow* window;
 	static Graphics* sInstance;

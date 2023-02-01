@@ -1,7 +1,7 @@
 #include "Graphics.h"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
-//void processInput(GLFWwindow* window);
+void processInput(GLFWwindow* window);
 
 Graphics* Graphics::sInstance = nullptr;
 bool Graphics::sInitialized = false;
@@ -44,11 +44,11 @@ bool Graphics::Init() {
 
     
 
-    m_pTesting = new Texture("Assets/Textures/CarnivalSetWaves.png", .3, .3, .3, -.3, -.3, -.3, -.3, .3, GL_RGBA);
-    //Testing->Parent(this); // Parent not working yet
-    m_pTesting->Position(Vector3(1000, 800)); // this does not work yet either
+    //m_pTesting = new Texture("Assets/Textures/CarnivalSetWaves.png", .3, .3, .3, -.3, -.3, -.3, -.3, .3, GL_RGBA);
+    ////Testing->Parent(this); // Parent not working yet
+    //m_pTesting->Position(Vector3(1000, 800)); // this does not work yet either
 
-    m_pMoose = new Texture("Assets/Textures/Moose3.jpg", .75, .75, .75, .25, -.25, .25, -.25, .75, GL_RGB);
+    //m_pMoose = new Texture("Assets/Textures/Moose3.jpg", .75, .75, .75, .25, -.25, .25, -.25, .75, GL_RGB);
 
     //----------TEXTURE EXAMPLE-------------------------------
     
@@ -59,10 +59,7 @@ bool Graphics::Init() {
     {
         // input
         // -----
-        //processInput(window);
-
-        //processInput(pWindow);
-
+        processInput(window);
 
         // render
         // ------
@@ -70,8 +67,9 @@ bool Graphics::Init() {
         glClear(GL_COLOR_BUFFER_BIT);
 
         //----------TEXTURE EXAMPLE-------------------------------
-        m_pTesting->Draw();
-        m_pMoose->Draw();
+        //m_pTesting->Draw();
+        //m_pMoose->Draw();
+        m_pTest->Render();
 
         //----------TEXTURE EXAMPLE-------------------------------
 
@@ -83,11 +81,11 @@ bool Graphics::Init() {
     return 0;
 }
 
-//void processInput(GLFWwindow* window)
-//{
-//    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-//        glfwSetWindowShouldClose(window, true);
-//}
+void processInput(GLFWwindow* window)
+{
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+        glfwSetWindowShouldClose(window, true);
+}
 
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
@@ -96,9 +94,12 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 }
 
 Graphics::~Graphics() {
-    delete m_pTesting;
-    m_pTesting = nullptr;
+    //delete m_pTesting;
+    //m_pTesting = nullptr;
 
-    delete m_pMoose;
-    m_pMoose = nullptr;
+    //delete m_pMoose;
+    //m_pMoose = nullptr;
+
+    delete m_pTest;
+    m_pTest = nullptr;
 }
