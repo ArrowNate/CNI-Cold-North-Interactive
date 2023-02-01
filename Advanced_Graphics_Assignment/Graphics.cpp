@@ -20,9 +20,7 @@ void Graphics::Release() {
     sInitialized = false;
 }
 	
-bool Graphics::Init() {
-    
-    m_pTest = new StartScreen();
+bool Graphics::Init() {   
 
     GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "PLATE OBLITERATOR", NULL, NULL);
     if (window == NULL)
@@ -43,6 +41,7 @@ bool Graphics::Init() {
     //Remember to delete and nullptr the pointers!
     //----------TEXTURE EXAMPLE-------------------------------
 
+    m_pStartScreen = new StartScreen();
     
     //m_pBackground = new Texture("Assets/Textures/CarnvialBackgroundSet.jpg", .3, .3, .3, -.3, -.3, -.3, -.3, .3, GL_RGB);
 
@@ -71,7 +70,7 @@ bool Graphics::Init() {
         //----------TEXTURE EXAMPLE-------------------------------
         //m_pTesting->Draw();
         //m_pMoose->Draw();
-        m_pTest->Render();
+        m_pStartScreen->Render();
         //m_pBackground->Draw();
 
         //----------TEXTURE EXAMPLE-------------------------------
@@ -103,8 +102,8 @@ Graphics::~Graphics() {
     //delete m_pMoose;
     //m_pMoose = nullptr;
 
-    delete m_pTest;
-    m_pTest = nullptr;
+    delete m_pStartScreen;
+    m_pStartScreen = nullptr;
 
     //delete m_pBackground;
     //m_pBackground = nullptr;

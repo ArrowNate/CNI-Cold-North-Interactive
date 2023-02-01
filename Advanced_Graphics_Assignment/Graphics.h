@@ -17,7 +17,7 @@
 
 class Graphics
 {
-	StartScreen* m_pTest;
+	StartScreen* m_pStartScreen;
 		
 	//GLFWwindow* window;
 	static Graphics* sInstance;

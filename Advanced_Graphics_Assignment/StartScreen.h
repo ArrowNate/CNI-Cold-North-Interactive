@@ -11,6 +11,7 @@ private:
 	//InputManager* m_pInputManager;
 
 	Texture* m_pBackground;
+	Texture* m_pPlate;
 
 	Texture* m_pCursor;
 	Vector2 mCursorStartPos;
