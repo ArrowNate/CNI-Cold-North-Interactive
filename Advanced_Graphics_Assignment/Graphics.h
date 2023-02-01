@@ -11,7 +11,7 @@
 #include "Font.h"
 #include "Shader.h"
 
-#include "Texture.h"
+//#include "Texture.h"
 
 #include <iostream>
 
@@ -23,8 +23,9 @@ class Graphics
 	static Graphics* sInstance;
 	Font* m_pFontTest;
 
-	Texture* m_pTesting;
-	Texture* m_pMoose;
+	//Texture* m_pBackground;
+	//Texture* m_pTesting;
+	//Texture* m_pMoose;
 
 	const unsigned int SCR_WIDTH = 1024;
 	const unsigned int SCR_HEIGHT = 768;

@@ -6,7 +6,6 @@ void processInput(GLFWwindow* window);
 Graphics* Graphics::sInstance = nullptr;
 bool Graphics::sInitialized = false;
 
-
 Graphics* Graphics::Instance() { // singleton
 		if (sInstance == nullptr) {
 			sInstance = new Graphics();
@@ -23,6 +22,8 @@ void Graphics::Release() {
 	
 bool Graphics::Init() {
     
+    m_pTest = new StartScreen();
+
     GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "PLATE OBLITERATOR", NULL, NULL);
     if (window == NULL)
     {
@@ -43,6 +44,7 @@ bool Graphics::Init() {
     //----------TEXTURE EXAMPLE-------------------------------
 
     
+    //m_pBackground = new Texture("Assets/Textures/CarnvialBackgroundSet.jpg", .3, .3, .3, -.3, -.3, -.3, -.3, .3, GL_RGB);
 
     //m_pTesting = new Texture("Assets/Textures/CarnivalSetWaves.png", .3, .3, .3, -.3, -.3, -.3, -.3, .3, GL_RGBA);
     ////Testing->Parent(this); // Parent not working yet
@@ -70,6 +72,7 @@ bool Graphics::Init() {
         //m_pTesting->Draw();
         //m_pMoose->Draw();
         m_pTest->Render();
+        //m_pBackground->Draw();
 
         //----------TEXTURE EXAMPLE-------------------------------
 
@@ -102,4 +105,7 @@ Graphics::~Graphics() {
 
     delete m_pTest;
     m_pTest = nullptr;
+
+    //delete m_pBackground;
+    //m_pBackground = nullptr;
 }
