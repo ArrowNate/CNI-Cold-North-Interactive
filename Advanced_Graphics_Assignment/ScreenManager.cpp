@@ -1,5 +1,10 @@
 #include "ScreenManager.h"
 
+
+//Currently working on making the screenmanager function and load up playscreen class
+
+
+
 ScreenManager* ScreenManager::sInstance = nullptr;
 
 ScreenManager* ScreenManager::Instance() 
@@ -19,7 +24,6 @@ void ScreenManager::Release()
 
 ScreenManager::ScreenManager() 
 {
-	m_pStartScreen = new StartScreen();
 	m_pPlayScreen = new PlayScreen();
 }
 
@@ -41,15 +45,11 @@ void ScreenManager::Render()
 {
 	switch (mCurrentScreen) {
 	case Start:
-		if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
-
-		}
+		m_pPlayScreen->Render();
 		break;
 
 	case Play:
-		if (glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS) {
 
-		}
 		break;
 	}
 }
@@ -59,6 +59,4 @@ ScreenManager::~ScreenManager()
 	delete m_pPlayScreen;
 	m_pPlayScreen = nullptr;
 
-	delete m_pStartScreen;
-	m_pStartScreen = nullptr;
 }

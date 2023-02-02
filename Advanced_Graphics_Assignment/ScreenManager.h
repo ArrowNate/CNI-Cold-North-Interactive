@@ -5,7 +5,8 @@
 #include "StartScreen.h"
 
 
-class ScreenManager : public Graphics{
+class ScreenManager : public Graphics
+{
 private:
 	static ScreenManager* sInstance;
 

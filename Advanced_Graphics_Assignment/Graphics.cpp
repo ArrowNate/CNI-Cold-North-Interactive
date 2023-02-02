@@ -45,10 +45,10 @@ bool Graphics::Init() {
     
 
     m_pTesting = new Texture("Assets/Textures/CarnivalSetWaves.png", .3, .3, .3, -.3, -.3, -.3, -.3, .3, GL_RGBA);
-    //Testing->Parent(this); // Parent not working yet
-    m_pTesting->Position(Vector3(1000, 800)); // this does not work yet either
+    ////Testing->Parent(this); // Parent not working yet
+    ////m_pTesting->Position(Vector3(1000, 800)); // this does not work yet either
 
-    m_pMoose = new Texture("Assets/Textures/Moose3.jpg", .75, .75, .75, .25, -.25, .25, -.25, .75, GL_RGB);
+    //m_pMoose = new Texture("Assets/Textures/Moose3.jpg", .75, .75, .75, .25, -.25, .25, -.25, .75, GL_RGB);
 
     //----------TEXTURE EXAMPLE-------------------------------
     
@@ -68,7 +68,7 @@ bool Graphics::Init() {
 
         //----------TEXTURE EXAMPLE-------------------------------
         m_pTesting->Draw();
-        m_pMoose->Draw();
+        //m_pMoose->Draw();*/
 
         //----------TEXTURE EXAMPLE-------------------------------
 
@@ -93,10 +93,10 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 }
 
 Graphics::~Graphics() {
-    delete m_pTesting;
+   delete m_pTesting;
     m_pTesting = nullptr;
 
-    delete m_pMoose;
-    m_pMoose = nullptr;
+   /* delete m_pMoose;
+    m_pMoose = nullptr;*/
 }
 
