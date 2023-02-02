@@ -8,7 +8,7 @@ StartScreen::StartScreen()
 	m_pBackground = new Texture("Assets/Textures/CarnvialBackgroundSet.png", 1.0, -1, GL_RGBA);
 	m_pPlate = new Texture("Assets/Textures/Plate.png", 0.2, -.2,  GL_RGBA);
 
-	m_pLogo = new Texture("Assets/Textures/CNiLogo.png", .19, .19, .19, -.19, -.19, -.19, -.19, .19, GL_RGBA);
+	m_pLogo = new Texture("Assets/Textures/CNiLogo.png", .19, -.19, GL_RGBA);
 	//m_pBackground->Parent(this);
 	//m_pBackground->Position(Vector3(1000, 800));
 }
