@@ -46,7 +46,8 @@ void AudioManager::PauseMusic()
 
 void AudioManager::PlaySFX()
 {
-
+	//if (sInitialized == false)
+	//	return;
 }
 
 //void AudioManager::processInput(GLFWwindow* window)

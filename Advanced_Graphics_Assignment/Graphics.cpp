@@ -46,6 +46,8 @@ bool Graphics::Init() {
     
     //m_pBackground = new Texture("Assets/Textures/CarnvialBackgroundSet.jpg", .3, .3, .3, -.3, -.3, -.3, -.3, .3, GL_RGB);
 
+    ////Testing->Parent(this); // Parent not working yet
+    ////m_pTesting->Position(Vector3(1000, 800)); // this does not work yet either
     //m_pTesting = new Texture("Assets/Textures/CarnivalSetWaves.png", .3, .3, .3, -.3, -.3, -.3, -.3, .3, GL_RGBA);
     ////Testing->Parent(this); // Parent not working yet
     //m_pTesting->Position(Vector3(1000, 800)); // this does not work yet either
@@ -57,7 +59,7 @@ bool Graphics::Init() {
     //----------AUDIO EXAMPLE-------------------------------
     m_pAudioManager->PlayMusic();
     //----------AUDIO EXAMPLE-------------------------------
-    
+
     // render loop
     // -----------
     while (!glfwWindowShouldClose(window))
@@ -72,11 +74,10 @@ bool Graphics::Init() {
         glClear(GL_COLOR_BUFFER_BIT);
 
         //----------TEXTURE EXAMPLE-------------------------------
-        //m_pTesting->Draw();
-        //m_pMoose->Draw();
         m_pStartScreen->Render();
         
         //m_pBackground->Draw();
+
 
         //----------TEXTURE EXAMPLE-------------------------------
 
@@ -103,18 +104,10 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 }
 
 Graphics::~Graphics() {
-    //delete m_pTesting;
-    //m_pTesting = nullptr;
-
-    //delete m_pMoose;
-    //m_pMoose = nullptr;
 
     AudioManager::Release();
     m_pAudioManager = nullptr;
 
     delete m_pStartScreen;
     m_pStartScreen = nullptr;
-
-    //delete m_pBackground;
-    //m_pBackground = nullptr;
 }
