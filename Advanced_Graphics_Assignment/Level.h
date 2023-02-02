@@ -26,38 +26,3 @@ private:
 
 #endif // !_LEVEL_H
 
-//////////////////////////////////////////////////////////////////////
-
-// MARIO - LEVEL.H /// Only if we use XML maps this will be useless otherwise i believe.
-
-//#ifndef _LEVEL_H
-//#define _LEVEL_H
-//#include <vector>
-//#include <string>
-//#include "TextureGL.h"
-//
-//class Level {
-//protected:
-//
-//	int mWidth;
-//	int mHeight;
-//	std::vector<std::vector<char>> mLevelHeight;
-//	std::vector<char> mLevel;
-//	std::vector<Texture*> m_pLevelTextures;
-//
-//	Texture* m_ptile;
-//
-//public:
-//	std::vector<Texture*> GetLevelTextures;
-//	Texture* LevelTextures(char);
-//
-//	void Update();
-//	void Render();
-//
-//	Level();
-//	Level(std::string); // This is a constructor for the level class. 
-//	~Level();
-//};
-//#endif // !_LEVEL_H
-
-//////////////////////////////////////////////////////////////////////
