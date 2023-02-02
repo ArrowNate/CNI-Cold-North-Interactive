@@ -10,6 +10,7 @@
 #include "stb_image.h"
 #include "Font.h"
 #include "Shader.h"
+#include "AudioManager.h"
 
 //#include "Texture.h"
 
@@ -18,6 +19,7 @@
 class Graphics
 {
 	StartScreen* m_pStartScreen;
+	AudioManager* m_pAudioManager;
 		
 	//GLFWwindow* window;
 	static Graphics* sInstance;

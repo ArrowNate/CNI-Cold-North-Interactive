@@ -42,6 +42,7 @@ bool Graphics::Init() {
     //----------TEXTURE EXAMPLE-------------------------------
 
     m_pStartScreen = new StartScreen();
+    m_pAudioManager = AudioManager::Instance();
     
     //m_pBackground = new Texture("Assets/Textures/CarnvialBackgroundSet.jpg", .3, .3, .3, -.3, -.3, -.3, -.3, .3, GL_RGB);
 
@@ -53,7 +54,10 @@ bool Graphics::Init() {
 
     //----------TEXTURE EXAMPLE-------------------------------
     
-
+    //----------AUDIO EXAMPLE-------------------------------
+    m_pAudioManager->PlayMusic();
+    //----------AUDIO EXAMPLE-------------------------------
+    
     // render loop
     // -----------
     while (!glfwWindowShouldClose(window))
@@ -71,9 +75,12 @@ bool Graphics::Init() {
         //m_pTesting->Draw();
         //m_pMoose->Draw();
         m_pStartScreen->Render();
+        
         //m_pBackground->Draw();
 
         //----------TEXTURE EXAMPLE-------------------------------
+
+        
 
         glfwSwapBuffers(window);
         glfwPollEvents();
@@ -101,6 +108,9 @@ Graphics::~Graphics() {
 
     //delete m_pMoose;
     //m_pMoose = nullptr;
+
+    AudioManager::Release();
+    m_pAudioManager = nullptr;
 
     delete m_pStartScreen;
     m_pStartScreen = nullptr;

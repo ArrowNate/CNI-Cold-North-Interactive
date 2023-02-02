@@ -24,7 +24,7 @@ bool AudioManager::Initialized()
 
 AudioManager::AudioManager()
 {
-	ISoundEngine* m_pSoundEngine = createIrrKlangDevice();
+	m_pSoundEngine = createIrrKlangDevice();
 }
 
 AudioManager::~AudioManager()
@@ -35,7 +35,8 @@ AudioManager::~AudioManager()
 
 void AudioManager::PlayMusic()
 {
-	m_pSoundEngine->play2D("Assets/breakout.mp3", true);
+	
+	m_pSoundEngine->play2D("Assets/Music/PlayScreenSong.mp3", true);
 }
 
 void AudioManager::PauseMusic()
