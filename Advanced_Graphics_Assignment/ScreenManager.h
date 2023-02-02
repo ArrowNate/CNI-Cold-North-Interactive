@@ -4,7 +4,6 @@
 #include "PlayScreen.h"
 #include "StartScreen.h"
 
-
 class ScreenManager : public Graphics
 {
 private:
@@ -16,9 +15,13 @@ private:
 	PlayScreen* m_pPlayScreen;
 	StartScreen* m_pStartScreen;
 
-public:
+	int ScreenChoice;
+
+private:
 	ScreenManager();
 	~ScreenManager();
+
+public:
 	static ScreenManager* Instance();
 	static void Release();
 	

@@ -2,6 +2,7 @@
 #define _STARTSCREEN_H
 #include "GameEntity.h"
 #include "Texture.h"
+#include "ScreenManager.h"
 //#include "InputManager.h"
 
 class StartScreen : public GameEntity

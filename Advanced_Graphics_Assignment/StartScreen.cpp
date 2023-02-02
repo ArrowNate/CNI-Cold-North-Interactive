@@ -6,9 +6,9 @@ StartScreen::StartScreen()
 	//m_pInputManager = InputManager::Instance();
 
 	m_pBackground = new Texture("Assets/Textures/CarnvialBackgroundSet.png", 1.0, -1, GL_RGBA);
-	m_pPlate = new Texture("Assets/Textures/Plate.png", 0.2, -.2,  GL_RGBA);
+	m_pPlate = new Texture("Assets/Textures/Plate.png", 0.47, 0.8,  GL_RGBA);
 
-	m_pLogo = new Texture("Assets/Textures/CNiLogo.png", .19, -.19, GL_RGBA);
+	m_pLogo = new Texture("Assets/Textures/CNiLogo.png", -0.71, -1.0, GL_RGBA);
 	//m_pBackground->Parent(this);
 	//m_pBackground->Position(Vector3(1000, 800));
 }
@@ -46,7 +46,12 @@ int StartScreen::SelectedMode()
 
 void StartScreen::Update() 
 {
-	//m_pBackground->Update();
+	//if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
+	//	ChangeSelectedMode(1);
+	//}
+	//else if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
+	//	ChangeSelectedMode(-1);
+	//}
 }
 
 void StartScreen::Render() 
