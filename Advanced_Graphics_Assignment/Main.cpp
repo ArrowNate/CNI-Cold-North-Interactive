@@ -4,11 +4,11 @@
 
 int main() 
 {
-	AudioManager* audio = AudioManager::Instance();
+	/*AudioManager* audio = AudioManager::Instance();
 
 	AudioManager::Release();
 
-	audio = nullptr;
+	audio = nullptr;*/
 
 	glfwInit();
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);

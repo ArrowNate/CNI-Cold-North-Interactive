@@ -1,15 +1,15 @@
 #include "Texture.h"
 
-Texture::Texture(const char filename[50], float p1x, float p1y, float p2x, float p2y, float p3x, float p3y, float p4x, float p4y, GLint channel) {
+Texture::Texture(const char filename[50], float p1x, float p2x, GLint channel) {
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
     float vertices[] = {
         // positions          // colors           // texture coords
-         p1x,  p1y, 0.0f,   0.0f, 0.0f, 0.0f,   1.0f, 1.0f, // top right
-         p2x,  p2y, 0.0f,   0.0f, 0.0f, 0.0f,   1.0f, 0.0f, // bottom right
-         p3x,  p3y, 0.0f,   0.0f, 0.0f, 0.0f,   0.0f, 0.0f, // bottom left
-         p4x,  p4y, 0.0f,   0.0f, 0.0f, 0.0f,   0.0f, 1.0f  // top left 
+         p1x,  p1x, 0.0f,   0.0f, 0.0f, 0.0f,   1.0f, 1.0f, // top right
+         p1x,  p2x, 0.0f,   0.0f, 0.0f, 0.0f,   1.0f, 0.0f, // bottom right
+         p2x,  p2x, 0.0f,   0.0f, 0.0f, 0.0f,   0.0f, 0.0f, // bottom left
+         p2x,  p1x, 0.0f,   0.0f, 0.0f, 0.0f,   0.0f, 1.0f  // top left 
     };
     unsigned int indices[] = {
         0, 1, 3, // first triangle

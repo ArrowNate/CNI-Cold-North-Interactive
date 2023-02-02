@@ -14,6 +14,7 @@ class AudioManager
 private:
 	ISoundEngine* m_pSoundEngine;
 
+
 public:
 	static AudioManager* sInstance;
 	static AudioManager* Instance();

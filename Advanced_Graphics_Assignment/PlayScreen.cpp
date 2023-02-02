@@ -3,7 +3,7 @@
 
 PlayScreen::PlayScreen()
 {
-	m_pBackdrop = new Texture("Assets/Textures/Carnvial Set Base.jpg", .3, .3, .3, -.3, -.3, -.3, -.3, .3, GL_RGBA);
+	m_pBackdrop = new Texture("Assets/Textures/Carnvial Set Base.jpg", .3, -.3, GL_RGBA);
 }
 
 PlayScreen::~PlayScreen()
