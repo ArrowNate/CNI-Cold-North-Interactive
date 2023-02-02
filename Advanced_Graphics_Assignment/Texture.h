@@ -26,6 +26,7 @@ public:
 	// GL_RGB = jpg
 	// GL_RGBA = png
 	Texture(const char filename[50], float p1x, float p2x, GLint channel);
+	~Texture();
 
 	void Draw();
 };

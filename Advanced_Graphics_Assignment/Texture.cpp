@@ -70,6 +70,12 @@ Texture::Texture(const char filename[50], float p1x, float p2x, GLint channel) {
     stbi_image_free(data);
 }
 
+Texture::~Texture() {
+    glDeleteVertexArrays(1, &VAO);
+    glDeleteBuffers(1, &VBO);
+    glDeleteBuffers(1, &EBO);
+}
+
 void Texture::Draw() {
     Shader ourShader("Assets/Shaders/texture.vs", "Assets/Shaders/texture.fs");
     // bind Texture
