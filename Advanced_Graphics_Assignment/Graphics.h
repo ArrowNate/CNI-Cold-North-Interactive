@@ -2,6 +2,7 @@
 #define _GRAPHICS_H
 
 #include "StartScreen.h"
+#include "AudioManager.h"
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include <glad/glad.h>
@@ -18,6 +19,7 @@
 class Graphics
 {
 	StartScreen* m_pStartScreen;
+	AudioManager* m_pAudioManager;
 		
 	//GLFWwindow* window;
 	static Graphics* sInstance;

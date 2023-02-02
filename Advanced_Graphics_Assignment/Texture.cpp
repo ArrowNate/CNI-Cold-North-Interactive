@@ -2,8 +2,6 @@
 
 Texture::Texture(const char filename[50], float p1x, float p1y, float p2x, float p2y, float p3x, float p3y, float p4x, float p4y, GLint channel) {
 
-
-
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
     float vertices[] = {
@@ -39,6 +37,9 @@ Texture::Texture(const char filename[50], float p1x, float p1y, float p2x, float
     // texture coord attribute
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
     glEnableVertexAttribArray(2);
+
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 
     // load and create a texture 

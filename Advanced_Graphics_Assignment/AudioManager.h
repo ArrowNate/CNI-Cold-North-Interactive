@@ -18,7 +18,7 @@ public:
 	static AudioManager* sInstance;
 	static AudioManager* Instance();
 	static void Release();
-	static bool sInitialized;
+	//static bool sInitialized;
 	static bool Initialized();
 
 	//virtual bool Init();
