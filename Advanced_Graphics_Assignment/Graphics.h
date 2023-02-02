@@ -1,7 +1,8 @@
 #ifndef _GRAPHICS_H
 #define _GRAPHICS_H
 
-
+#include "StartScreen.h"
+#include "AudioManager.h"
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include <glad/glad.h>
@@ -11,19 +12,22 @@
 #include "Font.h"
 #include "Shader.h"
 
-#include "Texture.h"
+//#include "Texture.h"
 
 #include <iostream>
 
 class Graphics
 {
+	StartScreen* m_pStartScreen;
+	AudioManager* m_pAudioManager;
 		
 	//GLFWwindow* window;
 	static Graphics* sInstance;
 	Font* m_pFontTest;
 
-	Texture* m_pTesting;
-	Texture* m_pMoose;
+	//Texture* m_pBackground;
+	//Texture* m_pTesting;
+	//Texture* m_pMoose;
 
 	const unsigned int SCR_WIDTH = 1024;
 	const unsigned int SCR_HEIGHT = 768;
@@ -37,12 +41,7 @@ public:
 	static bool sInitialized;
 	static bool Initialized();
 
-
-		
-
 	virtual bool Init();
 };
-
-
 
 #endif

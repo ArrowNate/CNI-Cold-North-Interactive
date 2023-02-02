@@ -27,6 +27,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioManager.cpp">
     <ClCompile Include="Graphics.cpp">
       <Filter>Source Files\Managers</Filter>
     </ClCompile>
@@ -65,6 +69,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AudioManager.h">
+    <ClInclude Include="Graphics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="AssetManager.h">
       <Filter>Header Files\Managers</Filter>
     </ClInclude>
