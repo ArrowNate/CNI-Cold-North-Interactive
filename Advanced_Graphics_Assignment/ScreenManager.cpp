@@ -1,9 +1,6 @@
 #include "ScreenManager.h"
 
-
 //Currently working on making the screenmanager function and load up playscreen class
-
-
 
 ScreenManager* ScreenManager::sInstance = nullptr;
 

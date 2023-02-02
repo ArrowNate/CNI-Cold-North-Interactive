@@ -2,8 +2,6 @@
 #include "AudioManager.h"
 #include "Graphics.h"
 
-using namespace irrklang;
-
 int main() 
 {
 	AudioManager* audio = AudioManager::Instance();
