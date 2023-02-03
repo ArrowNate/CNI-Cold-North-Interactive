@@ -1,8 +1,8 @@
 #ifndef _GRAPHICS_H
 #define _GRAPHICS_H
 
-#include "ScreenManager.h"
-#include "AudioManager.h"
+//#include "ScreenManager.h"
+//#include "AudioManager.h"
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include <glad/glad.h>
@@ -17,8 +17,8 @@
 class Graphics
 {
 private:
-	ScreenManager* m_pScreenManager;
-	AudioManager* m_pAudioManager;
+	//ScreenManager* m_pScreenManager;
+	//AudioManager* m_pAudioManager;
 		
 	GLFWwindow* window;
 	static Graphics* sInstance;

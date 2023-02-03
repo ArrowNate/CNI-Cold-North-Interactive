@@ -2,7 +2,8 @@
 #define _STARTSCREEN_H
 #include "GameEntity.h"
 #include "Texture.h"
-#include "Graphics.h"
+#include "GameManager.h"
+//#include "Graphics.h"
 //#include "ScreenManager.h"
 //#include "InputManager.h"
 
