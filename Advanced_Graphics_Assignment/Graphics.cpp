@@ -41,7 +41,7 @@ bool Graphics::Init() {
     //Remember to delete and nullptr the pointers!
     //----------TEXTURE EXAMPLE-------------------------------
 
-    m_pStartScreen = new StartScreen();
+    m_pScreenManager = ScreenManager::Instance();
     m_pAudioManager = AudioManager::Instance();
     
     //m_pBackground = new Texture("Assets/Textures/CarnvialBackgroundSet.jpg", .3, .3, .3, -.3, -.3, -.3, -.3, .3, GL_RGB);
@@ -67,15 +67,15 @@ bool Graphics::Init() {
         // input
         // -----
         processInput(window);
-
+        m_pScreenManager->Update();
         // render
         // ------
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
         //----------TEXTURE EXAMPLE-------------------------------
-        m_pStartScreen->Render();
-        
+        //m_pStartScreen->Render();
+        m_pScreenManager->Render();
         //m_pBackground->Draw();
 
 
@@ -103,11 +103,21 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
     glViewport(0, 0, width, height);
 }
 
+Graphics::Graphics()
+{
+
+}
+
 Graphics::~Graphics() {
 
-    AudioManager::Release();
+    AudioManager::Release(); // you call Release for shutting down the game
     m_pAudioManager = nullptr;
 
-    delete m_pStartScreen;
-    m_pStartScreen = nullptr;
+    ScreenManager::Release();
+    m_pScreenManager = nullptr;
+}
+
+GLFWwindow* Graphics::GetWindow()
+{
+    return window;
 }

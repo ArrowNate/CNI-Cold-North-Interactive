@@ -4,14 +4,14 @@
 #include "PlayScreen.h"
 #include "StartScreen.h"
 
-class ScreenManager : public Graphics
+class ScreenManager
 {
 private:
 	static ScreenManager* sInstance;
 
 	enum Screens { Start, Play};
 	Screens mCurrentScreen;
-	GLFWwindow* window;
+	//GLFWwindow* window;
 	PlayScreen* m_pPlayScreen;
 	StartScreen* m_pStartScreen;
 
