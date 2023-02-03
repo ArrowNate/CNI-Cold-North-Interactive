@@ -1,22 +1,62 @@
 #include "StartScreen.h"
 
-StartScreen::StartScreen() {
-	
-	//Shader ourShader("Assets/Shaders/text.vs", "Assets/Shaders/text.fs");
-	//m_pTestingFont->RenderText(ourShader, "(C) LearningOpen.com", 540.0f, 570.0f, 0.5f, glm::vec3(0.3, 0.7f, 0.9f));
+StartScreen::StartScreen() 
+{
+	//m_pTimer = Timer::Instance();
+	//m_pInputManager = InputManager::Instance();
 
+	m_pBackground = new Texture("Assets/Textures/CarnvialBackgroundSet.png", 1.0, -1, GL_RGBA);
+	m_pPlate = new Texture("Assets/Textures/Plate.png", 0.47, 0.8,  GL_RGBA);
+
+	m_pLogo = new Texture("Assets/Textures/CNiLogo.png", -0.71, -1.0, GL_RGBA);
+	//m_pBackground->Parent(this);
+	//m_pBackground->Position(Vector3(1000, 800));
 }
 
-StartScreen::~StartScreen() {
+StartScreen::~StartScreen() 
+{
+	delete m_pBackground;
+	m_pBackground = nullptr;
 
-	//delete m_pTestingFont;
-	//m_pTestingFont = nullptr;
+	delete m_pPlate;
+	m_pPlate = nullptr;
+
+	delete m_pLogo;
+	m_pLogo = nullptr;
 }
 
-void StartScreen::Update() {
+void StartScreen::ChangeSelectedMode(int change)
+{
+	mSelectedMode += change;
 
+	if (mSelectedMode < 0) {
+		mSelectedMode = 1;
+	}
+	else if (mSelectedMode > 1) {
+		mSelectedMode = 0;
+	}
+
+	//m_pCursor->Position(mCursorStartPos + mCursorOffset * (float)mSelectedMode);
 }
 
-void StartScreen::Render() {
-	//m_pTestingFont->Render();
+int StartScreen::SelectedMode()
+{
+	return mSelectedMode;
+}
+
+void StartScreen::Update() 
+{
+	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_DOWN) == GLFW_PRESS) {
+		ChangeSelectedMode(1);
+	}
+	else if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_DOWN) == GLFW_PRESS) {
+		ChangeSelectedMode(-1);
+	}
+}
+
+void StartScreen::Render() 
+{
+	m_pBackground->Draw();
+	m_pPlate->Draw();
+	m_pLogo->Draw();
 }
