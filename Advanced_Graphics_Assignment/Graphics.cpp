@@ -51,7 +51,7 @@ bool Graphics::Init() {
     m_pMoose = new Texture("Assets/Textures/Moose3.jpg", .75, .75, .75, .25, -.25, .25, -.25, .75, GL_RGB);
 
     //----------TEXTURE EXAMPLE-------------------------------
-    
+   
 
     // render loop
     // -----------

@@ -10,15 +10,15 @@
 #include "stb_image.h"
 #include "Font.h"
 #include "Shader.h"
-
+#include "InputManager.h"
 #include "Texture.h"
 
 #include <iostream>
 
 class Graphics
 {
-		
-	//GLFWwindow* window;
+	InputManager* m_pInputManager;
+	GLFWwindow* window;
 	static Graphics* sInstance;
 	Font* m_pFontTest;
 
