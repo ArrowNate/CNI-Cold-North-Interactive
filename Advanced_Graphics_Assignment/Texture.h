@@ -25,7 +25,7 @@ public:
 	// for channel it is for the file type:
 	// GL_RGB = jpg
 	// GL_RGBA = png
-	Texture(const char filename[50], float p1x, float p2x, GLint channel);
+	Texture(const char filename[50], float p1x, float p1y, float p2x, float p2y, GLint channel);
 	~Texture();
 
 	void Draw();
