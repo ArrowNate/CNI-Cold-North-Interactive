@@ -17,7 +17,7 @@ public:
     ~LevelManager();
 
     void AddLevel(Level* level); // This should add a level to the list of levels handled by our LevelManager? Check into this ***
-    void LoadLevel(int levelIndex); // this will load a specific level in the game based off the number in the if statement we placed in the .cpp
+    void LoadLevel(int levelIndex); // this should load a specific level in the game based off the number in the if statement we placed in the .cpp
     void Update();
     void Render();
 };

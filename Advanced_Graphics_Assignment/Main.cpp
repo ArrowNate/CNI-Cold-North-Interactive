@@ -1,7 +1,5 @@
 #include "Graphics.h"
 
-
-
 int main() 
 {
 	glfwInit();
