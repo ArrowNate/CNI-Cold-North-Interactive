@@ -6,7 +6,6 @@ void processInput(GLFWwindow* window);
 Graphics* Graphics::sInstance = nullptr;
 bool Graphics::sInitialized = false;
 
-
 Graphics* Graphics::Instance() { // singleton
 		if (sInstance == nullptr) {
 			sInstance = new Graphics();
@@ -21,8 +20,8 @@ void Graphics::Release() {
     sInitialized = false;
 }
 	
-bool Graphics::Init() {
-    
+bool Graphics::Init() {   
+
     GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "PLATE OBLITERATOR", NULL, NULL);
     if (window == NULL)
     {
@@ -42,17 +41,26 @@ bool Graphics::Init() {
     //Remember to delete and nullptr the pointers!
     //----------TEXTURE EXAMPLE-------------------------------
 
+    m_pScreenManager = ScreenManager::Instance();
+    m_pAudioManager = AudioManager::Instance();
     
+    //m_pBackground = new Texture("Assets/Textures/CarnvialBackgroundSet.jpg", .3, .3, .3, -.3, -.3, -.3, -.3, .3, GL_RGB);
 
-    m_pTesting = new Texture("Assets/Textures/CarnivalSetWaves.png", .3, .3, .3, -.3, -.3, -.3, -.3, .3, GL_RGBA);
-    //Testing->Parent(this); // Parent not working yet
-    m_pTesting->Position(Vector3(1000, 800)); // this does not work yet either
+    ////Testing->Parent(this); // Parent not working yet
+    ////m_pTesting->Position(Vector3(1000, 800)); // this does not work yet either
+    //m_pTesting = new Texture("Assets/Textures/CarnivalSetWaves.png", .3, .3, .3, -.3, -.3, -.3, -.3, .3, GL_RGBA);
+    ////Testing->Parent(this); // Parent not working yet
+    //m_pTesting->Position(Vector3(1000, 800)); // this does not work yet either
 
-    m_pMoose = new Texture("Assets/Textures/Moose3.jpg", .75, .75, .75, .25, -.25, .25, -.25, .75, GL_RGB);
+    //m_pMoose = new Texture("Assets/Textures/Moose3.jpg", .75, .75, .75, .25, -.25, .25, -.25, .75, GL_RGB);
 
     //----------TEXTURE EXAMPLE-------------------------------
-   
     m_pInputManager = InputManager::Instance();
+    
+    //----------AUDIO EXAMPLE-------------------------------
+    m_pAudioManager->PlayMusic();
+    //----------AUDIO EXAMPLE-------------------------------
+
     // render loop
     // -----------
     while (!glfwWindowShouldClose(window))
@@ -60,16 +68,21 @@ bool Graphics::Init() {
         // input
         // -----
         m_pInputManager->processInput(window);
+        m_pScreenManager->Update();
         // render
         // ------
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
         //----------TEXTURE EXAMPLE-------------------------------
-        m_pTesting->Draw();
-        m_pMoose->Draw();
+        //m_pStartScreen->Render();
+        m_pScreenManager->Render();
+        //m_pBackground->Draw();
+
 
         //----------TEXTURE EXAMPLE-------------------------------
+
+        
 
         glfwSwapBuffers(window);
         glfwPollEvents();
@@ -85,11 +98,21 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
     glViewport(0, 0, width, height);
 }
 
-Graphics::~Graphics() {
-    delete m_pTesting;
-    m_pTesting = nullptr;
+Graphics::Graphics()
+{
 
-    delete m_pMoose;
-    m_pMoose = nullptr;
 }
 
+Graphics::~Graphics() {
+
+    AudioManager::Release(); // you call Release for shutting down the game
+    m_pAudioManager = nullptr;
+
+    ScreenManager::Release();
+    m_pScreenManager = nullptr;
+}
+
+GLFWwindow* Graphics::GetWindow()
+{
+    return window;
+}
