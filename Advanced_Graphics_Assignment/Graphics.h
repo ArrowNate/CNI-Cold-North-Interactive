@@ -4,6 +4,10 @@
 //#include "ScreenManager.h"
 //#include "AudioManager.h"
 #include <GLFW/glfw3.h>
+
+#include "ScreenManager.h"
+#include "AudioManager.h"
+
 #include <iostream>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -11,6 +15,9 @@
 #include "stb_image.h"
 //#include "Font.h"
 #include "Shader.h"
+#include "InputManager.h"
+#include "Texture.h"
+
 //#include "Texture.h"
 #include <iostream>
 
@@ -18,6 +25,7 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
 class Graphics
 {
+	InputManager* m_pInputManager;
 private:
 	//ScreenManager* m_pScreenManager;
 	//AudioManager* m_pAudioManager;
@@ -37,8 +45,6 @@ public:
 public:
 	Graphics();
 	~Graphics();
-
-
 
 	GLFWwindow* GetWindow();
 

@@ -57,6 +57,7 @@ bool Graphics::Init() {
     //m_pMoose = new Texture("Assets/Textures/Moose3.jpg", .75, .75, .75, .25, -.25, .25, -.25, .75, GL_RGB);
 
     //----------TEXTURE EXAMPLE-------------------------------
+    m_pInputManager = InputManager::Instance();
     
     //----------AUDIO EXAMPLE-------------------------------
     //m_pAudioManager->PlayMusic();
@@ -74,6 +75,16 @@ bool Graphics::Init() {
     //    // ------
     //    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     //    glClear(GL_COLOR_BUFFER_BIT);
+    while (!glfwWindowShouldClose(window))
+    {
+        // input
+        // -----
+        m_pInputManager->processInput(window);
+        m_pScreenManager->Update();
+        // render
+        // ------
+        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT);
 
     //    //----------TEXTURE EXAMPLE-------------------------------
     //    //m_pStartScreen->Render();
@@ -96,7 +107,6 @@ bool Graphics::Init() {
 //    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 //        glfwSetWindowShouldClose(window, true);
 //}
-
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
