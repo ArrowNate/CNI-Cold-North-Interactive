@@ -22,13 +22,13 @@ void Level::Load(const std::string& filename) {
     }
 
     // This for statement should be responsible for loading textures from the level data. Richard used a for statement in the Mesh::Draw function in the example in class. Not sure if I should use this or if it is the same. This was done a bit differently. Also, this is like we did in Mario sort of, i is the column and j is the row. From doing research, the stbi_load_from_memory should load the image data into an array. Then back to textures vector I think. I have to research this more. **
-    for (int i = 0; i < width; i++) {
+    /*for (int i = 0; i < width; i++) {
         for (int j = 0; j < height; j++) {
             int offset = (j * width + i) * channels;
             unsigned char* textureData = (data + offset, channels, &width, &height, &channels, 0);
             textures.push_back(textureData);
         }
-    }
+    }*/
 }
 
 void Level::Render() {
