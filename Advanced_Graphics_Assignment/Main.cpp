@@ -1,6 +1,5 @@
 #include <iostream>
-#include "AudioManager.h"
-#include "Graphics.h"
+#include "GameManager.h"
 
 int main() 
 {
@@ -10,18 +9,13 @@ int main()
 
 	audio = nullptr;*/
 
-	glfwInit();
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	GameManager* game = GameManager::Instance();
 
-	Graphics* graphics = Graphics::Instance();
+	game->Run();
 
-	graphics->Init();
+	GameManager::Release();
 
-	Graphics::Release();
-
-	graphics = nullptr;
+	game = nullptr;
 
 	return 0;
 }

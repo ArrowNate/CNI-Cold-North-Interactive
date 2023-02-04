@@ -14,6 +14,8 @@
 //#include "Texture.h"
 #include <iostream>
 
+void framebuffer_size_callback(GLFWwindow* window, int width, int height);
+
 class Graphics
 {
 private:
@@ -36,12 +38,13 @@ public:
 	Graphics();
 	~Graphics();
 
+
+
 	GLFWwindow* GetWindow();
 
 	static Graphics* Instance();
 	static void Release();
 	static bool sInitialized;
-	static bool Initialized();
 
 	virtual bool Init();
 };

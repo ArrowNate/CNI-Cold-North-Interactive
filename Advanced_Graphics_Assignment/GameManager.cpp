@@ -13,29 +13,40 @@ void GameManager::Release() {
 	delete sInstance;
 	sInstance = nullptr;
 }
+
 void GameManager::Run() {
-	while (!mQuit) {
-		/*mTimer->Update();
 
-		while (SDL_PollEvent(&mEvent)) {
-			switch (mEvent.type) {
-			case SDL_QUIT:
-				mQuit = true;
-				break;
-			}
-		}
+	while (!glfwWindowShouldClose(Graphics::Instance()->GetWindow()))
+	{
+		// input
+		// -----
+		//processInput(Graphics::Instance()->GetWindow());
+		//m_pScreenManager->Update();
+		// render
+		// ------
+		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+		glClear(GL_COLOR_BUFFER_BIT);
 
-		if (mTimer->DeltaTime() >= 1.0f / FRAME_RATE) {
-			Update();
-			LateUpdate();
-			Render();
-			mTimer->Reset();
-		}*/
+		//----------TEXTURE EXAMPLE-------------------------------
+		m_pScreenManager->Render();
+		//m_pBackground->Draw();
+
+
+		//----------TEXTURE EXAMPLE-------------------------------
+
+
+
+		glfwSwapBuffers(Graphics::Instance()->GetWindow());
+		glfwPollEvents();
 	}
 }
 
 void GameManager::Update() {
 	/*mScreenManager->Update();*/
+}
+
+void GameManager::LateUpdate()
+{
 }
 
 void GameManager::Render() {
@@ -44,12 +55,9 @@ void GameManager::Render() {
 	//mGraphics->Render();
 }
 
-GameManager::GameManager() : mQuit(false) {
-	mGraphics = Graphics::Instance();
+GameManager::GameManager() {
+	m_pGraphics = Graphics::Instance();
 
-	if (!Graphics::Initialized()) {
-		mQuit = true;
-	}
 	/*mAssetManager = AssetManager::Instance();
 
 	mTimer = Timer::Instance();
@@ -68,8 +76,18 @@ GameManager::~GameManager() {
 	mAssetManager = nullptr;*/
 
 	Graphics::Release();
-	mGraphics = nullptr;
+	m_pGraphics = nullptr;
 
 	glfwTerminate();
 }
 
+void GameManager::processInput(GLFWwindow* window)
+{
+	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+		glfwSetWindowShouldClose(window, true);
+}
+
+//GLFWwindow* GameManager::GetWindow()
+//{
+//	return window;
+//}

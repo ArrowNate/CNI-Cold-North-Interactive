@@ -1,8 +1,5 @@
 #include "Graphics.h"
 
-void framebuffer_size_callback(GLFWwindow* window, int width, int height);
-void processInput(GLFWwindow* window);
-
 Graphics* Graphics::sInstance = nullptr;
 bool Graphics::sInitialized = false;
 
@@ -20,7 +17,12 @@ void Graphics::Release() {
     sInitialized = false;
 }
 	
-bool Graphics::Init() {   
+bool Graphics::Init() {
+
+    glfwInit();
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "PLATE OBLITERATOR", NULL, NULL);
     if (window == NULL)
@@ -41,8 +43,8 @@ bool Graphics::Init() {
     //Remember to delete and nullptr the pointers!
     //----------TEXTURE EXAMPLE-------------------------------
 
-    m_pScreenManager = ScreenManager::Instance();
-    m_pAudioManager = AudioManager::Instance();
+    //m_pScreenManager = ScreenManager::Instance();
+    //m_pAudioManager = AudioManager::Instance();
     
     //m_pBackground = new Texture("Assets/Textures/CarnvialBackgroundSet.jpg", .3, .3, .3, -.3, -.3, -.3, -.3, .3, GL_RGB);
 
@@ -57,45 +59,43 @@ bool Graphics::Init() {
     //----------TEXTURE EXAMPLE-------------------------------
     
     //----------AUDIO EXAMPLE-------------------------------
-    m_pAudioManager->PlayMusic();
+    //m_pAudioManager->PlayMusic();
     //----------AUDIO EXAMPLE-------------------------------
 
     // render loop
     // -----------
-    while (!glfwWindowShouldClose(window))
-    {
-        // input
-        // -----
-        processInput(window);
-        m_pScreenManager->Update();
-        // render
-        // ------
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
+    //while (!glfwWindowShouldClose(window))
+    //{
+    //    // input
+    //    // -----
+    //    processInput(window);
+    //    //m_pScreenManager->Update();
+    //    // render
+    //    // ------
+    //    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    //    glClear(GL_COLOR_BUFFER_BIT);
 
-        //----------TEXTURE EXAMPLE-------------------------------
-        //m_pStartScreen->Render();
-        m_pScreenManager->Render();
-        //m_pBackground->Draw();
+    //    //----------TEXTURE EXAMPLE-------------------------------
+    //    //m_pStartScreen->Render();
+    //    //m_pScreenManager->Render();
+    //    //m_pBackground->Draw();
 
 
-        //----------TEXTURE EXAMPLE-------------------------------
+    //    //----------TEXTURE EXAMPLE-------------------------------
 
-        
+    //    
 
-        glfwSwapBuffers(window);
-        glfwPollEvents();
-    }
-
-    glfwTerminate();
+    //    glfwSwapBuffers(window);
+    //    glfwPollEvents();
+    //}
     return 0;
 }
 
-void processInput(GLFWwindow* window)
-{
-    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-        glfwSetWindowShouldClose(window, true);
-}
+//void processInput(GLFWwindow* window)
+//{
+//    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+//        glfwSetWindowShouldClose(window, true);
+//}
 
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
@@ -105,16 +105,16 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 
 Graphics::Graphics()
 {
-
+    Init();
 }
 
 Graphics::~Graphics() {
 
-    AudioManager::Release(); // you call Release for shutting down the game
-    m_pAudioManager = nullptr;
+    //AudioManager::Release(); // you call Release for shutting down the game
+    //m_pAudioManager = nullptr;
 
-    ScreenManager::Release();
-    m_pScreenManager = nullptr;
+    //ScreenManager::Release();
+    //m_pScreenManager = nullptr;
 }
 
 GLFWwindow* Graphics::GetWindow()

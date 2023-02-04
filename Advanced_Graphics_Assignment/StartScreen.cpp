@@ -49,7 +49,7 @@ void StartScreen::Update()
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_DOWN) == GLFW_PRESS) {
 		ChangeSelectedMode(1);
 	}
-	else if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_DOWN) == GLFW_PRESS) {
+	else if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_UP) == GLFW_PRESS) {
 		ChangeSelectedMode(-1);
 	}
 }
