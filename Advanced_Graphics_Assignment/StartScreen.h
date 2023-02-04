@@ -1,14 +1,19 @@
 #ifndef _STARTSCREEN_H
 #define _STARTSCREEN_H
 #include "GameEntity.h"
-#include "Texture.h"
+//#include "Texture.h"
+//#include "GameManager.h"
 #include "Graphics.h"
+#include "InputManager.h"
 //#include "ScreenManager.h"
-//#include "InputManager.h"
 
 class StartScreen : public GameEntity
 {
 private:
+	Graphics* m_pGraphics;
+	InputManager* m_pInputManager;
+	//Shader* m_pShader;
+	//Font* m_pTestingFont;
 	//Timer* m_pTimer;
 	//InputManager* m_pInputManager;
 

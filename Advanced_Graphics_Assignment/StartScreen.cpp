@@ -3,7 +3,7 @@
 StartScreen::StartScreen() 
 {
 	//m_pTimer = Timer::Instance();
-	//m_pInputManager = InputManager::Instance();
+	m_pInputManager = InputManager::Instance();
 
 	m_pBackground = new Texture("Assets/Textures/CarnvialBackgroundSet.png", 1.0, -1, GL_RGBA);
 	m_pPlate = new Texture("Assets/Textures/Plate.png", 0.47, 0.8,  GL_RGBA);
@@ -24,7 +24,7 @@ StartScreen::~StartScreen()
 	delete m_pLogo;
 	m_pLogo = nullptr;
 }
-
+	
 void StartScreen::ChangeSelectedMode(int change)
 {
 	mSelectedMode += change;
@@ -46,10 +46,12 @@ int StartScreen::SelectedMode()
 
 void StartScreen::Update() 
 {
+	m_pInputManager->Update();
+
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_DOWN) == GLFW_PRESS) {
 		ChangeSelectedMode(1);
 	}
-	else if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_DOWN) == GLFW_PRESS) {
+	else if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_UP) == GLFW_PRESS) {
 		ChangeSelectedMode(-1);
 	}
 }
