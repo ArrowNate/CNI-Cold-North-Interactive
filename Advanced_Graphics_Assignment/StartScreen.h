@@ -1,12 +1,11 @@
 #ifndef _STARTSCREEN_H
 #define _STARTSCREEN_H
 #include "GameEntity.h"
-#include "Texture.h"
+//#include "Texture.h"
 //#include "GameManager.h"
 #include "Graphics.h"
 #include "InputManager.h"
 //#include "ScreenManager.h"
-//#include "InputManager.h"
 
 class StartScreen : public GameEntity
 {

@@ -57,7 +57,7 @@ bool Graphics::Init() {
     //m_pMoose = new Texture("Assets/Textures/Moose3.jpg", .75, .75, .75, .25, -.25, .25, -.25, .75, GL_RGB);
 
     //----------TEXTURE EXAMPLE-------------------------------
-    m_pInputManager = InputManager::Instance();
+    //m_pInputManager = InputManager::Instance();
     
     //----------AUDIO EXAMPLE-------------------------------
     //m_pAudioManager->PlayMusic();
@@ -79,8 +79,8 @@ bool Graphics::Init() {
     {
         // input
         // -----
-        m_pInputManager->processInput(window);
-        m_pScreenManager->Update();
+        //m_pInputManager->processInput(window);
+        //m_pScreenManager->Update();
         // render
         // ------
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
@@ -98,7 +98,7 @@ bool Graphics::Init() {
 
     //    glfwSwapBuffers(window);
     //    glfwPollEvents();
-    //}
+    }
     return 0;
 }
 

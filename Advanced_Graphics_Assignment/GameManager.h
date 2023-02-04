@@ -5,6 +5,7 @@
 //#include "Graphics.h"
 #include "ScreenManager.h"
 #include "AudioManager.h"
+//#include "InputManager.h"
 
 class GameManager
 {
@@ -19,6 +20,7 @@ private:
 	//Timer* mTimer;
 
 	ScreenManager* m_pScreenManager;
+	StartScreen* m_pStartScreen;
 	AudioManager* m_pAudioManager;
 
 public:

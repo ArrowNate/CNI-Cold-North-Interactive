@@ -28,9 +28,9 @@ void GameManager::Run() {
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		//----------TEXTURE EXAMPLE-------------------------------
-		m_pScreenManager->Render();
+		//m_pScreenManager->Render();
 		//m_pBackground->Draw();
-
+		m_pStartScreen->Render();
 
 		//----------TEXTURE EXAMPLE-------------------------------
 
