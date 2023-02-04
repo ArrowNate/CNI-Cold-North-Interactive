@@ -53,8 +53,9 @@ void InputManager::mouse_callback(GLFWwindow* window, double xPos, double yPos)
 void InputManager::processInput(GLFWwindow* window)
 {
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+	{
 		glfwSetWindowShouldClose(window, true);
-	
+	}
 	
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
 	{

@@ -4,6 +4,10 @@ StartScreen::StartScreen()
 {
 	//m_pTimer = Timer::Instance();
 	m_pInputManager = InputManager::Instance();
+	m_pAudioManager = AudioManager::Instance();
+	m_pGraphics = Graphics::Instance();
+
+	PlaySong = true;
 
 	m_pBackground = new Texture("Assets/Textures/CarnvialBackgroundSet.png", 1.0, -1, GL_RGBA);
 	m_pPlate = new Texture("Assets/Textures/Plate.png", 0.47, 0.8,  GL_RGBA);
@@ -46,7 +50,12 @@ int StartScreen::SelectedMode()
 
 void StartScreen::Update() 
 {
-	m_pInputManager->Update();
+	if (PlaySong == true) {
+		m_pAudioManager->PlayMusic();
+		PlaySong = false;
+	}
+
+	m_pInputManager->processInput(Graphics::Instance()->GetWindow());
 
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_DOWN) == GLFW_PRESS) {
 		ChangeSelectedMode(1);

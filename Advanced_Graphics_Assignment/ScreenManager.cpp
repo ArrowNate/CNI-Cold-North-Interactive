@@ -30,7 +30,7 @@ ScreenManager::ScreenManager()
 
 void ScreenManager::Update()
 {
-	switch (mCurrentScreen) 
+	switch (mCurrentScreen)
 	{
 	case Start:
 		m_pStartScreen->Update();

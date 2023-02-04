@@ -24,7 +24,7 @@ bool Graphics::Init() {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "PLATE OBLITERATOR", NULL, NULL);
+    window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "PLATE OBLITERATOR", NULL, NULL);
     if (window == NULL)
     {
         std::cout << "Failed to create GLFW window" << std::endl;
@@ -75,30 +75,7 @@ bool Graphics::Init() {
     //    // ------
     //    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     //    glClear(GL_COLOR_BUFFER_BIT);
-    while (!glfwWindowShouldClose(window))
-    {
-        // input
-        // -----
-        //m_pInputManager->processInput(window);
-        //m_pScreenManager->Update();
-        // render
-        // ------
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
 
-    //    //----------TEXTURE EXAMPLE-------------------------------
-    //    //m_pStartScreen->Render();
-    //    //m_pScreenManager->Render();
-    //    //m_pBackground->Draw();
-
-
-    //    //----------TEXTURE EXAMPLE-------------------------------
-
-    //    
-
-    //    glfwSwapBuffers(window);
-    //    glfwPollEvents();
-    }
     return 0;
 }
 

@@ -15,54 +15,46 @@ void GameManager::Release() {
 }
 
 void GameManager::Run() {
+	if (Graphics::Instance()->GetWindow() == NULL) {
+		std::cout << "IT'S NULL" << std::endl;
+		return;
+	}
 
 	while (!glfwWindowShouldClose(Graphics::Instance()->GetWindow()))
 	{
-		// input
-		// -----
-		//processInput(Graphics::Instance()->GetWindow());
-		//m_pScreenManager->Update();
-		// render
-		// ------
-		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT);
+		Update();
+		LateUpdate();
+		Render();
 
-		//----------TEXTURE EXAMPLE-------------------------------
-		//m_pScreenManager->Render();
-		//m_pBackground->Draw();
-		m_pStartScreen->Render();
-
-		//----------TEXTURE EXAMPLE-------------------------------
-
-
-
-		glfwSwapBuffers(Graphics::Instance()->GetWindow());
 		glfwPollEvents();
 	}
 }
 
 void GameManager::Update() {
-	/*mScreenManager->Update();*/
+	m_pScreenManager->Update();
 }
 
 void GameManager::LateUpdate()
 {
+
 }
 
 void GameManager::Render() {
-	//mGraphics->ClearBackBuffer();
-	//mScreenManager->Render();
-	//mGraphics->Render();
+	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);	// First
+	glClear(GL_COLOR_BUFFER_BIT);			// Second
+	m_pScreenManager->Render();
+	//m_pGraphics->Render();
+	glfwSwapBuffers(Graphics::Instance()->GetWindow()); // Last
 }
 
 GameManager::GameManager() {
 	m_pGraphics = Graphics::Instance();
 
-	/*mAssetManager = AssetManager::Instance();
+	m_pScreenManager = ScreenManager::Instance();
 
-	mTimer = Timer::Instance();
+	m_pAudioManager = AudioManager::Instance();
 
-	mScreenManager = ScreenManager::Instance();*/
+	m_pInputManager = InputManager::Instance();
 }
 
 GameManager::~GameManager() {

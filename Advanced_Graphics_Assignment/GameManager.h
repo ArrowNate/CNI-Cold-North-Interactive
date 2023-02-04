@@ -22,6 +22,7 @@ private:
 	ScreenManager* m_pScreenManager;
 	StartScreen* m_pStartScreen;
 	AudioManager* m_pAudioManager;
+	InputManager* m_pInputManager;
 
 public:
 	static GameManager* Instance();
