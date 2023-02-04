@@ -1,8 +1,6 @@
 #ifndef _GRAPHICS_H
 #define _GRAPHICS_H
 
-
-#include <GLFW/glfw3.h>
 #include <iostream>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>

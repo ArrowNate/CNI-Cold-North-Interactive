@@ -1,4 +1,4 @@
-#include "InputManager.h"
+#include "Graphics.h"
 
 
 int main() 
@@ -8,8 +8,8 @@ int main()
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
-	glfwSetCursorPosCallback(window, mouse_callback);
+	/*glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+	glfwSetCursorPosCallback(window, mouse_callback);*/
 
 	Graphics* graphics = Graphics::Instance();
 

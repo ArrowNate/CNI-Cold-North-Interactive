@@ -1,4 +1,7 @@
-#include "Graphics.h"
+#ifndef _INPUTMANAGER_H
+#define _INPUTMANAGER_H
+#include <GLFW/glfw3.h>
+#include <iostream>
 
 class InputManager
 {
@@ -23,4 +26,5 @@ private:
 	~InputManager();
 	
 };
-
+ 
+#endif 

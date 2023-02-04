@@ -52,24 +52,25 @@ void InputManager::processInput(GLFWwindow* window)
 {
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 		glfwSetWindowShouldClose(window, true);
-
+	
+	
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
 	{
-		// command for pressing W
+		std::cout << "W was pressed" << std::endl;
 	}
 		
 	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
 	{
-		// command for pressing S
+		std::cout << "S was pressed" << std::endl;
 	}
 		
 	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
 	{
-		// command for pressing A
+		std::cout << "A was pressed" << std::endl;
 	}
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
 	{
-		// command for pressing D
+		std::cout << "D was pressed" << std::endl;
 	}
 }
 

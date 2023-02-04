@@ -52,15 +52,14 @@ bool Graphics::Init() {
 
     //----------TEXTURE EXAMPLE-------------------------------
    
-
+    m_pInputManager = InputManager::Instance();
     // render loop
     // -----------
     while (!glfwWindowShouldClose(window))
     {
         // input
         // -----
-        processInput(window);
-
+        m_pInputManager->processInput(window);
         // render
         // ------
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
@@ -78,12 +77,6 @@ bool Graphics::Init() {
 
     glfwTerminate();
     return 0;
-}
-
-void processInput(GLFWwindow* window)
-{
-    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-        glfwSetWindowShouldClose(window, true);
 }
 
 
