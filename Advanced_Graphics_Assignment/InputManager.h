@@ -19,6 +19,7 @@ public:
 	void processInput(GLFWwindow* window);
 
 	void Update();
+
 	
 private:
 

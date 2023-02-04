@@ -23,12 +23,14 @@ void InputManager::Release()
 	sInstance = nullptr;
 }
 
+
 void InputManager::mouseButtonCallBack(GLFWwindow* window, int button, int action, int mods)
 {
-	if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS)
+	if (button == GLFW_MOUSE_BUTTON_LEFT  == GLFW_PRESS)
 	{
 		std::cout << "Left button press" << std::endl;
 	}
+	
 }
 
 void InputManager::cursorEnterCallback(GLFWwindow* window, int entered)
