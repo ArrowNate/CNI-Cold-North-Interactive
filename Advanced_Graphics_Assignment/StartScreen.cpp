@@ -9,14 +9,12 @@ StartScreen::StartScreen()
 
 	PlaySong = true;
 
+	m_pBackground = new Texture("Assets/Textures/PlateObliteratorMainMenu.png", 1.0, -1, GL_RGBA);
+	//m_pPlate = new Texture("Assets/Textures/Plate.png", 0.47, 0.8,  GL_RGBA);
 
-	m_pBackground = new Texture("Assets/Textures/CarnvialBackgroundSet.png", 1.0, 1.0, -1, -1, GL_RGBA);
-	//m_pPlate = new Texture("Assets/Textures/Plate.png", 0.2, -.2,  GL_RGBA);
-
-	m_pLogo = new Texture("Assets/Textures/CNiLogo.png", 1, -0.8, 0.8,-1,  GL_RGBA);
-	//m_pLogo->Parent(this);
-	//m_pLogo->Position(Vector3(.5, .5,0));
-
+	m_pLogo = new Texture("Assets/Textures/CNiLogo.png", -0.72, -1.0, GL_RGBA);
+	//m_pBackground->Parent(this);
+	//m_pBackground->Position(Vector3(1000, 800));
 }
 
 StartScreen::~StartScreen() 
@@ -24,8 +22,8 @@ StartScreen::~StartScreen()
 	delete m_pBackground;
 	m_pBackground = nullptr;
 
-	delete m_pPlate;
-	m_pPlate = nullptr;
+	//delete m_pPlate;
+	//m_pPlate = nullptr;
 
 	delete m_pLogo;
 	m_pLogo = nullptr;
