@@ -3,22 +3,26 @@
 #include <iostream>
 #include "PlayScreen.h"
 #include "StartScreen.h"
+//#include "Graphics.h"
 
-
-class ScreenManager : public Graphics
+class ScreenManager
 {
 private:
 	static ScreenManager* sInstance;
 
 	enum Screens { Start, Play};
 	Screens mCurrentScreen;
-	GLFWwindow* window;
+	//GLFWwindow* window;
 	PlayScreen* m_pPlayScreen;
 	StartScreen* m_pStartScreen;
 
-public:
+	int ScreenChoice;
+
+private:
 	ScreenManager();
 	~ScreenManager();
+
+public:
 	static ScreenManager* Instance();
 	static void Release();
 	

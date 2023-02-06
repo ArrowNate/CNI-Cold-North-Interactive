@@ -8,18 +8,16 @@ PlayScreen::PlayScreen()
 
 PlayScreen::~PlayScreen()
 {
-	delete m_pBackdrop;
-	m_pBackdrop = nullptr;
-
+	//delete m_pBackdrop;
+	//m_pBackdrop = nullptr;
 }
 
 void PlayScreen::Update()
 {
 
-
 }
 
 void PlayScreen::Render()
 {
-	m_pBackdrop->Draw();
+	//m_pBackdrop->Draw();
 }
