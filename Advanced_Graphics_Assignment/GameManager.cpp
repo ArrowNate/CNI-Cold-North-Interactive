@@ -16,6 +16,10 @@ void GameManager::Release() {
 
 void GameManager::Run() {
 
+	if (Graphics::Instance()->GetWindow() == NULL) {
+		std::cout << "GETWINDOW IS NULL";
+	}
+
 	while (!glfwWindowShouldClose(Graphics::Instance()->GetWindow()))
 	{
 		// input
@@ -28,9 +32,9 @@ void GameManager::Run() {
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		//----------TEXTURE EXAMPLE-------------------------------
-		//m_pScreenManager->Render();
+		m_pScreenManager->Render();
 		//m_pBackground->Draw();
-		m_pStartScreen->Render();
+		/*m_pStartScreen->Render();*/
 
 		//----------TEXTURE EXAMPLE-------------------------------
 
@@ -42,7 +46,7 @@ void GameManager::Run() {
 }
 
 void GameManager::Update() {
-	/*mScreenManager->Update();*/
+	/*m_pScreenManager->Update();*/
 }
 
 void GameManager::LateUpdate()
