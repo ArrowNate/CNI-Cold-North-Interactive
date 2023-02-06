@@ -1,9 +1,13 @@
 #ifndef _GRAPHICS_H
 #define _GRAPHICS_H
 
-#include "ScreenManager.h"
-#include "AudioManager.h"
-#include <GLFW/glfw3.h>
+//#include "ScreenManager.h"
+//#include "AudioManager.h"
+//#include <GLFW/glfw3.h>
+
+//#include "ScreenManager.h"
+//#include "AudioManager.h"
+
 #include <iostream>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -11,15 +15,22 @@
 #include "stb_image.h"
 //#include "Font.h"
 #include "Shader.h"
+//#include "InputManager.h"
+#include "Texture.h"
+
 //#include "Texture.h"
 #include <iostream>
 
+void framebuffer_size_callback(GLFWwindow* window, int width, int height);
+
 class Graphics
 {
+	
 private:
-	ScreenManager* m_pScreenManager;
-	AudioManager* m_pAudioManager;
-		
+	//ScreenManager* m_pScreenManager;
+	//AudioManager* m_pAudioManager;
+	//InputManager* m_pInputManager;
+
 	GLFWwindow* window;
 	static Graphics* sInstance;
 	//Font* m_pFontTest;
@@ -41,7 +52,6 @@ public:
 	static Graphics* Instance();
 	static void Release();
 	static bool sInitialized;
-	static bool Initialized();
 
 	virtual bool Init();
 };

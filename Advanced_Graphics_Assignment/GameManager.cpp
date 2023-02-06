@@ -13,48 +13,48 @@ void GameManager::Release() {
 	delete sInstance;
 	sInstance = nullptr;
 }
+
 void GameManager::Run() {
-	while (!mQuit) {
-		/*mTimer->Update();
+	if (Graphics::Instance()->GetWindow() == NULL) {
+		std::cout << "IT'S NULL" << std::endl;
+		return;
+	}
 
-		while (SDL_PollEvent(&mEvent)) {
-			switch (mEvent.type) {
-			case SDL_QUIT:
-				mQuit = true;
-				break;
-			}
-		}
+	while (!glfwWindowShouldClose(Graphics::Instance()->GetWindow()))
+	{
+		Update();
+		LateUpdate();
+		Render();
 
-		if (mTimer->DeltaTime() >= 1.0f / FRAME_RATE) {
-			Update();
-			LateUpdate();
-			Render();
-			mTimer->Reset();
-		}*/
+		glfwPollEvents();
 	}
 }
 
 void GameManager::Update() {
-	/*mScreenManager->Update();*/
+	m_pScreenManager->Update();
+}
+
+void GameManager::LateUpdate()
+{
+
 }
 
 void GameManager::Render() {
-	//mGraphics->ClearBackBuffer();
-	//mScreenManager->Render();
-	//mGraphics->Render();
+	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);	// First
+	glClear(GL_COLOR_BUFFER_BIT);			// Second
+	m_pScreenManager->Render();
+	//m_pGraphics->Render();
+	glfwSwapBuffers(Graphics::Instance()->GetWindow()); // Last
 }
 
-GameManager::GameManager() : mQuit(false) {
-	mGraphics = Graphics::Instance();
+GameManager::GameManager() {
+	m_pGraphics = Graphics::Instance();
 
-	if (!Graphics::Initialized()) {
-		mQuit = true;
-	}
-	/*mAssetManager = AssetManager::Instance();
+	m_pScreenManager = ScreenManager::Instance();
 
-	mTimer = Timer::Instance();
+	m_pAudioManager = AudioManager::Instance();
 
-	mScreenManager = ScreenManager::Instance();*/
+	m_pInputManager = InputManager::Instance();
 }
 
 GameManager::~GameManager() {
@@ -68,8 +68,18 @@ GameManager::~GameManager() {
 	mAssetManager = nullptr;*/
 
 	Graphics::Release();
-	mGraphics = nullptr;
+	m_pGraphics = nullptr;
 
 	glfwTerminate();
 }
 
+void GameManager::processInput(GLFWwindow* window)
+{
+	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+		glfwSetWindowShouldClose(window, true);
+}
+
+//GLFWwindow* GameManager::GetWindow()
+//{
+//	return window;
+//}
