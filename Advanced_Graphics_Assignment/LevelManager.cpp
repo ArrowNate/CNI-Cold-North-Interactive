@@ -17,7 +17,7 @@ LevelManager::~LevelManager() {
 void LevelManager::AddLevel(Level* level) {
     mLevels.push_back(level);
 
-    // This function should hopefully allow us to add new levels to the game instead of having to hard code all the levels directly into the game like I did in the Mario project. It sould add to the mLevels vector above using push_back.
+    // This function should hopefully allow us to add new levels to the game instead of having to hard code all the levels directly into the game like I did in the Mario project. It should add to the mLevels vector above using push_back.
 }
 
 void LevelManager::LoadLevel(int levelIndex) {

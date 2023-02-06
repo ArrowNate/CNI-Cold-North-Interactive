@@ -21,15 +21,17 @@ private:
 
 	Texture* m_pBackground;
 	Texture* m_pPlate;
-
+	Texture* m_pStartGame;
+	Texture* m_pLogo;
 	Texture* m_pCursor;
+
+	GameEntity* m_pTopBar;
+
 	Vector2 mCursorStartPos;
 	Vector2 mCursorOffset;
 	int mSelectedMode;
 
-	Texture* m_pStartGame;
-
-	Texture* m_pLogo;
+	
 
 public:
 	StartScreen();
