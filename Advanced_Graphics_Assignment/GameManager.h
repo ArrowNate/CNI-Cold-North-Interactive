@@ -3,7 +3,7 @@
 #include <GLFW/glfw3.h>
 #include "AssetManager.h"
 #include "Graphics.h"
-//#include "ScreenManager.h"
+#include "ScreenManager.h"
 
 class GameManager
 {
@@ -14,9 +14,9 @@ private:
 	bool mQuit;
 	Graphics* mGraphics;
 	AssetManager* mAssetManager;
-	//Timer* mTimer;
+	Timer* mTimer;
 
-	//ScreenManager* mScreenManager;
+	ScreenManager* mScreenManager;
 
 public:
 	static GameManager* Instance();
