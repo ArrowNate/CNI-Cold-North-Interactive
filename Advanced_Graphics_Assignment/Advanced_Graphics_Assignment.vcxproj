@@ -151,6 +151,7 @@
     <ClCompile Include="PlayScreen.cpp" />
     <ClCompile Include="ScreenManager.cpp" />
     <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="SplashScreen.cpp" />
     <ClCompile Include="StartScreen.cpp" />
     <ClCompile Include="stb_image.cpp" />
     <ClCompile Include="Texture.cpp" />
@@ -168,6 +169,7 @@
     <ClInclude Include="PlayScreen.h" />
     <ClInclude Include="ScreenManager.h" />
     <ClInclude Include="Shader.h" />
+    <ClInclude Include="SplashScreen.h" />
     <ClInclude Include="StartScreen.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="Texture.h" />

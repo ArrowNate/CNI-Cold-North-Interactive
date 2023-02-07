@@ -21,7 +21,8 @@ void ScreenManager::Release()
 
 ScreenManager::ScreenManager() 
 {
-	mCurrentScreen = Start;
+	mCurrentScreen = Splash;
+	m_pSplashScreen = new SplashScreen();
 	m_pStartScreen = new StartScreen();
 	m_pPlayScreen = new PlayScreen();
 
@@ -64,6 +65,10 @@ void ScreenManager::Update()
 void ScreenManager::Render()
 {
 	switch (mCurrentScreen) {
+	case Splash:
+		m_pSplashScreen->Render();
+		break;
+
 	case Start:
 		m_pStartScreen->Render();
 		break;
@@ -78,6 +83,9 @@ ScreenManager::~ScreenManager()
 {
 	delete m_pStartScreen;
 	m_pStartScreen = nullptr;
+
+	delete m_pSplashScreen;
+	m_pSplashScreen = nullptr;
 
 	delete m_pPlayScreen;
 	m_pPlayScreen = nullptr;

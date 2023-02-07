@@ -3,6 +3,7 @@
 #include <iostream>
 #include "PlayScreen.h"
 #include "StartScreen.h"
+#include "SplashScreen.h"
 //#include "Graphics.h"
 
 class ScreenManager
@@ -10,9 +11,10 @@ class ScreenManager
 private:
 	static ScreenManager* sInstance;
 
-	enum Screens { Start, Play};
+	enum Screens { Start, Play, Splash };
 	Screens mCurrentScreen;
 	//GLFWwindow* window;
+	SplashScreen* m_pSplashScreen;
 	PlayScreen* m_pPlayScreen;
 	StartScreen* m_pStartScreen;
 
