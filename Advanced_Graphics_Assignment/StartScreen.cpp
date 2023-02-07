@@ -9,10 +9,10 @@ StartScreen::StartScreen()
 
 	PlaySong = true;
 
-	m_pBackground = new Texture("Assets/Textures/PlateObliteratorMainMenu.png", 1.0, -1, GL_RGBA);
+	m_pBackground = new Texture("Assets/Textures/PlateObliteratorMainMenu.png", 1.0, 1.0, -1.0, -1.0, GL_RGBA);
 	//m_pPlate = new Texture("Assets/Textures/Plate.png", 0.47, 0.8,  GL_RGBA);
 
-	m_pLogo = new Texture("Assets/Textures/CNiLogo.png", -0.72, -1.0, GL_RGBA);
+	m_pLogo = new Texture("Assets/Textures/CNiLogo.png", 1.0, -0.72, 0.72, -1.0, GL_RGBA);
 	//m_pBackground->Parent(this);
 	//m_pBackground->Position(Vector3(1000, 800));
 }
