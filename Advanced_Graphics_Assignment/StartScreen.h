@@ -11,6 +11,7 @@
 class StartScreen : public GameEntity
 {
 private:
+	enum Screens { Start, Credits };
 	Graphics* m_pGraphics;
 	InputManager* m_pInputManager;
 	AudioManager* m_pAudioManager;
@@ -20,16 +21,14 @@ private:
 	//Timer* m_pTimer;
 
 	Texture* m_pBackground;
-	Texture* m_pPlate;
+	Texture* m_pLogo;
+	Texture* m_pStartGame;
+	Texture* m_pCredits;
 
 	Texture* m_pCursor;
 	Vector2 mCursorStartPos;
 	Vector2 mCursorOffset;
 	int mSelectedMode;
-
-	Texture* m_pStartGame;
-
-	Texture* m_pLogo;
 
 public:
 	StartScreen();

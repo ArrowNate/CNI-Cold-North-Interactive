@@ -34,20 +34,6 @@ void ScreenManager::Update()
 	{
 	case Start:
 		m_pStartScreen->Update();
-
-		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_DOWN) == GLFW_PRESS) {
-			ScreenChoice -= 1;
-		}
-		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_UP) == GLFW_PRESS) {
-			ScreenChoice += 1;
-		}
-		if (ScreenChoice < 0) {
-			ScreenChoice = 1;
-		}
-		else if (ScreenChoice > 1) {
-			ScreenChoice = 0;
-		}
-
 		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_ENTER) == GLFW_PRESS) {
 			mCurrentScreen = Play;
 		}
