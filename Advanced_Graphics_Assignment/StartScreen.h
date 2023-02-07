@@ -24,6 +24,8 @@ private:
 	Texture* m_pLogo;
 	Texture* m_pStartGame;
 	Texture* m_pCredits;
+	Texture* m_pArrow;
+	Texture* m_pArrow2;
 
 	Texture* m_pCursor;
 	Vector2 mCursorStartPos;

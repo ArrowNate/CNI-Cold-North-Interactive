@@ -13,6 +13,7 @@ StartScreen::StartScreen()
 	m_pLogo = new Texture("Assets/Textures/CNiLogo.png", 1.0, -0.72, 0.72, -1.0, GL_RGBA);
 	m_pStartGame = new Texture("Assets/Textures/StartGameQ.png", 0.37, 0.04, -0.39, -0.11, GL_RGBA);
 	m_pCredits = new Texture("Assets/Textures/CreditsQ.png", 0.37, -0.3, -0.39, -0.45, GL_RGBA);
+	m_pArrow = new Texture("Assets/Textures/MainMenuSelectorArrow.png", 0.50, 0.04, -0.39, -0.11, GL_RGBA);
 	//m_pBackground->Parent(this);
 	//m_pBackground->Position(Vector3(1000, 800));
 }
@@ -30,6 +31,9 @@ StartScreen::~StartScreen()
 
 	delete m_pCredits;
 	m_pCredits = nullptr;
+
+	delete m_pArrow;
+	m_pArrow = nullptr;
 }
 
 void StartScreen::ChangeSelectedMode(int change)
@@ -60,10 +64,10 @@ void StartScreen::Update()
 
 	m_pInputManager->processInput(Graphics::Instance()->GetWindow());
 
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_DOWN) == GLFW_PRESS) {
+	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_S) == GLFW_PRESS) {
 		ChangeSelectedMode(1);
 	}
-	else if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_UP) == GLFW_PRESS) {
+	else if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_W) == GLFW_PRESS) {
 		ChangeSelectedMode(-1);
 	}
 }
@@ -74,4 +78,11 @@ void StartScreen::Render()
 	m_pLogo->Draw();
 	m_pStartGame->Draw();
 	m_pCredits->Draw();
+
+	if (mSelectedMode == 0) {
+		m_pArrow->Draw();
+	}
+	else if (mSelectedMode == 1) {
+
+	}
 }
