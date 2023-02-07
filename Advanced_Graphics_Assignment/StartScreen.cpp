@@ -2,19 +2,19 @@
 
 StartScreen::StartScreen() 
 {
-	m_pTimer = Timer::Instance();
+	//m_pTimer = Timer::Instance();
 	m_pInputManager = InputManager::Instance();
 	m_pAudioManager = AudioManager::Instance();
 	m_pGraphics = Graphics::Instance();
 
 	PlaySong = true;
 
-	/*m_pBackground = new Texture("Assets/Textures/PlateObliteratorMainMenu.png", 1.0, -1, GL_RGBA);
-	m_pPlate = new Texture("Assets/Textures/Plate.png", 0.47, 0.8,  GL_RGBA);
+	m_pBackground = new Texture("Assets/Textures/PlateObliteratorMainMenu.png", 1.0, 1.0, -1.0, -1.0, GL_RGBA);
+	//m_pPlate = new Texture("Assets/Textures/Plate.png", 0.47, 0.8,  GL_RGBA);
 
-	m_pLogo = new Texture("Assets/Textures/CNiLogo.png", -0.72, -1.0, GL_RGBA);*/
-	m_pBackground->Parent(this);
-	m_pBackground->Position(Vector3(1000, 800));
+	m_pLogo = new Texture("Assets/Textures/CNiLogo.png", 1.0, -0.72, 0.72, -1.0, GL_RGBA);
+	//m_pBackground->Parent(this);
+	//m_pBackground->Position(Vector3(1000, 800));
 }
 
 StartScreen::~StartScreen() 
@@ -22,8 +22,8 @@ StartScreen::~StartScreen()
 	delete m_pBackground;
 	m_pBackground = nullptr;
 
-	delete m_pPlate;
-	m_pPlate = nullptr;
+	//delete m_pPlate;
+	//m_pPlate = nullptr;
 
 	delete m_pLogo;
 	m_pLogo = nullptr;
@@ -68,6 +68,6 @@ void StartScreen::Update()
 void StartScreen::Render() 
 {
 	m_pBackground->Draw();
-	m_pPlate->Draw();
+	//m_pPlate->Draw();
 	m_pLogo->Draw();
 }
