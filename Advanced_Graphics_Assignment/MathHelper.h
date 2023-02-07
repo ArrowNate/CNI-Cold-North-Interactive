@@ -262,7 +262,7 @@
 	const Vector2 Vec2_Right = { 1.0f, 0.0f };
 
 
-	struct Vertex {
+	struct Vertex2 {
 		Vector2 position;
 
 		struct UV {

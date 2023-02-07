@@ -21,7 +21,7 @@ void ScreenManager::Release()
 
 ScreenManager::ScreenManager() 
 {
-	mCurrentScreen = Start;
+	mCurrentScreen = Play;
 	m_pStartScreen = new StartScreen();
 	m_pPlayScreen = new PlayScreen();
 
@@ -54,6 +54,8 @@ void ScreenManager::Update()
 		break;
 
 	case Play:
+		m_pPlayScreen->Update();
+
 		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_ESCAPE) == GLFW_PRESS) {
 			mCurrentScreen = Start;
 		}

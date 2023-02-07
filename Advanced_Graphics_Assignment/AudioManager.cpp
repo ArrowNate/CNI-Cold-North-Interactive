@@ -50,7 +50,7 @@ void AudioManager::PlaySFX()
 	//	return;
 }
 
-//void AudioManager::processInput(GLFWwindow* window)
-//{
-//	//m_pSoundEngine->play2D("Assets/breakout.mp3", true);
-//}
+void AudioManager::PlayMusic2(const char filepath[50], bool loop)
+{
+	m_pSoundEngine->play2D(filepath, loop);
+}
