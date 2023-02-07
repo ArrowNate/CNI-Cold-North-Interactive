@@ -29,6 +29,7 @@ public:
 	~AudioManager();
 
 	void PlayMusic();
+	void PlayMusic2(const char filepath[50], bool loop = true);
 	void PauseMusic();
 	void PlaySFX();
 	//void processInput(GLFWwindow* window);
