@@ -46,7 +46,9 @@
     <ClCompile Include="StartScreen.cpp">
       <Filter>Source Files\Main Game</Filter>
     </ClCompile>
-    <ClCompile Include="Ball.cpp" />
+    <ClCompile Include="Ball.cpp">
+      <Filter>Source Files\Main Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -91,7 +93,9 @@
     <ClInclude Include="InputManager.h">
       <Filter>Header Files\Managers</Filter>
     </ClInclude>
-    <ClInclude Include="Ball.h" />
+    <ClInclude Include="Ball.h">
+      <Filter>Header Files\Main Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
