@@ -16,7 +16,8 @@ private:
 	InputManager* m_pInputManager;
 	AudioManager* m_pAudioManager;
 	bool PlaySong;
-	Font* m_pFont;
+	/*Font* m_pFont;
+	HUD* m_pHUD;*/
 	//Timer* m_pTimer;
 
 	Texture* m_pBackground;

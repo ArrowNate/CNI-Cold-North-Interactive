@@ -1,26 +1,20 @@
 #ifndef HUD_H
 #include "Font.h"
+#include <glm/glm.hpp>
 
+class HUD
+{
 
-class HUD {
 public:
-
+	
 	HUD();
 	~HUD();
 
-	void draw();
+	void Update();
+	void Render();
 
-	// Setter methods to update the position, color, etc. of the text
-	void setPosition(const glm::vec2& position);
-	void setColor(const glm::vec3& color);
-	// Add other setter methods as needed
-
-private:
+protected:
 	Font* m_pFont;
-	glm::vec2 position;
-	glm::vec3 color;
-
-	// Add other member variables as needed
 };
 
-#endif
+#endif // !_HUD_H

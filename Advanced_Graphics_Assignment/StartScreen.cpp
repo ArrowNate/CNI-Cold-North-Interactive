@@ -7,8 +7,6 @@
 #include <ft2build.h>
 #include <glm/vec3.hpp>
 
-
-
 StartScreen::StartScreen()
 {
 
@@ -27,9 +25,6 @@ StartScreen::StartScreen()
 	m_pLogo = new Texture("Assets/Textures/CNiLogo.png", 1, -0.8, 0.8,-1,  GL_RGBA);
 	m_pLogo->Parent(this);
 	m_pLogo->Position(Vector3(.5, .5,0));
-
-	m_pFont = new Font();
-
 }
 
 StartScreen::~StartScreen()
@@ -42,9 +37,6 @@ StartScreen::~StartScreen()
 
 	delete m_pLogo;
 	m_pLogo = nullptr;
-
-	delete m_pFont;
-	m_pFont = nullptr;
 }
 	
 void StartScreen::ChangeSelectedMode(int change)
@@ -88,5 +80,4 @@ void StartScreen::Render()
 	m_pBackground->Draw();
 	//m_pPlate->Draw();
 	m_pLogo->Draw();
-
 }
