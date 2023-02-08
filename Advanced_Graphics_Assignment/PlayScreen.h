@@ -24,11 +24,14 @@ private:
 	//Texture* m_pBackdrop;
 	AudioManager* m_pAudioManager;
 
-	Model* m_pTest;
-	glm::mat4 testname;
+	Model* m_pPlate;
+	glm::mat4 mPlate;
 
 	Model* m_pStand;
 	glm::mat4 mStand;
+
+	Model* m_pSpeaker;
+	glm::mat4 mSpeaker;
 
 	Shader modelShader;
 	bool PlaySong;

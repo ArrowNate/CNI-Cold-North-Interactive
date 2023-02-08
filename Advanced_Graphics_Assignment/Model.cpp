@@ -204,7 +204,8 @@ void Model::Render(glm::mat4 name) {
 
 	name = glm::mat4(1.0f);
 	name = glm::translate(name, glm::vec3(mPosition.x, mPosition.y, mPosition.z));
-	name = glm::scale(name, glm::vec3(0.25f, 0.25f, 0.25f));
+	name = glm::scale(name, glm::vec3(0.2f, 0.2f, 0.2f));
+	
 	modelShader.SetMat4("model", name); // setmat4 is setting the translate/movement/scale/rotation into the shader code
 	Draw(modelShader);
 

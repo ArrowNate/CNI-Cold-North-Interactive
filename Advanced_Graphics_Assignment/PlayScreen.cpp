@@ -11,8 +11,14 @@ PlayScreen::PlayScreen()
 
 	//m_pTest = new Model("Assets/Models/skull3.obj");
 	m_pStand = new Model("Assets/Models/Stand.obj");
-	
-	
+	m_pStand->Position(-1.1f, -4.5, -7);
+
+	m_pPlate = new Model("Assets/Models/Plate.obj");
+	m_pPlate->Position(-1.1f, -1, -30);
+
+	m_pSpeaker = new Model("Assets/Models/Speaker.obj");
+	m_pSpeaker->Position(-6.5f, -3, -10);
+
 	modelShader = Shader("Assets/Shaders/modelLoading.vs", "Assets/Shaders/modelLoading.fs");
 }
 
@@ -24,29 +30,37 @@ PlayScreen::~PlayScreen()
 
 void PlayScreen::Update()
 {
-	/*if (PlaySong == true) {
-		m_pAudioManager->PlayMusic2("Assets/Music/PlayScreenSong.mp3");
+	if (PlaySong == true) {
+		//m_pAudioManager->PlayMusic2("Assets/Music/PlayScreenSong.mp3");
+		m_pAudioManager->PlayMusic3D("Assets/Music/PlayScreenSong.mp3", -2.0f, -3, 1);
 		PlaySong = false;
-	}*/
+	}
 
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_A) == GLFW_PRESS) {
-		m_pStand->Translate(Vector3( - .1f, 0, 0));
-		std::cout << "AAAAAAAAAAAAAA" << std::endl;
+		m_pSpeaker->Translate(Vector3( - .1f, 0, 0));
+		std::cout << m_pSpeaker->Position().x << std::endl;
 		//m_pTest->Translate(-Vec3_Right * 0.1, World);
 	}
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_D) == GLFW_PRESS) {
-		m_pStand->Translate(Vector3(.1f, 0, 0));
-		std::cout << "DDDDDDDDDDDDDD" << std::endl;
+		m_pSpeaker->Translate(Vector3(.1f, 0, 0));
+		std::cout << m_pSpeaker->Position().x << std::endl;
 	}
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_W) == GLFW_PRESS) {
-		m_pStand->Translate(Vector3(0, .1f, 0));
-		std::cout << "DDDDDDDDDDDDDD" << std::endl;
+		m_pSpeaker->Translate(Vector3(0, .1f, 0));
+		std::cout << m_pSpeaker->Position().y << std::endl;
 	}
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_S) == GLFW_PRESS) {
-		m_pStand->Translate(Vector3(0, -.1f, 0));
-		std::cout << "DDDDDDDDDDDDDD" << std::endl;
+		m_pSpeaker->Translate(Vector3(0, -.1f, 0));
+		std::cout << m_pSpeaker->Position().y << std::endl;
 	}
-
+	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_E) == GLFW_PRESS) {
+		m_pPlate->ModelTranslate(0, 0, -.1f);
+		std::cout << "EEEEEEEEEEEEE" << std::endl;
+	}
+	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_Q) == GLFW_PRESS) {
+		m_pPlate->ModelTranslate(0, 0, 0.1f);
+		std::cout << "EEEEEEEEEEEEE" << std::endl;
+	}
 }
 
 void PlayScreen::Render()
@@ -69,5 +83,6 @@ void PlayScreen::Render()
 	
 	//m_pTest->Render(testname);
 	m_pStand->Render(mStand);
-
+	m_pPlate->Render(mPlate);
+	m_pSpeaker->Render(mSpeaker);
 }

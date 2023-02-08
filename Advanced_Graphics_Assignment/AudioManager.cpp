@@ -54,3 +54,7 @@ void AudioManager::PlayMusic2(const char filepath[50], bool loop)
 {
 	m_pSoundEngine->play2D(filepath, loop);
 }
+
+void AudioManager::PlayMusic3D(const char filepath[50], float x, float y, float z, bool loop) {
+	m_pSoundEngine->play3D(filepath, vec3df(x, y, z), loop );
+}
