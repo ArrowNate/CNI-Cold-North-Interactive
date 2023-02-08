@@ -10,18 +10,26 @@
 #include "AudioManager.h"
 #include "Camera.h"
 #include "Model.h"
+#include "Graphics.h"
+
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-class PlayScreen
+class PlayScreen : public GameEntity
 {
 private:
 	Camera m_pCamera;
 	//Texture* m_pBackdrop;
 	AudioManager* m_pAudioManager;
+
 	Model* m_pTest;
+	glm::mat4 testname;
+
+	Model* m_pStand;
+	glm::mat4 mStand;
+
 	Shader modelShader;
 	bool PlaySong;
 
