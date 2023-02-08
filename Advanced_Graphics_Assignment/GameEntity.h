@@ -20,7 +20,7 @@ public:
 
 	enum Space { Local = 0, World = 1 };
 
-private:
+protected:
 	Vector3 mPosition;
 	float mRotation;
 	Vector3 mScale;

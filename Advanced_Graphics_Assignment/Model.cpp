@@ -2,6 +2,12 @@
 
 Model::Model(std::string const& path) {
 	LoadModel(path);
+
+	modelShader = Shader("Assets/Shaders/modelLoading.vs", "Assets/Shaders/modelLoading.fs");
+
+	mPosition.x = 0;
+	mPosition.y = 0;
+	mPosition.z = -10;
 }
 
 void Model::Draw(Shader& shader) {
@@ -191,4 +197,22 @@ unsigned int Model::TextureFromFile(const char* path, const std::string& directo
 	}
 
 	return textureID;
+}
+
+void Model::Render(glm::mat4 name) {
+	
+
+	name = glm::mat4(1.0f);
+	name = glm::translate(name, glm::vec3(mPosition.x, mPosition.y, mPosition.z));
+	name = glm::scale(name, glm::vec3(0.1f, 0.1f, 0.1f));
+	modelShader.SetMat4("model", name); // setmat4 is setting the translate/movement/scale/rotation into the shader code
+	Draw(modelShader);
+
+	
+}
+
+void Model::ModelTranslate(float x, float y, float z) {
+	mPosition.x += x; 
+	mPosition.y += y; 
+	mPosition.z += z; 
 }

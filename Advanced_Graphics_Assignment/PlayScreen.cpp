@@ -10,6 +10,8 @@ PlayScreen::PlayScreen()
 	PlaySong = true;
 
 	m_pTest = new Model("Assets/Models/skull3.obj");
+	//m_pStand = new Model("Assets/Models/Stand.obj");
+	
 	
 	modelShader = Shader("Assets/Shaders/modelLoading.vs", "Assets/Shaders/modelLoading.fs");
 }
@@ -27,7 +29,11 @@ void PlayScreen::Update()
 		PlaySong = false;
 	}*/
 
-	
+	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_A) == GLFW_PRESS) {
+		m_pTest->ModelTranslate(-.1f, 0, 0);
+		std::cout << "AAAAAAAAAAAAAA" << std::endl;
+		//m_pTest->Translate(-Vec3_Right * 0.1, World);
+	}
 
 	
 
@@ -46,12 +52,13 @@ void PlayScreen::Render()
 
 	
 
-	glm::mat4 model = glm::mat4(1.0f);
+	/*glm::mat4 model = glm::mat4(1.0f);
 	model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
 	model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
 	modelShader.SetMat4("model", model);
-	m_pTest->Draw(modelShader);
+	m_pTest->Draw(modelShader);*/
 	
-
+	m_pTest->Render(testname);
+	//m_pStand->Render(mStand);
 
 }

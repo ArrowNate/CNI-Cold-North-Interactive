@@ -11,8 +11,8 @@
 #include <assimp/postprocess.h>
 
 #include "mesh.h"
-
-
+#include "GameEntity.h"
+    
 #include <string>
 #include <fstream>
 #include <sstream>
@@ -20,13 +20,15 @@
 #include <map>
 #include <vector>
 
-class Model
+class Model : public GameEntity
 {
 private:
 
     std::vector<Mesh> meshes;
     std::string directory;
     std::vector<Texture3D> texturesLoaded;
+
+    Shader modelShader;
 
 public:
     Model(std::string const& path);
@@ -40,6 +42,11 @@ private:
     std::vector<Texture3D> LoadMaterialTextures(aiMaterial* mat, aiTextureType type, std::string typeName);
 
 
+
+public:
+    void ModelTranslate(float x , float y, float z);
+
+    void Render(glm::mat4 modelName);
 };
 
 #endif // ! MODEL_H
