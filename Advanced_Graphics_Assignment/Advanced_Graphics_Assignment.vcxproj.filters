@@ -46,8 +46,11 @@
     <ClCompile Include="StartScreen.cpp">
       <Filter>Source Files\Main Game</Filter>
     </ClCompile>
-    <ClCompile Include="Ball.cpp">
-      <Filter>Source Files\Main Game</Filter>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>Source Files\Models</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -93,8 +96,14 @@
     <ClInclude Include="InputManager.h">
       <Filter>Header Files\Managers</Filter>
     </ClInclude>
-    <ClInclude Include="Ball.h">
-      <Filter>Header Files\Main Game</Filter>
+    <ClInclude Include="Camera.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>Header Files\Models</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -115,6 +124,12 @@
     </Filter>
     <Filter Include="Header Files\Main Game">
       <UniqueIdentifier>{2cd8b559-e9e2-43ce-b00a-5eccda3a701b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Models">
+      <UniqueIdentifier>{98703a33-819d-4138-96a1-0ef47f07fc2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Models">
+      <UniqueIdentifier>{1c327134-6d8b-4ea8-bcc1-2a28f25e7838}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

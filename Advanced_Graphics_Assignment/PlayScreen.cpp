@@ -9,7 +9,7 @@ PlayScreen::PlayScreen()
 
 	PlaySong = true;
 
-	m_pTest = new Model("Assets/Models/skull3.obj");
+	m_pTest = new Model("Assets/Models/Tennis_Ball.obj");
 	
 	modelShader = Shader("Assets/Shaders/modelLoading.vs", "Assets/Shaders/modelLoading.fs");
 }
@@ -27,7 +27,12 @@ void PlayScreen::Update()
 		PlaySong = false;
 	}*/
 
-	
+	//if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_SPACE == GLFW_PRESS)) 
+	//{
+	//	//this function wants to make the ball launch forward
+	//	//moving the z axis would move the object back and forth
+	//	//
+	//}
 
 	
 
@@ -47,7 +52,7 @@ void PlayScreen::Render()
 	
 
 	glm::mat4 model = glm::mat4(1.0f);
-	model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
+	model = glm::translate(model, glm::vec3(0.0f, 0.0f, 1.0f));
 	model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
 	modelShader.SetMat4("model", model);
 	m_pTest->Draw(modelShader);

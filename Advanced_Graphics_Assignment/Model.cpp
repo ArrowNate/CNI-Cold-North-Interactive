@@ -1,4 +1,5 @@
 #include "Model.h"
+#include "GameEntity.h"
 
 Model::Model(std::string const& path) {
 	LoadModel(path);
@@ -192,3 +193,4 @@ unsigned int Model::TextureFromFile(const char* path, const std::string& directo
 
 	return textureID;
 }
+
