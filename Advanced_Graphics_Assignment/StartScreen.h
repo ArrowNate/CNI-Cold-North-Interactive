@@ -6,6 +6,7 @@
 #include "Graphics.h"
 #include "InputManager.h"
 #include "AudioManager.h"
+#include "Font.h"
 //#include "ScreenManager.h"
 
 class StartScreen : public GameEntity
@@ -15,23 +16,17 @@ private:
 	InputManager* m_pInputManager;
 	AudioManager* m_pAudioManager;
 	bool PlaySong;
-	//Shader* m_pShader;
-	//Font* m_pTestingFont;
+	Font* m_pFont;
 	//Timer* m_pTimer;
 
 	Texture* m_pBackground;
 	Texture* m_pPlate;
-	Texture* m_pStartGame;
 	Texture* m_pLogo;
 	Texture* m_pCursor;
-
-	GameEntity* m_pTopBar;
 
 	Vector2 mCursorStartPos;
 	Vector2 mCursorOffset;
 	int mSelectedMode;
-
-	
 
 public:
 	StartScreen();

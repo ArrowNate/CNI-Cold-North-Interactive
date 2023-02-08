@@ -1,4 +1,12 @@
 #include "StartScreen.h"
+#include "Font.h"
+#include "Shader.h"
+#include FT_FREETYPE_H
+#include "stb_image.h"
+#include <GLFW/glfw3.h>
+#include <ft2build.h>
+#include <glm/vec3.hpp>
+
 
 
 StartScreen::StartScreen()
@@ -12,17 +20,15 @@ StartScreen::StartScreen()
 	PlaySong = true;
 
 	m_pBackground = new Texture("Assets/Textures/MainMenuBackground.png", 1.0, 1.0, -1, -1, GL_RGBA);
+
 	//m_pPlate = new Texture("Assets/Textures/Plate.png", 0.2, -.2,  GL_RGBA);
+	/*m_pStartButtonText = new Texture("START GAME", "Assets/Fonts/CarneyText1.ttf", 32, Vector3(1, 1, 1), 0.5f, 0.8f);*/ // I do not believe this should be texture,                                                                                                                     possibly Font*? 
 
-	
+	m_pLogo = new Texture("Assets/Textures/CNiLogo.png", 1, -0.8, 0.8,-1,  GL_RGBA);
+	m_pLogo->Parent(this);
+	m_pLogo->Position(Vector3(.5, .5,0));
 
-	/*m_pStartGame = new Texture("START GAME", "Assets / Textures / Carnevalee Freakshow.ttf", 1, -0.8, 0.8,-1,  GL_RGBA);
-	m_pStartGame->Parent(this);
-	m_pStartGame->Position(Vector3(.5f, .5f, 0.0f));*/
-
-	/*m_pLogo = new Texture("Assets/Textures/CNiLogo.png", 1, -0.8, 0.8,-1,  GL_RGBA);*/
-	//m_pLogo->Parent(this);
-	//m_pLogo->Position(Vector3(.5, .5,0));
+	m_pFont = new Font();
 
 }
 
@@ -31,14 +37,14 @@ StartScreen::~StartScreen()
 	delete m_pBackground;
 	m_pBackground = nullptr;
 
-	delete m_pPlate;
-	m_pPlate = nullptr;
+	/*delete m_pPlate;
+	m_pPlate = nullptr;*/
 
-	/*delete m_pStartGame;
-	m_pStartGame = nullptr;*/
+	delete m_pLogo;
+	m_pLogo = nullptr;
 
-		/*delete m_pLogo;
-		m_pLogo = nullptr;**/
+	delete m_pFont;
+	m_pFont = nullptr;
 }
 	
 void StartScreen::ChangeSelectedMode(int change)
@@ -80,7 +86,7 @@ void StartScreen::Update()
 void StartScreen::Render() 
 {
 	m_pBackground->Draw();
-	/*m_pStartGame->Draw();*/
 	//m_pPlate->Draw();
-	/*m_pLogo->Draw();*/
+	m_pLogo->Draw();
+
 }

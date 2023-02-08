@@ -1,17 +1,16 @@
 #ifndef PLAYSCREEN_H
 #define PLAYSCREEN_H
-//#include "Graphics.h"
-//#include "Font.h"
-//#include "Shader.h"
-//#include "Texture.h"
+#include "Font.h"
 #include <iostream>
 
 class PlayScreen
 {
 private:
-	//Texture* m_pBackdrop;
+	
+	Font* m_pFont;
 
 public:
+
 	PlayScreen();
 	~PlayScreen();
 
