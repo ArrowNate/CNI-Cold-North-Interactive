@@ -13,6 +13,9 @@ private:
 	AudioManager* m_pAudioManager;
 	Timer* m_pTimer;
 	Texture* m_pLogo;
+	float mSplashTotalTime;
+	float mSplashTimer;
+	bool mSplashDone;
 
 public:
 	SplashScreen();

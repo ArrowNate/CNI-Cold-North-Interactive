@@ -6,6 +6,9 @@ SplashScreen::SplashScreen()
 	m_pInputManager = InputManager::Instance();
 	m_pAudioManager = AudioManager::Instance();
 	m_pGraphics = Graphics::Instance();
+	mSplashTotalTime = 5.0f;
+	mSplashTimer = 0.0f;
+	mSplashDone = false;
 
 	m_pLogo = new Texture("Assets/Textures/CNiLogo.png", 1.0, 1.0, -1.0, -1.0, GL_RGBA);
 }
@@ -18,6 +21,13 @@ SplashScreen::~SplashScreen()
 void SplashScreen::Update()
 {
 	m_pInputManager->processInput(Graphics::Instance()->GetWindow());
+	mSplashTimer += m_pTimer->DeltaTime();
+
+	if (!mSplashDone) {
+		if (mSplashTimer >= mSplashTotalTime) {
+			mSplashDone = true;
+		}
+	}
 }
 
 void SplashScreen::Render()
