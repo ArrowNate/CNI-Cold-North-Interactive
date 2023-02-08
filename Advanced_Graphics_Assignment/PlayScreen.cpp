@@ -9,8 +9,8 @@ PlayScreen::PlayScreen()
 
 	PlaySong = true;
 
-	m_pTest = new Model("Assets/Models/skull3.obj");
-	//m_pStand = new Model("Assets/Models/Stand.obj");
+	//m_pTest = new Model("Assets/Models/skull3.obj");
+	m_pStand = new Model("Assets/Models/Stand.obj");
 	
 	
 	modelShader = Shader("Assets/Shaders/modelLoading.vs", "Assets/Shaders/modelLoading.fs");
@@ -30,13 +30,22 @@ void PlayScreen::Update()
 	}*/
 
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_A) == GLFW_PRESS) {
-		m_pTest->ModelTranslate(-.1f, 0, 0);
+		m_pStand->Translate(Vector3( - .1f, 0, 0));
 		std::cout << "AAAAAAAAAAAAAA" << std::endl;
 		//m_pTest->Translate(-Vec3_Right * 0.1, World);
 	}
-
-	
-
+	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_D) == GLFW_PRESS) {
+		m_pStand->Translate(Vector3(.1f, 0, 0));
+		std::cout << "DDDDDDDDDDDDDD" << std::endl;
+	}
+	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_W) == GLFW_PRESS) {
+		m_pStand->Translate(Vector3(0, .1f, 0));
+		std::cout << "DDDDDDDDDDDDDD" << std::endl;
+	}
+	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_S) == GLFW_PRESS) {
+		m_pStand->Translate(Vector3(0, -.1f, 0));
+		std::cout << "DDDDDDDDDDDDDD" << std::endl;
+	}
 
 }
 
@@ -58,7 +67,7 @@ void PlayScreen::Render()
 	modelShader.SetMat4("model", model);
 	m_pTest->Draw(modelShader);*/
 	
-	m_pTest->Render(testname);
-	//m_pStand->Render(mStand);
+	//m_pTest->Render(testname);
+	m_pStand->Render(mStand);
 
 }
