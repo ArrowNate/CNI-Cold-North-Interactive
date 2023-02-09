@@ -7,7 +7,7 @@ Model::Model(std::string const& path) {
 
 	mPosition.x = 0;
 	mPosition.y = 0;
-	mPosition.z = -10;
+	mPosition.z = 0;
 }
 
 void Model::Draw(Shader& shader) {

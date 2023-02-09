@@ -9,15 +9,18 @@ PlayScreen::PlayScreen()
 
 	PlaySong = true;
 
-	m_pTest = new Model("Assets/Models/Tennis_Ball.obj");
+	m_pBall = new Model("Assets/Models/Tennis_Ball.obj");
+	m_pBall->Position(-0.1f, -0.8f, -0.9f);
+	
+	m_pCannon = new Model("Assets/Models/");
+	m_pCannon->Position(-0.1f, -0.9f, -0.9f);
 
 	modelShader = Shader("Assets/Shaders/modelLoading.vs", "Assets/Shaders/modelLoading.fs");
 }
 
 PlayScreen::~PlayScreen()
 {
-	//delete m_pBackdrop;
-	//m_pBackdrop = nullptr;
+
 }
 
 void PlayScreen::Update()
@@ -27,22 +30,28 @@ void PlayScreen::Update()
 		PlaySong = false;
 	}*/
 
+	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_SPACE) == GLFW_PRESS) {
+		m_pBall->ModelTranslate(0, 0, -0.1f); 
+		std::cout << "SPACE" << std::endl;
+
+		// moves the ball foward on keypress and controls speed
+	}
+	
+
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_A) == GLFW_PRESS) {
-		m_pTest->ModelTranslate(-.1f, 0, 0);
-		std::cout << "AAAAAAAAAAAAAA" << std::endl;
-		//m_pTest->Translate(-Vec3_Right * 0.1, World);
+			m_pBall->ModelTranslate(-0.05f, 0, 0);
+			//m_pCannon->ModelTranslate(-0.05f, 0, 0);
+			// making the cannon and ball move together
 	}
 
-	//if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_SPACE == GLFW_PRESS))
-	//{
-	//	//this function wants to make the ball launch forward
-	//	//moving the z axis would move the object back and forth
-	//	//
-	//}
-
-
-
-
+	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_D) == GLFW_PRESS) {
+			m_pBall->ModelTranslate(0.05f, 0, 0);
+			//m_pCannon->ModelTranslate(0.05f, 0, 0);
+			// making the cannon and ball move together
+	}
+	
+	// plates are at -30 so the ball has to stop around there
+	
 }
 
 void PlayScreen::Render()
@@ -63,7 +72,8 @@ void PlayScreen::Render()
 	modelShader.SetMat4("model", model);
 	m_pTest->Draw(modelShader);*/
 
-	m_pTest->Render(testname);
+	m_pBall->Render(mBall);
+	m_pCannon->Render(mCannon);
 	//m_pStand->Render(mStand);
 
 }
