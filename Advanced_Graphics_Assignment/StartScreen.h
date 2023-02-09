@@ -27,6 +27,8 @@ private:
 
 	int ScreenSelected;
 
+	Font* m_pFont;
+
 public:
 	StartScreen();
 	~StartScreen();

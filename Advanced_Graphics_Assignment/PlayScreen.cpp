@@ -4,7 +4,6 @@
 PlayScreen::PlayScreen()
 {
 
-
 	m_pInputManager = InputManager::Instance();
     m_pAudioManager = AudioManager::Instance();
 	m_pGraphics = Graphics::Instance();
@@ -20,8 +19,6 @@ PlayScreen::PlayScreen()
 	m_pSpeaker->Position(-6.5f, -3, -10);
 
 	modelShader = Shader("Assets/Shaders/modelLoading.vs", "Assets/Shaders/modelLoading.fs");
-
-	
 
 	float y = 6;
 	float temp = 0;
@@ -125,7 +122,6 @@ void PlayScreen::Update()
 
 void PlayScreen::Render()
 {
-	
 	modelShader.Use();
 
 	//----------------------THIS IS OUR VIEWPORT----------------------
@@ -144,7 +140,6 @@ void PlayScreen::Render()
 		m_pPlates[i]->Render(mPlates);
 	}
 
-	
 	m_pHUD->Draw();
 }
 
