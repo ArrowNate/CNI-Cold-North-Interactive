@@ -1,9 +1,6 @@
 #ifndef PLAYSCREEN_H
 #define PLAYSCREEN_H
-//#include "Graphics.h"
-//#include "Font.h"
-//#include "Shader.h"
-//#include "Texture.h"
+#include "InputManager.h"
 #include <iostream>
 #include <assimp/camera.h>
 
@@ -23,6 +20,10 @@ private:
 	Camera m_pCamera;
 	//Texture* m_pBackdrop;
 	AudioManager* m_pAudioManager;
+	InputManager* m_pInputManager;
+	Graphics* m_pGraphics;
+
+	int ScreenSelected;
 
 	Model* m_pPlate;
 	glm::mat4 mPlate;
@@ -46,8 +47,13 @@ public:
 	PlayScreen();
 	~PlayScreen();
 
+	int SelectedScreen();
+
+	void setSelectedScreen(int Screen);
+
 	void Update();
 	void Render();
 
 };
+
 #endif // !PLAYSCREEN_H

@@ -5,7 +5,10 @@ Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
 
 PlayScreen::PlayScreen()
 {
-	m_pAudioManager = AudioManager::Instance();
+	m_pInputManager = InputManager::Instance();
+    m_pAudioManager = AudioManager::Instance();
+
+    ScreenSelected = 1;
 
 	PlaySong = true;
 
@@ -43,17 +46,29 @@ PlayScreen::PlayScreen()
 		}
 		temp++;
 	}
-		
+
+
 }
 
 PlayScreen::~PlayScreen()
 {
-	//delete m_pBackdrop;
-	//m_pBackdrop = nullptr;
+	delete m_pBackdrop;
+	m_pBackdrop = nullptr;
+}
+
+int PlayScreen::SelectedScreen()
+{
+	return ScreenSelected;
+}
+
+void PlayScreen::setSelectedScreen(int Screen)
+{
+	ScreenSelected = Screen;
 }
 
 void PlayScreen::Update()
 {
+
 	if (PlaySong == true) {
 		//m_pAudioManager->PlayMusic2("Assets/Music/PlayScreenSong.mp3");
 		m_pAudioManager->PlayMusic3D("Assets/Music/PlayScreenSong.mp3", -2.0f, -3, 1);
@@ -85,6 +100,10 @@ void PlayScreen::Update()
 		m_pPlate->ModelTranslate(0, 0, 0.1f);
 		std::cout << "EEEEEEEEEEEEE" << std::endl;
 	}
+
+	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_BACKSPACE) == GLFW_PRESS) {
+		ScreenSelected = 2;
+	}
 }
 
 void PlayScreen::Render()
@@ -114,3 +133,5 @@ void PlayScreen::Render()
 		m_pPlates[i]->Render(mPlates);
 	}
 }
+
+

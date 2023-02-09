@@ -17,13 +17,14 @@
 class GameEntity
 {
 public:
-
 	enum Space { Local = 0, World = 1 };
 
 protected:
 	Vector3 mPosition;
 	float mRotation;
 	Vector3 mScale;
+
+	int ScreenChoice;
 
 	bool mActive;
 	GameEntity* mParent;
