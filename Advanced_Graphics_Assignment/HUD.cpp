@@ -3,7 +3,7 @@
 HUD::HUD() {
 
 	m_pFont = new Font();
-	m_pHUDBorder = new Texture("Assets/Textures/HUDBorder2.png", 1.0, 1.0, -1.0, -1.0, GL_RGBA);
+	m_pHUDBorder = new Texture("Assets/Textures/HUDBorder1.png", 1.0, 1.0, -1.0, -1.0, GL_RGBA);
 }
 
 HUD::~HUD() {
@@ -42,11 +42,9 @@ void HUD::Draw() {
 	}
 
 	// font color
-	m_pFont->RenderText("SCORE: 15950", 35, 733, 1.4, glm::vec3(0.0f, 0.0f, 0.0f)); // (1.0f,0.7f,0.0f - b.orange), (1.0f, 0.0f, 0.0f - red), (0.0f, 0.7f, 1.0f - b.blue)
-	m_pFont->RenderText("SHOTS LEFT: 18", 650, 738, 1.2, glm::vec3(0.0f, 0.0f, 0.0f)); // (0.0f, 0.0f, 1.0f - blue), (1.0f, 1.0f, 1.0f - white), (0.0f, 0.0f, 0.0f - 
+	m_pFont->RenderText("SCORE: 15950", 35, 733, 1.4, glm::vec3(0.0f, 0.0f, 0.0f)); // (1.0f,0.7f,0.0f - b.orange), (1.0f, 0.0f, 0.0f - red), (0.0f, 0.7f, 1.0f 
+	m_pFont->RenderText("SHOTS LEFT: 18", 650, 738, 1.2, glm::vec3(0.0f, 0.0f, 0.0f)); // (0.0f, 0.0f, 1.0f - blue), (1.0f, 1.0f, 1.0f - white), (0.0f, 0.0f, 0.0f 
 	m_pFont->RenderText("TIME: 125", 7, 10, 1.2, glm::vec3(0.0f, 0.0f, 0.0f));                                                                     // black)
-
-	
 }
 
 
