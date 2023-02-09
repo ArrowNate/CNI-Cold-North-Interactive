@@ -12,6 +12,9 @@
 class StartScreen : public GameEntity
 {
 private:
+
+	double previousTime = 0.0;
+
 	//enum Screens { Start, Credits };
 	Graphics* m_pGraphics;
 	InputManager* m_pInputManager;
