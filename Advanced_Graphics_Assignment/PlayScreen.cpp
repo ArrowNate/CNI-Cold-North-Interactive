@@ -42,11 +42,14 @@ PlayScreen::PlayScreen()
 		temp++;
 	}
 
-
+	m_pHUD = new HUD();
 }
 
 PlayScreen::~PlayScreen()
 {
+	delete m_pHUD;
+	m_pHUD = nullptr;
+
 	AudioManager::Release();
 	m_pAudioManager = nullptr;
 
@@ -66,6 +69,7 @@ PlayScreen::~PlayScreen()
 
 	delete m_pSpeaker;
 	m_pSpeaker = nullptr;
+
 }
 
 int PlayScreen::SelectedScreen()
@@ -119,7 +123,6 @@ void PlayScreen::Update()
 
 void PlayScreen::Render()
 {
-	
 	modelShader.Use();
 
 	//----------------------THIS IS OUR VIEWPORT----------------------
@@ -137,6 +140,7 @@ void PlayScreen::Render()
 	for (int i = 0; i < 15; i++) {
 		m_pPlates[i]->Render(mPlates);
 	}
-}
 
+	m_pHUD->Draw();
+}
 

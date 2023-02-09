@@ -4,6 +4,7 @@
 #include "Graphics.h"
 #include "GameEntity.h"
 #include "AudioManager.h"
+#include "Font.h"
 
 class Credits : public GameEntity
 {
@@ -13,14 +14,9 @@ private:
 	AudioManager* m_pAudioManager;
 	bool PlaySong;
 
+	Font* m_pFont;
+
 	Texture* m_pBackground;
-	Texture* m_pGeorge;
-	Texture* m_pRichard;
-	Texture* m_pDaniel;
-	Texture* m_pBrandon;
-	Texture* m_pSam;
-	Texture* m_pMikaelo;
-	Texture* m_pMaksim;
 	Texture* m_pPatrick;
 	Texture* m_pLogo;
 

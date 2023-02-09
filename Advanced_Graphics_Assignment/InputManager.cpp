@@ -52,6 +52,7 @@ void InputManager::mouse_callback(GLFWwindow* window, double xPos, double yPos)
 
 void InputManager::processInput(GLFWwindow* window)
 {
+
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 	{
 		glfwSetWindowShouldClose(window, true);
@@ -83,12 +84,3 @@ void InputManager::Update()
 }
 
 InputManager* InputManager::sInstance = nullptr;
-
-/*unsigned char pixels[16 * 16 * 4];
-	memset(pixels, 0xff, sizeof(pixels));
-	GLFWimage image;
-	image.width = 16;
-	image.height = 16;
-	image.pixels;
-	GLFWcursor* cursor = glfwCreatCurser(&image, 0, 0);
-	glfwSetCursor(window, cursor);*/

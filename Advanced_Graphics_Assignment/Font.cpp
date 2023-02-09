@@ -1,9 +1,9 @@
 #include "Font.h"
 
-std::map<GLchar, Character> Characters;
-unsigned int VBO, VAO;
 
-Font::Font(std::string text, std::string fontPath, int size, glm::vec3 color) {
+
+Font::Font() {
+
 	FT_Library ft;
 
 	if (FT_Init_FreeType(&ft))
@@ -12,8 +12,8 @@ Font::Font(std::string text, std::string fontPath, int size, glm::vec3 color) {
 		return;
 	}
 
-	// find path to font
-	std::string font_name = ("Assets/fonts/Antonio-Bold.ttf");
+	// This is the path to the font file location
+	std::string font_name = ("Assets/Fonts/CarneyText.ttf");
 	if (font_name.empty())
 	{
 		std::cout << "ERROR::FREETYPE: Failed to load font_name" << std::endl;
@@ -77,7 +77,7 @@ Font::Font(std::string text, std::string fontPath, int size, glm::vec3 color) {
 	}
 
 
-	Shader ourShader("Assets/Shaders/text.vs", "Assets/Shaders/text.fs");
+	ourShader = Shader("Assets/Shaders/text.vs", "Assets/Shaders/text.fs");
 
 	glGenVertexArrays(1, &VAO);
 	glGenBuffers(1, &VBO);
@@ -95,13 +95,21 @@ Font::Font(std::string text, std::string fontPath, int size, glm::vec3 color) {
 	glm::mat4 projection = glm::ortho(0.0f, 1000.0f, 0.0f, 800.0f);
 	ourShader.Use();
 	glUniformMatrix4fv(glGetUniformLocation(ourShader.GetID(), "projection"), 1, GL_FALSE, glm::value_ptr(projection));
+
+	/*FT_Done_Face(face);
+	FT_Done_FreeType(ft)*/
 }
 
-void RenderText(Shader& shader, std::string text, float x, float y, float scale, glm::vec3 color) {
+Font::~Font()
+{
+
+}
+
+void Font::RenderText(std::string text, float x, float y, float scale, glm::vec3 color) {
 
 	// activate corresponding render state	
-	shader.Use();
-	glUniform3f(glGetUniformLocation(shader.GetID(), "textColor"), color.x, color.y, color.z);
+	ourShader.Use();
+	glUniform3f(glGetUniformLocation(ourShader.GetID(), "textColor"), color.x, color.y, color.z);
 	glActiveTexture(GL_TEXTURE0);
 	glBindVertexArray(VAO);
 

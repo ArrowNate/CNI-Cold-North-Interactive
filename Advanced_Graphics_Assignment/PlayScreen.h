@@ -1,6 +1,7 @@
 #ifndef PLAYSCREEN_H
 #define PLAYSCREEN_H
 #include "InputManager.h"
+#include "HUD.h"
 #include <iostream>
 #include <assimp/camera.h>
 
@@ -24,6 +25,10 @@ private:
 
 	int ScreenSelected;
 
+	HUD* m_pHUD;
+	Font* m_pFont;
+	Texture* m_pHUDBorder;
+
 	Model* m_pPlate;
 	glm::mat4 mPlate;
 
@@ -45,8 +50,6 @@ private:
 	const float mPlatesx = -11;
 	const int mPlatesz = -30;
 
-
-	
 public:
 	PlayScreen();
 	~PlayScreen();
