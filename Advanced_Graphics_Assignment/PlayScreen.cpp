@@ -12,6 +12,8 @@ PlayScreen::PlayScreen()
 
 	PlaySong = true;
 
+
+
 	//m_pTest = new Model("Assets/Models/skull3.obj");
 	m_pStand = new Model("Assets/Models/Stand.obj");
 	m_pStand->Position(-1.1f, -4.5, -7);
@@ -52,13 +54,13 @@ PlayScreen::PlayScreen()
 
 PlayScreen::~PlayScreen()
 {
-	delete m_pBackdrop;
-	m_pBackdrop = nullptr;
+
 }
 
 int PlayScreen::SelectedScreen()
 {
 	return ScreenSelected;
+
 }
 
 void PlayScreen::setSelectedScreen(int Screen)

@@ -73,6 +73,7 @@ void ScreenManager::Render()
 
 	case Play:
 		m_pPlayScreen->Render();
+
 		break;
 	}
 }

@@ -23,6 +23,15 @@ StartScreen::StartScreen()
 
 StartScreen::~StartScreen() 
 {
+	AudioManager::Release();
+	m_pAudioManager = nullptr;
+
+	InputManager::Release();
+	m_pInputManager = nullptr;
+
+	Graphics::Release();
+	m_pGraphics = nullptr;
+
 	delete m_pBackground;
 	m_pBackground = nullptr;
 
@@ -82,6 +91,8 @@ void StartScreen::Update()
 
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_S) == GLFW_PRESS) {
 		ChangeSelectedMode(1);
+
+		
 	}
 	else if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_W) == GLFW_PRESS) {
 		ChangeSelectedMode(-1);
@@ -89,7 +100,10 @@ void StartScreen::Update()
 
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_ENTER) == GLFW_PRESS) {
 		ScreenSelected = ScreenChoice;
+		m_pAudioManager->PauseMusic();
 	}
+
+	
 }
 
 void StartScreen::Render() 

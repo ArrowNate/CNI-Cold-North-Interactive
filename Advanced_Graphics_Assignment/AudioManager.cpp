@@ -35,13 +35,13 @@ AudioManager::~AudioManager()
 
 void AudioManager::PlayMusic()
 {
-	
+
 	m_pSoundEngine->play2D("Assets/Music/Survivor_-_Eye_Of_The_Tiger_(Jesusful.com).mp3", true);
 }
 
 void AudioManager::PauseMusic()
 {
-
+	m_pSoundEngine->stopAllSounds();
 }
 
 void AudioManager::PlaySFX()
