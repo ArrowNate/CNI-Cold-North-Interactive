@@ -78,6 +78,11 @@ void StartScreen::Update()
 		PlaySong = false;
 	}
 
+	if (m_pInputManager->MouseButtonPressed())
+	{
+		std::cout << "click" << std::endl;
+	}
+
 	m_pInputManager->processInput(Graphics::Instance()->GetWindow());
 
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_S) == GLFW_PRESS) {
