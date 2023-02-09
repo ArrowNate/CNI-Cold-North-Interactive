@@ -129,3 +129,6 @@ void Shader::SetMat4(const std::string& name, glm::mat4& value) const
 
 void Shader::SetID(unsigned int id) { ID = id; }
 
+Shader::Shader() {
+
+}
