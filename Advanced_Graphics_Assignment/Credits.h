@@ -17,7 +17,6 @@ private:
 	Font* m_pFont;
 
 	Texture* m_pBackground;
-	Texture* m_pMaksim;
 	Texture* m_pPatrick;
 	Texture* m_pLogo;
 

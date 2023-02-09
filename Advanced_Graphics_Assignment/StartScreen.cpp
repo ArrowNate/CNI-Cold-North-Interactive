@@ -15,12 +15,8 @@ StartScreen::StartScreen()
 
 	m_pBackground = new Texture("Assets/Textures/PlateObliteratorMainMenu.png", 1.0, 1.0, -1.0, -1.0, GL_RGBA);
 	m_pLogo = new Texture("Assets/Textures/CNiLogo.png", 1.0, -0.72, 0.72, -1.0, GL_RGBA);
-	//m_pStartGame = new Texture("Assets/Textures/StartGameQ.png", 0.37, 0.04, -0.39, -0.11, GL_RGBA);
-	//m_pCredits = new Texture("Assets/Textures/CreditsQ.png", 0.37, -0.3, -0.39, -0.45, GL_RGBA);
 	m_pArrow = new Texture("Assets/Textures/MainMenuSelectorArrow.png", -0.47, -0.3, -0.86, -0.45, GL_RGBA);
 	m_pArrow2 = new Texture("Assets/Textures/MainMenuSelectorArrow2.png", -0.47, 0.04, -0.86, -0.11, GL_RGBA);
-	//m_pBackground->Parent(this);
-	//m_pBackground->Position(Vector3(1000, 800));
 }
 
 StartScreen::~StartScreen() 
