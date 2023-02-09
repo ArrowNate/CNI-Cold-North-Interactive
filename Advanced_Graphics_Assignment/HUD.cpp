@@ -1,11 +1,12 @@
 #include "HUD.h"
 
 HUD::HUD() {
-	
+	m_pFont = new Font();
 }
 
 HUD::~HUD() {
-	
+	delete m_pFont;
+	m_pFont = nullptr;
 }
 
 void HUD::Update() {

@@ -2,11 +2,15 @@
 
 PlayScreen::PlayScreen()
 {
+
+
 	m_pInputManager = InputManager::Instance();
 	m_pAudioManager = AudioManager::Instance();
 	m_pGraphics = Graphics::Instance();
 
 	ScreenSelected = 1;
+
+	m_pHUD = new HUD();
 
 	m_pBackdrop = new Texture("Assets/Textures/CarnivalSetWaves.png", 1.0, 1.0, -1.0, -1.0, GL_RGBA);
 }
@@ -15,6 +19,9 @@ PlayScreen::~PlayScreen()
 {
 	delete m_pBackdrop;
 	m_pBackdrop = nullptr;
+
+	delete m_pHUD;
+	m_pHUD = nullptr;
 }
 
 int PlayScreen::SelectedScreen()
@@ -37,4 +44,6 @@ void PlayScreen::Update()
 void PlayScreen::Render()
 {
 	m_pBackdrop->Draw();
+	m_pHUD->Draw();
+	
 }

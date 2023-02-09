@@ -6,6 +6,7 @@
 #include "Graphics.h"
 #include "InputManager.h"
 #include "AudioManager.h"
+#include "Font.h"
 //#include "ScreenManager.h"
 
 class StartScreen : public GameEntity
