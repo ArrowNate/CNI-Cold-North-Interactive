@@ -102,11 +102,11 @@ void PlayScreen::Update()
 		std::cout << m_pSpeaker->Position().y << std::endl;
 	}
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_E) == GLFW_PRESS) {
-		m_pPlate->ModelTranslate(0, 0, -.1f);
+		m_pSpeaker->ModelTranslate(0, 0, -.1f);
 		std::cout << "EEEEEEEEEEEEE" << std::endl;
 	}
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_Q) == GLFW_PRESS) {
-		m_pPlate->ModelTranslate(0, 0, 0.1f);
+		m_pSpeaker->ModelTranslate(0, 0, 0.1f);
 		std::cout << "EEEEEEEEEEEEE" << std::endl;
 	}
 
