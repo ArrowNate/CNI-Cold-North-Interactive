@@ -15,6 +15,7 @@ private:
 
 	Texture* m_pBackground;
 	Texture* m_pGeorge;
+	Texture* m_pRichard;
 	Texture* m_pDaniel;
 	Texture* m_pBrandon;
 	Texture* m_pSam;

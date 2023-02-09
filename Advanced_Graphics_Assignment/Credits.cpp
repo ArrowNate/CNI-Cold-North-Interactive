@@ -11,6 +11,7 @@ Credits::Credits()
 
 	m_pBackground = new Texture("Assets/Textures/CarnvialBackgroundSet.png", 1.0, 1.0, -1.0, -1.0, GL_RGBA);
 	m_pGeorge = new Texture("Assets/Textures/George.png", 0.0, 0.675, -0.76, 0.525, GL_RGBA);
+	m_pRichard = new Texture("Assets/Textures/Richard.png", 0.8, 0.675, 0.16, 0.525, GL_RGBA);
 	m_pDaniel = new Texture("Assets/Textures/Daniel.png", 0.0, 0.31, -0.76, 0.16, GL_RGBA);
 	m_pBrandon = new Texture("Assets/Textures/Brandon.png", 0.8, 0.31, 0.16, 0.16, GL_RGBA);
 	m_pSam = new Texture("Assets/Textures/Sam.png", 0.0, 0.06, -0.76, -0.09, GL_RGBA);
@@ -27,6 +28,9 @@ Credits::~Credits()
 
 	delete m_pGeorge;
 	m_pGeorge = nullptr;
+
+	delete m_pRichard;
+	m_pRichard = nullptr;
 
 	delete m_pDaniel;
 	m_pDaniel = nullptr;
@@ -71,6 +75,7 @@ void Credits::Render()
 {
 	m_pBackground->Draw();
 	m_pGeorge->Draw();
+	m_pRichard->Draw();
 	m_pDaniel->Draw();
 	m_pBrandon->Draw();
 	m_pSam->Draw();
