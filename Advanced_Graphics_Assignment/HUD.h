@@ -11,10 +11,11 @@ public:
 	~HUD();
 
 	void Update();
-	void Render();
+	void Draw();
 
-protected:
+private:
 	Font* m_pFont;
+	HUD* m_pHUD;
 };
 
 #endif // !_HUD_H

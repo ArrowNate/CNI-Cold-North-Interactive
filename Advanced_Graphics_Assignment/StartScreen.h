@@ -7,6 +7,7 @@
 #include "InputManager.h"
 #include "AudioManager.h"
 #include "Font.h"
+#include "HUD.h"
 //#include "ScreenManager.h"
 
 class StartScreen : public GameEntity
@@ -16,8 +17,6 @@ private:
 	InputManager* m_pInputManager;
 	AudioManager* m_pAudioManager;
 	bool PlaySong;
-	/*Font* m_pFont;
-	HUD* m_pHUD;*/
 	//Timer* m_pTimer;
 
 	Texture* m_pBackground;

@@ -1,6 +1,10 @@
 #include "Level.h"
 #include <iostream>
 
+//Level::Level(const std::string& filename) {
+//	// This should hold the file names of the levels if there are multiple.
+//}
+
 Level::Level() {
 
 	m_pHUD = new HUD();
@@ -18,7 +22,7 @@ void Level::Update()
 
 void Level::Render() {
 
-	m_pHUD->Render();
+	m_pHUD->Draw();
 }
 
 //Level::Level() {}

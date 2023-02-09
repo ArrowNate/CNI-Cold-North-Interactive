@@ -13,6 +13,8 @@ private:
 
 public:
 
+	/*Level(const std::string& filename);*/
+
 	Level();
 	~Level();
 	

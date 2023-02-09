@@ -4,7 +4,6 @@
 #include <map>
 #include <ft2build.h>
 #include <unordered_map>
-#include "HUD.h"
 #include FT_FREETYPE_H // This is a library for rendering text on screen. 
 
 struct Character {

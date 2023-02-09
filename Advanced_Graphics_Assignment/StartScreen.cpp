@@ -7,6 +7,7 @@
 #include <ft2build.h>
 #include <glm/vec3.hpp>
 
+
 StartScreen::StartScreen()
 {
 
@@ -19,8 +20,7 @@ StartScreen::StartScreen()
 
 	m_pBackground = new Texture("Assets/Textures/MainMenuBackground.png", 1.0, 1.0, -1, -1, GL_RGBA);
 
-	//m_pPlate = new Texture("Assets/Textures/Plate.png", 0.2, -.2,  GL_RGBA);
-	/*m_pStartButtonText = new Texture("START GAME", "Assets/Fonts/CarneyText1.ttf", 32, Vector3(1, 1, 1), 0.5f, 0.8f);*/ // I do not believe this should be texture,                                                                                                                     possibly Font*? 
+	//m_pPlate = new Texture("Assets/Textures/Plate.png", 0.2, -.2,  GL_RGBA);                                                                                     
 
 	m_pLogo = new Texture("Assets/Textures/CNiLogo.png", 1, -0.8, 0.8,-1,  GL_RGBA);
 	m_pLogo->Parent(this);
@@ -37,6 +37,7 @@ StartScreen::~StartScreen()
 
 	delete m_pLogo;
 	m_pLogo = nullptr;
+
 }
 	
 void StartScreen::ChangeSelectedMode(int change)
@@ -73,6 +74,7 @@ void StartScreen::Update()
 	else if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_UP) == GLFW_PRESS) {
 		ChangeSelectedMode(-1);
 	}
+
 }
 
 void StartScreen::Render() 
