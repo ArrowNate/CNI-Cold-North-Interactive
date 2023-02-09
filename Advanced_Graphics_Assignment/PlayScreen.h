@@ -36,6 +36,9 @@ private:
 	Shader modelShader;
 	bool PlaySong;
 
+	Model* m_pPlates[15];
+	glm::mat4 mPlates;
+
 	const unsigned int SCR_WIDTH = 1024;
 	const unsigned int SCR_HEIGHT = 768;
 	

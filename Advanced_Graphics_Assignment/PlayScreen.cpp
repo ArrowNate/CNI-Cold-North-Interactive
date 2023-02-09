@@ -13,13 +13,37 @@ PlayScreen::PlayScreen()
 	m_pStand = new Model("Assets/Models/Stand.obj");
 	m_pStand->Position(-1.1f, -4.5, -7);
 
-	m_pPlate = new Model("Assets/Models/Plate.obj");
-	m_pPlate->Position(-1.1f, -1, -30);
+	//m_pPlate = new Model("Assets/Models/Plate.obj");
+	//m_pPlate->Position(-1.1f, -1, -30);
 
 	m_pSpeaker = new Model("Assets/Models/Speaker.obj");
 	m_pSpeaker->Position(-6.5f, -3, -10);
 
 	modelShader = Shader("Assets/Shaders/modelLoading.vs", "Assets/Shaders/modelLoading.fs");
+
+	float x = -11;
+	float y = 6;
+	float temp = 0;
+
+	for (int i = 0; i < 15; i++) { // first part is decleration, second part is the number of iterations/loops, third is to increment/move on, it can go to the opposite direction, can be different ways.
+		m_pPlates[i] = new Model("Assets/Models/Plate.obj"); // extantiating variable, each element in the array
+
+		if (i % 5 == 0) {// if the remainder of the division is 0
+			//x = -11;
+			y = y - 3.5;
+			temp = 0;
+		} 
+
+		if (i != 0) {
+			m_pPlates[i]->Position(x + (temp * 5.25), y, -30);
+			std::cout << y << std::endl;
+		}
+		else {
+			m_pPlates[i]->Position(x , y, -30);
+		}
+		temp++;
+	}
+		
 }
 
 PlayScreen::~PlayScreen()
@@ -83,6 +107,10 @@ void PlayScreen::Render()
 	
 	//m_pTest->Render(testname);
 	m_pStand->Render(mStand);
-	m_pPlate->Render(mPlate);
+	//m_pPlate->Render(mPlate);
 	m_pSpeaker->Render(mSpeaker);
+	
+	for (int i = 0; i < 15; i++) {
+		m_pPlates[i]->Render(mPlates);
+	}
 }
