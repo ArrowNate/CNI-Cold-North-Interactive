@@ -2,6 +2,10 @@
 
 InputManager::InputManager()
 {
+	window = Graphics::Instance()->GetWindow();
+	glfwSetCursorPosCallback(window, mouse_callback);
+	glfwSetMouseButtonCallback(window, mouseButtonCallBack);
+	glfwSetCursorEnterCallback(window, cursorEnterCallBack);
 }
 
 InputManager::~InputManager()
@@ -33,7 +37,7 @@ void InputManager::mouseButtonCallBack(GLFWwindow* window, int button, int actio
 	
 }
 
-void InputManager::cursorEnterCallback(GLFWwindow* window, int entered)
+void InputManager::cursorEnterCallBack(GLFWwindow* window, int entered)
 {
 	if (entered)
 	{
@@ -47,7 +51,7 @@ void InputManager::cursorEnterCallback(GLFWwindow* window, int entered)
 
 void InputManager::mouse_callback(GLFWwindow* window, double xPos, double yPos)
 {
-	std::cout << xPos << " : " << yPos << std::endl;
+	std::cout << xPos << ":" << yPos << std::endl;
 }
 
 void InputManager::processInput(GLFWwindow* window)
@@ -90,5 +94,7 @@ InputManager* InputManager::sInstance = nullptr;
 	image.width = 16;
 	image.height = 16;
 	image.pixels;
-	GLFWcursor* cursor = glfwCreatCurser(&image, 0, 0);
+	GLFWcursor* cursor = glfwCreateCurser(&image, 0, 0);
 	glfwSetCursor(window, cursor);*/
+
+//glfwSetFramebufferSizeCallback(pWindow, FrameBufferSizeCallBack);
