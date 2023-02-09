@@ -8,6 +8,8 @@ Model::Model(std::string const& path) {
 	mPosition.x = 0;
 	mPosition.y = 0;
 	mPosition.z = -10;
+
+	mRotation = 0;
 }
 
 void Model::Draw(Shader& shader) {
@@ -205,6 +207,7 @@ void Model::Render(glm::mat4 name) {
 	name = glm::mat4(1.0f);
 	name = glm::translate(name, glm::vec3(mPosition.x, mPosition.y, mPosition.z));
 	name = glm::scale(name, glm::vec3(0.2f, 0.2f, 0.2f));
+	//name = glm::rotate(name, glm::radians(30), )
 	
 	modelShader.SetMat4("model", name); // setmat4 is setting the translate/movement/scale/rotation into the shader code
 	Draw(modelShader);
