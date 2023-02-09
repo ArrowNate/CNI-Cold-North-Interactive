@@ -1,9 +1,10 @@
 #ifndef SCREENMANAGER_H
 #define SCREENMANAGER_H
 #include <iostream>
-#include "PlayScreen.h"
+#include <vector>
 #include "StartScreen.h"
-#include "SplashScreen.h"
+#include "PlayScreen.h"
+#include "Credits.h"
 //#include "Graphics.h"
 
 class ScreenManager
@@ -11,12 +12,13 @@ class ScreenManager
 private:
 	static ScreenManager* sInstance;
 
-	enum Screens { Start, Play, Splash };
+	enum Screens { Credit, Play, Start };
 	Screens mCurrentScreen;
 	//GLFWwindow* window;
-	SplashScreen* m_pSplashScreen;
-	PlayScreen* m_pPlayScreen;
 	StartScreen* m_pStartScreen;
+	PlayScreen* m_pPlayScreen;
+	Credits* m_pCredits;
+	std::vector<GameEntity*>Screens;
 
 	int ScreenChoice;
 

@@ -22,55 +22,51 @@ void ScreenManager::Release()
 ScreenManager::ScreenManager() 
 {
 	mCurrentScreen = Start;
-	m_pSplashScreen = new SplashScreen();
 	m_pStartScreen = new StartScreen();
+	m_pCredits = new Credits();
 	m_pPlayScreen = new PlayScreen();
 
-	ScreenChoice = 0;
+	Screens.push_back(m_pStartScreen);
+	Screens.push_back(m_pPlayScreen);
+	Screens.push_back(m_pCredits);
+
+	ScreenChoice = 2;
 }
 
 void ScreenManager::Update()
 {
-	switch (mCurrentScreen)
+	switch (ScreenChoice)
 	{
 	case Start:
 		m_pStartScreen->Update();
+		m_pCredits->setSelectedScreen(0);
+		m_pPlayScreen->setSelectedScreen(1);
+		ScreenChoice = m_pStartScreen->SelectedScreen();
+		break;
 
-		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_DOWN) == GLFW_PRESS) {
-			ScreenChoice -= 1;
-		}
-		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_UP) == GLFW_PRESS) {
-			ScreenChoice += 1;
-		}
-		if (ScreenChoice < 0) {
-			ScreenChoice = 1;
-		}
-		else if (ScreenChoice > 1) {
-			ScreenChoice = 0;
-		}
-
-		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_ENTER) == GLFW_PRESS) {
-			mCurrentScreen = Play;
-		}
+	case Credit:
+		m_pCredits->Update();
+		m_pStartScreen->setSelectedScreen(2);
+		ScreenChoice = m_pCredits->SelectedScreen();
 		break;
 
 	case Play:
-		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_ESCAPE) == GLFW_PRESS) {
-			mCurrentScreen = Start;
-		}
+		m_pPlayScreen->Update();
+		m_pStartScreen->setSelectedScreen(2);
+		ScreenChoice = m_pPlayScreen->SelectedScreen();
 		break;
 	}
 }
 
 void ScreenManager::Render()
 {
-	switch (mCurrentScreen) {
-	case Splash:
-		m_pSplashScreen->Render();
-		break;
-
+	switch (ScreenChoice) {
 	case Start:
 		m_pStartScreen->Render();
+		break;
+
+	case Credit:
+		m_pCredits->Render();
 		break;
 
 	case Play:
@@ -84,8 +80,8 @@ ScreenManager::~ScreenManager()
 	delete m_pStartScreen;
 	m_pStartScreen = nullptr;
 
-	delete m_pSplashScreen;
-	m_pSplashScreen = nullptr;
+	delete m_pCredits;
+	m_pCredits = nullptr;
 
 	delete m_pPlayScreen;
 	m_pPlayScreen = nullptr;
