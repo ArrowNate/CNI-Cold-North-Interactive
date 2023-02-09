@@ -21,7 +21,7 @@ void ScreenManager::Release()
 
 ScreenManager::ScreenManager() 
 {
-	mCurrentScreen = Splash;
+	mCurrentScreen = Start;
 	m_pSplashScreen = new SplashScreen();
 	m_pStartScreen = new StartScreen();
 	m_pPlayScreen = new PlayScreen();
