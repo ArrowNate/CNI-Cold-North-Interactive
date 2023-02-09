@@ -27,6 +27,7 @@ private:
 
 	HUD* m_pHUD;
 	Font* m_pFont;
+	Texture* m_pHUDBorder;
 
 	Model* m_pPlate;
 	glm::mat4 mPlate;

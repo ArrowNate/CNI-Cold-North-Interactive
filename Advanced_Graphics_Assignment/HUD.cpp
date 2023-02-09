@@ -1,12 +1,17 @@
 #include "HUD.h"
 
 HUD::HUD() {
+
 	m_pFont = new Font();
+	m_pHUDBorder = new Texture("Assets/Textures/HUDBorder.png", 1.0, 1.0, -1.0, -1.0, GL_RGBA);
 }
 
 HUD::~HUD() {
 	delete m_pFont;
 	m_pFont = nullptr;
+
+	delete m_pHUDBorder;
+	m_pHUDBorder = nullptr;
 }
 
 void HUD::Update() {
@@ -15,7 +20,9 @@ void HUD::Update() {
 
 void HUD::Draw() {
 
-	const int thickness = 3; // This is the thickness of the border around the text
+	m_pHUDBorder->Draw();
+
+	const int thickness = 2; // This is the thickness of the border around the text
 
 	for (int i = -thickness; i <= thickness; ++i) // inner loop repeats over j from -thickness to thickness same with i as well. 
 
@@ -28,17 +35,18 @@ void HUD::Draw() {
 			}
 
 			// border color
-			m_pFont->RenderText("SCORE: ", 7 + i, 763 + j, 1.1, glm::vec3(1.0f, 1.0f, 1.0f));
-			m_pFont->RenderText("SHOTS LEFT: ", 680 + i, 763 + j, 1.1, glm::vec3(1.0f, 1.0f, 1.0f)); // These handle the border which is offset slightly from 
+			m_pFont->RenderText("SCORE: ", 7 + i, 748 + j, 1.1, glm::vec3(1.0f, 1.0f, 1.0f));
+			m_pFont->RenderText("SHOTS LEFT: ", 665 + i, 748 + j, 1.1, glm::vec3(1.0f, 1.0f, 1.0f)); // These handle the border which is offset slightly from 
 			m_pFont->RenderText("TIME LEFT: ", 7 + i, 10 + j, 1.1, glm::vec3(1.0f, 1.0f, 1.0f));     // regular text. Gives the illusion of the border.
 		}
 	}
 
 	// font color
-	m_pFont->RenderText("SCORE: ", 7, 763, 1.1, glm::vec3(0.0f, 0.0f, 0.0f)); // (1.0f,0.7f,0.0f - b.orange), (1.0f, 0.0f, 0.0f - red), (0.0f, 0.7f, 1.0f - b.blue)
-	m_pFont->RenderText("SHOTS LEFT: ", 680, 763, 1.1, glm::vec3(0.0f, 0.0f, 0.0f)); // (0.0f, 0.0f, 1.0f - blue), (1.0f, 1.0f, 1.0f - white)
-	m_pFont->RenderText("TIME LEFT: ", 7, 10, 1.1, glm::vec3(0.0f, 0.0f, 0.0f));
+	m_pFont->RenderText("SCORE: ", 7, 748, 1.1, glm::vec3(0.0f, 0.0f, 0.0f)); // (1.0f,0.7f,0.0f - b.orange), (1.0f, 0.0f, 0.0f - red), (0.0f, 0.7f, 1.0f - b.blue)
+	m_pFont->RenderText("SHOTS LEFT: ", 665, 748, 1.1, glm::vec3(0.0f, 0.0f, 0.0f)); // (0.0f, 0.0f, 1.0f - blue), (1.0f, 1.0f, 1.0f - white), (0.0f, 0.0f, 0.0f - 
+	m_pFont->RenderText("TIME LEFT: ", 7, 10, 1.1, glm::vec3(0.0f, 0.0f, 0.0f));                                                                     // black)
 
+	
 }
 
 

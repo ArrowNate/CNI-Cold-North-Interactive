@@ -21,6 +21,8 @@ PlayScreen::PlayScreen()
 
 	modelShader = Shader("Assets/Shaders/modelLoading.vs", "Assets/Shaders/modelLoading.fs");
 
+	
+
 	float y = 6;
 	float temp = 0;
 
@@ -69,6 +71,7 @@ PlayScreen::~PlayScreen()
 
 	delete m_pSpeaker;
 	m_pSpeaker = nullptr;
+
 }
 
 int PlayScreen::SelectedScreen()
@@ -122,8 +125,7 @@ void PlayScreen::Update()
 
 void PlayScreen::Render()
 {
-	m_pHUD->Draw();
-
+	
 	modelShader.Use();
 
 	//----------------------THIS IS OUR VIEWPORT----------------------
@@ -141,5 +143,8 @@ void PlayScreen::Render()
 	for (int i = 0; i < 15; i++) {
 		m_pPlates[i]->Render(mPlates);
 	}
+
+	
+	m_pHUD->Draw();
 }
 
