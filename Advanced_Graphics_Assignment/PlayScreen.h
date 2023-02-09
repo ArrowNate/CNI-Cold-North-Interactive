@@ -17,8 +17,7 @@
 class PlayScreen : public GameEntity
 {
 private:
-	Camera m_pCamera;
-	//Texture* m_pBackdrop;
+	Camera* m_pCamera;
 	AudioManager* m_pAudioManager;
 	InputManager* m_pInputManager;
 	Graphics* m_pGraphics;
@@ -42,6 +41,11 @@ private:
 
 	const unsigned int SCR_WIDTH = 1024;
 	const unsigned int SCR_HEIGHT = 768;
+
+	const float mPlatesx = -11;
+	const int mPlatesz = -30;
+
+
 	
 public:
 	PlayScreen();
