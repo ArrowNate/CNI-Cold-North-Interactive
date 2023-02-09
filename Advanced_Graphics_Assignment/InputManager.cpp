@@ -12,6 +12,7 @@ InputManager::InputManager()
 	glfwSetCursorPosCallback(window, mouse_callback);
 	glfwSetMouseButtonCallback(window, mouseButtonCallBack);
 	//glfwSetCursorEnterCallback(window, cursorEnterCallBack);
+	//glfwSetCursor(window, setCrosshairCursor);
 }
 
 InputManager::~InputManager()
@@ -67,6 +68,11 @@ void InputManager::mouse_callback(GLFWwindow* window, double xPos, double yPos)
 	std::cout << xPos << ":" << yPos << std::endl;
 	mousePos.x = xPos;
 	mousePos.y = yPos;
+}
+
+void InputManager::setCrosshairCursor(GLFWcursor* crosshair_cursor)
+{
+	glfwCreateStandardCursor(GLFW_CROSSHAIR_CURSOR);
 }
 
 void InputManager::processInput(GLFWwindow* window)
