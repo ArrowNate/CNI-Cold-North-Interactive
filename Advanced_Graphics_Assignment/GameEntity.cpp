@@ -1,7 +1,5 @@
 #include "GameEntity.h"
 
-
-
 GameEntity::GameEntity(float x, float y, float z)
 	: mPosition(x, y), mRotation(0.0f), mScale(Vec3_One), mActive(true), mParent(nullptr) {
 }
