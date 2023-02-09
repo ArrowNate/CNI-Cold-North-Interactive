@@ -3,6 +3,8 @@
 
 PlayScreen::PlayScreen()
 {
+
+	//testing for objs
 	m_pInputManager = InputManager::Instance();
     m_pAudioManager = AudioManager::Instance();
 	m_pGraphics = Graphics::Instance();
