@@ -42,7 +42,9 @@ private:
 	glm::mat4 mSpeaker;
 
 	Shader modelShader;
+
 	bool PlaySong;
+	bool PlayPlateBreak;
 
 	Model* m_pPlates[15];
 	glm::mat4 mPlates;
@@ -54,6 +56,7 @@ private:
 	const int mPlatesz = -30;
 
 	bool mActive;
+	bool mPlateActive;
 	
 	
 public:
@@ -65,6 +68,7 @@ public:
 	void setSelectedScreen(int Screen);
 
 	void Collide(GameEntity* objectOne, GameEntity* objectTwo);
+	void SphereCollide(GameEntity* objectOne, GameEntity* objectTwo);
 
 	void Update();
 	void LateUpdate();

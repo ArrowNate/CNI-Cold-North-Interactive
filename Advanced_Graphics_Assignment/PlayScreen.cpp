@@ -14,24 +14,26 @@ PlayScreen::PlayScreen()
 
 	PlaySong = true;
 	mActive = false;
+	mPlateActive = true;
 
-	m_pCannon = new Model("Assets/Models/Pirate_Cannon.obj");
+	/*m_pCannon = new Model("Assets/Models/Pirate_Cannon.obj");
 	m_pCannon->Position(-0.7f, -1.2f, 1.3);
-	m_pCannon->ModelScale(-0.11f, -0.11f, -0.11f);
+	m_pCannon->ModelScale(-0.11f, -0.11f, -0.11f);*/
 
 	m_pStand = new Model("Assets/Models/Stand.obj");
 	m_pStand->Position(-1.1f, -4.5, -7);
 
 	m_pSpeaker = new Model("Assets/Models/Speaker.obj");
-	//m_pSpeaker->Position(-6.5f, -3, -30);
-	m_pSpeaker->Position(0, 0, 0);
+	m_pSpeaker->Position(-6.5f, -3, -30);
 
-	m_pPlate = new Model("Assets/Models/Plate.obj");
-	m_pPlate->Position(0, 0, 0);
+
+	/*m_pPlate = new Model("Assets/Models/Plate.obj");
+	m_pPlate->Position(0, 0, -30);*/
+	
 
 	m_pBall = new Model("Assets/Models/Tennis_Ball.obj");
-	//m_pBall->Position(-0.7f, -1.2f, 1.3);
-	m_pBall->Position(0, 0, 0);
+	m_pBall->Position(-0.7f, -1.2f, 1.3);
+
 	
 	
 
@@ -42,7 +44,8 @@ PlayScreen::PlayScreen()
 
 	for (int i = 0; i < 15; i++) { // first part is decleration, second part is the number of iterations/loops, third is to increment/move on, it can go to the opposite direction, can be different ways.
 		m_pPlates[i] = new Model("Assets/Models/Plate.obj"); // extantiating variable, each element in the array
-
+		
+		
 		if (i % 5 == 0) {// if the remainder of the division is 0
 			y = y - 3.5;
 			temp = 0;
@@ -175,27 +178,27 @@ void PlayScreen::LateUpdate() {
 	
 	if (mActive) 
 	{
-		//m_pBall->ModelTranslate(0, 0, -0.1f);
+		m_pBall->ModelTranslate(0, 0, -0.1f);
 	}
 
 	if (m_pBall->Position().z <= -35)
 	{
 		mActive = false;
 	}
-	//std::cout << m_pBall->Position().z << std::endl;
 
-
-
-	Collide(m_pPlate, m_pBall);
-
-	/*for (int i = 0; i < 15; i++) {
-		Collide(m_pBall, m_pPlates[i]);
-		
-	}*/
+	if (m_pBall->Position().z >= -35)
+	{
+		std::cout << m_pBall->Position().z << std::endl;
+	}
 	
-	/*if (m_pSpeaker->Position().z <= -35) {
-		mActive = false;
-	}*/
+	
+	
+	for (int i = 0; i < 15; i++) {
+		//Collide(m_pBall, m_pPlates[i]); <----this one is using the box collider check, no good.
+		SphereCollide(m_pBall, m_pPlates[i]);
+	}
+	
+
 }
 
 void PlayScreen::Render()
@@ -214,23 +217,27 @@ void PlayScreen::Render()
 
 	
 
-	//m_pStand->Render(mStand);
+	m_pStand->Render(mStand);
 
 
-	//m_pSpeaker->Render(mSpeaker);
-	m_pPlate->Render(mPlate);
+	m_pSpeaker->Render(mSpeaker);
+
+	
+	
+		for (int i = 0; i < 15; i++) {
+			m_pPlates[i]->Render(mPlates);
+
+			
+		}
 	
 	
 	
-	for (int i = 0; i < 15; i++) {
-		//m_pPlates[i]->Render(mPlates);
-	}
 
 	if (mActive)
     {
-    	//m_pBall->Render(mBall);
+    	m_pBall->Render(mBall);
     }
-	m_pBall->Render(mBall);
+	//m_pBall->Render(mBall);
     
 	//m_pCannon->Render(mCannon);
 }
@@ -245,5 +252,14 @@ void PlayScreen::Collide(GameEntity* objectOne, GameEntity* objectTwo) {
 	if (m_pCollision->CheckCollision(objectOne, objectTwo)) {
 
 		std::cout << " collion success" << std::endl;
+	}
+}
+
+void PlayScreen::SphereCollide(GameEntity* objectOne, GameEntity* objectTwo) {
+
+	if (m_pCollision->CheckSphereCollision(objectOne, objectTwo)) {
+		std::cout << " collion success" << std::endl;
+		m_pAudioManager->PlayMusic2("Assets/Music/PlateBreak.wav", false);
+		mPlateActive = false;
 	}
 }

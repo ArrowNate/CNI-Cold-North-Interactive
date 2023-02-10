@@ -9,8 +9,11 @@ protected:
 	//bool collisionY;
 	//bool collisionsZ;
 
+	float clamp(float value, float min, float max);
+
 public:
 	bool CheckCollision(GameEntity* objectOne, GameEntity* objectTwo);
+	bool CheckSphereCollision(GameEntity* objectOne, GameEntity* objectTwo);
 
 	//void Collide(GameEntity objectOne, GameEntity objectTwo);
 };
