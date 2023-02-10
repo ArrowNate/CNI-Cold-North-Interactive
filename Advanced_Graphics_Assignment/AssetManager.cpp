@@ -22,6 +22,21 @@ AssetManager::~AssetManager()
 	
 }
 
-AssetManager::AssetManager() {
+AssetManager::AssetManager() 
+{
 
+}
+
+Texture* AssetManager::GetTexture(std::string filename) {
+	std::string fullPath;
+
+	if (m_pTextures[fullPath] == nullptr) {
+		m_pTextures[fullPath] = Texture::Instance()->LoadTexture(fullPath);
+	}
+
+	if (m_pTextures[fullPath] != nullptr) {
+		m_pTextureRefCount[m_pTextures[fullPath]] += 1;
+	}
+
+	return m_pTextures[fullPath];
 }
