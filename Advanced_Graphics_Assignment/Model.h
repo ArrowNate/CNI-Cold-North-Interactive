@@ -23,7 +23,6 @@
 class Model : public GameEntity
 {
 private:
-
     std::vector<Mesh> meshes;
     std::string directory;
     std::vector<Texture3D> texturesLoaded;

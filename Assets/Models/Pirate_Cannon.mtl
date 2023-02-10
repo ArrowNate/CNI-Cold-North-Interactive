@@ -1,0 +1,32 @@
+# Blender 3.4.1 MTL File: 'untitled.blend'
+# www.blender.org
+
+newmtl 01_14054_Pirate_Ship_Cannon_on_Cart_cart
+Ns 29.999998
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd 14054_Pirate_Ship_Cannon_on_Cart_cart_diff.jpg
+
+newmtl 02___14054_Pirate_Ship_Cannon_on_Cart_barrel
+Ns 29.999998
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd 14054_Pirate_Ship_Cannon_on_Cart_barrel_diff.jpg
+
+newmtl 03___14054_Pirate_Ship_Cannon_on_Cart_wheel
+Ns 29.999998
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd 14054_Pirate_Ship_Cannon_on_Cart_wheel_diff.jpg

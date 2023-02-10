@@ -1,4 +1,4 @@
-#include "PlayScreen.h"
+﻿#include "PlayScreen.h"
 
 
 PlayScreen::PlayScreen()
@@ -13,12 +13,19 @@ PlayScreen::PlayScreen()
     ScreenSelected = 1;
 
 	PlaySong = true;
+	mActive = false;
 
 	m_pStand = new Model("Assets/Models/Stand.obj");
 	m_pStand->Position(-1.1f, -4.5, -7);
 
 	m_pSpeaker = new Model("Assets/Models/Speaker.obj");
 	m_pSpeaker->Position(-6.5f, -3, -30);
+
+	m_pBall = new Model("Assets/Models/Tennis_Ball.obj");
+	m_pBall->Position(-0.07f, -0.2f, 0.9f);
+	
+	m_pCannon = new Model("Assets/Models/Pirate_Cannon.obj");
+	m_pCannon->Position(-0.8f, -1.2f, -0.01f);
 
 	modelShader = Shader("Assets/Shaders/modelLoading.vs", "Assets/Shaders/modelLoading.fs");
 
@@ -49,6 +56,7 @@ PlayScreen::PlayScreen()
 
 PlayScreen::~PlayScreen()
 {
+
 	AudioManager::Release();
 	m_pAudioManager = nullptr;
 
@@ -71,6 +79,12 @@ PlayScreen::~PlayScreen()
 
 	delete m_pCollision;
 	m_pCollision = nullptr;
+
+	m_pBall = nullptr;
+    delete m_pBall;
+
+    m_pCannon = nullptr;
+    delete m_pCannon;
 }
 
 int PlayScreen::SelectedScreen()
@@ -119,12 +133,53 @@ void PlayScreen::Update()
 
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_BACKSPACE) == GLFW_PRESS) {
 		ScreenSelected = 2;
+
 	}
+	
+	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_SPACE) == GLFW_PRESS) {
+		mActive = true;
+		std::cout << "SPACE" << std::endl;
+
+		// moves the ball foward on keypress and controls speed
+	}
+		
+	//m_pBall->Translate();
+
+		//translate function for ball throw stop figure out how to write it ㅤ/ᐠ - ˕ -マ
+		// plates are at -30 so the ball has to stop around there
 
 	
 }
 
+
 void PlayScreen::LateUpdate() {
+
+	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_A) == GLFW_PRESS) {
+			m_pBall->ModelTranslate(-0.05f, 0, 0);
+			//m_pCannon->ModelTranslate(-0.05f, 0, 0);
+			// making the cannon and ball move together
+	}
+
+	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_D) == GLFW_PRESS) {
+			m_pBall->ModelTranslate(0.05f, 0, 0);
+			//m_pCannon->ModelTranslate(0.05f, 0, 0);
+			// making the cannon and ball move together
+	}
+	
+	if (mActive) 
+	{
+		m_pBall->ModelTranslate(0, 0, -0.1f);
+	}
+
+	if (m_pBall->Position().z <= -35)
+	{
+		mActive = false;
+	}
+	std::cout << m_pBall->Position().z << std::endl;
+
+
+
+
 
 	for (int i = 0; i < 15; i++) {
 		Collide(m_pSpeaker, m_pPlates[i]);
@@ -138,7 +193,7 @@ void PlayScreen::LateUpdate() {
 
 void PlayScreen::Render()
 {
-	
+
 	modelShader.Use();
 
 	//----------------------THIS IS OUR VIEWPORT----------------------
@@ -150,6 +205,7 @@ void PlayScreen::Render()
 	modelShader.SetMat4("view", view);
 	//----------------------THIS IS OUR VIEWPORT----------------------
 
+
 	m_pStand->Render(mStand);
 
 	if (mActive) {
@@ -160,6 +216,17 @@ void PlayScreen::Render()
 	for (int i = 0; i < 15; i++) {
 		m_pPlates[i]->Render(mPlates);
 	}
+
+	if (mActive)
+    	{
+    		m_pBall->Render(mBall);
+    	}
+
+
+    	m_pCannon->Render(mCannon);
+
+
+
 }
 
 void PlayScreen::Collide(GameEntity* objectOne, GameEntity* objectTwo) {
@@ -174,4 +241,8 @@ void PlayScreen::Collide(GameEntity* objectOne, GameEntity* objectTwo) {
 		std::cout << " collion success" << std::endl;
 		
 	}
+
+
+
+
 }

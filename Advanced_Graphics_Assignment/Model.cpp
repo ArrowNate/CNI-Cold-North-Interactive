@@ -10,6 +10,7 @@ Model::Model(std::string const& path) {
 	mPosition.z = -10;
 
 	mRotation = 0;
+
 }
 
 void Model::Draw(Shader& shader) {
