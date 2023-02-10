@@ -14,9 +14,7 @@ public:
 	static void Release();
 
 	static void mouseButtonCallBack(GLFWwindow* window, int button, int action, int mods);
-	//static void cursorEnterCallBack(GLFWwindow* window, int entered);
 	static void mouse_callback(GLFWwindow* window, double xPos, double yPos);
-	void setCrosshairCursor(GLFWcursor* cursor);
 	void processInput(GLFWwindow* window);
 	
 	glm::vec2 getmousePos();
@@ -28,7 +26,6 @@ public:
 	
 private:
 	GLFWwindow* window;
-	GLFWcursor* crosshair_cursor;
 	
 	static bool getMouseButtonPressed;
 

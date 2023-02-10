@@ -11,8 +11,7 @@ InputManager::InputManager()
 	window = Graphics::Instance()->GetWindow();
 	glfwSetCursorPosCallback(window, mouse_callback);
 	glfwSetMouseButtonCallback(window, mouseButtonCallBack);
-	//glfwSetCursorEnterCallback(window, cursorEnterCallBack);
-	//glfwSetCursor(window, setCrosshairCursor);
+	glfwSetCursor(window, glfwCreateStandardCursor(GLFW_CROSSHAIR_CURSOR));
 }
 
 InputManager::~InputManager()
@@ -37,9 +36,9 @@ void InputManager::Release()
 
 void InputManager::mouseButtonCallBack(GLFWwindow* window, int button, int action, int mods)
 {
-	if (button == GLFW_MOUSE_BUTTON_LEFT  == GLFW_PRESS && !MouseButtonPressed)
+	if (button == GLFW_MOUSE_BUTTON_LEFT  == GLFW_PRESS)
 	{
-		getMouseButtonPressed = true;
+		//getMouseButtonPressed = true;
 		std::cout << "Left button press" << std::endl;
 		std::cout << mousePos.x << std::endl;
 		std::cout << mousePos.y << std::endl;
@@ -51,32 +50,16 @@ void InputManager::mouseButtonCallBack(GLFWwindow* window, int button, int actio
 	
 }
 
-//void InputManager::cursorEnterCallBack(GLFWwindow* window, int entered)
-//{
-//	if (entered)
-//	{
-//		std::cout << "Entered Window" << std::endl;
-//	}
-//	else
-//	{
-//		std::cout << "Left Window" << std::endl;
-//	}
-//}
-
 void InputManager::mouse_callback(GLFWwindow* window, double xPos, double yPos)
 {
-	std::cout << xPos << ":" << yPos << std::endl;
+	//std::cout << xPos << ":" << yPos << std::endl;
 	mousePos.x = xPos;
 	mousePos.y = yPos;
 }
 
-void InputManager::setCrosshairCursor(GLFWcursor* crosshair_cursor)
-{
-	glfwCreateStandardCursor(GLFW_CROSSHAIR_CURSOR);
-}
-
 void InputManager::processInput(GLFWwindow* window)
 {
+
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 	{
 		glfwSetWindowShouldClose(window, true);
@@ -100,6 +83,8 @@ void InputManager::processInput(GLFWwindow* window)
 	{
 		std::cout << "D was pressed" << std::endl;
 	}
+
+	
 }
 
 void InputManager::Update()
@@ -118,13 +103,3 @@ bool InputManager::MouseButtonPressed()
 }
 
 
-/*unsigned char pixels[16 * 16 * 4];
-	memset(pixels, 0xff, sizeof(pixels));
-	GLFWimage image;
-	image.width = 16;
-	image.height = 16;
-	image.pixels;
-	GLFWcursor* cursor = glfwCreateCurser(&image, 0, 0);
-	glfwSetCursor(window, cursor);*/
-
-//glfwSetFramebufferSizeCallback(pWindow, FrameBufferSizeCallBack);
