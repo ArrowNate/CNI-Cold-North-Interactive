@@ -32,6 +32,7 @@ public:
 	
 	static void Init();
 	void Update();
+	void LateUpdate();
 	void Render();
 
 };

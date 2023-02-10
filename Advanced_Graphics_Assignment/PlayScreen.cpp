@@ -8,6 +8,7 @@ PlayScreen::PlayScreen()
 	m_pInputManager = InputManager::Instance();
     m_pAudioManager = AudioManager::Instance();
 	m_pGraphics = Graphics::Instance();
+	m_pCollision = new Collision();
 
     ScreenSelected = 1;
 
@@ -17,7 +18,7 @@ PlayScreen::PlayScreen()
 	m_pStand->Position(-1.1f, -4.5, -7);
 
 	m_pSpeaker = new Model("Assets/Models/Speaker.obj");
-	m_pSpeaker->Position(-6.5f, -3, -10);
+	m_pSpeaker->Position(-6.5f, -3, -30);
 
 	modelShader = Shader("Assets/Shaders/modelLoading.vs", "Assets/Shaders/modelLoading.fs");
 
@@ -42,6 +43,7 @@ PlayScreen::PlayScreen()
 		temp++;
 	}
 
+	mActive = true;
 
 }
 
@@ -66,6 +68,9 @@ PlayScreen::~PlayScreen()
 
 	delete m_pSpeaker;
 	m_pSpeaker = nullptr;
+
+	delete m_pCollision;
+	m_pCollision = nullptr;
 }
 
 int PlayScreen::SelectedScreen()
@@ -89,31 +94,45 @@ void PlayScreen::Update()
 
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_A) == GLFW_PRESS) {
 		m_pSpeaker->Translate(Vector3( - .1f, 0, 0));
-		std::cout << m_pSpeaker->Position().x << std::endl;
+		std::cout << "x Position is: " << m_pSpeaker->Position().x << std::endl;
 	}
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_D) == GLFW_PRESS) {
 		m_pSpeaker->Translate(Vector3(.1f, 0, 0));
-		std::cout << m_pSpeaker->Position().x << std::endl;
+		std::cout << "x Position is: " << m_pSpeaker->Position().x << std::endl;
 	}
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_W) == GLFW_PRESS) {
 		m_pSpeaker->Translate(Vector3(0, .1f, 0));
-		std::cout << m_pSpeaker->Position().y << std::endl;
+		std::cout << "y Position is: " << m_pSpeaker->Position().y << std::endl;
 	}
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_S) == GLFW_PRESS) {
 		m_pSpeaker->Translate(Vector3(0, -.1f, 0));
-		std::cout << m_pSpeaker->Position().y << std::endl;
+		std::cout << "y Position is: " << m_pSpeaker->Position().y << std::endl;
 	}
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_E) == GLFW_PRESS) {
 		m_pSpeaker->ModelTranslate(0, 0, -.1f);
-		std::cout << "EEEEEEEEEEEEE" << std::endl;
+		std::cout << "z Position is: " << m_pSpeaker->Position().z << std::endl;
 	}
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_Q) == GLFW_PRESS) {
 		m_pSpeaker->ModelTranslate(0, 0, 0.1f);
-		std::cout << "EEEEEEEEEEEEE" << std::endl;
+		std::cout << "z Position is: " << m_pSpeaker->Position().z << std::endl;
 	}
 
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_BACKSPACE) == GLFW_PRESS) {
 		ScreenSelected = 2;
+	}
+
+	
+}
+
+void PlayScreen::LateUpdate() {
+
+	for (int i = 0; i < 15; i++) {
+		Collide(m_pSpeaker, m_pPlates[i]);
+
+	}
+	
+	if (m_pSpeaker->Position().z <= -35) {
+		mActive = false;
 	}
 }
 
@@ -132,11 +151,27 @@ void PlayScreen::Render()
 	//----------------------THIS IS OUR VIEWPORT----------------------
 
 	m_pStand->Render(mStand);
-	m_pSpeaker->Render(mSpeaker);
+
+	if (mActive) {
+		m_pSpeaker->Render(mSpeaker);
+	}
+	
 	
 	for (int i = 0; i < 15; i++) {
 		m_pPlates[i]->Render(mPlates);
 	}
 }
 
+void PlayScreen::Collide(GameEntity* objectOne, GameEntity* objectTwo) {
+	
+	if (objectTwo == nullptr) {
+		std::cout << " m_pCollision is null" <<	std::endl;
+		return;
+	}
 
+	if (m_pCollision->CheckCollision(objectOne, objectTwo)) {
+
+		std::cout << " collion success" << std::endl;
+		
+	}
+}

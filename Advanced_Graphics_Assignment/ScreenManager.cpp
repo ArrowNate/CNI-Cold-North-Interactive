@@ -21,16 +21,16 @@ void ScreenManager::Release()
 
 ScreenManager::ScreenManager() 
 {
-	mCurrentScreen = Start;
+	mCurrentScreen = Play;
 	m_pStartScreen = new StartScreen();
 	m_pCredits = new Credits();
 	m_pPlayScreen = new PlayScreen();
 
-	Screens.push_back(m_pStartScreen);
-	Screens.push_back(m_pPlayScreen);
-	Screens.push_back(m_pCredits);
+	//Screens.push_back(m_pStartScreen);
+	//Screens.push_back(m_pPlayScreen);
+	//Screens.push_back(m_pCredits);
 
-	ScreenChoice = 2;
+	ScreenChoice = 1;
 }
 
 void ScreenManager::Update()
@@ -58,6 +58,14 @@ void ScreenManager::Update()
 
 		break;
 	}
+}
+
+void ScreenManager::LateUpdate() {
+
+	if (ScreenChoice == Play) {
+		m_pPlayScreen->LateUpdate();
+	}
+	
 }
 
 void ScreenManager::Render()
