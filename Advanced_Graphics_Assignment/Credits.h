@@ -15,7 +15,7 @@ private:
 	bool PlaySong;
 
 	Font* m_pFont;
-	//Font* m_pFont2;
+	Font* m_pFont2;
 
 	Texture* m_pBackground;
 	Texture* m_pLogo;

@@ -10,7 +10,7 @@ Credits::Credits()
 	ScreenSelected = 0;
 
 	m_pFont = new Font("Assets/Fonts/Quentincaps.ttf");
-	//m_pFont2 = new Font("Assets/Fonts/ColdNorth.ttf");
+	m_pFont2 = new Font("Assets/Fonts/CarneyText.ttf");
 
 	m_pBackground = new Texture("Assets/Textures/CarnvialBackgroundSet.png", 1.0, 1.0, -1.0, -1.0, GL_RGBA);
 	m_pLogo = new Texture("Assets/Textures/CNiLogo.png", 1.0, -0.72, 0.72, -1.0, GL_RGBA);
@@ -27,8 +27,8 @@ Credits::~Credits()
 	delete m_pFont;
 	m_pFont = nullptr;
 
-	//delete m_pFont2;
-	//m_pFont2 = nullptr;
+	delete m_pFont2;
+	m_pFont2 = nullptr;
 }
 
 int Credits::SelectedScreen()
@@ -74,20 +74,20 @@ void Credits::Render()
 			m_pFont->RenderText("MIKAELO SAN JOSE", 480 + i, 375 + j, 1.0, glm::vec3(0.0f, 0.0f, 0.0f));
 			m_pFont->RenderText("MAKSIM KNOKHINOV", 68 + i, 224 + j, 0.9, glm::vec3(0.0f, 0.0f, 0.0f));
 			m_pFont->RenderText("PATRICK FOSTER", 525 + i, 224 + j, 0.98, glm::vec3(0.0f, 0.0f, 0.0f));
-			m_pFont->RenderText("COLD NORTH ", 280 + i, 740 + j, 1.5, glm::vec3(1.0f, 1.0f, 1.0f));
-			m_pFont->RenderText("iNTERACTIVE: ", 365 + i, 700 + j, 0.6, glm::vec3(0.0f, 0.0f, 1.0f));
+			m_pFont2->RenderText("COLD NORTH ", 130 + i, 41 + j, 1.5, glm::vec3(1.0f, 1.0f, 1.0f));
+			m_pFont2->RenderText("INTERACTIVE: ", 500 + i, 50 + j, 0.9, glm::vec3(0.0f, 0.0f, 1.0f));
 		}
 	}
 
 	// font color						x	 y	 size
 	m_pFont->RenderText("GEORGE EDMON", 68, 622, 1.2, glm::vec3(1.0f, 0.0f, 0.0f)); // (1.0f,0.7f,0.0f - b.orange), (1.0f, 0.0f, 0.0f - red), (0.0f, 0.7f, 1.0f - 
 	m_pFont->RenderText("RICHARD ALS", 550, 622, 1.2, glm::vec3(1.0f, 0.0f, 0.0f)); // (0.0f, 0.0f, 1.0f - blue), (1.0f, 1.0f, 1.0f - white), (0.0f, 0.0f, 0.0f 
-	m_pFont->RenderText("DANIEL DEPAULO", 68, 480, 1.09, glm::vec3(1.0f, 0.0f, 0.0f));                                                                  // black)
+	m_pFont->RenderText("DANIEL DEPAULO", 68, 480, 1.09, glm::vec3(1.0f, 0.0f, 0.0f));                                                                 // black)
 	m_pFont->RenderText("BRANDON SHAW", 525, 480, 1.1, glm::vec3(1.0f, 0.0f, 0.0f));
 	m_pFont->RenderText("SAM SAMARRO", 68, 375, 1.1, glm::vec3(1.0f, 0.0f, 0.0f));
 	m_pFont->RenderText("MIKAELO SAN JOSE", 480, 375, 1.0, glm::vec3(1.0f, 0.0f, 0.0f));
 	m_pFont->RenderText("MAKSIM KNOKHINOV", 68, 224, 0.9, glm::vec3(1.0f, 0.0f, 0.0f));
 	m_pFont->RenderText("PATRICK FOSTER", 525, 224, 0.98, glm::vec3(1.0f, 0.0f, 0.0f));
-	m_pFont->RenderText("COLD NORTH ", 280, 740, 1.5, glm::vec3(0.0f, 0.0f, 1.0f));
-	m_pFont->RenderText("iNTERACTIVE: ", 365, 700, 0.6, glm::vec3(1.0f, 1.0f, 1.0f));
+	m_pFont2->RenderText("COLD NORTH ", 130, 41, 1.5, glm::vec3(0.0f, 0.0f, 1.0f));
+	m_pFont2->RenderText("INTERACTIVE: ", 500, 50, 0.9, glm::vec3(1.0f, 1.0f, 1.0f));
 }
