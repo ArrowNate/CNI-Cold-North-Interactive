@@ -52,8 +52,10 @@ void ScreenManager::Update()
 
 	case Play:
 		m_pPlayScreen->Update();
+
 		m_pStartScreen->setSelectedScreen(2);
 		ScreenChoice = m_pPlayScreen->SelectedScreen();
+
 		break;
 	}
 }
@@ -71,6 +73,7 @@ void ScreenManager::Render()
 
 	case Play:
 		m_pPlayScreen->Render();
+
 		break;
 	}
 }

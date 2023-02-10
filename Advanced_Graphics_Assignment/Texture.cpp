@@ -1,4 +1,7 @@
 #include "Texture.h"
+#include "freetype/freetype.h"
+#include "ft2build.h"
+#include FT_FREETYPE_H
 
 Texture* Texture::Instance()
 {

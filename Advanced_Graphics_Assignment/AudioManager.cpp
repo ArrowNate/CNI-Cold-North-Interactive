@@ -35,13 +35,13 @@ AudioManager::~AudioManager()
 
 void AudioManager::PlayMusic()
 {
-	
+
 	m_pSoundEngine->play2D("Assets/Music/Survivor_-_Eye_Of_The_Tiger_(Jesusful.com).mp3", true);
 }
 
 void AudioManager::PauseMusic()
 {
-
+	m_pSoundEngine->stopAllSounds();
 }
 
 void AudioManager::PlaySFX()
@@ -50,7 +50,11 @@ void AudioManager::PlaySFX()
 	//	return;
 }
 
-//void AudioManager::processInput(GLFWwindow* window)
-//{
-//	//m_pSoundEngine->play2D("Assets/breakout.mp3", true);
-//}
+void AudioManager::PlayMusic2(const char filepath[50], bool loop)
+{
+	m_pSoundEngine->play2D(filepath, loop);
+}
+
+void AudioManager::PlayMusic3D(const char filepath[50], float x, float y, float z, bool loop) {
+	m_pSoundEngine->play3D(filepath, vec3df(x, y, z), loop );
+}

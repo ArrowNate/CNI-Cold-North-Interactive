@@ -1,7 +1,6 @@
 #include "Shader.h"
 
 
-
 Shader::Shader(const char* vertexPath, const char* fragmentPath) {
     // retrieve the vertex/fragment source code from filePath
     std::string vertexCode;
@@ -89,7 +88,23 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath) {
     glDeleteShader(fragment);
 }
 
+Shader::Shader()
+{
+}
+
+Shader::~Shader()
+{
+}
+
 void Shader::Use() { glUseProgram(ID); }
+
+
+void Shader::Vector3(const char* name, const glm::vec3& value)
+{
+
+}
+
+
 unsigned int Shader::GetID() { return ID; }
 
 void Shader::SetBool(const std::string& name, bool value) const
@@ -113,4 +128,3 @@ void Shader::SetMat4(const std::string& name, glm::mat4& value) const
 }
 
 void Shader::SetID(unsigned int id) { ID = id; }
-

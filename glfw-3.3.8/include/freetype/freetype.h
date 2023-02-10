@@ -15,10 +15,9 @@
  *
  */
 
-
 #ifndef FREETYPE_H_
 #define FREETYPE_H_
-
+#include "ft2build.h"
 
 #ifndef FT_FREETYPE_H
 #error "`ft2build.h' hasn't been included yet!"

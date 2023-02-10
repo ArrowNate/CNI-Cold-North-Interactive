@@ -11,35 +11,45 @@ StartScreen::StartScreen()
 	ScreenChoice = 1;
 	ScreenSelected = 2;
 
+	m_pFont = new Font();
+
 	m_pBackground = new Texture("Assets/Textures/PlateObliteratorMainMenu.png", 1.0, 1.0, -1.0, -1.0, GL_RGBA);
 	m_pLogo = new Texture("Assets/Textures/CNiLogo.png", 1.0, -0.72, 0.72, -1.0, GL_RGBA);
-	m_pStartGame = new Texture("Assets/Textures/StartGameQ.png", 0.37, 0.04, -0.39, -0.11, GL_RGBA);
-	m_pCredits = new Texture("Assets/Textures/CreditsQ.png", 0.37, -0.3, -0.39, -0.45, GL_RGBA);
 	m_pArrow = new Texture("Assets/Textures/MainMenuSelectorArrow.png", -0.47, -0.3, -0.86, -0.45, GL_RGBA);
 	m_pArrow2 = new Texture("Assets/Textures/MainMenuSelectorArrow2.png", -0.47, 0.04, -0.86, -0.11, GL_RGBA);
-	//m_pBackground->Parent(this);
-	//m_pBackground->Position(Vector3(1000, 800));
 }
 
 StartScreen::~StartScreen() 
 {
+	AudioManager::Release();
+	m_pAudioManager = nullptr;
+
+	InputManager::Release();
+	m_pInputManager = nullptr;
+
+	Graphics::Release();
+	m_pGraphics = nullptr;
+
 	delete m_pBackground;
 	m_pBackground = nullptr;
 
 	delete m_pLogo;
 	m_pLogo = nullptr;
 
-	delete m_pStartGame;
+	/*delete m_pStartGame;
 	m_pStartGame = nullptr;
 
 	delete m_pCredits;
-	m_pCredits = nullptr;
+	m_pCredits = nullptr;*/
 
 	delete m_pArrow;
 	m_pArrow = nullptr;
 
 	delete m_pArrow2;
 	m_pArrow2 = nullptr;
+
+	delete m_pFont;
+	m_pFont = nullptr;
 }
 
 void StartScreen::ChangeSelectedMode(int change)
@@ -82,6 +92,8 @@ void StartScreen::Update()
 
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_S) == GLFW_PRESS) {
 		ChangeSelectedMode(1);
+
+		
 	}
 	else if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_W) == GLFW_PRESS) {
 		ChangeSelectedMode(-1);
@@ -89,15 +101,19 @@ void StartScreen::Update()
 
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_ENTER) == GLFW_PRESS) {
 		ScreenSelected = ScreenChoice;
+		m_pAudioManager->PauseMusic();
 	}
+
+	
 }
 
 void StartScreen::Render() 
 {
+
 	m_pBackground->Draw();
 	m_pLogo->Draw();
-	m_pStartGame->Draw();
-	m_pCredits->Draw();
+	//m_pStartGame->Draw();
+	//m_pCredits->Draw();
 
 	if (ScreenChoice == 0) {
 		m_pArrow->Draw();
@@ -105,4 +121,27 @@ void StartScreen::Render()
 	if (ScreenChoice == 1) {
 		m_pArrow2->Draw();
 	}
+
+	const int thickness = 2; // This is the thickness of the border around the text
+
+	for (int i = -thickness; i <= thickness; ++i) // inner loop repeats over j from -thickness to thickness same with i as well. 
+
+	{
+		for (int j = -thickness; j <= thickness; ++j)
+		{
+			if (i == 0 && j == 0) // we check if i and j are equal to 0 and if they are, the code goes to the continue statement because when i and j = 0,
+			{					  // the center of the border would basically cover the text and we don't want the border over the text it looks horrible.	
+				continue;
+			}
+
+			// border color
+			m_pFont->RenderText("START GAME", 328 + i, 370 + j, 1.3, glm::vec3(0.0f, 0.0f, 0.0f));
+			m_pFont->RenderText("CREDITS", 380 + i, 232 + j, 1.4, glm::vec3(0.0f, 0.0f, 0.0f)); // These handle the border which is offset slightly from 
+
+		}
+	}
+
+	// font color
+	m_pFont->RenderText("START GAME", 328, 370, 1.3, glm::vec3(1.0f, 0.0f, 0.0f));
+	m_pFont->RenderText("CREDITS", 380, 232, 1.4, glm::vec3(1.0f, 0.0f, 0.0f));
 }

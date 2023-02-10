@@ -10,6 +10,8 @@ class Texture : public GameEntity
 private:
 	unsigned int texture;
 	unsigned int VBO, VAO, EBO;
+
+
 public:
 	static Texture* Instance();
 	Texture* LoadTexture(std::string path);

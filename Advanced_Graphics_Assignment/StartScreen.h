@@ -6,11 +6,15 @@
 #include "Graphics.h"
 #include "InputManager.h"
 #include "AudioManager.h"
+#include "Font.h"
 //#include "ScreenManager.h"
 
 class StartScreen : public GameEntity
 {
 private:
+
+	double previousTime = 0.0;
+
 	//enum Screens { Start, Credits };
 	Graphics* m_pGraphics;
 	InputManager* m_pInputManager;
@@ -25,6 +29,8 @@ private:
 	Texture* m_pArrow2;
 
 	int ScreenSelected;
+
+	Font* m_pFont;
 
 public:
 	StartScreen();
