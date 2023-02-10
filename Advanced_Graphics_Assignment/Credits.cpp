@@ -2,6 +2,7 @@
 
 Credits::Credits()
 {
+
 	m_pInputManager = InputManager::Instance();
 	m_pAudioManager = AudioManager::Instance();
 	m_pGraphics = Graphics::Instance();
@@ -9,7 +10,8 @@ Credits::Credits()
 	PlaySong = true;
 	ScreenSelected = 0;
 
-	m_pFont = new Font();
+	m_pFont = new Font("Assets/Fonts/CarneyText.ttf");
+	m_pFont2 = new Font("Assets/Fonts/ColdNorth.ttf");
 
 	m_pBackground = new Texture("Assets/Textures/CarnvialBackgroundSet.png", 1.0, 1.0, -1.0, -1.0, GL_RGBA);
 	m_pPatrick = new Texture("Assets/Textures/Patrick.png", 0.8, -0.31, 0.16, -0.46, GL_RGBA);
@@ -76,7 +78,7 @@ void Credits::Render()
 		}
 	}
 
-	// font color
+	// font color                       /x   /y  size
 	m_pFont->RenderText("GEORGE EDMON", 68, 622, 1.3, glm::vec3(0.0f, 0.0f, 0.0f)); // (1.0f,0.7f,0.0f - b.orange), (1.0f, 0.0f, 0.0f - red), (0.0f, 0.7f, 1.0f - 
 	m_pFont->RenderText("RICHARD ALS", 576, 622, 1.3, glm::vec3(0.0f, 0.0f, 0.0f)); // (0.0f, 0.0f, 1.0f - blue), (1.0f, 1.0f, 1.0f - white), (0.0f, 0.0f, 0.0f 
 	m_pFont->RenderText("DAN DEPAULO", 68, 480, 1.3, glm::vec3(0.0f, 0.0f, 0.0f));                                                                  // black)

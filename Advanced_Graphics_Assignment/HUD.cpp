@@ -1,22 +1,36 @@
 #include "HUD.h"
+#include <string>
 
 HUD::HUD() {
 
-	m_pFont = new Font();
+	m_pFont = new Font("Assets/Fonts/CarneyText.ttf");
+	m_pFont2 = new Font("Assets/Fonts/ColdNorth.ttf");
 	m_pHUDBorder = new Texture("Assets/Textures/HUDBorder1.png", 1.0, 1.0, -1.0, -1.0, GL_RGBA);
+
+	timeLeft = 125;
+	Update();
 }
 
 HUD::~HUD() {
 	delete m_pFont;
 	m_pFont = nullptr;
 
+	delete m_pFont2;
+	m_pFont2 = nullptr;
+
 	delete m_pHUDBorder;
 	m_pHUDBorder = nullptr;
 }
 
 void HUD::Update() {
-
+	
 }
+
+void HUD::DecreaseTimer()
+{
+	
+}
+
 
 void HUD::Draw() {
 
@@ -35,16 +49,18 @@ void HUD::Draw() {
 			}
 
 			// border color
-			m_pFont->RenderText("SCORE: 15950", 35 + i, 733 + j, 1.4, glm::vec3(1.0f, 1.0f, 1.0f));
-			m_pFont->RenderText("SHOTS LEFT: 18", 650 + i, 738 + j, 1.2, glm::vec3(1.0f, 1.0f, 1.0f)); // These handle the border which is offset slightly from 
-			m_pFont->RenderText("TIME: 125", 7 + i, 10 + j, 1.2, glm::vec3(1.0f, 1.0f, 1.0f));     // regular text. Gives the illusion of the border.
+			m_pFont->RenderText("SCORE: ", 35 + i, 733 + j, 1.4, glm::vec3(1.0f, 1.0f, 1.0f));
+			m_pFont->RenderText("SHOTS LEFT: ", 650 + i, 738 + j, 1.2, glm::vec3(1.0f, 1.0f, 1.0f)); // These handle the border which is offset slightly from 
+			m_pFont->RenderText("TIME: ", 7 + i, 10 + j, 1.2, glm::vec3(1.0f, 1.0f, 1.0f));     // regular text. Gives the illusion of the border.
+			m_pFont->RenderText(std::to_string(timeLeft), 150 + i, 10 + j, 1.2, glm::vec3(1.0f, 1.0f, 1.0f));     // regular text. Gives the illusion of the border.
 		}
 	}
 
 	// font color
-	m_pFont->RenderText("SCORE: 15950", 35, 733, 1.4, glm::vec3(0.0f, 0.0f, 0.0f)); // (1.0f,0.7f,0.0f - b.orange), (1.0f, 0.0f, 0.0f - red), (0.0f, 0.7f, 1.0f 
-	m_pFont->RenderText("SHOTS LEFT: 18", 650, 738, 1.2, glm::vec3(0.0f, 0.0f, 0.0f)); // (0.0f, 0.0f, 1.0f - blue), (1.0f, 1.0f, 1.0f - white), (0.0f, 0.0f, 0.0f 
-	m_pFont->RenderText("TIME: 125", 7, 10, 1.2, glm::vec3(0.0f, 0.0f, 0.0f));                                                                     // black)
+	m_pFont->RenderText("SCORE: ", 35, 733, 1.4, glm::vec3(0.0f, 0.0f, 0.0f)); // (1.0f,0.7f,0.0f - b.orange), (1.0f, 0.0f, 0.0f - red), (0.0f, 0.7f, 1.0f 
+	m_pFont->RenderText("SHOTS LEFT:", 650, 738, 1.2, glm::vec3(0.0f, 0.0f, 0.0f)); // (0.0f, 0.0f, 1.0f - blue), (1.0f, 1.0f, 1.0f - white), (0.0f, 0.0f, 0.0f 
+	m_pFont->RenderText("TIME: ", 7, 10, 1.2, glm::vec3(0.0f, 0.0f, 0.0f));                                                                     // black)
+	m_pFont->RenderText(std::to_string(timeLeft), 150, 10, 1.2, glm::vec3(0.0f, 0.0f, 0.0f));                                                                     // black)
 }
 
 

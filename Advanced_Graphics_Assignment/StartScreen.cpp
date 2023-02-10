@@ -11,7 +11,8 @@ StartScreen::StartScreen()
 	ScreenChoice = 1;
 	ScreenSelected = 2;
 
-	m_pFont = new Font();
+	m_pFont = new Font("Assets/Fonts/CarneyText.ttf");
+	m_pFont2 = new Font("Assets/Fonts/ColdNorth.ttf");
 
 	m_pBackground = new Texture("Assets/Textures/PlateObliteratorMainMenu.png", 1.0, 1.0, -1.0, -1.0, GL_RGBA);
 	m_pLogo = new Texture("Assets/Textures/CNiLogo.png", 1.0, -0.72, 0.72, -1.0, GL_RGBA);

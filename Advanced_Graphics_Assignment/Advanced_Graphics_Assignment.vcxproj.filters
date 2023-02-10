@@ -50,11 +50,14 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Model.cpp">
-    <Filter>Source Files</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Credits.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="HUD.cpp" />
+    <ClCompile Include="Level.cpp" />
+    <ClCompile Include="LevelManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetManager.h">
@@ -106,11 +109,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Model.h">
-    <Filter>Header Files</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Credits.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ft2build.h" />
+    <ClInclude Include="HUD.h" />
+    <ClInclude Include="Level.h" />
+    <ClInclude Include="LevelManager.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
