@@ -180,6 +180,10 @@ void PlayScreen::LateUpdate() {
 	{
 		m_pBall->ModelTranslate(0, 0, -0.1f);
 	}
+	else if (!mActive) {
+		m_pBall->Position(-0.7f, -1.2f, 1.3);
+		
+	}
 
 	if (m_pBall->Position().z <= -35)
 	{
