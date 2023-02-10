@@ -9,10 +9,10 @@ Credits::Credits()
 	PlaySong = true;
 	ScreenSelected = 0;
 
-	m_pFont = new Font();
+	m_pFont = new Font("Assets/Fonts/Quentincaps.ttf");
+	//m_pFont2 = new Font("Assets/Fonts/ColdNorth.ttf");
 
 	m_pBackground = new Texture("Assets/Textures/CarnvialBackgroundSet.png", 1.0, 1.0, -1.0, -1.0, GL_RGBA);
-	m_pPatrick = new Texture("Assets/Textures/Patrick.png", 0.8, -0.31, 0.16, -0.46, GL_RGBA);
 	m_pLogo = new Texture("Assets/Textures/CNiLogo.png", 1.0, -0.72, 0.72, -1.0, GL_RGBA);
 }
 
@@ -26,6 +26,9 @@ Credits::~Credits()
 
 	delete m_pFont;
 	m_pFont = nullptr;
+
+	//delete m_pFont2;
+	//m_pFont2 = nullptr;
 }
 
 int Credits::SelectedScreen()
@@ -63,28 +66,28 @@ void Credits::Render()
 			}
 
 			// border color
-			m_pFont->RenderText("GEORGE EDMON", 68 + i, 622 + j, 1.3, glm::vec3(1.0f, 1.0f, 1.0f));
-			m_pFont->RenderText("RICHARD ALS", 576 + i, 622 + j, 1.3, glm::vec3(1.0f, 1.0f, 1.0f)); // These handle the border which is offset slightly from 
-			m_pFont->RenderText("DAN DEPAULO", 68 + i, 480 + j, 1.3, glm::vec3(1.0f, 1.0f, 1.0f));  // regular text. Gives the illusion of the border.
-			m_pFont->RenderText("BRANDON SHAW", 525 + i, 480 + j, 1.3, glm::vec3(1.0f, 1.0f, 1.0f));     
-			m_pFont->RenderText("SAM SAMARRO", 68 + i, 375 + j, 1.3, glm::vec3(1.0f, 1.0f, 1.0f));     
-			m_pFont->RenderText("MIKAELO SAN JOSE", 68 + i, 224 + j, 1.1, glm::vec3(1.0f, 1.0f, 1.0f));    
-			m_pFont->RenderText("MAKSIM KNOKHINOV", 510 + i, 375 + j, 1.1, glm::vec3(1.0f, 1.0f, 1.0f));
-			m_pFont->RenderText("PATRICK FOSTER", 525 + i, 224 + j, 1.2, glm::vec3(1.0f, 1.0f, 1.0f));
-			m_pFont->RenderText("COLD NORTH ", 280 + i, 740 + j, 1.8, glm::vec3(1.0f, 1.0f, 1.0f));
-			m_pFont->RenderText("iNTERACTIVE: ", 365 + i, 700 + j, 0.9, glm::vec3(0.0f, 0.0f, 1.0f));
+			m_pFont->RenderText("GEORGE EDMON", 68 + i, 622 + j, 1.2, glm::vec3(0.0f, 0.0f, 0.0f));
+			m_pFont->RenderText("RICHARD ALS", 550 + i, 622 + j, 1.2, glm::vec3(0.0f, 0.0f, 0.0f)); // These handle the border which is offset slightly from 
+			m_pFont->RenderText("DANIEL DEPAULO", 68 + i, 480 + j, 1.09, glm::vec3(0.0f, 0.0f, 0.0f));  // regular text. Gives the illusion of the border.
+			m_pFont->RenderText("BRANDON SHAW", 525 + i, 480 + j, 1.1, glm::vec3(0.0f, 0.0f, 0.0f));
+			m_pFont->RenderText("SAM SAMARRO", 68 + i, 375 + j, 1.1, glm::vec3(0.0f, 0.0f, 0.0f));
+			m_pFont->RenderText("MIKAELO SAN JOSE", 480 + i, 375 + j, 1.0, glm::vec3(0.0f, 0.0f, 0.0f));
+			m_pFont->RenderText("MAKSIM KNOKHINOV", 68 + i, 224 + j, 0.9, glm::vec3(0.0f, 0.0f, 0.0f));
+			m_pFont->RenderText("PATRICK FOSTER", 525 + i, 224 + j, 0.98, glm::vec3(0.0f, 0.0f, 0.0f));
+			m_pFont->RenderText("COLD NORTH ", 280 + i, 740 + j, 1.5, glm::vec3(1.0f, 1.0f, 1.0f));
+			m_pFont->RenderText("iNTERACTIVE: ", 365 + i, 700 + j, 0.6, glm::vec3(0.0f, 0.0f, 1.0f));
 		}
 	}
 
-	// font color
-	m_pFont->RenderText("GEORGE EDMON", 68, 622, 1.3, glm::vec3(0.0f, 0.0f, 0.0f)); // (1.0f,0.7f,0.0f - b.orange), (1.0f, 0.0f, 0.0f - red), (0.0f, 0.7f, 1.0f - 
-	m_pFont->RenderText("RICHARD ALS", 576, 622, 1.3, glm::vec3(0.0f, 0.0f, 0.0f)); // (0.0f, 0.0f, 1.0f - blue), (1.0f, 1.0f, 1.0f - white), (0.0f, 0.0f, 0.0f 
-	m_pFont->RenderText("DAN DEPAULO", 68, 480, 1.3, glm::vec3(0.0f, 0.0f, 0.0f));                                                                  // black)
-	m_pFont->RenderText("BRANDON SHAW", 525, 480, 1.3, glm::vec3(0.0f, 0.0f, 0.0f));
-	m_pFont->RenderText("SAM SAMARRO", 68, 375, 1.3, glm::vec3(0.0f, 0.0f, 0.0f));
-	m_pFont->RenderText("MIKAELO SAN JOSE", 68, 224, 1.1, glm::vec3(0.0f, 0.0f, 0.0f));
-	m_pFont->RenderText("MAKSIM KNOKHINOV", 510, 375, 1.1, glm::vec3(0.0f, 0.0f, 0.0f)); 
-	m_pFont->RenderText("PATRICK FOSTER", 525, 224, 1.2, glm::vec3(0.0f, 0.0f, 0.0f)); 
-	m_pFont->RenderText("COLD NORTH ", 280, 740, 1.8, glm::vec3(0.0f, 0.0f, 1.0f));
-	m_pFont->RenderText("iNTERACTIVE: ", 365, 700, 0.9, glm::vec3(1.0f, 1.0f, 1.0f));
+	// font color						x	 y	 size
+	m_pFont->RenderText("GEORGE EDMON", 68, 622, 1.2, glm::vec3(1.0f, 0.0f, 0.0f)); // (1.0f,0.7f,0.0f - b.orange), (1.0f, 0.0f, 0.0f - red), (0.0f, 0.7f, 1.0f - 
+	m_pFont->RenderText("RICHARD ALS", 550, 622, 1.2, glm::vec3(1.0f, 0.0f, 0.0f)); // (0.0f, 0.0f, 1.0f - blue), (1.0f, 1.0f, 1.0f - white), (0.0f, 0.0f, 0.0f 
+	m_pFont->RenderText("DANIEL DEPAULO", 68, 480, 1.09, glm::vec3(1.0f, 0.0f, 0.0f));                                                                  // black)
+	m_pFont->RenderText("BRANDON SHAW", 525, 480, 1.1, glm::vec3(1.0f, 0.0f, 0.0f));
+	m_pFont->RenderText("SAM SAMARRO", 68, 375, 1.1, glm::vec3(1.0f, 0.0f, 0.0f));
+	m_pFont->RenderText("MIKAELO SAN JOSE", 480, 375, 1.0, glm::vec3(1.0f, 0.0f, 0.0f));
+	m_pFont->RenderText("MAKSIM KNOKHINOV", 68, 224, 0.9, glm::vec3(1.0f, 0.0f, 0.0f));
+	m_pFont->RenderText("PATRICK FOSTER", 525, 224, 0.98, glm::vec3(1.0f, 0.0f, 0.0f));
+	m_pFont->RenderText("COLD NORTH ", 280, 740, 1.5, glm::vec3(0.0f, 0.0f, 1.0f));
+	m_pFont->RenderText("iNTERACTIVE: ", 365, 700, 0.6, glm::vec3(1.0f, 1.0f, 1.0f));
 }

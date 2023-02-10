@@ -24,7 +24,7 @@ public:
 
 	void RenderText(std::string text, float x, float y, float scale, glm::vec3 color);
 
-	Font();
+	Font(std::string fontName);
 	~Font();
 };
 

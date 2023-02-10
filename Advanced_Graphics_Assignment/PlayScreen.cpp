@@ -143,4 +143,3 @@ void PlayScreen::Render()
 
 	m_pHUD->Draw();
 }
-

@@ -11,7 +11,7 @@ StartScreen::StartScreen()
 	ScreenChoice = 1;
 	ScreenSelected = 2;
 
-	m_pFont = new Font();
+	m_pFont = new Font("Assets/Fonts/Quentincaps.ttf");
 
 	m_pBackground = new Texture("Assets/Textures/PlateObliteratorMainMenu.png", 1.0, 1.0, -1.0, -1.0, GL_RGBA);
 	m_pLogo = new Texture("Assets/Textures/CNiLogo.png", 1.0, -0.72, 0.72, -1.0, GL_RGBA);
@@ -101,7 +101,6 @@ void StartScreen::Update()
 
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_ENTER) == GLFW_PRESS) {
 		ScreenSelected = ScreenChoice;
-		m_pAudioManager->PauseMusic();
 	}
 
 	
@@ -135,13 +134,13 @@ void StartScreen::Render()
 			}
 
 			// border color
-			m_pFont->RenderText("START GAME", 328 + i, 370 + j, 1.3, glm::vec3(0.0f, 0.0f, 0.0f));
-			m_pFont->RenderText("CREDITS", 380 + i, 232 + j, 1.4, glm::vec3(0.0f, 0.0f, 0.0f)); // These handle the border which is offset slightly from 
+			m_pFont->RenderText("START GAME", 328 + i, 360 + j, 1.1, glm::vec3(0.0f, 0.0f, 0.0f));
+			m_pFont->RenderText("CREDITS", 380 + i, 222 + j, 1.17, glm::vec3(0.0f, 0.0f, 0.0f)); // These handle the border which is offset slightly from 
 
 		}
 	}
 
 	// font color
-	m_pFont->RenderText("START GAME", 328, 370, 1.3, glm::vec3(1.0f, 0.0f, 0.0f));
-	m_pFont->RenderText("CREDITS", 380, 232, 1.4, glm::vec3(1.0f, 0.0f, 0.0f));
+	m_pFont->RenderText("START GAME", 328, 360, 1.1, glm::vec3(1.0f, 0.0f, 0.0f));
+	m_pFont->RenderText("CREDITS", 380, 222, 1.17, glm::vec3(1.0f, 0.0f, 0.0f));
 }
