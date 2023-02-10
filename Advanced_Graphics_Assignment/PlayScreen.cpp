@@ -17,16 +17,21 @@ PlayScreen::PlayScreen()
 
 	m_pCannon = new Model("Assets/Models/Pirate_Cannon.obj");
 	m_pCannon->Position(-0.7f, -1.2f, 1.3);
-	m_pCannon->ModelScale(-0.1f, -0.1f, -0.1f);
+	m_pCannon->ModelScale(-0.11f, -0.11f, -0.11f);
 
 	m_pStand = new Model("Assets/Models/Stand.obj");
 	m_pStand->Position(-1.1f, -4.5, -7);
 
 	m_pSpeaker = new Model("Assets/Models/Speaker.obj");
-	m_pSpeaker->Position(-6.5f, -3, -30);
+	//m_pSpeaker->Position(-6.5f, -3, -30);
+	m_pSpeaker->Position(0, 0, 0);
+
+	m_pPlate = new Model("Assets/Models/Plate.obj");
+	m_pPlate->Position(0, 0, 0);
 
 	m_pBall = new Model("Assets/Models/Tennis_Ball.obj");
-	m_pBall->Position(-0.07f, -0.2f, 0.9f);
+	//m_pBall->Position(-0.7f, -1.2f, 1.3);
+	m_pBall->Position(0, 0, 0);
 	
 	
 
@@ -53,7 +58,6 @@ PlayScreen::PlayScreen()
 		temp++;
 	}
 
-	mActive = false;
 
 }
 
@@ -110,28 +114,28 @@ void PlayScreen::Update()
 	}
 
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_A) == GLFW_PRESS) {
-		m_pCannon->Translate(Vector3( - .1f, 0, 0));
-		std::cout << "x Position is: " << m_pCannon->Position().x << std::endl;
+		m_pBall->Translate(Vector3( - .1f, 0, 0));
+		std::cout << "x Position is: " << m_pBall->Position().x << std::endl;
 	}
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_D) == GLFW_PRESS) {
-		m_pCannon->Translate(Vector3(.1f, 0, 0));
-		std::cout << "x Position is: " << m_pCannon->Position().x << std::endl;
+		m_pBall->Translate(Vector3(.1f, 0, 0));
+		std::cout << "x Position is: " << m_pBall->Position().x << std::endl;
 	}
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_W) == GLFW_PRESS) {
-		m_pCannon->Translate(Vector3(0, .1f, 0));
-		std::cout << "y Position is: " << m_pCannon->Position().y << std::endl;
+		m_pBall->Translate(Vector3(0, .1f, 0));
+		std::cout << "y Position is: " << m_pBall->Position().y << std::endl;
 	}
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_S) == GLFW_PRESS) {
-		m_pCannon->Translate(Vector3(0, -.1f, 0));
-		std::cout << "y Position is: " << m_pCannon->Position().y << std::endl;
+		m_pBall->Translate(Vector3(0, -.1f, 0));
+		std::cout << "y Position is: " << m_pBall->Position().y << std::endl;
 	}
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_E) == GLFW_PRESS) {
-		m_pCannon->ModelTranslate(0, 0, -.1f);
-		std::cout << "z Position is: " << m_pCannon->Position().z << std::endl;
+		m_pBall->ModelTranslate(0, 0, -.1f);
+		std::cout << "z Position is: " << m_pBall->Position().z << std::endl;
 	}
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_Q) == GLFW_PRESS) {
-		m_pCannon->ModelTranslate(0, 0, 0.1f);
-		std::cout << "z Position is: " << m_pCannon->Position().z << std::endl;
+		m_pBall->ModelTranslate(0, 0, 0.1f);
+		std::cout << "z Position is: " << m_pBall->Position().z << std::endl;
 	}
 
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_BACKSPACE) == GLFW_PRESS) {
@@ -157,21 +161,21 @@ void PlayScreen::Update()
 
 void PlayScreen::LateUpdate() {
 
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_A) == GLFW_PRESS) {
-			m_pBall->ModelTranslate(-0.05f, 0, 0);
-			//m_pCannon->ModelTranslate(-0.05f, 0, 0);
-			// making the cannon and ball move together
-	}
+	//if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_A) == GLFW_PRESS) {
+	//		m_pBall->ModelTranslate(-0.05f, 0, 0);
+	//		//m_pCannon->ModelTranslate(-0.05f, 0, 0);
+	//		// making the cannon and ball move together
+	//}
 
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_D) == GLFW_PRESS) {
-			m_pBall->ModelTranslate(0.05f, 0, 0);
-			//m_pCannon->ModelTranslate(0.05f, 0, 0);
-			// making the cannon and ball move together
-	}
+	//if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_D) == GLFW_PRESS) {
+	//		m_pBall->ModelTranslate(0.05f, 0, 0);
+	//		//m_pCannon->ModelTranslate(0.05f, 0, 0);
+	//		// making the cannon and ball move together
+	//}
 	
 	if (mActive) 
 	{
-		m_pBall->ModelTranslate(0, 0, -0.1f);
+		//m_pBall->ModelTranslate(0, 0, -0.1f);
 	}
 
 	if (m_pBall->Position().z <= -35)
@@ -182,12 +186,12 @@ void PlayScreen::LateUpdate() {
 
 
 
+	Collide(m_pPlate, m_pBall);
 
-
-	for (int i = 0; i < 15; i++) {
-		Collide(m_pSpeaker, m_pPlates[i]);
-
-	}
+	/*for (int i = 0; i < 15; i++) {
+		Collide(m_pBall, m_pPlates[i]);
+		
+	}*/
 	
 	/*if (m_pSpeaker->Position().z <= -35) {
 		mActive = false;
@@ -208,26 +212,27 @@ void PlayScreen::Render()
 	modelShader.SetMat4("view", view);
 	//----------------------THIS IS OUR VIEWPORT----------------------
 
-	m_pCannon->Render(mCannon);
+	
 
-	m_pStand->Render(mStand);
+	//m_pStand->Render(mStand);
 
 
-	m_pSpeaker->Render(mSpeaker);
+	//m_pSpeaker->Render(mSpeaker);
+	m_pPlate->Render(mPlate);
 	
 	
 	
 	for (int i = 0; i < 15; i++) {
-		m_pPlates[i]->Render(mPlates);
+		//m_pPlates[i]->Render(mPlates);
 	}
 
 	if (mActive)
     {
-    	m_pBall->Render(mBall);
+    	//m_pBall->Render(mBall);
     }
-
+	m_pBall->Render(mBall);
     
-
+	//m_pCannon->Render(mCannon);
 }
 
 void PlayScreen::Collide(GameEntity* objectOne, GameEntity* objectTwo) {

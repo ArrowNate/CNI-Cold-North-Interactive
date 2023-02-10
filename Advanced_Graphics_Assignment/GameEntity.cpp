@@ -63,6 +63,7 @@ Vector3 GameEntity::Scale(Space space) {
 	Vector3 scale = mParent->Scale(World);
 	scale.x *= mScale.x;
 	scale.y *= mScale.y;
+	scale.z *= mScale.z;
 
 	return scale;
 }
@@ -90,9 +91,10 @@ void GameEntity::Parent(GameEntity* parent) {
 		mPosition = RotateVector(Position(World) - parent->Position(World), -parent->Rotation(World));
 		mPosition.x /= parentScale.x;
 		mPosition.y /= parentScale.y;
+		mPosition.z /= parentScale.z;
 
 		mRotation -= parent->Rotation(World);
-		mScale = Vector3(mScale.x / parentScale.x, mScale.y / parentScale.y);
+		mScale = Vector3(mScale.x / parentScale.x, mScale.y / parentScale.y, mScale.z / parentScale.z);
 	}
 
 	mParent = parent;
