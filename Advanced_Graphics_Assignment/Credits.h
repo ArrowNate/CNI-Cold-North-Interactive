@@ -18,7 +18,6 @@ private:
 	Font* m_pFont2;
 
 	Texture* m_pBackground;
-	Texture* m_pPatrick;
 	Texture* m_pLogo;
 
 	int ScreenSelected;

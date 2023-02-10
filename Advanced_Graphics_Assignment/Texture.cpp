@@ -3,7 +3,17 @@
 #include "ft2build.h"
 #include FT_FREETYPE_H
 
- Texture::Texture(const char filename[50], float p1x, float p1y, float p2x, float p2y, GLint channel) {
+Texture* Texture::Instance()
+{
+    return nullptr;
+}
+
+Texture* Texture::LoadTexture(std::string path)
+{
+    return nullptr;
+}
+
+Texture::Texture(const char filename[50], float p1x, float p1y, float p2x, float p2y, GLint channel) {
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
