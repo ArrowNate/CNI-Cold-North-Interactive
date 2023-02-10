@@ -17,10 +17,14 @@ public:
 
 	//Constructor
 	Shader(const char* vertexPath, const char* fragmentPath);
+	Shader();
+
+	
+	~Shader();
 
 	// use /activate the shader
 	void Use();
-
+	void Vector3(const char* name, const glm::vec3& value);  // vector3 or vec3?
 	void SetBool(const std::string& name, bool value) const; // std::string& = pasing the memory address of the variable
 	void SetInt(const std::string& name, int value) const;
 	void SetFloat(const std::string& name, float value) const;
