@@ -16,6 +16,7 @@ InputManager::InputManager()
 
 InputManager::~InputManager()
 {
+
 }
 
 InputManager* InputManager::Instance()
@@ -32,7 +33,6 @@ void InputManager::Release()
 	delete sInstance;
 	sInstance = nullptr;
 }
-
 
 void InputManager::mouseButtonCallBack(GLFWwindow* window, int button, int action, int mods)
 {
