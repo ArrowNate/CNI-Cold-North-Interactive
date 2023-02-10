@@ -8,6 +8,7 @@ PlayScreen::PlayScreen()
 	m_pAudioManager = AudioManager::Instance();
 
 	PlaySong = true;
+	mActive = false;
 
 	m_pBall = new Model("Assets/Models/Tennis_Ball.obj");
 	m_pBall->Position(-0.07f, -0.2f, 0.9f);
@@ -34,15 +35,15 @@ void PlayScreen::Update()
 		m_pAudioManager->PlayMusic2("Assets/Music/PlayScreenSong.mp3");
 		PlaySong = false;
 	}*/
-
+	
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_SPACE) == GLFW_PRESS) {
-		m_pBall->ModelTranslate(0, 0, -0.1f); 
+		mActive = true;
 		std::cout << "SPACE" << std::endl;
 
 		// moves the ball foward on keypress and controls speed
 	}
 		
-		//m_pBall->Translate();
+	//m_pBall->Translate();
 
 		//translate function for ball throw stop figure out how to write it ㅤ/ᐠ - ˕ -マ
 		// plates are at -30 so the ball has to stop around there
@@ -51,18 +52,30 @@ void PlayScreen::Update()
 
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_A) == GLFW_PRESS) {
 			m_pBall->ModelTranslate(-0.05f, 0, 0);
-			m_pCannon->ModelTranslate(-0.05f, 0, 0);
+			//m_pCannon->ModelTranslate(-0.05f, 0, 0);
 			// making the cannon and ball move together
 	}
 
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_D) == GLFW_PRESS) {
 			m_pBall->ModelTranslate(0.05f, 0, 0);
-			m_pCannon->ModelTranslate(0.05f, 0, 0);
+			//m_pCannon->ModelTranslate(0.05f, 0, 0);
 			// making the cannon and ball move together
 	}
 	
-	
-	
+	if (mActive) 
+	{
+		m_pBall->ModelTranslate(0, 0, -0.1f);
+	}
+
+	if (m_pBall->Position().z <= -35)
+	{
+		mActive = false;
+	}
+	std::cout << m_pBall->Position().z << std::endl;
+
+
+
+
 }
 
 void PlayScreen::Render()
@@ -75,8 +88,12 @@ void PlayScreen::Render()
 	modelShader.SetMat4("projection", projection);
 	modelShader.SetMat4("view", view);
 
+	if (mActive) 
+	{
+		m_pBall->Render(mBall);
+	}
 
-	m_pBall->Render(mBall);
+	
 	m_pCannon->Render(mCannon);
 	
 	
