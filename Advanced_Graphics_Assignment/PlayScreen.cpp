@@ -194,7 +194,7 @@ void PlayScreen::LateUpdate() {
 	
 	
 	for (int i = 0; i < 15; i++) {
-		//Collide(m_pBall, m_pPlates[i]); <----this one is using the box collider check, no good.
+		
 		SphereCollide(m_pBall, m_pPlates[i]);
 	}
 	
@@ -223,12 +223,16 @@ void PlayScreen::Render()
 	m_pSpeaker->Render(mSpeaker);
 
 	
-	
+	if (mPlateActive) {
+
 		for (int i = 0; i < 15; i++) {
 			m_pPlates[i]->Render(mPlates);
 
-			
+
+
 		}
+	}
+		
 	
 	
 	
@@ -257,9 +261,15 @@ void PlayScreen::Collide(GameEntity* objectOne, GameEntity* objectTwo) {
 
 void PlayScreen::SphereCollide(GameEntity* objectOne, GameEntity* objectTwo) {
 
-	if (m_pCollision->CheckSphereCollision(objectOne, objectTwo)) {
-		std::cout << " collion success" << std::endl;
-		m_pAudioManager->PlayMusic2("Assets/Music/PlateBreak.wav", false);
-		mPlateActive = false;
+	if (mPlateActive) {
+
+		if (m_pCollision->CheckSphereCollision(objectOne, objectTwo)) {
+			std::cout << " collion success" << std::endl;
+			m_pAudioManager->PlayMusic2("Assets/Music/PlateBreak.wav", false);
+			mPlateActive = false;
+			//mActive = false;
+		}
+
 	}
+	
 }
