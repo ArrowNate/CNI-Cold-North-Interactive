@@ -50,6 +50,16 @@ void AudioManager::PlaySFX()
 	//	return;
 }
 
+void AudioManager::PlayIntro()
+{
+	m_pSoundEngine->play2D("Assets/Music/SplashSound.wav", true);
+}
+
+void AudioManager::PauseIntro()
+{
+	m_pSoundEngine->setAllSoundsPaused();
+}
+
 //void AudioManager::processInput(GLFWwindow* window)
 //{
 //	//m_pSoundEngine->play2D("Assets/breakout.mp3", true);

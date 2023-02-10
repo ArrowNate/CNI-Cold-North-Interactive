@@ -31,6 +31,8 @@ public:
 	void PlayMusic();
 	void PauseMusic();
 	void PlaySFX();
+	void PlayIntro();
+	void PauseIntro();
 	//void processInput(GLFWwindow* window);
 };
 
