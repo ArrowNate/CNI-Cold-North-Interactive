@@ -44,6 +44,7 @@ private:
 
 public:
     void ModelTranslate(float x , float y, float z);
+    void ModelScale(float x , float y, float z);
 
     void Render(glm::mat4 modelName);
 };

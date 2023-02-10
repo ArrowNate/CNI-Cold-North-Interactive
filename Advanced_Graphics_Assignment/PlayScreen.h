@@ -29,9 +29,11 @@ private:
 	Model* m_pPlate;
 	glm::mat4 mPlate;
 
+	Model* m_pStand;
+	glm::mat4 mStand;
+
 	Model* m_pBall;
 	glm::mat4 mBall;
-
 
 	Model* m_pCannon;
 	glm::mat4 mCannon;
@@ -53,9 +55,6 @@ private:
 
 	bool mActive;
 	
-	bool mActive;
-
-
 	
 public:
 	PlayScreen();
