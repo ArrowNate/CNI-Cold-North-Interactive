@@ -44,7 +44,7 @@ PlayScreen::PlayScreen()
 
 	for (int i = 0; i < 15; i++) { // first part is decleration, second part is the number of iterations/loops, third is to increment/move on, it can go to the opposite direction, can be different ways.
 		m_pPlates[i] = new Model("Assets/Models/Plate.obj"); // extantiating variable, each element in the array
-		
+		m_pPlates[i]->Active(true);
 		
 		if (i % 5 == 0) {// if the remainder of the division is 0
 			y = y - 3.5;
@@ -195,7 +195,10 @@ void PlayScreen::LateUpdate() {
 	
 	for (int i = 0; i < 15; i++) {
 		
-		SphereCollide(m_pBall, m_pPlates[i]);
+
+		if (m_pPlates[i]->Active()) {
+			SphereCollide(m_pBall, m_pPlates[i]);
+		}
 	}
 	
 
@@ -223,15 +226,14 @@ void PlayScreen::Render()
 	m_pSpeaker->Render(mSpeaker);
 
 	
-	if (mPlateActive) {
 
-		for (int i = 0; i < 15; i++) {
+	for (int i = 0; i < 15; i++) {
+		
+		if (m_pPlates[i]->Active()) {
 			m_pPlates[i]->Render(mPlates);
-
-
-
 		}
 	}
+	
 		
 	
 	
@@ -266,8 +268,8 @@ void PlayScreen::SphereCollide(GameEntity* objectOne, GameEntity* objectTwo) {
 		if (m_pCollision->CheckSphereCollision(objectOne, objectTwo)) {
 			std::cout << " collion success" << std::endl;
 			m_pAudioManager->PlayMusic2("Assets/Music/PlateBreak.wav", false);
-			mPlateActive = false;
-			//mActive = false;
+			
+			objectTwo->Active(false);
 		}
 
 	}
