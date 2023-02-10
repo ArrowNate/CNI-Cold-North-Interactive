@@ -90,4 +90,16 @@ void Credits::Render()
 	m_pFont->RenderText("PATRICK FOSTER", 525, 224, 0.98, glm::vec3(1.0f, 0.0f, 0.0f));
 	m_pFont2->RenderText("COLD NORTH ", 130, 41, 1.5, glm::vec3(0.0f, 0.0f, 1.0f));
 	m_pFont2->RenderText("INTERACTIVE: ", 500, 50, 0.9, glm::vec3(1.0f, 1.0f, 1.0f));
+
+	// font color
+	m_pFont->RenderText("GEORGE EDMON", 68, 622, 1.3, glm::vec3(0.0f, 0.0f, 0.0f)); // (1.0f,0.7f,0.0f - b.orange), (1.0f, 0.0f, 0.0f - red), (0.0f, 0.7f, 1.0f - 
+	m_pFont->RenderText("RICHARD ALS", 576, 622, 1.3, glm::vec3(0.0f, 0.0f, 0.0f)); // (0.0f, 0.0f, 1.0f - blue), (1.0f, 1.0f, 1.0f - white), (0.0f, 0.0f, 0.0f 
+	m_pFont->RenderText("DAN DEPAULO", 68, 480, 1.3, glm::vec3(0.0f, 0.0f, 0.0f));                                                                  // black)
+	m_pFont->RenderText("BRANDON SHAW", 525, 480, 1.3, glm::vec3(0.0f, 0.0f, 0.0f));
+	m_pFont->RenderText("SAM SAMARRO", 68, 375, 1.3, glm::vec3(0.0f, 0.0f, 0.0f));
+	m_pFont->RenderText("MIKAELO SAN JOSE", 68, 224, 1.1, glm::vec3(0.0f, 0.0f, 0.0f));
+	m_pFont->RenderText("MAKSIM KNOKHINOV", 510, 375, 1.1, glm::vec3(0.0f, 0.0f, 0.0f)); 
+	m_pFont->RenderText("PATRICK FOSTER", 525, 224, 1.2, glm::vec3(0.0f, 0.0f, 0.0f)); 
+	m_pFont->RenderText("COLD NORTH ", 280, 740, 1.8, glm::vec3(0.0f, 0.0f, 1.0f));
+	m_pFont->RenderText("iNTERACTIVE: ", 365, 700, 0.9, glm::vec3(1.0f, 1.0f, 1.0f));
 }

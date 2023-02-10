@@ -31,7 +31,6 @@ private:
 	int ScreenSelected;
 
 	Font* m_pFont;
-	Font* m_pFont2;
 
 public:
 	StartScreen();

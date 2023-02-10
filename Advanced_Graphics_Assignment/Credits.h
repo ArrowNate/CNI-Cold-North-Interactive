@@ -15,7 +15,6 @@ private:
 	bool PlaySong;
 
 	Font* m_pFont;
-	Font* m_pFont2;
 
 	Texture* m_pBackground;
 	Texture* m_pLogo;
@@ -23,7 +22,6 @@ private:
 	int ScreenSelected;
 
 public:
-
 	Credits();
 	~Credits();
 
