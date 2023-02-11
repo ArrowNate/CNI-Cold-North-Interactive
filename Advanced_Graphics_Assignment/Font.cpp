@@ -3,15 +3,13 @@
 std::map<GLchar, Character> Characters;
 unsigned int VBO, VAO;
 
-<<<<<<< HEAD
+
 Font::Font(std::string fontName) {
 
 
 std::map<GLchar, Character> Characters;
 unsigned int VBO, VAO;
 
-=======
->>>>>>> parent of 342c4a5 (Merge branch 'main' into Patrick)
 Font::Font(std::string text, std::string fontPath, int size, glm::vec3 color) {
 	FT_Library ft;
 
@@ -21,13 +19,12 @@ Font::Font(std::string text, std::string fontPath, int size, glm::vec3 color) {
 		return;
 	}
 
-<<<<<<< HEAD
+
 
 	// This is the path to the font file location
 	std::string font_name = fontName;
 
-=======
->>>>>>> parent of 342c4a5 (Merge branch 'main' into Patrick)
+
 	// find path to font
 	std::string font_name = ("Assets/fonts/Antonio-Bold.ttf");
 	if (font_name.empty())

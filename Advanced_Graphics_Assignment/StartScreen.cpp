@@ -10,15 +10,8 @@ StartScreen::StartScreen()
 	PlaySong = true;
 	ScreenChoice = 1;
 	ScreenSelected = 2;
-
-<<<<<<< HEAD
-<<<<<<< HEAD
 	m_pFont = new Font("Assets/Fonts/Quentincaps.ttf");
 
-=======
->>>>>>> parent of 342c4a5 (Merge branch 'main' into Patrick)
-=======
->>>>>>> parent of 342c4a5 (Merge branch 'main' into Patrick)
 	m_pBackground = new Texture("Assets/Textures/PlateObliteratorMainMenu.png", 1.0, 1.0, -1.0, -1.0, GL_RGBA);
 	m_pLogo = new Texture("Assets/Textures/CNiLogo.png", 1.0, -0.72, 0.72, -1.0, GL_RGBA);
 	m_pStartGame = new Texture("Assets/Textures/StartGameQ.png", 0.37, 0.04, -0.39, -0.11, GL_RGBA);
@@ -113,9 +106,6 @@ void StartScreen::Render()
 	if (ScreenChoice == 1) {
 		m_pArrow2->Draw();
 	}
-<<<<<<< HEAD
-<<<<<<< HEAD
-
 	const int thickness = 2; // This is the thickness of the border around the text
 
 	for (int i = -thickness; i <= thickness; ++i) // inner loop repeats over j from -thickness to thickness same with i as well. 
@@ -138,8 +128,4 @@ void StartScreen::Render()
 	// font color
 	m_pFont->RenderText("START GAME", 328, 360, 1.1, glm::vec3(1.0f, 0.0f, 0.0f));
 	m_pFont->RenderText("CREDITS", 380, 222, 1.17, glm::vec3(1.0f, 0.0f, 0.0f));
-=======
->>>>>>> parent of 342c4a5 (Merge branch 'main' into Patrick)
-=======
->>>>>>> parent of 342c4a5 (Merge branch 'main' into Patrick)
 }

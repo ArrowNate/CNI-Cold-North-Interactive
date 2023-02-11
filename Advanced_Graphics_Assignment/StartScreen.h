@@ -7,6 +7,7 @@
 #include "InputManager.h"
 #include "AudioManager.h"
 //#include "ScreenManager.h"
+#include "Font.h"
 
 class StartScreen : public GameEntity
 {
@@ -23,7 +24,7 @@ private:
 	Texture* m_pCredits;
 	Texture* m_pArrow;
 	Texture* m_pArrow2;
-
+	Font* m_pFont;
 	int ScreenSelected;
 
 public:
