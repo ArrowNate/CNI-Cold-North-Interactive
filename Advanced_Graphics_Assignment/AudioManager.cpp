@@ -50,7 +50,6 @@ void AudioManager::PlaySFX()
 	//	return;
 }
 
-<<<<<<< HEAD
 void AudioManager::PlayMusic2(const char filepath[50], bool loop)
 {
 	m_pSoundEngine->play2D(filepath, loop);
@@ -59,9 +58,16 @@ void AudioManager::PlayMusic2(const char filepath[50], bool loop)
 void AudioManager::PlayMusic3D(const char filepath[50], float x, float y, float z, bool loop) {
 	m_pSoundEngine->play3D(filepath, vec3df(x, y, z), loop );
 }
-=======
+void AudioManager::PlayIntro()
+{
+	m_pSoundEngine->play2D("Assets/Music/SplashSound.wav", true);
+}
+
+void AudioManager::PauseIntro()
+{
+	m_pSoundEngine->setAllSoundsPaused();
+}
 //void AudioManager::processInput(GLFWwindow* window)
 //{
 //	//m_pSoundEngine->play2D("Assets/breakout.mp3", true);
 //}
->>>>>>> parent of eb359a6 (1.0.0.6)

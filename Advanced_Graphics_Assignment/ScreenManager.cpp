@@ -21,16 +21,17 @@ void ScreenManager::Release()
 
 ScreenManager::ScreenManager() 
 {
-	mCurrentScreen = Start;
+	mCurrentScreen = Splash;
 	m_pStartScreen = new StartScreen();
 	m_pCredits = new Credits();
 	m_pPlayScreen = new PlayScreen();
+	m_pSplashScreen = new SplashScreen();
 
 	Screens.push_back(m_pStartScreen);
 	Screens.push_back(m_pPlayScreen);
 	Screens.push_back(m_pCredits);
 
-	ScreenChoice = 2;
+	ScreenChoice = Splash;
 }
 
 void ScreenManager::Update()
@@ -54,19 +55,14 @@ void ScreenManager::Update()
 		m_pPlayScreen->Update();
 		m_pStartScreen->setSelectedScreen(2);
 		ScreenChoice = m_pPlayScreen->SelectedScreen();
-<<<<<<< HEAD
-=======
+
 		break;
-<<<<<<< HEAD
 
 	case Splash:
 		m_pSplashScreen->Update();
 		//m_pSplashScreen->setSelectedScreen(2);
 		ScreenChoice = m_pSplashScreen->SelectedScreen();
->>>>>>> parent of 342c4a5 (Merge branch 'main' into Patrick)
 		break;
-=======
->>>>>>> parent of eb359a6 (1.0.0.6)
 	}
 }
 

@@ -25,7 +25,7 @@ void Timer::Reset()
 
 float Timer::DeltaTime() const
 {
-    return 0.0f;
+    return mDeltaTime;
 }
 
 void Timer::TimeScale(float ts)

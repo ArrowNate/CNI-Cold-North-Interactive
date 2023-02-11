@@ -16,10 +16,18 @@ private:
 	float mSplashTotalTime;
 	float mSplashTimer;
 	bool mSplashDone;
+	bool PlayIntro;
+	int ScreenSelected;
+
 
 public:
 	SplashScreen();
 	~SplashScreen();
+
+	int SelectedMode();
+	int SelectedScreen();
+
+	void setSelectedScreen(int Screen);
 
 	void Update() override;
 	void Render() override;
