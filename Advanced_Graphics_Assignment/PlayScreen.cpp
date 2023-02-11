@@ -30,6 +30,7 @@ void PlayScreen::setSelectedScreen(int Screen)
 void PlayScreen::Update()
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	if (PlaySong == true) {
 		//m_pAudioManager->PlayMusic3D("Assets/Music/PlayScreenSong.mp3", -2.0f, -3, 1);
@@ -63,6 +64,8 @@ void PlayScreen::Update()
 
 =======
 >>>>>>> parent of 342c4a5 (Merge branch 'main' into Patrick)
+=======
+>>>>>>> parent of 342c4a5 (Merge branch 'main' into Patrick)
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_BACKSPACE) == GLFW_PRESS) {
 		ScreenSelected = 2;
 	}
@@ -70,6 +73,7 @@ void PlayScreen::Update()
 
 void PlayScreen::Render()
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
 	modelShader.Use();
 
@@ -90,6 +94,9 @@ void PlayScreen::Render()
 	}
 
 	m_pHUD->Draw();
+=======
+	m_pBackdrop->Draw();
+>>>>>>> parent of 342c4a5 (Merge branch 'main' into Patrick)
 =======
 	m_pBackdrop->Draw();
 >>>>>>> parent of 342c4a5 (Merge branch 'main' into Patrick)

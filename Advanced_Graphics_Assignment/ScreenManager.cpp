@@ -54,6 +54,15 @@ void ScreenManager::Update()
 		m_pPlayScreen->Update();
 		m_pStartScreen->setSelectedScreen(2);
 		ScreenChoice = m_pPlayScreen->SelectedScreen();
+<<<<<<< HEAD
+=======
+		break;
+
+	case Splash:
+		m_pSplashScreen->Update();
+		//m_pSplashScreen->setSelectedScreen(2);
+		ScreenChoice = m_pSplashScreen->SelectedScreen();
+>>>>>>> parent of 342c4a5 (Merge branch 'main' into Patrick)
 		break;
 	}
 }
@@ -71,6 +80,13 @@ void ScreenManager::Render()
 
 	case Play:
 		m_pPlayScreen->Render();
+<<<<<<< HEAD
+=======
+		break;
+
+	case Splash:
+		m_pSplashScreen->Render();
+>>>>>>> parent of 342c4a5 (Merge branch 'main' into Patrick)
 		break;
 	}
 }
