@@ -21,18 +21,18 @@ void ScreenManager::Release()
 
 ScreenManager::ScreenManager()
 {
-	mCurrentScreen = Start;
+	mCurrentScreen = Splash;
 	m_pStartScreen = new StartScreen();
 	m_pCredits = new Credits();
 	m_pPlayScreen = new PlayScreen();
 	m_pSplashScreen = new SplashScreen();
 
-	//Screens.push_back(m_pStartScreen);
-	//Screens.push_back(m_pPlayScreen);
-	//Screens.push_back(m_pCredits);
+	Screens.push_back(m_pStartScreen);
+	Screens.push_back(m_pPlayScreen);
+	Screens.push_back(m_pCredits);
 
 
-	ScreenChoice = Start;
+	ScreenChoice = Splash;
 
 }
 
@@ -61,7 +61,7 @@ void ScreenManager::Update()
 
 	case Splash:
 		m_pSplashScreen->Update();
-		//m_pSplashScreen->setSelectedScreen(2);
+		//m_pStartScreen->setSelectedScreen(2);
 		ScreenChoice = m_pSplashScreen->SelectedScreen();
 		break;
 	}
@@ -106,4 +106,7 @@ ScreenManager::~ScreenManager()
 
 	delete m_pPlayScreen;
 	m_pPlayScreen = nullptr;
+
+	delete m_pSplashScreen;
+	m_pSplashScreen = nullptr;
 }

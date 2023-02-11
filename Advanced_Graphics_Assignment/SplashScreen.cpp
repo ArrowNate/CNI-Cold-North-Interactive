@@ -42,15 +42,15 @@ void SplashScreen::Update()
 	m_pInputManager->processInput(Graphics::Instance()->GetWindow());
 	mSplashTimer += m_pTimer->DeltaTime();
 	if (PlayIntro == true) {
-		//m_pAudioManager->PlayIntro();
+		m_pAudioManager->PlayMusic3D("Assets/Music/SplashSound.wav", -2.0f, -3, 1);
 		PlayIntro = false;
 	}
 
 	if (!mSplashDone) {
 		if (mSplashTimer >= mSplashTotalTime) {
+			m_pAudioManager->PauseMusic();
 			mSplashDone = true;
 			ScreenSelected = 2;
-			//m_pAudioManager->PauseIntro();
 		}
 	}
 
