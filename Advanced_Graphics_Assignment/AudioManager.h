@@ -29,12 +29,10 @@ public:
 	~AudioManager();
 
 	void PlayMusic();
-	void PlayMusic(const char filepath[50], bool loop = true);
+	void PlayMusic2(const char filepath[50], bool loop = true);
 	void PlayMusic3D(const char filepath[50], float x, float y, float z, bool loop = true);
 	void PauseMusic();
 	void PlaySFX();
-	void PlayIntro();
-	void PauseIntro();
 	//void processInput(GLFWwindow* window);
 };
 

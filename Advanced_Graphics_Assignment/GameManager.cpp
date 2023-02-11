@@ -22,7 +22,6 @@ void GameManager::Run() {
 
 	while (!glfwWindowShouldClose(Graphics::Instance()->GetWindow()))
 	{
-		Timer::Instance()->Update();
 		Update();
 		LateUpdate();
 		Render();

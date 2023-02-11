@@ -1,8 +1,6 @@
 #include "Font.h"
 
-
-
-Font::Font() {
+Font::Font(std::string fontName) {
 
 	FT_Library ft;
 
@@ -13,7 +11,7 @@ Font::Font() {
 	}
 
 	// This is the path to the font file location
-	std::string font_name = ("Assets/Fonts/CarneyText.ttf");
+	std::string font_name = fontName;
 	if (font_name.empty())
 	{
 		std::cout << "ERROR::FREETYPE: Failed to load font_name" << std::endl;

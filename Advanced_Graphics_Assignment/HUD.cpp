@@ -2,7 +2,7 @@
 
 HUD::HUD() {
 
-	m_pFont = new Font();
+	m_pFont = new Font("Assets/Fonts/CarneyText.ttf");
 	m_pHUDBorder = new Texture("Assets/Textures/HUDBorder1.png", 1.0, 1.0, -1.0, -1.0, GL_RGBA);
 }
 
