@@ -57,6 +57,7 @@ void ScreenManager::Update()
 <<<<<<< HEAD
 =======
 		break;
+<<<<<<< HEAD
 
 	case Splash:
 		m_pSplashScreen->Update();
@@ -64,6 +65,8 @@ void ScreenManager::Update()
 		ScreenChoice = m_pSplashScreen->SelectedScreen();
 >>>>>>> parent of 342c4a5 (Merge branch 'main' into Patrick)
 		break;
+=======
+>>>>>>> parent of eb359a6 (1.0.0.6)
 	}
 }
 
@@ -83,11 +86,14 @@ void ScreenManager::Render()
 <<<<<<< HEAD
 =======
 		break;
+<<<<<<< HEAD
 
 	case Splash:
 		m_pSplashScreen->Render();
 >>>>>>> parent of 342c4a5 (Merge branch 'main' into Patrick)
 		break;
+=======
+>>>>>>> parent of eb359a6 (1.0.0.6)
 	}
 }
 
