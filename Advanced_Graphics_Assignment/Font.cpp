@@ -1,14 +1,13 @@
 #include "Font.h"
 
-<<<<<<< HEAD
+
 Font::Font(std::string fontName) {
 
-=======
+
 std::map<GLchar, Character> Characters;
 unsigned int VBO, VAO;
 
 Font::Font(std::string text, std::string fontPath, int size, glm::vec3 color) {
->>>>>>> parent of 342c4a5 (Merge branch 'main' into Patrick)
 	FT_Library ft;
 
 	if (FT_Init_FreeType(&ft))
@@ -17,13 +16,12 @@ Font::Font(std::string text, std::string fontPath, int size, glm::vec3 color) {
 		return;
 	}
 
-<<<<<<< HEAD
+
 	// This is the path to the font file location
 	std::string font_name = fontName;
-=======
+
 	// find path to font
 	std::string font_name = ("Assets/fonts/Antonio-Bold.ttf");
->>>>>>> parent of 342c4a5 (Merge branch 'main' into Patrick)
 	if (font_name.empty())
 	{
 		std::cout << "ERROR::FREETYPE: Failed to load font_name" << std::endl;

@@ -29,6 +29,11 @@ public:
 	~AudioManager();
 
 	void PlayMusic();
+<<<<<<< HEAD
+=======
+	void PlayMusic2(const char filepath[50], bool loop = true);
+	void PlayMusic3D(const char filepath[50], float x, float y, float z, bool loop = true);
+>>>>>>> parent of 72267df (Update AudioManager.h)
 	void PauseMusic();
 	void PlaySFX();
 	//void processInput(GLFWwindow* window);
