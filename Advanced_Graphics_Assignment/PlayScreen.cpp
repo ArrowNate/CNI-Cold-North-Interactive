@@ -249,7 +249,7 @@ void PlayScreen::Render()
     	m_pBall->Render(mBall);
     }
 
-     //m_pHUD->Draw();
+     m_pHUD->Draw();
 
 	//m_pCannon->Render(mCannon);
 }
@@ -277,12 +277,9 @@ void PlayScreen::SphereCollide(GameEntity* objectOne, GameEntity* objectTwo) {
 			m_pAudioManager->PlayMusic2("Assets/Music/PlateBreak.wav", false);
 			
 			objectTwo->Active(false);
-			//mActive = false;
+			mActive = false;
 		}
 
 	}
-
-
-
 
 }
