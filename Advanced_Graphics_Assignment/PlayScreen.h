@@ -3,7 +3,7 @@
 #include "Graphics.h"
 #include "InputManager.h"
 #include "AudioManager.h"
-//#include "Font.h"
+#include "Font.h"
 //#include "Shader.h"
 //#include "Texture.h"
 #include <iostream>
