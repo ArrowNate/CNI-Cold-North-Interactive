@@ -1,7 +1,6 @@
 #include "Font.h"
 
-Font::Font(std::string fontName) {
-
+Font::Font(std::string text, std::string fontPath, int size, glm::vec3 color) {
 	FT_Library ft;
 
 	if (FT_Init_FreeType(&ft))
@@ -75,7 +74,7 @@ Font::Font(std::string fontName) {
 	}
 
 
-	ourShader = Shader("Assets/Shaders/text.vs", "Assets/Shaders/text.fs");
+	Shader ourShader("Assets/Shaders/text.vs", "Assets/Shaders/text.fs");
 
 	glGenVertexArrays(1, &VAO);
 	glGenBuffers(1, &VBO);
@@ -93,21 +92,13 @@ Font::Font(std::string fontName) {
 	glm::mat4 projection = glm::ortho(0.0f, 1000.0f, 0.0f, 800.0f);
 	ourShader.Use();
 	glUniformMatrix4fv(glGetUniformLocation(ourShader.GetID(), "projection"), 1, GL_FALSE, glm::value_ptr(projection));
-
-	/*FT_Done_Face(face);
-	FT_Done_FreeType(ft)*/
 }
 
-Font::~Font()
-{
-
-}
-
-void Font::RenderText(std::string text, float x, float y, float scale, glm::vec3 color) {
+void RenderText(Shader& shader, std::string text, float x, float y, float scale, glm::vec3 color) {
 
 	// activate corresponding render state	
-	ourShader.Use();
-	glUniform3f(glGetUniformLocation(ourShader.GetID(), "textColor"), color.x, color.y, color.z);
+	shader.Use();
+	glUniform3f(glGetUniformLocation(shader.GetID(), "textColor"), color.x, color.y, color.z);
 	glActiveTexture(GL_TEXTURE0);
 	glBindVertexArray(VAO);
 

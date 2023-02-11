@@ -3,11 +3,7 @@
 #include "Graphics.h"
 #include "InputManager.h"
 #include "AudioManager.h"
-#include "Font.h"
-//#include "Shader.h"
-//#include "Texture.h"
 #include <iostream>
-#include "Texture.h"
 
 class PlayScreen : public GameEntity
 {
@@ -16,7 +12,6 @@ private:
 	InputManager* m_pInputManager;
 	AudioManager* m_pAudioManager;
 
-	Texture* m_pBackdrop;
 
 	int ScreenSelected;
 

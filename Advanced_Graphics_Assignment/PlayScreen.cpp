@@ -30,36 +30,6 @@ void PlayScreen::setSelectedScreen(int Screen)
 void PlayScreen::Update()
 {
 
-	if (PlaySong == true) {
-		//m_pAudioManager->PlayMusic3D("Assets/Music/PlayScreenSong.mp3", -2.0f, -3, 1);
-		PlaySong = false;
-	}
-
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_A) == GLFW_PRESS) {
-		m_pSpeaker->Translate(Vector3( - .1f, 0, 0));
-		std::cout << m_pSpeaker->Position().x << std::endl;
-	}
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_D) == GLFW_PRESS) {
-		m_pSpeaker->Translate(Vector3(.1f, 0, 0));
-		std::cout << m_pSpeaker->Position().x << std::endl;
-	}
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_W) == GLFW_PRESS) {
-		m_pSpeaker->Translate(Vector3(0, .1f, 0));
-		std::cout << m_pSpeaker->Position().y << std::endl;
-	}
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_S) == GLFW_PRESS) {
-		m_pSpeaker->Translate(Vector3(0, -.1f, 0));
-		std::cout << m_pSpeaker->Position().y << std::endl;
-	}
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_E) == GLFW_PRESS) {
-		m_pSpeaker->ModelTranslate(0, 0, -.1f);
-		std::cout << "EEEEEEEEEEEEE" << std::endl;
-	}
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_Q) == GLFW_PRESS) {
-		m_pSpeaker->ModelTranslate(0, 0, 0.1f);
-		std::cout << "EEEEEEEEEEEEE" << std::endl;
-	}
-
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_BACKSPACE) == GLFW_PRESS) {
 		ScreenSelected = 2;
 	}
@@ -67,6 +37,7 @@ void PlayScreen::Update()
 
 void PlayScreen::Render()
 {
+
 	modelShader.Use();
 
 	//----------------------THIS IS OUR VIEWPORT----------------------
@@ -86,4 +57,5 @@ void PlayScreen::Render()
 	}
 
 	m_pHUD->Draw();
+
 }

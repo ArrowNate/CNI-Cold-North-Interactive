@@ -12,9 +12,6 @@ Credits::Credits()
 	m_pFont = new Font("Assets/Fonts/Quentincaps.ttf");
 	m_pFont2 = new Font("Assets/Fonts/CarneyText.ttf");
 
-	m_pBackground = new Texture("Assets/Textures/CarnvialBackgroundSet.png", 1.0, 1.0, -1.0, -1.0, GL_RGBA);
-
-	m_pBackground = new Texture("Assets/Textures/CarnvialBackgroundSet.png", 1.0, 1.0, -1.0, -1.0, GL_RGBA);
 
 	m_pBackground = new Texture("Assets/Textures/CarnvialBackgroundSet.png", 1.0, 1.0, -1.0, -1.0, GL_RGBA);
 	m_pGeorge = new Texture("Assets/Textures/George.png", 0.0, 0.675, -0.76, 0.525, GL_RGBA);
@@ -59,11 +56,13 @@ Credits::~Credits()
 
 	delete m_pLogo;
 	m_pLogo = nullptr;
+
 	delete m_pFont;
 	m_pFont = nullptr;
 
 	delete m_pFont2;
 	m_pFont2 = nullptr;
+
 
 }
 
@@ -96,6 +95,7 @@ void Credits::Render()
 	m_pMaksim->Draw();
 	m_pPatrick->Draw();
 	m_pLogo->Draw();
+
 
 	const int thickness = 2; // This is the thickness of the border around the text
 
