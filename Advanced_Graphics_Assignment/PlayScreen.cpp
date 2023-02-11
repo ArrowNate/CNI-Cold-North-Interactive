@@ -33,6 +33,7 @@ PlayScreen::PlayScreen()
 
 	m_pBall = new Model("Assets/Models/Tennis_Ball.obj");
 	m_pBall->Position(-0.7f, -1.2f, 1.3);
+	//m_pBall->Position( , -1.2f, 1.3);
 
 	
 	
@@ -276,6 +277,7 @@ void PlayScreen::SphereCollide(GameEntity* objectOne, GameEntity* objectTwo) {
 			m_pAudioManager->PlayMusic2("Assets/Music/PlateBreak.wav", false);
 			
 			objectTwo->Active(false);
+			mActive = false;
 		}
 
 	}

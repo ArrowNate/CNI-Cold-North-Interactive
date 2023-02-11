@@ -108,6 +108,7 @@ void StartScreen::Update()
 
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_ENTER) == GLFW_PRESS) {
 		ScreenSelected = ScreenChoice;
+		m_pAudioManager->PauseMusic();
 	}
 
 	
