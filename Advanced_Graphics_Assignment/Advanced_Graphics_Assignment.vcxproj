@@ -161,6 +161,7 @@
   <ItemGroup>
     <ClInclude Include="AudioManager.h" />
     <ClInclude Include="AssetManager.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="Credits.h" />
     <ClInclude Include="Font.h" />
     <ClInclude Include="GameEntity.h" />

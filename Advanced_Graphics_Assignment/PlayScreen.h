@@ -4,6 +4,7 @@
 #include "InputManager.h"
 #include "AudioManager.h"
 #include <iostream>
+#include "Camera.h"
 
 class PlayScreen : public GameEntity
 {
