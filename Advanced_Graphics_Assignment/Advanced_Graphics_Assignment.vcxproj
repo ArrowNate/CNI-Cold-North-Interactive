@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="AssetManager.cpp" />
+    <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Credits.cpp" />
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="GameEntity.cpp" />
@@ -157,14 +158,17 @@
     <ClCompile Include="PlayScreen.cpp" />
     <ClCompile Include="ScreenManager.cpp" />
     <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="SplashScreen.cpp" />
     <ClCompile Include="StartScreen.cpp" />
     <ClCompile Include="stb_image.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AudioManager.h" />
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Collision.h" />
     <ClInclude Include="Credits.h" />
     <ClInclude Include="Font.h" />
     <ClInclude Include="ft2build.h" />
@@ -181,9 +185,11 @@
     <ClInclude Include="PlayScreen.h" />
     <ClInclude Include="ScreenManager.h" />
     <ClInclude Include="Shader.h" />
+    <ClInclude Include="SplashScreen.h" />
     <ClInclude Include="StartScreen.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="Timer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

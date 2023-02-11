@@ -9,6 +9,7 @@
 #include "Camera.h"
 #include "Model.h"
 #include "Graphics.h"
+#include "Collision.h"
 
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
@@ -22,6 +23,7 @@ private:
 	AudioManager* m_pAudioManager;
 	InputManager* m_pInputManager;
 	Graphics* m_pGraphics;
+	Collision* m_pCollision;
 
 	int ScreenSelected;
 
@@ -35,11 +37,19 @@ private:
 	Model* m_pStand;
 	glm::mat4 mStand;
 
+	Model* m_pBall;
+	glm::mat4 mBall;
+
+	Model* m_pCannon;
+	glm::mat4 mCannon;
+
 	Model* m_pSpeaker;
 	glm::mat4 mSpeaker;
 
 	Shader modelShader;
+
 	bool PlaySong;
+	bool PlayPlateBreak;
 
 	Model* m_pPlates[15];
 	glm::mat4 mPlates;
@@ -50,6 +60,10 @@ private:
 	const float mPlatesx = -11;
 	const int mPlatesz = -30;
 
+
+	bool mActive;
+	bool mPlateActive;
+
 public:
 	PlayScreen();
 	~PlayScreen();
@@ -58,7 +72,11 @@ public:
 
 	void setSelectedScreen(int Screen);
 
+	void Collide(GameEntity* objectOne, GameEntity* objectTwo);
+	void SphereCollide(GameEntity* objectOne, GameEntity* objectTwo);
+
 	void Update();
+	void LateUpdate();
 	void Render();
 
 };

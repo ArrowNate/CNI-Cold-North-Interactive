@@ -4,7 +4,7 @@
 
 ScreenManager* ScreenManager::sInstance = nullptr;
 
-ScreenManager* ScreenManager::Instance() 
+ScreenManager* ScreenManager::Instance()
 {
 	if (sInstance == nullptr) {
 		sInstance = new ScreenManager();
@@ -13,24 +13,27 @@ ScreenManager* ScreenManager::Instance()
 	return sInstance;
 }
 
-void ScreenManager::Release() 
+void ScreenManager::Release()
 {
 	delete sInstance;
 	sInstance = nullptr;
 }
 
-ScreenManager::ScreenManager() 
+ScreenManager::ScreenManager()
 {
 	mCurrentScreen = Start;
 	m_pStartScreen = new StartScreen();
 	m_pCredits = new Credits();
 	m_pPlayScreen = new PlayScreen();
+	m_pSplashScreen = new SplashScreen();
 
-	Screens.push_back(m_pStartScreen);
-	Screens.push_back(m_pPlayScreen);
-	Screens.push_back(m_pCredits);
+	//Screens.push_back(m_pStartScreen);
+	//Screens.push_back(m_pPlayScreen);
+	//Screens.push_back(m_pCredits);
 
-	ScreenChoice = 2;
+
+	ScreenChoice = Start;
+
 }
 
 void ScreenManager::Update()
@@ -52,12 +55,24 @@ void ScreenManager::Update()
 
 	case Play:
 		m_pPlayScreen->Update();
-
 		m_pStartScreen->setSelectedScreen(2);
 		ScreenChoice = m_pPlayScreen->SelectedScreen();
+		break;
 
+	case Splash:
+		m_pSplashScreen->Update();
+		//m_pSplashScreen->setSelectedScreen(2);
+		ScreenChoice = m_pSplashScreen->SelectedScreen();
 		break;
 	}
+}
+
+void ScreenManager::LateUpdate() {
+
+	if (ScreenChoice == Play) {
+		m_pPlayScreen->LateUpdate();
+	}
+	
 }
 
 void ScreenManager::Render()
@@ -73,7 +88,10 @@ void ScreenManager::Render()
 
 	case Play:
 		m_pPlayScreen->Render();
+		break;
 
+	case Splash:
+		m_pSplashScreen->Render();
 		break;
 	}
 }
