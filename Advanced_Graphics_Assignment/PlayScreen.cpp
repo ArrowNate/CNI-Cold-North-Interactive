@@ -119,6 +119,8 @@ void PlayScreen::Update()
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_BACKSPACE) == GLFW_PRESS) {
 		ScreenSelected = 2;
 	}
+
+	m_pHUD->Update();
 }
 
 void PlayScreen::Render()
