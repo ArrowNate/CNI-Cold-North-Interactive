@@ -61,11 +61,14 @@ PlayScreen::PlayScreen()
 		temp++;
 	}
 
-
+	m_pHUD = new HUD();
 }
 
 PlayScreen::~PlayScreen()
 {
+
+	delete m_pHUD;
+	m_pHUD = nullptr;
 
 	AudioManager::Release();
 	m_pAudioManager = nullptr;
@@ -95,6 +98,7 @@ PlayScreen::~PlayScreen()
 
     m_pCannon = nullptr;
     delete m_pCannon;
+
 }
 
 int PlayScreen::SelectedScreen()
@@ -238,18 +242,14 @@ void PlayScreen::Render()
 			m_pPlates[i]->Render(mPlates);
 		}
 	}
-	
-		
-	
-	
-	
 
 	if (mActive)
     {
     	m_pBall->Render(mBall);
     }
-	//m_pBall->Render(mBall);
-    
+
+     m_pHUD->Draw();
+
 	//m_pCannon->Render(mCannon);
 }
 
@@ -264,6 +264,7 @@ void PlayScreen::Collide(GameEntity* objectOne, GameEntity* objectTwo) {
 
 		std::cout << " collion success" << std::endl;
 	}
+
 }
 
 void PlayScreen::SphereCollide(GameEntity* objectOne, GameEntity* objectTwo) {
@@ -278,5 +279,8 @@ void PlayScreen::SphereCollide(GameEntity* objectOne, GameEntity* objectTwo) {
 		}
 
 	}
-	
+
+
+
+
 }
