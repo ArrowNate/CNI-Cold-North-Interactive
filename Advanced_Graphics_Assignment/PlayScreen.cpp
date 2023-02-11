@@ -87,7 +87,7 @@ void PlayScreen::Update()
 {
 
 	if (PlaySong == true) {
-		m_pAudioManager->PlayMusic3D("Assets/Music/PlayScreenSong.mp3", -2.0f, -3, 1);
+		//m_pAudioManager->PlayMusic3D("Assets/Music/PlayScreenSong.mp3", -2.0f, -3, 1);
 		PlaySong = false;
 	}
 
