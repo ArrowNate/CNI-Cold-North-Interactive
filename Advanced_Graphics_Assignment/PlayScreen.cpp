@@ -26,17 +26,12 @@ PlayScreen::PlayScreen()
 	m_pSpeaker = new Model("Assets/Models/Speaker.obj");
 	m_pSpeaker->Position(-6, -2.6, -8.7);
 
-
 	/*m_pPlate = new Model("Assets/Models/Plate.obj");
 	m_pPlate->Position(0, 0, -30);*/
 	
-
 	m_pBall = new Model("Assets/Models/Tennis_Ball.obj");
 	//m_pBall->Position(m_pInputManager->getmousePosx(), m_pInputManager->getmousePosy(), 1);
 	m_pBall->Position( -0.7, -1.2f, 1.3);
-
-	
-	
 
 	modelShader = Shader("Assets/Shaders/modelLoading.vs", "Assets/Shaders/modelLoading.fs");
 
@@ -198,10 +193,6 @@ void PlayScreen::LateUpdate() {
 	{
 		mActive = false;
 	}
-
-	
-	
-	
 	
 	for (int i = 0; i < 15; i++) {
 		
@@ -226,14 +217,9 @@ void PlayScreen::Render()
 	modelShader.SetMat4("view", view);
 	//----------------------THIS IS OUR VIEWPORT----------------------
 
-	
-
 	m_pStand->Render(mStand);
 
-
 	m_pSpeaker->Render(mSpeaker);
-
-	
 
 	for (int i = 0; i < 15; i++) {
 		
