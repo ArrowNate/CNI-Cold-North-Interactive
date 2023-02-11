@@ -5,6 +5,8 @@
 #include "InputManager.h"
 #include "AudioManager.h"
 #include "Timer.h"
+
+
 class SplashScreen : public GameEntity
 {
 private:
@@ -13,6 +15,7 @@ private:
 	AudioManager* m_pAudioManager;
 	Timer* m_pTimer;
 	Texture* m_pLogo;
+	
 	float mSplashTotalTime;
 	float mSplashTimer;
 	bool mSplashDone;

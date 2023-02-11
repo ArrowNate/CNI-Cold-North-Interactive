@@ -1,30 +1,41 @@
 #ifndef _INPUTMANAGER_H
 #define _INPUTMANAGER_H
-#include <GLFW/glfw3.h>
-#include <iostream>
+#include "Graphics.h"
 
-class InputManager
+class InputManager : GameEntity
 {
 public:
+	InputManager();
+	~InputManager();
+	
 	static InputManager* Instance();
 	static InputManager* sInstance;
 
-	GLFWwindow* window;
-
 	static void Release();
 
-	void mouseButtonCallBack(GLFWwindow* window, int button, int action, int mods);
-	void cursorEnterCallback(GLFWwindow* window, int entered);
-	void mouse_callback(GLFWwindow* window, double xPos, double yPos);
+	static void mouseButtonCallBack(GLFWwindow* window, int button, int action, int mods);
+	//static void mouseButtonCallBack2(GameEntity* window, int button, int action, int mods);
+	static void mouse_callback(GLFWwindow* window, double xPos, double yPos);
+	static void mouse_callback2(GameEntity* game, double xPos, double yPos);
 	void processInput(GLFWwindow* window);
+	
+	glm::vec2 getmousePos();
+	float getmousePos2();
+	float getmousePosx();
+	float getmousePosy();
+
+	static bool MouseButtonPressed();
 
 	void Update();
-
+	
 	
 private:
+	GLFWwindow* window;
+	
+	static bool getMouseButtonPressed;
 
-	InputManager();
-	~InputManager();
+	static glm::vec2 mousePos;
+	static glm::vec2 mousePos2;
 	
 };
  

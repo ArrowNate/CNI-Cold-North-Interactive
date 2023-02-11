@@ -36,7 +36,7 @@ void GameManager::Update() {
 
 void GameManager::LateUpdate()
 {
-
+	m_pScreenManager->LateUpdate();
 }
 
 void GameManager::Render() {

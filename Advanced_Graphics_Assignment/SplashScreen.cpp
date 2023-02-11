@@ -42,7 +42,7 @@ void SplashScreen::Update()
 	m_pInputManager->processInput(Graphics::Instance()->GetWindow());
 	mSplashTimer += m_pTimer->DeltaTime();
 	if (PlayIntro == true) {
-		m_pAudioManager->PlayIntro();
+		//m_pAudioManager->PlayIntro();
 		PlayIntro = false;
 	}
 
@@ -50,10 +50,10 @@ void SplashScreen::Update()
 		if (mSplashTimer >= mSplashTotalTime) {
 			mSplashDone = true;
 			ScreenSelected = 2;
-			m_pAudioManager->PauseIntro();
+			//m_pAudioManager->PauseIntro();
 		}
 	}
-	
+
 }
 
 
