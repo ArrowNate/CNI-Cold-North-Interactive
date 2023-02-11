@@ -24,7 +24,7 @@ PlayScreen::PlayScreen()
 	m_pStand->Position(-1.1f, -4.5, -7);
 
 	m_pSpeaker = new Model("Assets/Models/Speaker.obj");
-	m_pSpeaker->Position(-6.5f, -3, -30);
+	m_pSpeaker->Position(-6, -2.6, -8.7);
 
 
 	/*m_pPlate = new Model("Assets/Models/Plate.obj");
@@ -117,28 +117,28 @@ void PlayScreen::Update()
 	}
 
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_A) == GLFW_PRESS) {
-		m_pBall->Translate(Vector3( - .1f, 0, 0));
-		std::cout << "x Position is: " << m_pBall->Position().x << std::endl;
+		m_pSpeaker->Translate(Vector3( - .1f, 0, 0));
+		std::cout << "x Position is: " << m_pSpeaker->Position().x << std::endl;
 	}
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_D) == GLFW_PRESS) {
-		m_pBall->Translate(Vector3(.1f, 0, 0));
-		std::cout << "x Position is: " << m_pBall->Position().x << std::endl;
+		m_pSpeaker->Translate(Vector3(.1f, 0, 0));
+		std::cout << "x Position is: " << m_pSpeaker->Position().x << std::endl;
 	}
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_W) == GLFW_PRESS) {
-		m_pBall->Translate(Vector3(0, .1f, 0));
-		std::cout << "y Position is: " << m_pBall->Position().y << std::endl;
+		m_pSpeaker->Translate(Vector3(0, .1f, 0));
+		std::cout << "y Position is: " << m_pSpeaker->Position().y << std::endl;
 	}
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_S) == GLFW_PRESS) {
-		m_pBall->Translate(Vector3(0, -.1f, 0));
-		std::cout << "y Position is: " << m_pBall->Position().y << std::endl;
+		m_pSpeaker->Translate(Vector3(0, -.1f, 0));
+		std::cout << "y Position is: " << m_pSpeaker->Position().y << std::endl;
 	}
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_E) == GLFW_PRESS) {
-		m_pBall->ModelTranslate(0, 0, -.1f);
-		std::cout << "z Position is: " << m_pBall->Position().z << std::endl;
+		m_pSpeaker->ModelTranslate(0, 0, -.1f);
+		std::cout << "z Position is: " << m_pSpeaker->Position().z << std::endl;
 	}
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_Q) == GLFW_PRESS) {
-		m_pBall->ModelTranslate(0, 0, 0.1f);
-		std::cout << "z Position is: " << m_pBall->Position().z << std::endl;
+		m_pSpeaker->ModelTranslate(0, 0, 0.1f);
+		std::cout << "z Position is: " << m_pSpeaker->Position().z << std::endl;
 	}
 
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_BACKSPACE) == GLFW_PRESS) {
@@ -179,6 +179,10 @@ void PlayScreen::LateUpdate() {
 	if (mActive) 
 	{
 		m_pBall->ModelTranslate(0, 0, -0.1f);
+		if (m_pBall->Position().z >= -35)
+		{
+			std::cout << m_pBall->Position().z << std::endl;
+		}
 	}
 	else if (!mActive) {
 		m_pBall->Position(-0.7f, -1.2f, 1.3);
@@ -190,10 +194,7 @@ void PlayScreen::LateUpdate() {
 		mActive = false;
 	}
 
-	if (m_pBall->Position().z >= -35)
-	{
-		std::cout << m_pBall->Position().z << std::endl;
-	}
+	
 	
 	
 	
