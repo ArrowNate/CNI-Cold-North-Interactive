@@ -32,8 +32,8 @@ PlayScreen::PlayScreen()
 	
 
 	m_pBall = new Model("Assets/Models/Tennis_Ball.obj");
-	m_pBall->Position(m_pInputManager->getmousePosx(), m_pInputManager->getmousePosy(), 1);
-	//m_pBall->Position( , -1.2f, 1.3);
+	//m_pBall->Position(m_pInputManager->getmousePosx(), m_pInputManager->getmousePosy(), 1);
+	m_pBall->Position( -0.7, -1.2f, 1.3);
 
 	
 	
@@ -183,7 +183,7 @@ void PlayScreen::LateUpdate() {
 	
 	if (mActive) 
 	{
-		m_pBall->ModelTranslate(m_pInputManager->getmousePosx(), m_pInputManager->getmousePosy(), -0.1f);
+		m_pBall->ModelTranslate(0, 0, -0.1f);
 		if (m_pBall->Position().z >= -35)
 		{
 			std::cout << m_pBall->Position().z << std::endl;
@@ -249,7 +249,7 @@ void PlayScreen::Render()
     	m_pBall->Render(mBall);
     }
 
-     m_pHUD->Draw();
+     //m_pHUD->Draw();
 
 	//m_pCannon->Render(mCannon);
 }
@@ -277,7 +277,7 @@ void PlayScreen::SphereCollide(GameEntity* objectOne, GameEntity* objectTwo) {
 			m_pAudioManager->PlayMusic2("Assets/Music/PlateBreak.wav", false);
 			
 			objectTwo->Active(false);
-			mActive = false;
+			//mActive = false;
 		}
 
 	}
