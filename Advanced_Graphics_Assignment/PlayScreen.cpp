@@ -33,7 +33,8 @@ PlayScreen::PlayScreen()
 
 	m_pBall = new Model("Assets/Models/Tennis_Ball.obj");
 	//m_pBall->Position(m_pInputManager->getmousePosx(), m_pInputManager->getmousePosy(), 1);
-	m_pBall->Position( -0.7, -1.2f, 1.3);
+	//m_pBall->Position( -0.7, -1.2f, 1.3);
+	m_pBall->Position( 0, 0, 0);
 
 	
 	
@@ -183,7 +184,9 @@ void PlayScreen::LateUpdate() {
 	
 	if (mActive) 
 	{
-		m_pBall->ModelTranslate(0, 0, -0.1f);
+		
+		m_pBall->ModelTranslate(m_pInputManager->getmousePosx(), m_pInputManager->getmousePosy(), -0.5);
+		//m_pBall->ModelTranslate(0,0, -0.5);
 		if (m_pBall->Position().z >= -35)
 		{
 			std::cout << m_pBall->Position().z << std::endl;

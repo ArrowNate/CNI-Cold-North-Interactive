@@ -16,19 +16,24 @@ public:
 	static void mouseButtonCallBack(GLFWwindow* window, int button, int action, int mods);
 	//static void mouseButtonCallBack2(GameEntity* window, int button, int action, int mods);
 	static void mouse_callback(GLFWwindow* window, double xPos, double yPos);
-	static void mouse_callback2(GameEntity* game, double xPos, double yPos);
+	//static void mouse_callback2(GameEntity* game, double xPos, double yPos);
 	void processInput(GLFWwindow* window);
 	
 	glm::vec2 getmousePos();
-	float getmousePos2();
+	//float getmousePos2();
 	float getmousePosx();
 	float getmousePosy();
+
+	
+
+	
 
 	static bool MouseButtonPressed();
 
 	void Update();
 	
-	
+	//glm::vec3 viewToWorldCoordTransform(int mouse_x, int mouse_y);
+	//glm::vec3 getRayFromScreenSpace(const glm::vec2& pos);
 private:
 	GLFWwindow* window;
 	
