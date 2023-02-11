@@ -7,7 +7,6 @@ class HUD
 {
 
 public:
-	
 	HUD();
 	~HUD();
 

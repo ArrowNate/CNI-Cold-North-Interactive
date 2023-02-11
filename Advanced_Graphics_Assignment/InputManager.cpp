@@ -47,7 +47,6 @@ void InputManager::mouseButtonCallBack(GLFWwindow* window, int button, int actio
 	{
 		getMouseButtonPressed = false;
 	}
-	
 }
 
 void InputManager::mouse_callback(GLFWwindow* window, double xPos, double yPos)
@@ -83,8 +82,6 @@ void InputManager::processInput(GLFWwindow* window)
 	{
 		std::cout << "D was pressed" << std::endl;
 	}
-
-	
 }
 
 void InputManager::Update()
@@ -101,5 +98,3 @@ bool InputManager::MouseButtonPressed()
 {
 	return getMouseButtonPressed;
 }
-
-

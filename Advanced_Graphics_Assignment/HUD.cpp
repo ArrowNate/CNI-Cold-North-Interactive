@@ -46,5 +46,3 @@ void HUD::Draw() {
 	m_pFont->RenderText("SHOTS LEFT: 18", 650, 738, 1.2, glm::vec3(0.0f, 0.0f, 0.0f)); // (0.0f, 0.0f, 1.0f - blue), (1.0f, 1.0f, 1.0f - white), (0.0f, 0.0f, 0.0f 
 	m_pFont->RenderText("TIME: 125", 7, 10, 1.2, glm::vec3(0.0f, 0.0f, 0.0f));                                                                     // black)
 }
-
-
