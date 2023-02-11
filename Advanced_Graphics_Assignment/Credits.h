@@ -4,6 +4,7 @@
 #include "Graphics.h"
 #include "GameEntity.h"
 #include "AudioManager.h"
+#include "Font.h"
 
 class Credits : public GameEntity
 {
@@ -13,15 +14,12 @@ private:
 	AudioManager* m_pAudioManager;
 	bool PlaySong;
 
-<<<<<<< HEAD
 	Font* m_pFont;
 	Font* m_pFont2;
 
 	Texture* m_pBackground;
 	Texture* m_pBackground;
-=======
 	Texture* m_pBackground;
->>>>>>> parent of 342c4a5 (Merge branch 'main' into Patrick)
 	Texture* m_pGeorge;
 	Texture* m_pRichard;
 	Texture* m_pDaniel;
