@@ -41,6 +41,7 @@ void SplashScreen::Update()
 {
 	m_pInputManager->processInput(Graphics::Instance()->GetWindow());
 	mSplashTimer += m_pTimer->DeltaTime();
+	std::cout << mSplashTimer;
 	if (PlayIntro == true) {
 		m_pAudioManager->PlayMusic3D("Assets/Music/SplashSound.wav", -2.0f, -3, 1);
 		PlayIntro = false;
