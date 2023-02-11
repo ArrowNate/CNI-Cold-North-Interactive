@@ -1,22 +1,11 @@
 #include "InputManager.h"
 
-InputManager* InputManager::sInstance = nullptr;
-
-bool InputManager::getMouseButtonPressed = false;
-
-glm::vec2 InputManager::mousePos = glm::vec2(0, 0);
-
 InputManager::InputManager()
 {
-	window = Graphics::Instance()->GetWindow();
-	glfwSetCursorPosCallback(window, mouse_callback);
-	glfwSetMouseButtonCallback(window, mouseButtonCallBack);
-	glfwSetCursor(window, glfwCreateStandardCursor(GLFW_CROSSHAIR_CURSOR));
 }
 
 InputManager::~InputManager()
 {
-
 }
 
 InputManager* InputManager::Instance()
@@ -34,32 +23,35 @@ void InputManager::Release()
 	sInstance = nullptr;
 }
 
+
 void InputManager::mouseButtonCallBack(GLFWwindow* window, int button, int action, int mods)
 {
 	if (button == GLFW_MOUSE_BUTTON_LEFT  == GLFW_PRESS)
 	{
-		//getMouseButtonPressed = true;
 		std::cout << "Left button press" << std::endl;
-		std::cout << mousePos.x << std::endl;
-		std::cout << mousePos.y << std::endl;
-	}
-	else if (button == GLFW_MOUSE_BUTTON_LEFT == GLFW_RELEASE)
-	{
-		getMouseButtonPressed = false;
 	}
 	
 }
 
+void InputManager::cursorEnterCallback(GLFWwindow* window, int entered)
+{
+	if (entered)
+	{
+		std::cout << "Entered Window" << std::endl;
+	}
+	else
+	{
+		std::cout << "Left Window" << std::endl;
+	}
+}
+
 void InputManager::mouse_callback(GLFWwindow* window, double xPos, double yPos)
 {
-	//std::cout << xPos << ":" << yPos << std::endl;
-	mousePos.x = xPos;
-	mousePos.y = yPos;
+	std::cout << xPos << " : " << yPos << std::endl;
 }
 
 void InputManager::processInput(GLFWwindow* window)
 {
-
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 	{
 		glfwSetWindowShouldClose(window, true);
@@ -83,8 +75,6 @@ void InputManager::processInput(GLFWwindow* window)
 	{
 		std::cout << "D was pressed" << std::endl;
 	}
-
-	
 }
 
 void InputManager::Update()
@@ -92,14 +82,13 @@ void InputManager::Update()
 	
 }
 
-glm::vec2 InputManager::getmousePos()
-{
-	return mousePos;
-}
+InputManager* InputManager::sInstance = nullptr;
 
-bool InputManager::MouseButtonPressed()
-{
-	return getMouseButtonPressed;
-}
-
-
+/*unsigned char pixels[16 * 16 * 4];
+	memset(pixels, 0xff, sizeof(pixels));
+	GLFWimage image;
+	image.width = 16;
+	image.height = 16;
+	image.pixels;
+	GLFWcursor* cursor = glfwCreatCurser(&image, 0, 0);
+	glfwSetCursor(window, cursor);*/

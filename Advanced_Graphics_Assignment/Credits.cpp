@@ -9,10 +9,22 @@ Credits::Credits()
 	PlaySong = true;
 	ScreenSelected = 0;
 
+<<<<<<< HEAD
 	m_pFont = new Font("Assets/Fonts/Quentincaps.ttf");
 	m_pFont2 = new Font("Assets/Fonts/CarneyText.ttf");
 
 	m_pBackground = new Texture("Assets/Textures/CarnvialBackgroundSet.png", 1.0, 1.0, -1.0, -1.0, GL_RGBA);
+=======
+	m_pBackground = new Texture("Assets/Textures/CarnvialBackgroundSet.png", 1.0, 1.0, -1.0, -1.0, GL_RGBA);
+	m_pGeorge = new Texture("Assets/Textures/George.png", 0.0, 0.675, -0.76, 0.525, GL_RGBA);
+	m_pRichard = new Texture("Assets/Textures/Richard.png", 0.8, 0.675, 0.16, 0.525, GL_RGBA);
+	m_pDaniel = new Texture("Assets/Textures/Daniel.png", 0.0, 0.31, -0.76, 0.16, GL_RGBA);
+	m_pBrandon = new Texture("Assets/Textures/Brandon.png", 0.8, 0.31, 0.16, 0.16, GL_RGBA);
+	m_pSam = new Texture("Assets/Textures/Sam.png", 0.0, 0.06, -0.76, -0.09, GL_RGBA);
+	m_pMikaelo = new Texture("Assets/Textures/Mikaelo.png", 0.8, 0.06, 0.16, -0.09, GL_RGBA);
+	m_pMaksim = new Texture("Assets/Textures/Maksim.png", 0.0, -0.31, -0.76, -0.46, GL_RGBA);
+	m_pPatrick = new Texture("Assets/Textures/Patrick.png", 0.8, -0.31, 0.16, -0.46, GL_RGBA);
+>>>>>>> parent of 342c4a5 (Merge branch 'main' into Patrick)
 	m_pLogo = new Texture("Assets/Textures/CNiLogo.png", 1.0, -0.72, 0.72, -1.0, GL_RGBA);
 }
 
@@ -21,14 +33,41 @@ Credits::~Credits()
 	delete m_pBackground;
 	m_pBackground = nullptr;
 
+	delete m_pGeorge;
+	m_pGeorge = nullptr;
+
+	delete m_pRichard;
+	m_pRichard = nullptr;
+
+	delete m_pDaniel;
+	m_pDaniel = nullptr;
+
+	delete m_pBrandon;
+	m_pBrandon = nullptr;
+
+	delete m_pSam;
+	m_pSam = nullptr;
+
+	delete m_pMikaelo;
+	m_pMikaelo = nullptr;
+
+	delete m_pMaksim;
+	m_pMaksim = nullptr;
+
+	delete m_pPatrick;
+	m_pPatrick = nullptr;
+
 	delete m_pLogo;
 	m_pLogo = nullptr;
+<<<<<<< HEAD
 
 	delete m_pFont;
 	m_pFont = nullptr;
 
 	delete m_pFont2;
 	m_pFont2 = nullptr;
+=======
+>>>>>>> parent of 342c4a5 (Merge branch 'main' into Patrick)
 }
 
 int Credits::SelectedScreen()
@@ -50,8 +89,17 @@ void Credits::Update()
 
 void Credits::Render()
 {
-	m_pBackground->Draw();;
+	m_pBackground->Draw();
+	m_pGeorge->Draw();
+	m_pRichard->Draw();
+	m_pDaniel->Draw();
+	m_pBrandon->Draw();
+	m_pSam->Draw();
+	m_pMikaelo->Draw();
+	m_pMaksim->Draw();
+	m_pPatrick->Draw();
 	m_pLogo->Draw();
+<<<<<<< HEAD
 
 	const int thickness = 2; // This is the thickness of the border around the text
 
@@ -90,4 +138,6 @@ void Credits::Render()
 	m_pFont->RenderText("PATRICK FOSTER", 525, 224, 0.98, glm::vec3(1.0f, 0.0f, 0.0f));
 	m_pFont2->RenderText("COLD NORTH ", 130, 41, 1.5, glm::vec3(0.0f, 0.0f, 1.0f));
 	m_pFont2->RenderText("INTERACTIVE: ", 500, 50, 0.9, glm::vec3(1.0f, 1.0f, 1.0f));
+=======
+>>>>>>> parent of 342c4a5 (Merge branch 'main' into Patrick)
 }

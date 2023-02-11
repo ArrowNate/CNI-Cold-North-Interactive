@@ -1,35 +1,30 @@
 #ifndef _INPUTMANAGER_H
 #define _INPUTMANAGER_H
-#include "Graphics.h"
+#include <GLFW/glfw3.h>
+#include <iostream>
 
 class InputManager
 {
 public:
-	InputManager();
-	~InputManager();
-	
 	static InputManager* Instance();
 	static InputManager* sInstance;
 
+	GLFWwindow* window;
+
 	static void Release();
 
-	static void mouseButtonCallBack(GLFWwindow* window, int button, int action, int mods);
-	static void mouse_callback(GLFWwindow* window, double xPos, double yPos);
+	void mouseButtonCallBack(GLFWwindow* window, int button, int action, int mods);
+	void cursorEnterCallback(GLFWwindow* window, int entered);
+	void mouse_callback(GLFWwindow* window, double xPos, double yPos);
 	void processInput(GLFWwindow* window);
-	
-	glm::vec2 getmousePos();
-
-	static bool MouseButtonPressed();
 
 	void Update();
-	
+
 	
 private:
-	GLFWwindow* window;
-	
-	static bool getMouseButtonPressed;
 
-	static glm::vec2 mousePos;
+	InputManager();
+	~InputManager();
 	
 };
  

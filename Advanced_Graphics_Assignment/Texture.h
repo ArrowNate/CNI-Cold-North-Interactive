@@ -10,11 +10,7 @@ class Texture : public GameEntity
 private:
 	unsigned int texture;
 	unsigned int VBO, VAO, EBO;
-
-
 public:
-	static Texture* Instance();
-	Texture* LoadTexture(std::string path);
 	//Filename will need the folder path as well "Assets/Texture/"
 	// 
 	//The floats are where we are positioning the texture starting with

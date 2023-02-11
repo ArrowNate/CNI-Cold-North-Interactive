@@ -1,10 +1,12 @@
 #ifndef FONT_H
 #define FONT_H
+
 #include "Shader.h"
+
 #include <map>
+
 #include <ft2build.h>
-#include <unordered_map>
-#include FT_FREETYPE_H // This is a library for rendering text on screen. 
+#include FT_FREETYPE_H
 
 struct Character {
 	unsigned int TextureID;  // ID handle of the glyph texture
@@ -13,16 +15,20 @@ struct Character {
 	unsigned int Advance;    // Offset to advance to next glyph
 };
 
-class Font {
-private:
 
-	std::map<GLchar, Character> Characters;
-	unsigned int VBO, VAO;
-	Shader ourShader;
+
+class Font {
+private:	
+
+
 
 public:
+	void RenderText(Shader& shader, std::string text, float x, float y, float scale, glm::vec3 color);
 
-	void RenderText(std::string text, float x, float y, float scale, glm::vec3 color);
+	Font(std::string text, std::string fontPath, int size, glm::vec3 color);
+	
+	
+	
 
 	Font(std::string fontName);
 	~Font();
