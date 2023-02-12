@@ -66,6 +66,9 @@
     </ClCompile>
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="GameOverScreen.cpp" />
+    <ClCompile Include="Buttons.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetManager.h">
@@ -134,6 +137,9 @@
     </ClInclude>
     <ClInclude Include="Timer.h" />
     <ClInclude Include="GameOverScreen.h" />
+    <ClInclude Include="Buttons.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">

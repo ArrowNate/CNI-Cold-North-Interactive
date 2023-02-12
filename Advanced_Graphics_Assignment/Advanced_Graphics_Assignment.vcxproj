@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="AssetManager.cpp" />
+    <ClCompile Include="Buttons.cpp" />
     <ClCompile Include="Credits.cpp" />
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="GameEntity.cpp" />
@@ -166,6 +167,7 @@
   <ItemGroup>
     <ClInclude Include="AudioManager.h" />
     <ClInclude Include="AssetManager.h" />
+    <ClInclude Include="Buttons.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Credits.h" />
     <ClInclude Include="Font.h" />

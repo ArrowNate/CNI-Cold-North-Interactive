@@ -6,6 +6,7 @@
 #include <string>
 #include "Font.h"
 #include "Texture.h"
+#include "Buttons.h"
 
 class GameOverScreen
 {
@@ -19,6 +20,10 @@ public:
 private:
     Font* m_pFont;
     Texture* m_pGameOverBackground;
+
+    float buttonWidth;
+    float buttonHeight;
+    Button* m_pButton;
 };
 
 #endif // GAMEOVERSCREEN_H

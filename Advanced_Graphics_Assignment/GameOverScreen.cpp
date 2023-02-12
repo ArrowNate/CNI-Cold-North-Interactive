@@ -1,9 +1,23 @@
 #include "GameOverScreen.h"
 
 GameOverScreen::GameOverScreen() {
+
 	m_pFont = new Font("Assets/Fonts/CarneyText.ttf");
 	m_pGameOverBackground = new Texture("Assets/Textures/GameOverBackground.png", 1.0, 1.0, -1.0, -1.0, GL_RGBA);
+
+	// Add the button instance
+	const float screenWidth = 1024.0f;
+	const float screenHeight = 768.0f;
+
+	float buttonX = -0.75f;
+	float buttonY = 0.0f;
+	float buttonWidth = 0.25f;
+	float buttonHeight = 0.2f;
+
+	Texture* buttonTexture = new Texture("Assets/Textures/ReturnMenuButton.png", buttonWidth, buttonHeight, buttonX, buttonY, GL_RGBA);
+	m_pButton = new Button(buttonX, buttonY, buttonWidth, buttonHeight, buttonTexture);
 }
+
 
 GameOverScreen::~GameOverScreen() {
 
@@ -13,6 +27,8 @@ GameOverScreen::~GameOverScreen() {
 	delete m_pGameOverBackground;
 	m_pGameOverBackground = nullptr;
 
+	delete m_pButton;
+	m_pButton = nullptr;
 }
 
 void GameOverScreen::Update() {
@@ -21,7 +37,9 @@ void GameOverScreen::Update() {
 
 void GameOverScreen::Render() {
 
+	
 	m_pGameOverBackground->Draw();
+	m_pButton->Draw();
 	const int thickness = 2; // This is the thickness of the border around the text
 
 	for (int i = -thickness; i <= thickness; ++i) // inner loop repeats over j from -thickness to thickness same with i as well. 
