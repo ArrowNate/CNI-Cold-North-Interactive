@@ -151,6 +151,8 @@ void PlayScreen::Update()
 		ScreenSelected = 2;
 
 	}
+
+	m_pHUD->Update();
 	
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_SPACE) == GLFW_PRESS) {
 		mActive = true;
@@ -163,8 +165,6 @@ void PlayScreen::Update()
 
 		//translate function for ball throw stop figure out how to write it ㅤ/ᐠ - ˕ -マ
 		// plates are at -30 so the ball has to stop around there
-
-	
 }
 
 
@@ -213,8 +213,6 @@ void PlayScreen::LateUpdate() {
 			SphereCollide(m_pBall, m_pPlates[i]);
 		}
 	}
-	
-
 }
 
 void PlayScreen::Render()
@@ -282,7 +280,5 @@ void PlayScreen::SphereCollide(GameEntity* objectOne, GameEntity* objectTwo) {
 			objectTwo->Active(false);
 			mActive = false;
 		}
-
 	}
-
 }

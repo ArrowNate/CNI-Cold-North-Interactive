@@ -59,7 +59,6 @@ void InputManager::mouseButtonCallBack(GLFWwindow* window, int button, int actio
 	{
 		getMouseButtonPressed = false;
 	}
-	
 }
 
 //void InputManager::mouseButtonCallBack2(GameEntity* window, int button, int action, int mods) {
@@ -115,8 +114,6 @@ void InputManager::processInput(GLFWwindow* window)
 	{
 		std::cout << "D was pressed" << std::endl;
 	}
-
-	
 }
 
 void InputManager::Update()
@@ -147,6 +144,7 @@ float InputManager::getmousePosy()
 bool InputManager::MouseButtonPressed()
 {
 	return getMouseButtonPressed;
+
 }
 
 
@@ -177,3 +175,4 @@ bool InputManager::MouseButtonPressed()
 //
 //
 //}
+
