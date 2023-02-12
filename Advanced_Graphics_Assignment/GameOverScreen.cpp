@@ -21,8 +21,7 @@ void GameOverScreen::Update() {
 
 void GameOverScreen::Render() {
 
-	m_pGameOverBackground->Draw();;
-
+	m_pGameOverBackground->Draw();
 	const int thickness = 2; // This is the thickness of the border around the text
 
 	for (int i = -thickness; i <= thickness; ++i) // inner loop repeats over j from -thickness to thickness same with i as well. 
@@ -36,15 +35,15 @@ void GameOverScreen::Render() {
 			}
 
 			// border color
-			m_pFont->RenderText("GAME OVER", 68 + i, 622 + j, 1.2, glm::vec3(0.0f, 0.0f, 0.0f));
-			m_pFont->RenderText("Thanks For Playing!", 550 + i, 622 + j, 1.2, glm::vec3(0.0f, 0.0f, 0.0f)); // These handle the border which is offset slightly from 
+			m_pFont->RenderText("GAME OVER", 135 + i, 432 + j, 3.4, glm::vec3(1.0f, 0.0f, 0.0f));
+			m_pFont->RenderText("Thanks For Playing!", 135 + i, 325 + j, 2.1, glm::vec3(1.0f, 0.0f, 0.0f)); // These handle the border which is offset slightly from 
 
 		}
 	}
 
 	// font color						x	 y	 size
-	m_pFont->RenderText("GAME OVER", 68, 622, 1.2, glm::vec3(1.0f, 0.0f, 0.0f)); // (1.0f,0.7f,0.0f - b.orange), (1.0f, 0.0f, 0.0f - red), (0.0f, 0.7f, 1.0f - 
-	m_pFont->RenderText("Thanks For Playing!", 550, 622, 1.2, glm::vec3(1.0f, 0.0f, 0.0f)); // (0.0f, 0.0f, 1.0f - blue), (1.0f, 1.0f, 1.0f - white), (0.0f, 0.0f, 0.0f 
+	m_pFont->RenderText("GAME OVER", 135, 432, 3.4, glm::vec3(0.0f, 0.0f, 0.0f)); // (1.0f,0.7f,0.0f - b.orange), (1.0f, 0.0f, 0.0f - red), (0.0f, 0.7f, 1.0f - 
+	m_pFont->RenderText("Thanks For Playing!", 135, 325, 2.1, glm::vec3(0.0f, 0.0f, 0.0f)); // (0.0f, 0.0f, 1.0f - blue), (1.0f, 1.0f, 1.0f - white), (0.0f, 0.0f, 0.0f 
 
 }
 

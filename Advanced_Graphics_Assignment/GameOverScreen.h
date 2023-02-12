@@ -13,15 +13,12 @@ public:
     GameOverScreen();
     ~GameOverScreen();
 
+    void Render();
+    void Update();
+
 private:
     Font* m_pFont;
     Texture* m_pGameOverBackground;
-
-
-private:
-   
-    void Render();
-    void Update();
 };
 
 #endif // GAMEOVERSCREEN_H

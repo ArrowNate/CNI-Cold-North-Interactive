@@ -3,6 +3,7 @@
 #include <glm/glm.hpp>
 #include "Texture.h"
 #include "Timer.h"
+#include "GameOverScreen.h"
 
 class HUD
 {
@@ -20,6 +21,7 @@ private:
 	Texture* m_pHUDBorder;
 	Font* m_pFont;
 	HUD* m_pHUD;
+	GameOverScreen* m_pGameOverScreen;
 
 	int timeLeft;
 
