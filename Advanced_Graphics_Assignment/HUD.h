@@ -24,6 +24,8 @@ private:
 	Timer* m_pTimer;
 
 	int timeLeft;
+
+	float previousTime = 0.0f;
 };
 
 #endif // !_HUD_H

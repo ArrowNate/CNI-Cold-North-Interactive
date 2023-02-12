@@ -26,9 +26,7 @@ void HUD::DecreaseTime() {
 void HUD::Update() {
 	m_pTimer->Update();
 	float deltaTime = Timer::Instance()->DeltaTime();
-	deltaTime /= 6.0f; // adjust this value to control the speed
-	timeLeft -= deltaTime;
-
+	timeLeft -= deltaTime * 0.005f;
 	if (timeLeft <= 0)
 	{
 		timeLeft = 0;

@@ -54,7 +54,7 @@ void Timer::Update()
 
 Timer::Timer()
 {
-    mTimeScale = 1.0f;
+    mTimeScale = 0.0f;
     mLastFrameTime = 0.0;
 }
 

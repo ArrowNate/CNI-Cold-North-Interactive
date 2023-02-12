@@ -22,6 +22,7 @@ public:
     float TimeScale() const;
     void Update();
 
+
 private:
     Timer();
     ~Timer();
