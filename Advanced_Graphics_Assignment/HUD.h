@@ -11,6 +11,9 @@ public:
 	~HUD();
 
 	void Score();
+	void DecreaseAmmo();
+
+	int GetShots();
 
 	void Update();
 	void Draw();
@@ -22,6 +25,7 @@ private:
 	InputManager* m_pInputManager;
 
 	int Point;
+	int Shots;
 };
 
 #endif // !_HUD_H

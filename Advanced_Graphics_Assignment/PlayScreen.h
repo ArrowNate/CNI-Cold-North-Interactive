@@ -19,6 +19,7 @@
 class PlayScreen : public GameEntity
 {
 private:
+	GLFWwindow* m_pWindow;
 	Camera* m_pCamera;
 	AudioManager* m_pAudioManager;
 	InputManager* m_pInputManager;
@@ -63,6 +64,11 @@ private:
 
 	bool mActive;
 	bool mPlateActive;
+	bool mPlateHit = false;
+
+	bool mKeyPressed = false;
+
+	
 
 public:
 	PlayScreen();

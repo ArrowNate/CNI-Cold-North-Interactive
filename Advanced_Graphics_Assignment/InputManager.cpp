@@ -20,6 +20,7 @@ InputManager::InputManager()
 	//glfwSetMouseButtonCallback(window, mouseButtonCallBack);
 	glfwSetMouseButtonCallback(window, mouseButtonCallBack);
 	glfwSetCursor(window, glfwCreateStandardCursor(GLFW_CROSSHAIR_CURSOR));
+	
 }
 
 InputManager::~InputManager()
@@ -113,6 +114,13 @@ void InputManager::processInput(GLFWwindow* window)
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
 	{
 		std::cout << "D was pressed" << std::endl;
+	}
+
+	int state = glfwGetKey(window, GLFW_KEY_Z);
+
+	if (state == GLFW_PRESS)
+	{
+		std::cout << "Z" << std::endl;
 	}
 }
 

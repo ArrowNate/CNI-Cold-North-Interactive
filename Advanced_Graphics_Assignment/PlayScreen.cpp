@@ -3,18 +3,21 @@
 
 PlayScreen::PlayScreen()
 {
-
+	
 	//testing for objs
 	m_pInputManager = InputManager::Instance();
     m_pAudioManager = AudioManager::Instance();
 	m_pGraphics = Graphics::Instance();
 	m_pCollision = new Collision();
+	m_pHUD = new HUD();
 
     ScreenSelected = 1;
 
 	PlaySong = true;
 	mActive = false;
-	mPlateActive = true;
+	//mKeyPressed = false;
+	
+	
 
 	/*m_pCannon = new Model("Assets/Models/Pirate_Cannon.obj");
 	m_pCannon->Position(-0.7f, -1.2f, 1.3);
@@ -44,9 +47,10 @@ PlayScreen::PlayScreen()
 	float y = 6;
 	float temp = 0;
 
-	for (int i = 0; i < 15; i++) { // first part is decleration, second part is the number of iterations/loops, third is to increment/move on, it can go to the opposite direction, can be different ways.
+	for (int i = 0;  i < 15;  i++) { // first part is decleration, second part is the number of iterations/loops, third is to increment/move on, it can go to the opposite direction, can be different ways.
 		m_pPlates[i] = new Model("Assets/Models/Plate.obj"); // extantiating variable, each element in the array
 		m_pPlates[i]->Active(true);
+		
 		
 		if (i % 5 == 0) {// if the remainder of the division is 0
 			y = y - 3.5;
@@ -60,10 +64,12 @@ PlayScreen::PlayScreen()
 		else {
 			m_pPlates[i]->Position(mPlatesx, y, mPlatesz);
 		}
+		
+
 		temp++;
 	}
 
-	m_pHUD = new HUD();
+	
 }
 
 PlayScreen::~PlayScreen()
@@ -154,18 +160,66 @@ void PlayScreen::Update()
 
 	m_pHUD->Update();
 	
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_SPACE) == GLFW_PRESS) {
-		mActive = true;
-		std::cout << "SPACE" << std::endl;
+	if (m_pHUD->GetShots() >= 1) {
+		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_SPACE) == GLFW_PRESS) {
+			mActive = true;
 
-		// moves the ball foward on keypress and controls speed
+			std::cout << "SPACE" << std::endl;
+
+			
+			//glfwWaitEventsTimeout(4);
+			// moves the ball foward on keypress and controls speed
+		}
 	}
+	
+	if (mKeyPressed != true) {
+
+		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_Z) == GLFW_PRESS) {
+			mKeyPressed = true;
+			std::cout << "Z" << std::endl;
+
+			/*if (m_pBall->Active()) {
+				glfwWaitEventsTimeout(2);
+				mKeyPressed = false;
+			}*/
+			
+			/*if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_Z) == GLFW_RELEASE) {
+				mKeyPressed = false;
+				std::cout << "Z" << std::endl;
+
+			}*/
+		}
+
+		/*if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_) != GLFW_PRESS) {
+			mKeyPressed = false;
+		}*/
+		/*else {
+			mKeyPressed = false;
+		}*/
+		
+		/*else {
+			mKeyPressed = false;
+		}*/
+		//if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_Z) == GLFW_PRESS ) {
+		//	//mKeyPressed = false;
+		//	std::cout << "Z" << std::endl;
+		//}
+
+	}
+	
+
+	
+
+	/*if (state == GLFW_PRESS) {
+		std::cout << "Z" << std::endl;
+	}*/
 		
 	//m_pBall->Translate();
 
-		//translate function for ball throw stop figure out how to write it ㅤ/ᐠ - ˕ -マ
+		//translate function for ball throw stop figure out how to write it ㅤ/ᐠ - ˕ -マ       its been figured out o7
 		// plates are at -30 so the ball has to stop around there
 }
+
 
 
 void PlayScreen::LateUpdate() {
@@ -184,22 +238,34 @@ void PlayScreen::LateUpdate() {
 	
 	if (mActive) 
 	{
+		if (m_pBall->Position().z >= -3 ) {
+
+			m_pBall->ModelTranslate(0,0, -0.5);
+
+		}
+		else {
+			m_pBall->ModelTranslate(m_pInputManager->getmousePosx(), m_pInputManager->getmousePosy(), -0.5);
+		}
 		
-		m_pBall->ModelTranslate(m_pInputManager->getmousePosx(), m_pInputManager->getmousePosy(), -0.5);
-		//m_pBall->ModelTranslate(0,0, -0.5);
+		
 		if (m_pBall->Position().z >= -35)
 		{
 			std::cout << m_pBall->Position().z << std::endl;
 		}
+
+		
 	}
 	else if (!mActive) {
 		m_pBall->Position(-0.7f, -1.2f, 1.3);
 		
 	}
 
+	
+
 	if (m_pBall->Position().z <= -35)
 	{
 		mActive = false;
+		m_pHUD->DecreaseAmmo();
 	}
 
 	
@@ -271,14 +337,18 @@ void PlayScreen::Collide(GameEntity* objectOne, GameEntity* objectTwo) {
 
 void PlayScreen::SphereCollide(GameEntity* objectOne, GameEntity* objectTwo) {
 
-	if (mPlateActive) {
+	
 
 		if (m_pCollision->CheckSphereCollision(objectOne, objectTwo)) {
 			std::cout << " collion success" << std::endl;
-			m_pAudioManager->PlayMusic2("Assets/Music/PlateBreak.wav", false);
+			//m_pAudioManager->PlayMusic2("Assets/Music/PlateBreak.wav", false);
+			m_pAudioManager->PlayMusic3D("Assets/Music/PlateBreak.wav", objectTwo->Position().x , objectTwo->Position().y , 0, false);
 			
+			objectOne->Active(false);
 			objectTwo->Active(false);
 			mActive = false;
+			m_pHUD->Score();
+			m_pHUD->DecreaseAmmo();
 		}
-	}
+
 }
