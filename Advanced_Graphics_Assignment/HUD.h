@@ -14,14 +14,12 @@ public:
 
 	void Update();
 	void Draw();
-	void DecreaseTime();
+	void DecreaseTimer();
 
 private:
 	Texture* m_pHUDBorder;
 	Font* m_pFont;
 	HUD* m_pHUD;
-
-	Timer* m_pTimer;
 
 	int timeLeft;
 

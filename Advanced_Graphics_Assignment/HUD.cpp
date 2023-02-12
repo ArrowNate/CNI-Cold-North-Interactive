@@ -6,8 +6,8 @@ HUD::HUD() {
 	m_pFont = new Font("Assets/Fonts/CarneyText.ttf");
 	m_pHUDBorder = new Texture("Assets/Textures/HUDBorder1.png", 1.0, 1.0, -1.0, -1.0, GL_RGBA); 
 
-	timeLeft = 301;
-	m_pTimer = Timer::Instance();
+	timeLeft = 121;
+	/*m_pTimer = Timer::Instance();*/
 }
 
 HUD::~HUD() {
@@ -18,17 +18,16 @@ HUD::~HUD() {
 	m_pHUDBorder = nullptr;
 }
 
-void HUD::DecreaseTime() {
-
-	
-}
-
-void HUD::Update() {
+void HUD::DecreaseTimer() {
 	double currentTime = glfwGetTime();
-	if (currentTime - previousTime >= 1.0) {
+	if (currentTime - previousTime >= 1) {
 		timeLeft--;
 		previousTime = currentTime;
 	}
+}
+
+void HUD::Update() {
+	DecreaseTimer();
 }
 
 void HUD::Draw() {

@@ -145,6 +145,7 @@
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="GameEntity.cpp" />
     <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="GameOverScreen.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="HUD.cpp" />
@@ -171,6 +172,7 @@
     <ClInclude Include="ft2build.h" />
     <ClInclude Include="GameEntity.h" />
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="GameOverScreen.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="HUD.h" />
     <ClInclude Include="Level.h" />

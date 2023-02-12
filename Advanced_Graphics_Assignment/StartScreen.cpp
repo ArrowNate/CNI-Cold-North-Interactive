@@ -36,12 +36,6 @@ StartScreen::~StartScreen()
 	delete m_pLogo;
 	m_pLogo = nullptr;
 
-	/*delete m_pStartGame;
-	m_pStartGame = nullptr;
-
-	delete m_pCredits;
-	m_pCredits = nullptr;*/
-
 	delete m_pArrow;
 	m_pArrow = nullptr;
 
@@ -62,8 +56,6 @@ void StartScreen::ChangeSelectedMode(int change)
 	else if (ScreenChoice > 1) {
 		ScreenChoice = 0;
 	}
-
-	//m_pCursor->Position(mCursorStartPos + mCursorOffset * (float)mSelectedMode);
 }
 
 int StartScreen::SelectedMode()
@@ -107,17 +99,12 @@ void StartScreen::Update()
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_ENTER) == GLFW_PRESS) {
 		ScreenSelected = ScreenChoice;
 	}
-
-	
 }
 
 void StartScreen::Render() 
 {
-
 	m_pBackground->Draw();
 	m_pLogo->Draw();
-	//m_pStartGame->Draw();
-	//m_pCredits->Draw();
 
 	if (ScreenChoice == 0) {
 		m_pArrow->Draw();

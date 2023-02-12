@@ -28,9 +28,6 @@ void Timer::Reset()
 
 float Timer::DeltaTime()
 {
-    double currentTime = glfwGetTime();
-    mDeltaTime = (float)(currentTime - mLastFrameTime);
-    mLastFrameTime = currentTime;
     return mDeltaTime;
 }
 
@@ -46,10 +43,7 @@ float Timer::TimeScale() const
 
 void Timer::Update()
 {
-    double currentTime = glfwGetTime();
-    mDeltaTime = (float)(currentTime - mLastFrameTime);
-    mLastFrameTime = currentTime;
-    std::cout << "Delta time: " << mDeltaTime << std::endl;
+  
 }
 
 Timer::Timer()
