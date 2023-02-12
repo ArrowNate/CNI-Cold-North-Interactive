@@ -20,10 +20,7 @@ public:
 private:
     Font* m_pFont;
     Texture* m_pGameOverBackground;
-
-    float buttonWidth;
-    float buttonHeight;
-    Button* m_pButton;
+    Buttons* m_pButtons;
 };
 
 #endif // GAMEOVERSCREEN_H

@@ -1,17 +1,21 @@
 #include "Texture.h"
 #include "freetype/freetype.h"
 #include "ft2build.h"
+#include "Font.h"
 #include FT_FREETYPE_H
 
-class Button {
+class Buttons {
 public:
 
-    Button(float x, float y, float width, float height, Texture* texture);
+    Buttons();
+	~Buttons();
+
+    void Update();
+    void Render();
     void Draw();
-    bool IsMouseOver(float mouseX, float mouseY);
 
 private:
-    float x, y, width, height;
-    Texture* m_pTexture;
+    Font* m_pFont;
+    Texture* m_pReturnToMenuButton;
 };
 
