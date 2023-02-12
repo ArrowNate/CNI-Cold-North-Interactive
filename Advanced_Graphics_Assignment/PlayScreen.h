@@ -47,6 +47,9 @@ private:
 	Model* m_pSpeaker;
 	glm::mat4 mSpeaker;
 
+	//Model* m_PBoard;
+	//glm::mat4 mBoard;
+
 	Shader modelShader;
 
 	bool PlaySong;
@@ -61,6 +64,7 @@ private:
 	const float mPlatesx = -11;
 	const int mPlatesz = -30;
 
+	int Dir = 1;
 
 	bool mActive;
 	bool mPlateActive;
