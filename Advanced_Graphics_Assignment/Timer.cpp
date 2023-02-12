@@ -22,7 +22,7 @@ void Timer::Release()
 void Timer::Reset()
 {
     mStartTicks = glfwGetTime();
-    mElapsedTicks = 0;
+    mElapsedTicks = glfwGetTime();
     mDeltaTime = 0.0f;
 }
 
@@ -47,7 +47,7 @@ float Timer::TimeScale() const
 void Timer::Update()
 {
     double currentTime = glfwGetTime();
-    mDeltaTime = (float)((currentTime - mLastFrameTime) * mTimeScale);
+    mDeltaTime = (float)(currentTime - mLastFrameTime);
     mLastFrameTime = currentTime;
     std::cout << "Delta time: " << mDeltaTime << std::endl;
 }

@@ -7,8 +7,6 @@ int main()
 
 	game->Run();
 
-	Timer::Instance()->Update();
-
 	GameManager::Release();
 
 	game = nullptr;

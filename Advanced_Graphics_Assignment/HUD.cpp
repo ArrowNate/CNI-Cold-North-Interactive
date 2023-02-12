@@ -6,7 +6,7 @@ HUD::HUD() {
 	m_pFont = new Font("Assets/Fonts/CarneyText.ttf");
 	m_pHUDBorder = new Texture("Assets/Textures/HUDBorder1.png", 1.0, 1.0, -1.0, -1.0, GL_RGBA); 
 
-	timeLeft = 120;
+	timeLeft = 301;
 	m_pTimer = Timer::Instance();
 }
 
@@ -24,12 +24,10 @@ void HUD::DecreaseTime() {
 }
 
 void HUD::Update() {
-	m_pTimer->Update();
-	float deltaTime = Timer::Instance()->DeltaTime();
-	timeLeft -= deltaTime * 0.005f;
-	if (timeLeft <= 0)
-	{
-		timeLeft = 0;
+	double currentTime = glfwGetTime();
+	if (currentTime - previousTime >= 1.0) {
+		timeLeft--;
+		previousTime = currentTime;
 	}
 }
 
