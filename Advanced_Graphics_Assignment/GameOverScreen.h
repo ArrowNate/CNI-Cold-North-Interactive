@@ -19,6 +19,8 @@ public:
     void Update();
     void ReturnToMainMenu();
 
+    /*static bool isGameOverScreen;*/
+
 private:
     Font* m_pFont;
     Texture* m_pGameOverBackground;

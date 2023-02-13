@@ -7,7 +7,6 @@ GameOverScreen::GameOverScreen() {
 	m_pButtons = new Buttons();
 }
 
-
 GameOverScreen::~GameOverScreen() {
 
 	delete m_pFont;
@@ -53,7 +52,6 @@ void GameOverScreen::Render() {
 	// font color						x	 y	 size
 	m_pFont->RenderText("GAME OVER", 180, 550, 3.0, glm::vec3(0.0f, 0.0f, 0.0f)); // (1.0f,0.7f,0.0f - b.orange), (1.0f, 0.0f, 0.0f - red), (0.0f, 0.7f, 1.0f - 
 	m_pFont->RenderText("Thanks For Playing!", 135, 450, 2.1, glm::vec3(0.0f, 0.0f, 0.0f)); // (0.0f, 0.0f, 1.0f - blue), (1.0f, 1.0f, 1.0f - white), (0.0f, 0.0f, 0.0f 
-	
 	
 }
 

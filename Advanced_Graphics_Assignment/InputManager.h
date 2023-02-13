@@ -2,9 +2,12 @@
 #define _INPUTMANAGER_H
 #include "Graphics.h"
 
+
+
 class InputManager
 {
 public:
+
 	InputManager();
 	~InputManager();
 	
