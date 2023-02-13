@@ -1,16 +1,16 @@
 #ifndef PLAYSCREEN_H
 #define PLAYSCREEN_H
-#include "InputManager.h"
-#include "HUD.h"
-#include <iostream>
-#include <assimp/camera.h>
 
 #include "AudioManager.h"
 #include "Camera.h"
 #include "Model.h"
 #include "Graphics.h"
 #include "Collision.h"
+#include "InputManager.h"
+#include "HUD.h"
 
+#include <iostream>
+#include <assimp/camera.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -47,9 +47,6 @@ private:
 	Model* m_pSpeaker;
 	glm::mat4 mSpeaker;
 
-	//Model* m_PBoard;
-	//glm::mat4 mBoard;
-
 	Shader modelShader;
 
 	bool PlaySong;
@@ -64,17 +61,33 @@ private:
 	const float mPlatesx = -11;
 	const int mPlatesz = -30;
 
-	int Dir = 1;
+	const int mMinAmmo = 1;
+
+	const int mBallStartx = 0;
+	const int mBallStarty = -1.2f;
+	const int mBallStartz = -3;
+	float mBallzVel = -0.5;
+
+	const float mDropVelx = -0.5;
+	const float mDropVely = -0.5;
+	const float mDropVelz = 0.1;
+	const float mBallyBounds = -10;
+	const float mBallBoardBounds = -35;
+	const float mBallFrontBounds = -2;
+
+	float mMaxPlates = 15;
+	float y = 6;
+	float temp = 0;
+
+	int mDir = 1;
+	int mDirForwad = 1;
+	int mDirBack = -1;
 
 	bool mActive;
 	bool mPlateActive;
 	bool mPlateHit = false;
 	bool mControl;
 	bool mReloaded;
-
-	bool mKeyPressed = false;
-
-	
 
 public:
 	PlayScreen();

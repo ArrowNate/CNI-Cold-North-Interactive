@@ -46,8 +46,8 @@ void InputManager::Release()
 void InputManager::mouseButtonCallBack(GLFWwindow* window, int button, int action, int mods)
 {
 
-	float xClip = ((mousePos.x + 0.5f) / 1024) * 2.0f - 1.0f;
-	float yClip = 1.0f - ((mousePos.y + 0.5f) / 768) * 2.0f;
+	float xClip = ((mousePos.x ) / 1024) * 2.0f - 1.0f;
+	float yClip = 1.0f - ((mousePos.y ) / 768) * 2.0f;
 
 	if (button == GLFW_MOUSE_BUTTON_LEFT  == GLFW_PRESS)
 	{
