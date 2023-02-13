@@ -69,6 +69,8 @@ private:
 	bool mActive;
 	bool mPlateActive;
 	bool mPlateHit = false;
+	bool mControl;
+	bool mReloaded;
 
 	bool mKeyPressed = false;
 

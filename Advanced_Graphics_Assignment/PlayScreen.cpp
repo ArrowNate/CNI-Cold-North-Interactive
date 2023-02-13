@@ -15,6 +15,9 @@ PlayScreen::PlayScreen()
 
 	PlaySong = true;
 	mActive = false;
+	//mControl = false;
+	mReloaded = true;
+
 	//mKeyPressed = false;
 	
 	
@@ -39,8 +42,8 @@ PlayScreen::PlayScreen()
 
 	m_pBall = new Model("Assets/Models/Tennis_Ball.obj");
 	//m_pBall->Position(m_pInputManager->getmousePosx(), m_pInputManager->getmousePosy(), 1);
-	//m_pBall->Position( -0.7, -1.2f, 1.3);
-	m_pBall->Position( 0, 0, 0);
+	m_pBall->Position( -0.7, -1.2f, -3);
+	//m_pBall->Position( 0, 0, 0);
 
 	
 	
@@ -165,7 +168,14 @@ void PlayScreen::Update()
 	
 	if (m_pHUD->GetShots() >= 1) {
 		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_SPACE) == GLFW_PRESS) {
-			mActive = true;
+			
+			if (mReloaded) {
+				mActive = true;
+				mControl = true;
+				mReloaded = false;
+				Dir = 1;
+			}
+			
 
 			std::cout << "SPACE" << std::endl;
 
@@ -179,6 +189,8 @@ void PlayScreen::Update()
 
 		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_Z) == GLFW_PRESS) {
 			mKeyPressed = true;
+
+			
 			std::cout << "Z" << std::endl;
 
 			/*if (m_pBall->Active()) {
@@ -241,14 +253,18 @@ void PlayScreen::LateUpdate() {
 	
 	if (mActive) 
 	{
-		if (m_pBall->Position().z >= -3 ) {
-
-			m_pBall->ModelTranslate(0,0, -0.5);
-
+		//Dir = 1;
+		if (!mControl) {
+			Dir = -1;
+			
+			m_pBall->ModelTranslate(-1, -2, 1);
+			
 		}
-		else {
+		else if (mControl = true) {
 			m_pBall->ModelTranslate(m_pInputManager->getmousePosx() * Dir, m_pInputManager->getmousePosy() * Dir, -0.5 * Dir);
-		}
+		} 
+		
+		
 		
 		
 		if (m_pBall->Position().z >= -37)
@@ -258,29 +274,41 @@ void PlayScreen::LateUpdate() {
 			
 		}
 
+		if (m_pBall->Position().z >= -2) {
+
+			//m_pBall->ModelTranslate(0,0, -0.5);
+			mActive = false;
+			//m_pBall->Position(-0.7f, -1.2f, -3);
+			mReloaded = true;
+			m_pHUD->DecreaseAmmo();
+		}
+
+		/*if (m_pBall->Position().z <= -3) {
+			
+		}*/
+		
+
+		if (m_pBall->Position().z <= -35) {
+			mControl = false;
+			m_pAudioManager->PlayMusic3D("Assets/Music/Thud.wav", m_pBall->Position().x, m_pBall->Position().y, 0, false);
+			std::cout << " ball should turn" << std::endl;
+			
+		}
 		
 	}
 	else if (!mActive) {
-		m_pBall->Position(-0.7f, -1.2f, 1.3);
-		
+		m_pBall->Position(-0.7f, -1.2f, -3);
+		//std::cout << " ball should be at start" << std::endl;
 	}
 
-	//if (m_pBall->Position().z <= -35) {
-	//	Dir = -1;
-	//	std::cout << " ball should turn" << std::endl;
+	
+	/*else if (m_pBall->Position().z >= -10) {
+			mActive = false;
+			std::cout << " ball should Stop" << std::endl;
+		}*/
+	
 
-	///*else (m_pBall->Position().z >= -10) {
-	//		mActive = false;
-	//		std::cout << " ball should Stop" << std::endl;
-	//	}*/
-	//}
-
-	if (m_pBall->Position().z <= -40)
-	{
-		mActive = false;
-		m_pHUD->DecreaseAmmo();
-		
-	}
+	
 
 	
 	
@@ -364,6 +392,7 @@ void PlayScreen::SphereCollide(GameEntity* objectOne, GameEntity* objectTwo) {
 			objectOne->Active(false);
 			objectTwo->Active(false);
 			mActive = false;
+			mReloaded = true;
 			m_pHUD->Score();
 			m_pHUD->DecreaseAmmo();
 		}
