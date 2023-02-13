@@ -4,7 +4,7 @@ StartScreen::StartScreen()
 {
 	//m_pTimer = Timer::Instance();
 	m_pInputManager = InputManager::Instance();
-	m_pAudioManager = AudioManager::Instance();
+	m_pAudioManager = AudioManager::Instance(); // Should ask Richard if we could do a function for these like InitInstances() or something;
 	m_pGraphics = Graphics::Instance();
 
 	PlaySong = true;

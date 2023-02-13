@@ -22,14 +22,15 @@ public:
 	static bool MouseButtonPressed();
 
 	void Update();
-	
-	
+	static void returnToMainMenu();
+
 private:
 	GLFWwindow* window;
 	
 	static bool getMouseButtonPressed;
 
 	static glm::vec2 mousePos;
+
 	
 };
  

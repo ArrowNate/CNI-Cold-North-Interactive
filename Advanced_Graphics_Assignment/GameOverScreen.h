@@ -7,6 +7,7 @@
 #include "Font.h"
 #include "Texture.h"
 #include "Buttons.h"
+#include "StartScreen.h"
 
 class GameOverScreen
 {
@@ -16,11 +17,13 @@ public:
 
     void Render();
     void Update();
+    void ReturnToMainMenu();
 
 private:
     Font* m_pFont;
     Texture* m_pGameOverBackground;
     Buttons* m_pButtons;
+
 };
 
 #endif // GAMEOVERSCREEN_H

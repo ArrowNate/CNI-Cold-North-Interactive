@@ -1,4 +1,5 @@
 #include "InputManager.h"
+#include "ScreenManager.h"
 
 InputManager* InputManager::sInstance = nullptr;
 
@@ -36,18 +37,33 @@ void InputManager::Release()
 
 void InputManager::mouseButtonCallBack(GLFWwindow* window, int button, int action, int mods)
 {
-	if (button == GLFW_MOUSE_BUTTON_LEFT  == GLFW_PRESS)
+	int screenWidth, screenHeight;
+	glfwGetWindowSize(window, &screenWidth, &screenHeight);
+
+	if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS)
 	{
-		//getMouseButtonPressed = true;
-		std::cout << "Left button press" << std::endl;
-		std::cout << mousePos.x << std::endl;
-		std::cout << mousePos.y << std::endl;
+		double xpos, ypos;
+		glfwGetCursorPos(window, &xpos, &ypos);
+
+		mousePos.x = xpos / (screenWidth / 2) - 1;
+		mousePos.y = (screenHeight - ypos) / (screenHeight / 2) - 1; // This code gives us the proper coords between the range we need which is between -1 and 1
+
+		std::cout << "X Pos of mouse: ";
+		std::cout << mousePos.x;
+		
+		if (mousePos.x >= -0.5 && mousePos.x <= 0.5 && mousePos.y >= -0.5 && mousePos.y <= -0.01)
+		{
+			InputManager::returnToMainMenu();
+		}
 	}
-	else if (button == GLFW_MOUSE_BUTTON_LEFT == GLFW_RELEASE)
+	else if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_RELEASE)
 	{
 		getMouseButtonPressed = false;
 	}
-	
+}
+
+void InputManager::returnToMainMenu() {
+	exit(0);
 }
 
 void InputManager::mouse_callback(GLFWwindow* window, double xPos, double yPos)

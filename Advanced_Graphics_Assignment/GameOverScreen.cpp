@@ -24,6 +24,10 @@ void GameOverScreen::Update() {
 
 }
 
+void GameOverScreen::ReturnToMainMenu() {
+
+}
+
 void GameOverScreen::Render() {
 
 	m_pGameOverBackground->Draw();
