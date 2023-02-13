@@ -1,7 +1,7 @@
 #include "Buttons.h"
 
 Buttons::Buttons() {
-	m_pReturnToMenuButton = new Texture("Assets/Textures/ReturnMenuButton.png", -.5, .5, 0.5, -0.5, GL_RGBA);
+	m_pReturnToMenuButton = new Texture("Assets/Textures/ReturnMenuButton.png", -.5, -0.01, 0.5, -0.5, GL_RGBA);
 	m_pFont = new Font("Assets/Fonts/CarneyText.ttf");
 }
 
@@ -19,7 +19,8 @@ void Buttons::Update() {
 
 void Buttons::Render() {
 	
-	
+	m_pReturnToMenuButton->Draw();
+
 	const int thickness = 2; // This is the thickness of the border around the text
 
 	for (int i = -thickness; i <= thickness; ++i) // inner loop repeats over j from -thickness to thickness same with i as well. 
@@ -33,16 +34,16 @@ void Buttons::Render() {
 			}
 
 			// border color
-			m_pFont->RenderText("Click Here To", 135 + i, 432 + j, 3.4, glm::vec3(1.0f, 0.0f, 0.0f));
-			m_pFont->RenderText("Return To Menu", 135 + i, 325 + j, 2.1, glm::vec3(1.0f, 0.0f, 0.0f)); // These handle the border which is offset slightly from 
+			m_pFont->RenderText("Click here to return", 285 + i, 315 + j, 1.2, glm::vec3(1.0f, 1.0f, 1.0f));
+			m_pFont->RenderText("To the main menu", 310 + i, 245 + j, 1.2, glm::vec3(1.0f, 1.0f, 1.0f)); // These handle the border which is offset slightly from 
 		}
 	}
 
 	// font color						x	 y	 size
-	m_pFont->RenderText("Click Here To", 135, 432, 3.4, glm::vec3(0.0f, 0.0f, 0.0f)); // (1.0f,0.7f,0.0f - b.orange), (1.0f, 0.0f, 0.0f - red), (0.0f, 0.7f, 1.0f - 
-	m_pFont->RenderText("Return To Main Menu", 135, 325, 2.1, glm::vec3(0.0f, 0.0f, 0.0f)); // (0.0f, 0.0f, 1.0f - blue), (1.0f, 1.0f, 1.0f - white), (0.0f, 0.0f, 0.0f 
+	m_pFont->RenderText("Click here to return", 285, 315, 1.2, glm::vec3(0.0f, 0.0f, 1.0f)); // (1.0f,0.7f,0.0f - b.orange), (1.0f, 0.0f, 0.0f - red), (0.0f, 0.7f, 1.0f -
+	m_pFont->RenderText("To the main menu", 310, 245, 1.2, glm::vec3(0.0f, 0.0f, 1.0f)); // (0.0f, 0.0f, 1.0f - blue), (1.0f, 1.0f, 1.0f - white), (0.0f, 0.0f, 0.0f 
 
-	m_pReturnToMenuButton->Draw();
+	
 }
 
 void Buttons::Draw() {

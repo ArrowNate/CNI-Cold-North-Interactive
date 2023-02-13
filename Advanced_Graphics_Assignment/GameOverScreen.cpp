@@ -41,14 +41,14 @@ void GameOverScreen::Render() {
 			}
 
 			// border color
-			m_pFont->RenderText("GAME OVER", 135 + i, 432 + j, 3.4, glm::vec3(1.0f, 0.0f, 0.0f));
-			m_pFont->RenderText("Thanks For Playing!", 135 + i, 325 + j, 2.1, glm::vec3(1.0f, 0.0f, 0.0f)); // These handle the border which is offset slightly from 
+			m_pFont->RenderText("GAME OVER", 180 + i, 550 + j, 3.0, glm::vec3(1.0f, 0.0f, 0.0f));
+			m_pFont->RenderText("Thanks For Playing!", 135 + i, 450 + j, 2.1, glm::vec3(1.0f, 0.0f, 0.0f)); // These handle the border which is offset slightly from 
 		}
 	}
 
 	// font color						x	 y	 size
-	m_pFont->RenderText("GAME OVER", 135, 432, 3.4, glm::vec3(0.0f, 0.0f, 0.0f)); // (1.0f,0.7f,0.0f - b.orange), (1.0f, 0.0f, 0.0f - red), (0.0f, 0.7f, 1.0f - 
-	m_pFont->RenderText("Thanks For Playing!", 135, 325, 2.1, glm::vec3(0.0f, 0.0f, 0.0f)); // (0.0f, 0.0f, 1.0f - blue), (1.0f, 1.0f, 1.0f - white), (0.0f, 0.0f, 0.0f 
+	m_pFont->RenderText("GAME OVER", 180, 550, 3.0, glm::vec3(0.0f, 0.0f, 0.0f)); // (1.0f,0.7f,0.0f - b.orange), (1.0f, 0.0f, 0.0f - red), (0.0f, 0.7f, 1.0f - 
+	m_pFont->RenderText("Thanks For Playing!", 135, 450, 2.1, glm::vec3(0.0f, 0.0f, 0.0f)); // (0.0f, 0.0f, 1.0f - blue), (1.0f, 1.0f, 1.0f - white), (0.0f, 0.0f, 0.0f 
 	
 	
 }
