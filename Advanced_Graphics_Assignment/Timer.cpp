@@ -26,12 +26,6 @@ void Timer::Reset()
     mDeltaTime = 0.0f;
 }
 
-float Timer::DeltaTime()
-{
-    return mDeltaTime;
-	mStartTicks = glfwGetTime();
-}
-
 float Timer::DeltaTime() const
 {
 	return mDeltaTime;

@@ -16,7 +16,7 @@ private:
 public:
     static Timer* Instance();
     void Release();
-    float DeltaTime();
+    float DeltaTime() const;
     void Reset();
     void TimeScale(float ts);
     float TimeScale() const;

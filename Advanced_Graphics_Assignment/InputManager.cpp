@@ -7,8 +7,6 @@ bool InputManager::getMouseButtonPressed = false;
 
 glm::vec2 InputManager::mousePos = glm::vec2(0, 0);
 
-glm::vec2 InputManager::mousePos2 = glm::vec2(0, 0);
-
 InputManager::InputManager()
 {
 	window = Graphics::Instance()->GetWindow();
@@ -94,8 +92,7 @@ void InputManager::mouse_callback(GLFWwindow* window, double xPos, double yPos)
 
 void InputManager::mouse_callback2(GameEntity* game, double xPos, double yPos) 
 {
-	mousePos2.x = xPos;
-	mousePos2.y = yPos;
+
 }
 
 void InputManager::processInput(GLFWwindow* window)
