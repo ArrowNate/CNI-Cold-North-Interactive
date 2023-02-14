@@ -21,7 +21,7 @@ void ScreenManager::Release()
 
 ScreenManager::ScreenManager()
 {
-	mCurrentScreen = Credit;
+	mCurrentScreen = Start;
 	m_pStartScreen = new StartScreen();
 	m_pLevelManager = new LevelManager();
 	m_pCredits = new Credits();
@@ -34,7 +34,7 @@ ScreenManager::ScreenManager()
 	//Screens.push_back(m_pCredits);
 
 
-	ScreenChoice = Credit;
+	ScreenChoice = Start;
 
 }
 
@@ -47,6 +47,7 @@ void ScreenManager::Update()
 		m_pCredits->setSelectedScreen(0);
 		m_pLevelManager->setSelectedScreen(1);
 		ScreenChoice = m_pStartScreen->SelectedScreen();
+		//m_pLevelManager->~LevelManager();
 		break;
 
 	case Credit:
