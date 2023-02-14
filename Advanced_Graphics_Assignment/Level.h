@@ -88,7 +88,7 @@ private:
 	bool mPlateHit = false;
 	bool mControl;
 	bool mReloaded;
-	bool mLevelReset;
+	bool mLevelReset = false;
 
 public:
 	Level();

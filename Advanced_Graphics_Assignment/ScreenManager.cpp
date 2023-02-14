@@ -21,7 +21,7 @@ void ScreenManager::Release()
 
 ScreenManager::ScreenManager()
 {
-	mCurrentScreen = Start;
+	mCurrentScreen = Play;
 	m_pStartScreen = new StartScreen();
 	m_pLevelManager = new LevelManager();
 	m_pCredits = new Credits();
@@ -34,7 +34,7 @@ ScreenManager::ScreenManager()
 	//Screens.push_back(m_pCredits);
 
 
-	ScreenChoice = Start;
+	ScreenChoice = Play;
 
 }
 

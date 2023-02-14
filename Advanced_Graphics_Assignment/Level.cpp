@@ -15,9 +15,9 @@ Level::Level()
 	mActive = false;
 	mReloaded = true;
 
-	m_pCannon = new Model("Assets/Models/Pirate_Cannon.obj");
+	/*m_pCannon = new Model("Assets/Models/Pirate_Cannon.obj");
 	m_pCannon->Position(-0.6f, -1.2f, 1.3);
-	m_pCannon->ModelScale(-0.11f, -0.11f, -0.11f);
+	m_pCannon->ModelScale(-0.11f, -0.11f, -0.11f);*/
 
 	m_pStand = new Model("Assets/Models/Stand.obj");
 	m_pStand->Position(-1.1f, -4.5, -7);
@@ -29,6 +29,8 @@ Level::Level()
 	m_pBall->Position(mBallStartx, mBallStarty, mBallStartz);
 
 	modelShader = Shader("Assets/Shaders/modelLoading.vs", "Assets/Shaders/modelLoading.fs");
+
+	//mLevelReset = false;
 
 
 
@@ -50,9 +52,12 @@ Level::Level()
 			m_pPlates[i]->Position(mPlatesx, y, mPlatesz);
 		}
 
-		if (mLevelReset) {
-			m_pPlates[i]->Active(true);
+		if (mLevelReset = false) {
+			//m_pPlates[i]->Active(true);
+			std::cout << " Plates reset" << std::endl;
 		}
+
+		
 		temp++;
 	}
 }
@@ -193,7 +198,11 @@ void Level::Update()
 		std::cout << "z Position is: " << m_PBoard->Position().z << std::endl;
 	}*/
 
+	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_Z) == GLFW_PRESS) {
+		m_pAudioManager->PlayMusic3D("Assets/Music/WindmillHut.mp3", -5, 0, 0);
+	}
 
+	
 }
 
 void Level::LateUpdate() {
@@ -235,7 +244,7 @@ void Level::Render()
 		m_pBall->Render(mBall);
 	}
 
-	m_pCannon->Render(mCannon);
+	//m_pCannon->Render(mCannon);
 
 	m_pHUD->Draw();
 }
@@ -273,5 +282,12 @@ void Level::SphereCollide(GameEntity* objectOne, GameEntity* objectTwo) {
 void Level::Reset() {
 	
 	mLevelReset = true;
-	//m_pHUD->Reset();
+	m_pHUD->Reset();
+	for (int i = 0; i < mMaxPlates; i++) {
+			m_pPlates[i]->Active(true);
+			std::cout << " Plates reset" << std::endl;
+	}
+	PlaySong = true;
+
+
 }
