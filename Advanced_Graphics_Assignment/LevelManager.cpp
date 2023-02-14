@@ -50,6 +50,11 @@ void LevelManager::LoadLevel(int levelIndex) {
 void LevelManager::Update() {
     m_pLevels[mCurrentLevel]->Update();
 
+    if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_BACKSPACE) == GLFW_PRESS) {
+        ScreenSelected = 2;
+       //m_pLevel1->Reset();
+    }
+
     //This should allow any level that is currently being used (mCurrentLevel) to update anything required such as player movement or enemy movement and stuff like that.
 }
 
@@ -71,3 +76,4 @@ void LevelManager::setSelectedScreen(int Screen)
 {
     ScreenSelected = Screen;
 }
+

@@ -49,6 +49,10 @@ Level::Level()
 		else {
 			m_pPlates[i]->Position(mPlatesx, y, mPlatesz);
 		}
+
+		if (mLevelReset) {
+			m_pPlates[i]->Active(true);
+		}
 		temp++;
 	}
 }
@@ -264,4 +268,10 @@ void Level::SphereCollide(GameEntity* objectOne, GameEntity* objectTwo) {
 		m_pHUD->Score();
 		m_pHUD->DecreaseAmmo();
 	}
+}
+
+void Level::Reset() {
+	
+	mLevelReset = true;
+	//m_pHUD->Reset();
 }

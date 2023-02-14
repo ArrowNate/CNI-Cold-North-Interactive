@@ -18,6 +18,8 @@ public:
 	void Update();
 	void Draw();
 
+	void Reset();
+
 private:
 	Texture* m_pHUDBorder;
 	Font* m_pFont;

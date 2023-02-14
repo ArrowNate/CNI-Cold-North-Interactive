@@ -88,6 +88,7 @@ private:
 	bool mPlateHit = false;
 	bool mControl;
 	bool mReloaded;
+	bool mLevelReset;
 
 public:
 	Level();
@@ -103,6 +104,8 @@ public:
 	void Update();
 	void LateUpdate();
 	void Render();
+
+	void Reset();
 
 };
 

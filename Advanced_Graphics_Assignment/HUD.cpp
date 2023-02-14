@@ -62,3 +62,8 @@ void HUD::Draw() {
 int HUD::GetShots() {
 	return Shots;
 }
+
+void HUD::Reset() {
+	Point = 0;
+	Shots = 15;
+}

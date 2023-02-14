@@ -14,8 +14,11 @@ private:
     int ScreenSelected;
     static LevelManager* sInstance;
 
+    Level* m_pLevel1;
+
     std::vector<Level*> m_pLevels; // This vector stores the levels managed by the LevelManager.
     int mCurrentLevel; // The current level being used by the program.
+
 
 public:
     static LevelManager* Instance();

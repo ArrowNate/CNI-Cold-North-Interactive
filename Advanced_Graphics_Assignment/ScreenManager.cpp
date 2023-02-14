@@ -48,6 +48,7 @@ void ScreenManager::Update()
 		m_pLevelManager->setSelectedScreen(1);
 		ScreenChoice = m_pStartScreen->SelectedScreen();
 		//m_pLevelManager->~LevelManager();
+		
 		break;
 
 	case Credit:
@@ -60,6 +61,8 @@ void ScreenManager::Update()
 		m_pLevelManager->Update();
 		m_pStartScreen->setSelectedScreen(2);
 		ScreenChoice = m_pLevelManager->SelectedScreen();
+		
+
 		break;
 
 	case Splash:
