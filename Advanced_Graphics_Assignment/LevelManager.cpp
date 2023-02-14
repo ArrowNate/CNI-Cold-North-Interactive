@@ -7,7 +7,7 @@ LevelManager::LevelManager() : mCurrentLevel(0) {
 }
 
 LevelManager::~LevelManager() {
-    for (Level* level : mLevels) {
+    for (Level* level : m_pLevels) {
         delete level;
     }
 
@@ -15,13 +15,13 @@ LevelManager::~LevelManager() {
 }
 
 void LevelManager::AddLevel(Level* level) {
-    mLevels.push_back(level);
+    m_pLevels.push_back(level);
 
     // This function should hopefully allow us to add new levels to the game instead of having to hard code all the levels directly into the game like I did in the Mario project. It should add to the mLevels vector above using push_back.
 }
 
 void LevelManager::LoadLevel(int levelIndex) {
-    if (levelIndex >= 0 && levelIndex < mLevels.size()) {
+    if (levelIndex >= 0 && levelIndex < m_pLevels.size()) {
         mCurrentLevel = levelIndex;
     }
 
@@ -29,13 +29,13 @@ void LevelManager::LoadLevel(int levelIndex) {
 }
 
 void LevelManager::Update() {
-    mLevels[mCurrentLevel]->Update();
+    m_pLevels[mCurrentLevel]->Update();
 
     //This should allow any level that is currently being used (mCurrentLevel) to update anything required such as player movement or enemy movement and stuff like that.
 }
 
 void LevelManager::Render() {
-    mLevels[mCurrentLevel]->Render();
+    m_pLevels[mCurrentLevel]->Render();
 }
 
 
