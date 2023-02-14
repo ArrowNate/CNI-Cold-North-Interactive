@@ -1,7 +1,7 @@
 #ifndef _INPUTMANAGER_H
 #define _INPUTMANAGER_H
 #include "Graphics.h"
-
+//#include "GameOverScreen.h"
 
 
 class InputManager
@@ -29,12 +29,10 @@ public:
 
 private:
 	GLFWwindow* window;
-	
+
 	static bool getMouseButtonPressed;
 
 	static glm::vec2 mousePos;
-
-	
 };
  
 #endif 

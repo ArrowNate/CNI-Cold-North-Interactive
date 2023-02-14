@@ -9,7 +9,7 @@ HUD::HUD() {
 
 	m_pGameOverScreen = new GameOverScreen();
 	
-	timeLeft = 2;
+	timeLeft = 3;
 }
 
 HUD::~HUD() {

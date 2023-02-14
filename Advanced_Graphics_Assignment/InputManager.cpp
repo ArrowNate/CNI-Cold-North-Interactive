@@ -47,13 +47,12 @@ void InputManager::mouseButtonCallBack(GLFWwindow* window, int button, int actio
 
 		mousePos.x = xpos / (screenWidth / 2) - 1;
 		mousePos.y = (screenHeight - ypos) / (screenHeight / 2) - 1; // This code gives us the proper coords between the range we need which is between -1 and 1
-		
+
 		system("CLS");
-		std::cout << "\nX:" << mousePos.x; "\n";
+		std::cout << "\nX:" << mousePos.x; "\n"; // This is the output of the code above which we can use to input the button dimensions.
 		std::cout << "\nY:" << mousePos.y; "\n\n";
-		
-		
-		if (mousePos.x >= -0.5 && mousePos.x <= 0.5 && mousePos.y >= -0.5 && mousePos.y <= -0.01) // This is for the button location but on all screens.
+
+		if (/*GameOverScreen::isGameOverScreen = false && */mousePos.x >= -0.5 && mousePos.x <= 0.5 && mousePos.y >= -0.5 && mousePos.y <= -0.01) // This is for the button location but it works on all screens not only on the GameOverScreen. Remove GameOverScreen::isGameOverScreen &&
 		{
 			InputManager::returnToMainMenu();
 		}
@@ -65,7 +64,7 @@ void InputManager::mouseButtonCallBack(GLFWwindow* window, int button, int actio
 }
 
 void InputManager::returnToMainMenu() {
-	/*exit(0);*/
+	// Here it needs to clear all the game instances and then return the player to the main menu.
 }
 
 void InputManager::mouse_callback(GLFWwindow* window, double xPos, double yPos)
