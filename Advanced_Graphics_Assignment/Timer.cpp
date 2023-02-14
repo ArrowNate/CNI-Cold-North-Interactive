@@ -29,6 +29,12 @@ void Timer::Reset()
 float Timer::DeltaTime()
 {
     return mDeltaTime;
+	mStartTicks = glfwGetTime();
+}
+
+float Timer::DeltaTime() const
+{
+	return mDeltaTime;
 }
 
 void Timer::TimeScale(float ts)
@@ -43,15 +49,16 @@ float Timer::TimeScale() const
 
 void Timer::Update()
 {
-  
+    mElapsedTicks = glfwGetTime() - mStartTicks;
+    mDeltaTime = mElapsedTicks * 0.001f;
 }
 
 Timer::Timer()
 {
-    mTimeScale = 0.0f;
-    mLastFrameTime = 0.0;
+	Reset();
+	mTimeScale = 1.0f;
 }
-
 Timer::~Timer()
 {
 }
+

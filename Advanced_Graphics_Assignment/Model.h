@@ -23,7 +23,6 @@
 class Model : public GameEntity
 {
 private:
-
     std::vector<Mesh> meshes;
     std::string directory;
     std::vector<Texture3D> texturesLoaded;
@@ -45,6 +44,7 @@ private:
 
 public:
     void ModelTranslate(float x , float y, float z);
+    void ModelScale(float x , float y, float z);
 
     void Render(glm::mat4 modelName);
 };

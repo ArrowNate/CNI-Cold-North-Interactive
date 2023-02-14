@@ -10,6 +10,11 @@ Model::Model(std::string const& path) {
 	mPosition.z = -10;
 
 	mRotation = 0;
+
+	mScale.x = 0.2f;
+	mScale.y = 0.2f;
+	mScale.z = 0.2f;
+
 }
 
 void Model::Draw(Shader& shader) {
@@ -206,7 +211,7 @@ void Model::Render(glm::mat4 name) {
 
 	name = glm::mat4(1.0f);
 	name = glm::translate(name, glm::vec3(mPosition.x, mPosition.y, mPosition.z));
-	name = glm::scale(name, glm::vec3(0.2f, 0.2f, 0.2f));
+	name = glm::scale(name, glm::vec3(mScale.x, mScale.y, mScale.z));
 	//name = glm::rotate(name, glm::radians(30), )
 	
 	modelShader.SetMat4("model", name); // setmat4 is setting the translate/movement/scale/rotation into the shader code
@@ -219,4 +224,10 @@ void Model::ModelTranslate(float x, float y, float z) {
 	mPosition.x += x; 
 	mPosition.y += y; 
 	mPosition.z += z; 
+}
+
+void Model::ModelScale(float x, float y, float z) {
+	mScale.x += x;
+	mScale.y += y;
+	mScale.z += z;
 }

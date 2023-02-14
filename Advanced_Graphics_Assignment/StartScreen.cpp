@@ -17,6 +17,7 @@ StartScreen::StartScreen()
 	m_pLogo = new Texture("Assets/Textures/CNiLogo.png", 1.0, -0.72, 0.72, -1.0, GL_RGBA);
 	m_pArrow = new Texture("Assets/Textures/MainMenuSelectorArrow.png", -0.47, -0.3, -0.86, -0.45, GL_RGBA);
 	m_pArrow2 = new Texture("Assets/Textures/MainMenuSelectorArrow2.png", -0.47, 0.04, -0.86, -0.11, GL_RGBA);
+
 }
 
 StartScreen::~StartScreen() 
@@ -89,8 +90,6 @@ void StartScreen::Update()
 
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_S) == GLFW_PRESS) {
 		ChangeSelectedMode(1);
-
-		
 	}
 	else if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_W) == GLFW_PRESS) {
 		ChangeSelectedMode(-1);

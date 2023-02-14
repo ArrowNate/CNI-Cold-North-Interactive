@@ -28,4 +28,5 @@ private:
     ~Timer();
 };
 
-#endif
+#endif // !_TIMER_H
+

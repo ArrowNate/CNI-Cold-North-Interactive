@@ -6,10 +6,11 @@ HUD::HUD() {
 
 	m_pFont = new Font("Assets/Fonts/CarneyText.ttf");
 	m_pHUDBorder = new Texture("Assets/Textures/HUDBorder1.png", 1.0, 1.0, -1.0, -1.0, GL_RGBA); 
-
 	m_pGameOverScreen = new GameOverScreen();
-	
 	timeLeft = 3;
+	m_pHUDBorder = new Texture("Assets/Textures/HUDBorder1.png", 1.0, 1.0, -1.0, -1.0, GL_RGBA);
+
+	Point = 0;
 }
 
 HUD::~HUD() {
@@ -42,6 +43,11 @@ void HUD::Update() {
 	DecreaseTimer();
 }
 
+void HUD::Score()
+{
+	Point += 100;
+}
+
 void HUD::Draw() {
 	Update();
 	
@@ -60,7 +66,7 @@ void HUD::Draw() {
 				}
 
 				// border color
-				m_pFont->RenderText("SCORE: ", 35 + i, 733 + j, 1.4, glm::vec3(1.0f, 1.0f, 1.0f));
+				m_pFont->RenderText("SCORE: " + std::to_string(Point), 35 + i, 733 + j, 1.4, glm::vec3(1.0f, 1.0f, 1.0f));
 				m_pFont->RenderText("SHOTS LEFT: ", 650 + i, 738 + j, 1.2, glm::vec3(1.0f, 1.0f, 1.0f)); // These handle the border which is offset slightly from 
 				m_pFont->RenderText("TIME: " + std::to_string(timeLeft), 7 + i, 10 + j, 1.2, glm::vec3(1.0f, 1.0f, 1.0f));     // regular text. Gives the illusion of the border.
 
@@ -68,13 +74,12 @@ void HUD::Draw() {
 		}
 
 		// font color
-		m_pFont->RenderText("SCORE: ", 35, 733, 1.4, glm::vec3(0.0f, 0.0f, 0.0f)); // (1.0f,0.7f,0.0f - b.orange), (1.0f, 0.0f, 0.0f - red), (0.0f, 0.7f, 1.0f 
+		m_pFont->RenderText("SCORE: " + std::to_string(Point), 35, 733, 1.4, glm::vec3(0.0f, 0.0f, 0.0f)); // (1.0f,0.7f,0.0f - b.orange), (1.0f, 0.0f, 0.0f - red), (0.0f, 0.7f, 1.0f 
 		m_pFont->RenderText("SHOTS LEFT: ", 650, 738, 1.2, glm::vec3(0.0f, 0.0f, 0.0f)); // (0.0f, 0.0f, 1.0f - blue), (1.0f, 1.0f, 1.0f - white), (0.0f, 0.0f, 0.0f 
 		m_pFont->RenderText("TIME: " + std::to_string(timeLeft), 7, 10, 1.2, glm::vec3(0.0f, 0.0f, 0.0f));
 		// black)
 	}
 }
-
 
 
 

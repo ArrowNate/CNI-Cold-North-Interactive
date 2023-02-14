@@ -3,8 +3,7 @@
 #include "Graphics.h"
 //#include "GameOverScreen.h"
 
-
-class InputManager
+class InputManager : GameEntity
 {
 public:
 
@@ -17,10 +16,15 @@ public:
 	static void Release();
 
 	static void mouseButtonCallBack(GLFWwindow* window, int button, int action, int mods);
+	//static void mouseButtonCallBack2(GameEntity* window, int button, int action, int mods);
 	static void mouse_callback(GLFWwindow* window, double xPos, double yPos);
+	static void mouse_callback2(GameEntity* game, double xPos, double yPos);
 	void processInput(GLFWwindow* window);
 	
 	glm::vec2 getmousePos();
+	float getmousePos2();
+	float getmousePosx();
+	float getmousePosy();
 
 	static bool MouseButtonPressed();
 
