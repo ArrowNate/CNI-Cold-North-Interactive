@@ -1,4 +1,4 @@
-#ifndef PLAYSCREEN_H
+/*#ifndef PLAYSCREEN_H
 #define PLAYSCREEN_H
 
 #include "AudioManager.h"
@@ -106,4 +106,4 @@ public:
 
 };
 
-#endif // !PLAYSCREEN_H
+#endif // !PLAYSCREEN_H*/

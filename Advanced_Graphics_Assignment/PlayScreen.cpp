@@ -1,4 +1,4 @@
-﻿#include "PlayScreen.h"
+﻿/*#include "PlayScreen.h"
 
 
 PlayScreen::PlayScreen()
@@ -187,7 +187,7 @@ void PlayScreen::Update()
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_Q) == GLFW_PRESS) {
 		m_PBoard->ModelTranslate(0, 0, 0.1f);
 		std::cout << "z Position is: " << m_PBoard->Position().z << std::endl;
-	}*/
+	}
 
 	
 }
@@ -264,4 +264,4 @@ void PlayScreen::SphereCollide(GameEntity* objectOne, GameEntity* objectTwo) {
 			m_pHUD->Score();
 			m_pHUD->DecreaseAmmo();
 		}
-}
+}*/

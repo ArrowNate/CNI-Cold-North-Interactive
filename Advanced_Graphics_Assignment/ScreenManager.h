@@ -6,6 +6,7 @@
 #include "PlayScreen.h"
 #include "Credits.h"
 #include "SplashScreen.h"
+#include "LevelManager.h"
 //#include "Graphics.h"
 
 class ScreenManager
@@ -17,7 +18,9 @@ private:
 	Screens mCurrentScreen;
 	//GLFWwindow* window;
 	StartScreen* m_pStartScreen;
-	PlayScreen* m_pPlayScreen;
+	LevelManager* m_pLevelManager;
+	//PlayScreen* m_pPlayScreen;
+
 	Credits* m_pCredits;
 	SplashScreen* m_pSplashScreen;
 	std::vector<GameEntity*>Screens;

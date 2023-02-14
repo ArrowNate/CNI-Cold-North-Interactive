@@ -21,18 +21,20 @@ void ScreenManager::Release()
 
 ScreenManager::ScreenManager()
 {
-	mCurrentScreen = Play;
+	mCurrentScreen = Credit;
 	m_pStartScreen = new StartScreen();
+	m_pLevelManager = new LevelManager();
 	m_pCredits = new Credits();
-	m_pPlayScreen = new PlayScreen();
+	//m_pPlayScreen = new PlayScreen();
 	m_pSplashScreen = new SplashScreen();
+	
 
 	//Screens.push_back(m_pStartScreen);
 	//Screens.push_back(m_pPlayScreen);
 	//Screens.push_back(m_pCredits);
 
 
-	ScreenChoice = Play;
+	ScreenChoice = Credit;
 
 }
 
@@ -43,7 +45,7 @@ void ScreenManager::Update()
 	case Start:
 		m_pStartScreen->Update();
 		m_pCredits->setSelectedScreen(0);
-		m_pPlayScreen->setSelectedScreen(1);
+		m_pLevelManager->setSelectedScreen(1);
 		ScreenChoice = m_pStartScreen->SelectedScreen();
 		break;
 
@@ -54,9 +56,9 @@ void ScreenManager::Update()
 		break;
 
 	case Play:
-		m_pPlayScreen->Update();
+		m_pLevelManager->Update();
 		m_pStartScreen->setSelectedScreen(2);
-		ScreenChoice = m_pPlayScreen->SelectedScreen();
+		ScreenChoice = m_pLevelManager->SelectedScreen();
 		break;
 
 	case Splash:
@@ -70,7 +72,7 @@ void ScreenManager::Update()
 void ScreenManager::LateUpdate() {
 
 	if (ScreenChoice == Play) {
-		m_pPlayScreen->LateUpdate();
+		m_pLevelManager->LateUpdate();
 	}
 	
 }
@@ -87,7 +89,7 @@ void ScreenManager::Render()
 		break;
 
 	case Play:
-		m_pPlayScreen->Render();
+		m_pLevelManager->Render();
 		break;
 
 	case Splash:
@@ -104,6 +106,6 @@ ScreenManager::~ScreenManager()
 	delete m_pCredits;
 	m_pCredits = nullptr;
 
-	delete m_pPlayScreen;
-	m_pPlayScreen = nullptr;
+	delete m_pLevelManager;
+	m_pLevelManager = nullptr;
 }
