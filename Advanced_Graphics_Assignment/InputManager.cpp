@@ -51,34 +51,34 @@ void InputManager::mouseButtonCallBack(GLFWwindow* window, int button, int actio
 	float xClip = ((mousePos.x ) / 1024) * 2.0f - 1.0f;
 	float yClip = 1.0f - ((mousePos.y ) / 768) * 2.0f;
 
-	if (button == GLFW_MOUSE_BUTTON_LEFT  == GLFW_PRESS)
+	if (button == GLFW_MOUSE_BUTTON_LEFT == GLFW_PRESS)
 	{
 		//getMouseButtonPressed = true;
 		std::cout << "Left button press" << std::endl;
 		std::cout << xClip << std::endl;
 		std::cout << yClip << std::endl;
 
-	int screenWidth, screenHeight;
-	glfwGetWindowSize(window, &screenWidth, &screenHeight);
-
-	if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS)
-	{
-		double xpos, ypos;
-		glfwGetCursorPos(window, &xpos, &ypos);
-
-		mousePos.x = xpos / (screenWidth / 2) - 1;
-		mousePos.y = (screenHeight - ypos) / (screenHeight / 2) - 1; // This code gives us the proper coords between the range we need which is between -1 and 1
-
-		system("CLS");
-		std::cout << "\nX:" << mousePos.x; "\n"; // This is the output of the code above which we can use to input the button dimensions.
-		std::cout << "\nY:" << mousePos.y; "\n\n";
-
-		if (/*GameOverScreen::isGameOverScreen = false && */mousePos.x >= -0.5 && mousePos.x <= 0.5 && mousePos.y >= -0.5 && mousePos.y <= -0.01) // This is for the button location but it works on all screens not only on the GameOverScreen. Remove GameOverScreen::isGameOverScreen &&
-		{
-			InputManager::returnToMainMenu();
-		}
-
+		int screenWidth, screenHeight;
+		glfwGetWindowSize(window, &screenWidth, &screenHeight);
 	}
+	//if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS)
+	//{
+	//	double xpos, ypos;
+	//	glfwGetCursorPos(window, &xpos, &ypos);
+
+	//	mousePos.x = xpos / (screenWidth / 2) - 1;
+	//	mousePos.y = (screenHeight - ypos) / (screenHeight / 2) - 1; // This code gives us the proper coords between the range we need which is between -1 and 1
+
+	//	system("CLS");
+	//	std::cout << "\nX:" << mousePos.x; "\n"; // This is the output of the code above which we can use to input the button dimensions.
+	//	std::cout << "\nY:" << mousePos.y; "\n\n";
+
+	//	if (/*GameOverScreen::isGameOverScreen = false && */mousePos.x >= -0.5 && mousePos.x <= 0.5 && mousePos.y >= -0.5 && mousePos.y <= -0.01) // This is for the button location but it works on all screens not only on the GameOverScreen. Remove GameOverScreen::isGameOverScreen &&
+	//	{
+	//		InputManager::returnToMainMenu();
+	//	}
+
+	//}
 	else if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_RELEASE)
 	{
 		getMouseButtonPressed = false;
@@ -118,10 +118,10 @@ void InputManager::mouse_callback(GLFWwindow* window, double xPos, double yPos)
 //	mousePos2.y = yPos;
 //}
 
-void InputManager::mouse_callback2(GameEntity* game, double xPos, double yPos) 
-{
-
-}
+//void InputManager::mouse_callback2(GameEntity* game, double xPos, double yPos) 
+//{
+//
+//}
 
 
 void InputManager::processInput(GLFWwindow* window)

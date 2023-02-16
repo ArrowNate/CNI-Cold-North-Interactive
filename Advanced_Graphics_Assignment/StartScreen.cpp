@@ -99,6 +99,14 @@ void StartScreen::Update()
 		ScreenSelected = ScreenChoice;
 		m_pAudioManager->PauseMusic();
 	}
+
+	if (GLFW_MOUSE_BUTTON_LEFT == GLFW_PRESS) {
+		std::cout << "click" << std::endl;
+	}
+
+	if (m_pInputManager->getmousePosx() >= -0.42 || m_pInputManager->getmousePosx() <= 0.42 || m_pInputManager->getmousePosy() >= -0.13 || m_pInputManager->getmousePosy() <= -0.13) {
+
+	}
 }
 
 void StartScreen::Render() 
