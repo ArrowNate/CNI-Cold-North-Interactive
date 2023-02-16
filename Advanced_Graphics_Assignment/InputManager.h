@@ -1,10 +1,12 @@
 #ifndef _INPUTMANAGER_H
 #define _INPUTMANAGER_H
 #include "Graphics.h"
+//#include "GameOverScreen.h"
 
 class InputManager : GameEntity
 {
 public:
+
 	InputManager();
 	~InputManager();
 	
@@ -31,17 +33,20 @@ public:
 	static bool MouseButtonPressed();
 
 	void Update();
+
 	
 	//glm::vec3 viewToWorldCoordTransform(int mouse_x, int mouse_y);
 	//glm::vec3 getRayFromScreenSpace(const glm::vec2& pos);
+
+	static void returnToMainMenu();
+
+
 private:
 	GLFWwindow* window;
-	
+
 	static bool getMouseButtonPressed;
 
 	static glm::vec2 mousePos;
-	static glm::vec2 mousePos2;
-	
 };
  
 #endif 

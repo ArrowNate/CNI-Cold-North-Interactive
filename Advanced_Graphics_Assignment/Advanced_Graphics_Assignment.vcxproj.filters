@@ -70,6 +70,11 @@
     <ClCompile Include="Timer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="GameOverScreen.cpp" />
+    <ClCompile Include="Buttons.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="SplashScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -143,6 +148,11 @@
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="Timer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h" />
+    <ClInclude Include="GameOverScreen.h" />
+    <ClInclude Include="Buttons.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SplashScreen.h" />

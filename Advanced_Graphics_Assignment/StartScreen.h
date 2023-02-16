@@ -45,6 +45,7 @@ public:
 
 	void Update() override;
 	void Render() override;
+
 };
 
 #endif // !_PLAYSCREEN_H

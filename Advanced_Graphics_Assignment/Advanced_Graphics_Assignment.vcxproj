@@ -141,11 +141,13 @@
   <ItemGroup>
     <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="AssetManager.cpp" />
+    <ClCompile Include="Buttons.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Credits.cpp" />
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="GameEntity.cpp" />
     <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="GameOverScreen.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="HUD.cpp" />
@@ -167,6 +169,7 @@
   <ItemGroup>
     <ClInclude Include="AudioManager.h" />
     <ClInclude Include="AssetManager.h" />
+    <ClInclude Include="Buttons.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="Credits.h" />
@@ -174,6 +177,7 @@
     <ClInclude Include="ft2build.h" />
     <ClInclude Include="GameEntity.h" />
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="GameOverScreen.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="HUD.h" />
     <ClInclude Include="Level.h" />

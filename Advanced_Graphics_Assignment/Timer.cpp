@@ -1,26 +1,29 @@
+#include <GLFW/glfw3.h>
 #include "Timer.h"
+#include <iostream>
 
 Timer* Timer::sInstance = nullptr;
 
 Timer* Timer::Instance()
 {
-	if (sInstance == nullptr) {
-		sInstance = new Timer();
-	}
-	return sInstance;
+    if (sInstance == nullptr)
+    {
+        sInstance = new Timer();
+    }
+    return sInstance;
 }
 
 void Timer::Release()
 {
-	delete sInstance;
-	sInstance = nullptr;
+    delete sInstance;
+    sInstance = nullptr;
 }
 
 void Timer::Reset()
 {
-	mStartTicks = glfwGetTime();
-	mElapsedTicks = 0;
-	mDeltaTime = 0.0f;
+    mStartTicks = glfwGetTime();
+    mElapsedTicks = glfwGetTime();
+    mDeltaTime = 0.0f;
 }
 
 float Timer::DeltaTime() const
@@ -30,19 +33,20 @@ float Timer::DeltaTime() const
 
 void Timer::TimeScale(float ts)
 {
-	mTimeScale = ts;
+    mTimeScale = ts;
 }
 
 float Timer::TimeScale() const
 {
-	return mTimeScale;
+    return mTimeScale;
 }
 
 void Timer::Update()
 {
-	mElapsedTicks = glfwGetTime() - mStartTicks;
-	mDeltaTime = mElapsedTicks * 0.001f;
+    mElapsedTicks = glfwGetTime() - mStartTicks;
+    mDeltaTime = mElapsedTicks * 0.001f;
 }
+
 Timer::Timer()
 {
 	Reset();
@@ -51,3 +55,4 @@ Timer::Timer()
 Timer::~Timer()
 {
 }
+

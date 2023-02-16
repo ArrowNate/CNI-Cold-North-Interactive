@@ -1,30 +1,32 @@
-#ifndef __TIMER_H
-#define __TIMER_H
+#ifndef _TIMER_H
+#define _TIMER_H
+
 #include <GLFW/glfw3.h>
+
 class Timer
 {
 private:
-	static Timer* sInstance;
-
-	unsigned int mStartTicks;
-	unsigned int mElapsedTicks;
-	float mDeltaTime;
-	float mTimeScale;
+    static Timer* sInstance;
+    double mStartTicks;
+    double mElapsedTicks;
+    float mDeltaTime;
+    float mTimeScale;
+    double mLastFrameTime;
 
 public:
-	static Timer* Instance();
-	static void Release();
+    static Timer* Instance();
+    void Release();
+    float DeltaTime() const;
+    void Reset();
+    void TimeScale(float ts);
+    float TimeScale() const;
+    void Update();
 
-	void Reset();
-	float DeltaTime() const;
-
-	void TimeScale(float ts);
-	float TimeScale() const;
-
-	void Update();
 
 private:
-	Timer();
-	~Timer();
+    Timer();
+    ~Timer();
 };
-#endif
+
+#endif // !_TIMER_H
+

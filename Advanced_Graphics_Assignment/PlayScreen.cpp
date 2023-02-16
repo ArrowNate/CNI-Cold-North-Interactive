@@ -1,6 +1,5 @@
 ﻿/*#include "PlayScreen.h"
 
-
 PlayScreen::PlayScreen()
 {
 	m_pInputManager = InputManager::Instance();
