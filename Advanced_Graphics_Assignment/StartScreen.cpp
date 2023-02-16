@@ -109,7 +109,7 @@ void StartScreen::Update()
 			std::cout << "Nice" << std::endl;
 			ScreenSelected = 1;
 		}
-		else if (m_pInputManager->getmousePosx() >= -0.42 && m_pInputManager->getmousePosx() <= 0.42 && m_pInputManager->getmousePosy() >= -0.47 && m_pInputManager->getmousePosy() <= 0.03)
+		else if (m_pInputManager->getmousePosx() >= -0.42 && m_pInputManager->getmousePosx() <= 0.42 && m_pInputManager->getmousePosy() >= -0.47 && m_pInputManager->getmousePosy() <= -0.3)
 		{
 			ScreenSelected = 0;
 		}

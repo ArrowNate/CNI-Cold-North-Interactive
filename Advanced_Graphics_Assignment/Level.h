@@ -18,7 +18,7 @@
 
 class Level : public GameEntity
 {
-private:
+protected:
 	GLFWwindow* m_pWindow;
 	Camera* m_pCamera;
 	AudioManager* m_pAudioManager;

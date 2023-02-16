@@ -67,15 +67,12 @@
     <ClCompile Include="glad.c">
       <Filter>Header</Filter>
     </ClCompile>
-    <ClCompile Include="Timer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="GameOverScreen.cpp" />
-    <ClCompile Include="Buttons.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SplashScreen.cpp" />
+    <ClCompile Include="Buttons.cpp" />
+    <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="Level2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetManager.h">
@@ -147,15 +144,12 @@
     <ClInclude Include="Texture.h">
       <Filter>Header</Filter>
     </ClInclude>
-    <ClInclude Include="Timer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Timer.h" />
     <ClInclude Include="GameOverScreen.h" />
-    <ClInclude Include="Buttons.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SplashScreen.h" />
+    <ClInclude Include="Buttons.h" />
+    <ClInclude Include="Timer.h" />
+    <ClInclude Include="Level2.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header">
