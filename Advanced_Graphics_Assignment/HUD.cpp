@@ -8,7 +8,7 @@ HUD::HUD() {
 	m_pHUDBorder = new Texture("Assets/Textures/HUDBorder1.png", 1.0, 1.0, -1.0, -1.0, GL_RGBA); 
 	m_pGameOverScreen = new GameOverScreen();
 	
-	timeLeft = 3;
+	timeLeft = 30;
 	Point = 0;
 	Shots = 15;
 }

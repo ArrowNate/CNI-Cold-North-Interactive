@@ -27,6 +27,7 @@ ScreenManager::ScreenManager()
 	m_pCredits = new Credits();
 	//m_pPlayScreen = new PlayScreen();
 	m_pSplashScreen = new SplashScreen();
+	m_pGameOverScreen = new GameOverScreen();
 	
 
 	//Screens.push_back(m_pStartScreen);
@@ -70,6 +71,12 @@ void ScreenManager::Update()
 		//m_pSplashScreen->setSelectedScreen(2);
 		ScreenChoice = m_pSplashScreen->SelectedScreen();
 		break;
+
+	case GameOver:
+		m_pGameOverScreen->Update();
+		m_pStartScreen->setSelectedScreen(2);
+		ScreenChoice = m_pGameOverScreen->SelectedScreen();
+		break;
 	}
 }
 
@@ -99,6 +106,10 @@ void ScreenManager::Render()
 	case Splash:
 		m_pSplashScreen->Render();
 		break;
+
+	case GameOver:
+		m_pGameOverScreen->Render();
+		break;
 	}
 }
 
@@ -112,4 +123,7 @@ ScreenManager::~ScreenManager()
 
 	delete m_pLevelManager;
 	m_pLevelManager = nullptr;
+
+	delete m_pGameOverScreen;
+	m_pGameOverScreen = nullptr;
 }

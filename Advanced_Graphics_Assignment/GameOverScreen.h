@@ -8,12 +8,17 @@
 #include "Texture.h"
 #include "Buttons.h"
 #include "StartScreen.h"
+#include "InputManager.h"
 
-class GameOverScreen
+
+class GameOverScreen : GameEntity
 {
 public:
     GameOverScreen();
     ~GameOverScreen();
+
+    int SelectedMode();
+    int SelectedScreen();
 
     void Render();
     void Update();
@@ -25,7 +30,11 @@ private:
     Font* m_pFont;
     Texture* m_pGameOverBackground;
     Buttons* m_pButtons;
+    InputManager* m_pInputManager;
     
+    int ScreenSelected;
+
+    void setSelectedScreen(int Screen);
 };
 
 #endif // GAMEOVERSCREEN_H

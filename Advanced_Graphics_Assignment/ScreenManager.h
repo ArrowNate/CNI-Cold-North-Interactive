@@ -7,6 +7,7 @@
 #include "Credits.h"
 #include "SplashScreen.h"
 #include "LevelManager.h"
+#include "GameOverScreen.h"
 //#include "Graphics.h"
 
 class ScreenManager
@@ -14,11 +15,12 @@ class ScreenManager
 private:
 	static ScreenManager* sInstance;
 
-	enum Screens { Credit, Play, Start, Splash };
+	enum Screens { Credit, Play, Start, Splash, GameOver };
 	Screens mCurrentScreen;
 	//GLFWwindow* window;
 	StartScreen* m_pStartScreen;
 	LevelManager* m_pLevelManager;
+	GameOverScreen* m_pGameOverScreen;
 	//PlayScreen* m_pPlayScreen;
 
 	Credits* m_pCredits;

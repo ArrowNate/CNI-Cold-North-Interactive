@@ -128,6 +128,8 @@ void Level::Update()
 				mControl = true;
 				mReloaded = false;
 				mDir* mDirForwad;
+				//m_pBall = new Model("Assets/Models/Tennis_Ball.obj");
+				m_pBall->Position(mBallStartx, mBallStarty, mBallStartz);
 			}
 			std::cout << "SPACE" << std::endl;
 		}
@@ -169,9 +171,9 @@ void Level::Update()
 			std::cout << " ball should turn" << std::endl;
 		}
 	}
-	else if (!mActive) {
+	/*else if (!mActive) {
 		m_pBall->Position(mBallStartx, mBallStarty, mBallStartz);
-	}
+	}*/
 
 	/*if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_A) == GLFW_PRESS) {
 		m_PBoard->Translate(Vector3( - .1f, 0, 0));

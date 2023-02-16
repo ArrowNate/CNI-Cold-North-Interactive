@@ -21,6 +21,7 @@ public:
 	//static void mouse_callback2(GameEntity* game, double xPos, double yPos);
 	void processInput(GLFWwindow* window);
 	
+
 	glm::vec2 getmousePos();
 	//float getmousePos2();
 	float getmousePosx();

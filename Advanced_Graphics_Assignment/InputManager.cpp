@@ -21,7 +21,7 @@ InputManager::InputManager()
 	//glfwSetMouseButtonCallback(window, mouseButtonCallBack);
 	glfwSetMouseButtonCallback(window, mouseButtonCallBack);
 	glfwSetCursor(window, glfwCreateStandardCursor(GLFW_CROSSHAIR_CURSOR));
-	
+
 }
 
 InputManager::~InputManager()
@@ -43,6 +43,7 @@ void InputManager::Release()
 	delete sInstance;
 	sInstance = nullptr;
 }
+
 
 void InputManager::mouseButtonCallBack(GLFWwindow* window, int button, int action, int mods)
 {
@@ -161,7 +162,7 @@ void InputManager::processInput(GLFWwindow* window)
 
 void InputManager::Update()
 {
-	
+	//Click();
 }
 
 glm::vec2 InputManager::getmousePos()
@@ -191,31 +192,4 @@ bool InputManager::MouseButtonPressed()
 }
 
 
-//glm::vec3 InputManager::viewToWorldCoordTransform(int mouse_x, int mouse_y) {
-//	// NORMALISED DEVICE SPACE
-//	double x = 2.0 * mouse_x / WINDOW_WIDTH - 1;
-//	double y = 2.0 * mouse_y / WINDOW_HEIGHT - 1;
-//	// HOMOGENEOUS SPACE
-//	glm::vec4 screenPos = glm::vec4(x, -y, -1.0f, 1.0f);
-//	// Projection/Eye Space
-//	glm::mat4 ProjectView = GlobalProjection * GlobalView;
-//	glm::mat4 viewProjectionInverse = inverse(ProjectView);
-//	glm::vec4 worldPos = viewProjectionInverse * screenPos;
-//	return glm::vec3(worldPos);
-//}
-//
-//glm::vec3 InputManager::getRayFromScreenSpace(const glm::vec2& pos)
-//{
-//	glm::mat4 invMat = inverse(m_glData.getPerspective() * m_glData.getView());
-//	glm::vec4 near = glm::vec4((pos.x - Constants::m_halfScreenWidth) / Constants::m_halfScreenWidth, -1 * (pos.y - Constants::m_halfScreenHeight) / Constants::m_halfScreenHeight, -1, 1.0);
-//	glm::vec4 far = glm::vec4((pos.x - Constants::m_halfScreenWidth) / Constants::m_halfScreenWidth, -1 * (pos.y - Constants::m_halfScreenHeight) / Constants::m_halfScreenHeight, 1, 1.0);
-//	glm::vec4 nearResult = invMat * near;
-//	glm::vec4 farResult = invMat * far;
-//	nearResult /= nearResult.w;
-//	farResult /= farResult.w;
-//	glm::vec3 dir = glm::vec3(farResult - nearResult);
-//	return normalize(dir);
-//
-//
-//}
 
