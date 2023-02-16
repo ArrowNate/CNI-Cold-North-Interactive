@@ -16,6 +16,7 @@ public:
 	void DecreaseAmmo();
 
 	int GetShots();
+	int GetTime();
 
 	void Update();
 	void Draw();

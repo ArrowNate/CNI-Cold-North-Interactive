@@ -20,6 +20,8 @@ void LevelManager::Release()
 
 // This is the constructor for our level(s). The mCurrentLevel(0) would be used to load the very first level of our game. I am hoping this is an easy way to allow us to add as many levels as we want.
 LevelManager::LevelManager() : mCurrentLevel(0) {
+    
+
     // If we want to load level 2 we would change the 0 to 1. So on and so forth. So 0 should be level 1, 1 would be level 2 and so on.
     ScreenSelected = 1;
     m_pLevels.push_back(new Level);
@@ -39,13 +41,13 @@ void LevelManager::AddLevel(Level* level) {
     // This function should hopefully allow us to add new levels to the game instead of having to hard code all the levels directly into the game like I did in the Mario project. It should add to the mLevels vector above using push_back.
 }
 
-void LevelManager::LoadLevel(int levelIndex) {
-    if (levelIndex >= 0 && levelIndex < m_pLevels.size()) {
-        mCurrentLevel = levelIndex;
-    }
-
-    // Hoping this function works as well. LoadLevel is supposed to set the current level in the level manager. 0 is supposed to check to ensure that levelIndex is never a negative number. I don't know if this was completely correct I will look into this further. ***
-}
+//void LevelManager::LoadLevel(int levelIndex) {
+//    if (levelIndex >= 0 && levelIndex < m_pLevels.size()) {
+//        mCurrentLevel = levelIndex;
+//    }
+//
+//    // Hoping this function works as well. LoadLevel is supposed to set the current level in the level manager. 0 is supposed to check to ensure that levelIndex is never a negative number. I don't know if this was completely correct I will look into this further. ***
+//}
 
 void LevelManager::Update() {
     m_pLevels[mCurrentLevel]->Update();
@@ -54,6 +56,12 @@ void LevelManager::Update() {
         ScreenSelected = 2;
        //m_pLevel1->Reset();
        m_pLevels[mCurrentLevel]->Reset();
+    }
+
+    if (m_pLevels[mCurrentLevel]->GetLevelOver() == true || m_pLevels[mCurrentLevel]->GetNoAmmo() == true) {
+        ScreenSelected = 4;
+        m_pLevels[mCurrentLevel]->Reset();
+        
     }
 
     

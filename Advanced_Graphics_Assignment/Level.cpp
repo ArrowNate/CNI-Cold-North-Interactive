@@ -9,11 +9,13 @@ Level::Level()
 	m_pCollision = new Collision();
 	m_pHUD = new HUD();
 
-	ScreenSelected = 1;
+	//ScreenSelected = 1;
 
 	PlaySong = true;
 	mActive = false;
 	mReloaded = true;
+	mLevelOver = false;
+	mNoAmmo = false;
 
 	/*m_pCannon = new Model("Assets/Models/Pirate_Cannon.obj");
 	m_pCannon->Position(-0.6f, -1.2f, 1.3);
@@ -97,27 +99,27 @@ Level::~Level()
 	delete m_pCannon;
 }
 
-//int Level::SelectedScreen()
-//{
-//	return ScreenSelected;
-//}
-//
-//void Level::setSelectedScreen(int Screen)
-//{
-//	ScreenSelected = Screen;
-//}
+
+
+
 
 void Level::Update()
 {
 	m_pHUD->Update();
 
+	if (m_pHUD->GetTime() == 0) {
+		mLevelOver = true;
+		
+	}
+		
+	if (mLevelOver == true) {
+		std::cout << "Should go to game over" << std::endl;
+	}
+	
+
 	if (PlaySong == true) {
 		m_pAudioManager->PlayMusic3D("Assets/Music/WindmillHut.mp3", -5, 0, 0);
 		PlaySong = false;
-	}
-
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_BACKSPACE) == GLFW_PRESS) {
-		ScreenSelected = 2;
 	}
 
 	if (m_pHUD->GetShots() >= mMinAmmo) {
@@ -130,9 +132,14 @@ void Level::Update()
 				mDir* mDirForwad;
 				//m_pBall = new Model("Assets/Models/Tennis_Ball.obj");
 				m_pBall->Position(mBallStartx, mBallStarty, mBallStartz);
+				
 			}
 			std::cout << "SPACE" << std::endl;
 		}
+	}
+	else {
+		mNoAmmo = true;
+		std::cout << "NO AMMO" << std::endl;
 	}
 
 	if (mActive)
@@ -171,10 +178,11 @@ void Level::Update()
 			std::cout << " ball should turn" << std::endl;
 		}
 	}
-	/*else if (!mActive) {
+	else if (!mActive) {
 		m_pBall->Position(mBallStartx, mBallStarty, mBallStartz);
-	}*/
+	}
 
+	
 	/*if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_A) == GLFW_PRESS) {
 		m_PBoard->Translate(Vector3( - .1f, 0, 0));
 		std::cout << "x Position is: " << m_PBoard->Position().x << std::endl;
@@ -217,6 +225,8 @@ void Level::LateUpdate() {
 			SphereCollide(m_pBall, m_pPlates[i]);
 		}
 	}
+
+	
 }
 
 void Level::Render()
@@ -290,6 +300,16 @@ void Level::Reset() {
 			std::cout << " Plates reset" << std::endl;
 	}
 	PlaySong = true;
-
-
+	mLevelOver = false;
+	mNoAmmo = false;
+	m_pAudioManager->PauseMusic();
 }
+
+bool Level::GetLevelOver() {
+	return mLevelOver;
+}
+
+bool Level::GetNoAmmo() {
+	return mNoAmmo;
+}
+

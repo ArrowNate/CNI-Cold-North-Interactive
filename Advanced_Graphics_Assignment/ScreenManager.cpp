@@ -61,6 +61,7 @@ void ScreenManager::Update()
 	case Play:
 		m_pLevelManager->Update();
 		m_pStartScreen->setSelectedScreen(2);
+		m_pGameOverScreen->setSelectedScreen(4);
 		ScreenChoice = m_pLevelManager->SelectedScreen();
 		
 
@@ -74,7 +75,7 @@ void ScreenManager::Update()
 
 	case GameOver:
 		m_pGameOverScreen->Update();
-		m_pStartScreen->setSelectedScreen(2);
+		//m_pStartScreen->setSelectedScreen(2);
 		ScreenChoice = m_pGameOverScreen->SelectedScreen();
 		break;
 	}

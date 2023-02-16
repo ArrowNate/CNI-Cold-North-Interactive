@@ -26,8 +26,6 @@ private:
 	Graphics* m_pGraphics;
 	Collision* m_pCollision;
 
-	int ScreenSelected;
-
 	HUD* m_pHUD;
 	Font* m_pFont;
 	Texture* m_pHUDBorder;
@@ -89,14 +87,16 @@ private:
 	bool mControl;
 	bool mReloaded;
 	bool mLevelReset = false;
+	bool mLevelOver;
+	bool mNoAmmo;
 
 public:
 	Level();
 	~Level();
 
-	/*int SelectedScreen();
 
-	void setSelectedScreen(int Screen);*/
+	bool GetLevelOver();
+	bool GetNoAmmo();
 
 	void Collide(GameEntity* objectOne, GameEntity* objectTwo);
 	void SphereCollide(GameEntity* objectOne, GameEntity* objectTwo);

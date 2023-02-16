@@ -7,6 +7,7 @@ GameOverScreen::GameOverScreen() {
 	m_pButtons = new Buttons();
 
 	ScreenSelected = 4;
+	
 }
 
 GameOverScreen::~GameOverScreen() {
@@ -30,8 +31,10 @@ void GameOverScreen::Update() {
 		if (m_pInputManager->getmousePosx() >= -0.48 && m_pInputManager->getmousePosx() <= 0.48 && m_pInputManager->getmousePosy() >= -0.48 && m_pInputManager->getmousePosy() <= -0.02) {
 			std::cout << "Nice" << std::endl;
 			ScreenSelected = 2;
+			//m_pAudioManager->PauseMusic();
 		}
 	}
+	
 }
 
 void GameOverScreen::ReturnToMainMenu() {

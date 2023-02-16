@@ -41,6 +41,10 @@ void HUD::DecreaseTimer() {
 
 void HUD::Update() {
 	DecreaseTimer();
+
+	/*if (timeLeft == 0) {
+		m_pGameOverScreen->Update();
+	}*/
 }
 
 void HUD::Score()
@@ -57,7 +61,7 @@ void HUD::DecreaseAmmo()
 
 void HUD::Draw() {
 	
-	if (timeLeft != 0) {
+	//if (timeLeft != 0) {
 
 		const int thickness = 2; // This is the thickness of the border around the text
 
@@ -84,11 +88,11 @@ void HUD::Draw() {
 		m_pFont->RenderText("SHOTS LEFT: " + std::to_string(Shots), 650, 738, 1.2, glm::vec3(0.0f, 0.0f, 0.0f)); // (0.0f, 0.0f, 1.0f - blue), (1.0f, 1.0f, 1.0f - white), (0.0f, 0.0f, 0.0f
 		m_pFont->RenderText("TIME: " + std::to_string(timeLeft), 7, 10, 1.2, glm::vec3(0.0f, 0.0f, 0.0f));
 		// black)
-	}
+	//}
 
-	if (timeLeft == 0) {
+	/*if (timeLeft == 0) {
 		m_pGameOverScreen->Render();
-	}
+	}*/
 }
 
 
@@ -99,8 +103,13 @@ int HUD::GetShots() {
 	return Shots;
 }
 
+int HUD::GetTime() {
+	return timeLeft;
+}
+
 void HUD::Reset() {
 	Point = 0;
 	Shots = 15;
+	timeLeft = 30;
 }
 

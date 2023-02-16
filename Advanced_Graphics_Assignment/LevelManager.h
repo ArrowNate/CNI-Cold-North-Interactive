@@ -5,6 +5,7 @@
 #include "Level.h"
 #include "InputManager.h"
 
+
 // I am not sure if I still need to add deltaTime for this. Richard used a while statement in class however this was in the main.cpp and I don't think this should be handled by LevelManager or Level class.
 
 class LevelManager {
@@ -14,6 +15,7 @@ private:
     int ScreenSelected;
     static LevelManager* sInstance;
 
+    //HUD* m_pHUD;
     Level* m_pLevel1;
 
     std::vector<Level*> m_pLevels; // This vector stores the levels managed by the LevelManager.
