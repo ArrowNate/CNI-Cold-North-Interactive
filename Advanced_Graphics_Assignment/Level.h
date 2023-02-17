@@ -8,6 +8,7 @@
 #include "Collision.h"
 #include "InputManager.h"
 #include "HUD.h"
+#include "Timer.h"
 
 #include <iostream>
 #include <assimp/camera.h>
@@ -25,6 +26,7 @@ protected:
 	InputManager* m_pInputManager;
 	Graphics* m_pGraphics;
 	Collision* m_pCollision;
+	Timer* m_pTimer;
 
 	HUD* m_pHUD;
 	Font* m_pFont;
@@ -100,6 +102,9 @@ public:
 
 	void Collide(GameEntity* objectOne, GameEntity* objectTwo);
 	void SphereCollide(GameEntity* objectOne, GameEntity* objectTwo);
+
+	void BallMovement();
+	void Shoot();
 
 	void Update();
 	void LateUpdate();

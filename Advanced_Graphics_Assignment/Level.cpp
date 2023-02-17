@@ -8,6 +8,7 @@ Level::Level()
 	m_pGraphics = Graphics::Instance();
 	m_pCollision = new Collision();
 	m_pHUD = new HUD();
+	m_pTimer = Timer::Instance();
 
 	//ScreenSelected = 1;
 
@@ -78,6 +79,9 @@ Level::~Level()
 	Graphics::Release();
 	m_pGraphics = nullptr;
 
+	Timer::Release();
+	m_pTimer = nullptr;
+
 	delete m_pStand;
 	m_pStand = nullptr;
 
@@ -122,65 +126,9 @@ void Level::Update()
 		PlaySong = false;
 	}
 
-	if (m_pHUD->GetShots() >= mMinAmmo) {
-		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_SPACE) == GLFW_PRESS) {
+	Shoot();
 
-			if (mReloaded) {
-				mActive = true;
-				mControl = true;
-				mReloaded = false;
-				mDir* mDirForwad;
-				//m_pBall = new Model("Assets/Models/Tennis_Ball.obj");
-				m_pBall->Position(mBallStartx, mBallStarty, mBallStartz);
-				
-			}
-			std::cout << "SPACE" << std::endl;
-		}
-	}
-	else {
-		mNoAmmo = true;
-		std::cout << "NO AMMO" << std::endl;
-	}
-
-	if (mActive)
-	{
-		if (!mControl) {
-			mDir* mDirBack;
-			m_pBall->ModelTranslate(mDropVelx, mDropVely, mDropVelz);
-		}
-		else if (mControl = true) {
-			m_pBall->ModelTranslate(m_pInputManager->getmousePosx() * mDir, m_pInputManager->getmousePosy() * mDir, mBallzVel * mDir);
-		}
-
-		if (m_pBall->Position().z >= -37)
-		{
-			std::cout << m_pBall->Position().z << std::endl;
-
-		}
-
-		if (m_pBall->Position().z >= mBallFrontBounds) {
-
-			mActive = false;
-			mReloaded = true;
-			m_pHUD->DecreaseAmmo();
-		}
-
-		if (m_pBall->Position().y <= mBallyBounds) {
-
-			mActive = false;
-			mReloaded = true;
-			m_pHUD->DecreaseAmmo();
-		}
-
-		if (m_pBall->Position().z <= mBallBoardBounds) {
-			mControl = false;
-			m_pAudioManager->PlayMusic3D("Assets/Music/Thud.wav", m_pBall->Position().x, m_pBall->Position().y, 0, false);
-			std::cout << " ball should turn" << std::endl;
-		}
-	}
-	else if (!mActive) {
-		m_pBall->Position(mBallStartx, mBallStarty, mBallStartz);
-	}
+	BallMovement();
 
 	
 	/*if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_A) == GLFW_PRESS) {
@@ -208,16 +156,10 @@ void Level::Update()
 		std::cout << "z Position is: " << m_PBoard->Position().z << std::endl;
 	}*/
 
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_Z) == GLFW_PRESS) {
-		m_pAudioManager->PlayMusic3D("Assets/Music/WindmillHut.mp3", -5, 0, 0);
-	}
-
-	
 }
 
-void Level::LateUpdate() {
-
-
+void Level::LateUpdate() 
+{
 
 	for (int i = 0; i < mMaxPlates; i++) {
 
@@ -226,7 +168,6 @@ void Level::LateUpdate() {
 		}
 	}
 
-	
 }
 
 void Level::Render()
@@ -313,3 +254,69 @@ bool Level::GetNoAmmo() {
 	return mNoAmmo;
 }
 
+void Level::Shoot() 
+{
+
+	if (m_pHUD->GetShots() >= mMinAmmo) {
+		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_SPACE) == GLFW_PRESS) {
+
+			if (mReloaded) {
+				mActive = true;
+				mControl = true;
+				mReloaded = false;
+				mDir* mDirForwad;
+				//m_pBall = new Model("Assets/Models/Tennis_Ball.obj");
+				m_pBall->Position(mBallStartx, mBallStarty, mBallStartz);
+
+			}
+			std::cout << "SPACE" << std::endl;
+		}
+	}
+	else {
+		mNoAmmo = true;
+		std::cout << "NO AMMO" << std::endl;
+	}
+}
+
+void Level::BallMovement() 
+{
+	if (mActive)
+	{
+		if (!mControl) {
+			mDir* mDirBack;
+			m_pBall->ModelTranslate(mDropVelx, mDropVely, mDropVelz);
+		}
+		else if (mControl = true) {
+			m_pBall->ModelTranslate(m_pInputManager->getmousePosx() * mDir, m_pInputManager->getmousePosy() * mDir, mBallzVel * mDir);
+		}
+
+		if (m_pBall->Position().z >= -37)
+		{
+			std::cout << m_pBall->Position().z << std::endl;
+
+		}
+
+		if (m_pBall->Position().z >= mBallFrontBounds) {
+
+			mActive = false;
+			mReloaded = true;
+			m_pHUD->DecreaseAmmo();
+		}
+
+		if (m_pBall->Position().y <= mBallyBounds) {
+
+			mActive = false;
+			mReloaded = true;
+			m_pHUD->DecreaseAmmo();
+		}
+
+		if (m_pBall->Position().z <= mBallBoardBounds) {
+			mControl = false;
+			m_pAudioManager->PlayMusic3D("Assets/Music/Thud.wav", m_pBall->Position().x, m_pBall->Position().y, 0, false);
+			std::cout << " ball should turn" << std::endl;
+		}
+	}
+	else if (!mActive) {
+		m_pBall->Position(mBallStartx, mBallStarty, mBallStartz);
+	}
+}

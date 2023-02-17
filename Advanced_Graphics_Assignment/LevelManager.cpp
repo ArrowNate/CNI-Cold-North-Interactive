@@ -19,12 +19,13 @@ void LevelManager::Release()
 }
 
 // This is the constructor for our level(s). The mCurrentLevel(0) would be used to load the very first level of our game. I am hoping this is an easy way to allow us to add as many levels as we want.
-LevelManager::LevelManager() : mCurrentLevel(0) {
+LevelManager::LevelManager() : mCurrentLevel(1) {
     
 
     // If we want to load level 2 we would change the 0 to 1. So on and so forth. So 0 should be level 1, 1 would be level 2 and so on.
     ScreenSelected = 1;
     m_pLevels.push_back(new Level);
+    m_pLevels.push_back(new Level2);
 }
 
 LevelManager::~LevelManager() {
