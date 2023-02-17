@@ -1,24 +1,23 @@
-#ifndef LEVEL2_H
-#define LEVEL2_H
-
+#ifndef LEVEL4_H
+#define LEVEL4_h
 
 #include "Level.h"
 
-class Level2 : public Level
+class Level4 : public Level
 {
 private:
 
 
 	bool mInBounds;
 	bool mOutBounds;
-	
+
 
 	float velx = .1;
 	float dirx = 1;
 
 public:
-	Level2();
-	~Level2();
+	Level4();
+	~Level4();
 
 	void Update();
 	void LateUpdate();
@@ -29,4 +28,5 @@ public:
 	float RandomMovement();
 };
 
-#endif // !LEVEL2_H
+
+#endif // !LEVEL4_H

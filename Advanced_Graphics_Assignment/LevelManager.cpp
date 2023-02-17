@@ -26,6 +26,9 @@ LevelManager::LevelManager() : mCurrentLevel(1) {
     ScreenSelected = 1;
     m_pLevels.push_back(new Level);
     m_pLevels.push_back(new Level2);
+
+    m_pLevels.push_back(new Level4);
+    //m_pLevels.push_back(new Level5);
 }
 
 LevelManager::~LevelManager() {

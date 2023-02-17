@@ -73,6 +73,7 @@
     <ClCompile Include="Buttons.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Level2.cpp" />
+    <ClCompile Include="Level4.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetManager.h">
@@ -150,6 +151,7 @@
     <ClInclude Include="Buttons.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Level2.h" />
+    <ClInclude Include="Level4.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header">
