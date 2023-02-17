@@ -1,7 +1,7 @@
 #include "Buttons.h"
 
 Buttons::Buttons() {
-	m_pReturnToMenuButton = new Texture("Assets/Textures/ReturnMenuButton.png", -.5, -0.01, 0.5, -0.5, GL_RGBA);
+	m_pReturnToMenuButton = new Texture("Assets/Textures/ReturnMenuButtons.png", -.5, -0.01, 0.5, -0.5, GL_RGBA);
 	m_pFont = new Font("Assets/Fonts/CarneyText.ttf");
 }
 
@@ -34,14 +34,19 @@ void Buttons::Render() {
 			}
 
 			// border color
-			m_pFont->RenderText("Click here to return", 285 + i, 315 + j, 1.2, glm::vec3(1.0f, 1.0f, 1.0f));
-			m_pFont->RenderText("To the main menu", 310 + i, 245 + j, 1.2, glm::vec3(1.0f, 1.0f, 1.0f)); // These handle the border which is offset slightly from 
+			m_pFont->RenderText("Back To", 295 + i, 315 + j, 1.2, glm::vec3(1.0f, 1.0f, 1.0f));
+			m_pFont->RenderText("Menu", 320 + i, 250 + j, 1.2, glm::vec3(1.0f, 1.0f, 1.0f));
+			m_pFont->RenderText("Next", 570 + i, 315 + j, 1.2, glm::vec3(1.0f, 1.0f, 1.0f)); // These handle the border which is offset slightly from 
+			m_pFont->RenderText("Level", 570 + i, 255 + j, 1.2, glm::vec3(1.0f, 1.0f, 1.0f));
+
 		}
 	}
 
 	// font color						x	 y	 size
-	m_pFont->RenderText("Click here to return", 285, 315, 1.2, glm::vec3(0.0f, 0.0f, 1.0f)); // (1.0f,0.7f,0.0f - b.orange), (1.0f, 0.0f, 0.0f - red), (0.0f, 0.7f, 1.0f -
-	m_pFont->RenderText("To the main menu", 310, 245, 1.2, glm::vec3(0.0f, 0.0f, 1.0f)); // (0.0f, 0.0f, 1.0f - blue), (1.0f, 1.0f, 1.0f - white), (0.0f, 0.0f, 0.0f 
+	m_pFont->RenderText("Back To", 295, 315, 1.2, glm::vec3(0.0f, 0.0f, 1.0f)); // (1.0f,0.7f,0.0f - b.orange), (1.0f, 0.0f, 0.0f - red), (0.0f, 0.7f, 1.0f -
+	m_pFont->RenderText("Menu", 320, 250, 1.2, glm::vec3(0.0f, 0.0f, 1.0f));
+	m_pFont->RenderText("Next", 570, 315, 1.2, glm::vec3(0.0f, 0.0f, 1.0f)); // (0.0f, 0.0f, 1.0f - blue), (1.0f, 1.0f, 1.0f - white), (0.0f, 0.0f, 0.0f 
+	m_pFont->RenderText("Level", 570, 255, 1.2, glm::vec3(0.0f, 0.0f, 1.0f));
 
 	
 }
