@@ -8,7 +8,7 @@ HUD::HUD() {
 	m_pHUDBorder = new Texture("Assets/Textures/HUDBorder1.png", 1.0, 1.0, -1.0, -1.0, GL_RGBA); 
 	m_pGameOverScreen = new GameOverScreen();
 	
-	timeLeft = 30;
+	timeLeft = 300;
 	Point = 0;
 	Shots = 15;
 }
@@ -32,7 +32,7 @@ void HUD::DecreaseTimer() {
 		}
 	}
 	if (timeLeft != 0) {
-		m_pHUDBorder->Draw();
+		
 	}
 	/*if (timeLeft == 0) {
 		m_pGameOverScreen->Render();
@@ -62,7 +62,7 @@ void HUD::DecreaseAmmo()
 void HUD::Draw() {
 	
 	//if (timeLeft != 0) {
-
+	m_pHUDBorder->Draw();
 		const int thickness = 2; // This is the thickness of the border around the text
 
 		for (int i = -thickness; i <= thickness; ++i) // inner loop repeats over j from -thickness to thickness same with i as well. 
@@ -93,6 +93,7 @@ void HUD::Draw() {
 	/*if (timeLeft == 0) {
 		m_pGameOverScreen->Render();
 	}*/
+		
 }
 
 
