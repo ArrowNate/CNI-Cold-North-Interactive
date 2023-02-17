@@ -21,7 +21,7 @@ void LevelManager::Release()
 // This is the constructor for our level(s). The mCurrentLevel(0) would be used to load the very first level of our game. I am hoping this is an easy way to allow us to add as many levels as we want.
 LevelManager::LevelManager() : mCurrentLevel(mCurrentLevel) {
     
-    mCurrentLevel = 0;
+    
 
     // If we want to load level 2 we would change the 0 to 1. So on and so forth. So 0 should be level 1, 1 would be level 2 and so on.
     ScreenSelected = 1;
@@ -81,15 +81,16 @@ void LevelManager::Update() {
 
     if (m_pLevels[mCurrentLevel]->GetLevelOver() == true || m_pLevels[mCurrentLevel]->GetNoAmmo() == true) {
         ScreenSelected = 4;
-        //m_pLevels[mCurrentLevel]->Reset();
-        
+        m_pLevels[mCurrentLevel]->Reset();
+        NextLevel();
+        std::cout << mCurrentLevel << std::endl;
     }
 
-    /*if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_G) == GLFW_PRESS) {
+    if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_G) == GLFW_PRESS) {
         std::cout << "pressed g" << std::endl;
         NextLevel();
         
-    }*/
+    }
 
     //This should allow any level that is currently being used (mCurrentLevel) to update anything required such as player movement or enemy movement and stuff like that.
 }
@@ -116,22 +117,31 @@ void LevelManager::setSelectedScreen(int Screen)
 void LevelManager::NextLevel() {
     
     mCurrentLevel += 1;
+    
     //m_pLevels[mCurrentLevel]->Reset();
-    if (mCurrentLevel = 0) {
+    if (mCurrentLevel == 0) {
+        //mCurrentLevel = 0;
         m_pLevel1 = new Level();
-        
+       // mCurrentLevel += 1;
     }
-    if (mCurrentLevel = 1)
+    else if (mCurrentLevel == 1)
     {
+        mCurrentLevel = 1;
         m_pLevel2 = new Level2();
+        //mCurrentLevel += 1;
     }
-    if (mCurrentLevel = 2)
+    else if (mCurrentLevel == 2)
     {
         m_pLevel3 = new Level3();
+        //mCurrentLevel = 3;
     }
-    if (mCurrentLevel = 3)
+    else if (mCurrentLevel == 3)
     {
         m_pLevel4 = new Level4();
+        
+    }
+    else if (mCurrentLevel == 4) {
+        mCurrentLevel = 0;
     }
 }
 

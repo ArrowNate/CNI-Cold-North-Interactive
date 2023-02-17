@@ -25,7 +25,7 @@ private:
     Level4* m_pLevel4;
 
     std::vector<Level*> m_pLevels; // This vector stores the levels managed by the LevelManager.
-    int mCurrentLevel; // The current level being used by the program.
+    int mCurrentLevel = 0; // The current level being used by the program.
 
 
 public:
