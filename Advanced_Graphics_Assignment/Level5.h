@@ -1,12 +1,10 @@
-#ifndef LEVEL4_H
-#define LEVEL4_h
+#ifndef LEVEL5_H
+#define LEVEL5_H
 
 #include "Level.h"
-
-class Level4 : public Level
+class Level5 : public Level
 {
 private:
-
 
 
 
@@ -15,14 +13,14 @@ private:
 	float dirx = 1;
 
 public:
-	Level4();
-	~Level4();
+	Level5();
+	~Level5();
 
 	void Update();
 	void LateUpdate();
 	void Render();
 
+
 };
 
-
-#endif // !LEVEL4_H
+#endif // !LEVEL5_H
