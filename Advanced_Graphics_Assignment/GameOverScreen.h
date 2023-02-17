@@ -1,15 +1,17 @@
 #ifndef GAMEOVERSCREEN_H
 #define GAMEOVERSCREEN_H
 
-#include <glad/glad.h>
+
 #include <GLFW/glfw3.h>
 #include <string>
 #include "Font.h"
 #include "Texture.h"
+#include "LevelManager.h"
 #include "Buttons.h"
-#include "StartScreen.h"
-#include "InputManager.h"
-#include "AudioManager.h"
+
+
+
+
 
 
 class GameOverScreen : GameEntity
@@ -34,6 +36,7 @@ private:
     Buttons* m_pButtons;
     InputManager* m_pInputManager;
     AudioManager* m_pAudioManager;
+    LevelManager* m_pLevelManager;
     
     int ScreenSelected;
 

@@ -19,8 +19,9 @@ void LevelManager::Release()
 }
 
 // This is the constructor for our level(s). The mCurrentLevel(0) would be used to load the very first level of our game. I am hoping this is an easy way to allow us to add as many levels as we want.
-LevelManager::LevelManager() : mCurrentLevel(3) {
+LevelManager::LevelManager() : mCurrentLevel(mCurrentLevel) {
     
+    mCurrentLevel = 1;
 
     // If we want to load level 2 we would change the 0 to 1. So on and so forth. So 0 should be level 1, 1 would be level 2 and so on.
     ScreenSelected = 1;
@@ -59,16 +60,18 @@ void LevelManager::Update() {
     if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_BACKSPACE) == GLFW_PRESS) {
         ScreenSelected = 2;
        //m_pLevel1->Reset();
-       m_pLevels[mCurrentLevel]->Reset();
+       //m_pLevels[mCurrentLevel]->Reset();
     }
 
     if (m_pLevels[mCurrentLevel]->GetLevelOver() == true || m_pLevels[mCurrentLevel]->GetNoAmmo() == true) {
         ScreenSelected = 4;
-        m_pLevels[mCurrentLevel]->Reset();
+        //m_pLevels[mCurrentLevel]->Reset();
         
     }
 
-    
+    if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_G) == GLFW_PRESS) {
+        NextLevel();
+    }
 
     //This should allow any level that is currently being used (mCurrentLevel) to update anything required such as player movement or enemy movement and stuff like that.
 }
@@ -92,3 +95,12 @@ void LevelManager::setSelectedScreen(int Screen)
     ScreenSelected = Screen;
 }
 
+void LevelManager::NextLevel() {
+    
+    mCurrentLevel = 2;
+    //m_pLevels[mCurrentLevel]->Reset();
+}
+
+void LevelManager::Reset() {
+    m_pLevels[mCurrentLevel]->Reset();
+}
