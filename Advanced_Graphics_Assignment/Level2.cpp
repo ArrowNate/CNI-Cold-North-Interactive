@@ -96,16 +96,14 @@ void Level2::Update() {
 			std::cout << "Hitting Plates Bounds" << std::endl;
 			m_pPlates[i]->HitBounds(true);
 		}
-
-		if (m_pPlates[i]->Position().x <= -13.5) {
+		else if (m_pPlates[i]->Position().x <= -13.5) {
 			m_pPlates[i]->HitBounds(false);
 		}
 
 		if (m_pPlates[i]->HitBounds()) {
 			m_pPlates[i]->ModelTranslate(velx * dirx * -1, 0, 0);
 		}
-
-		if (!m_pPlates[i]->HitBounds()) {
+		else if (!m_pPlates[i]->HitBounds()) {
 			m_pPlates[i]->ModelTranslate(velx * dirx * 1, 0, 0);
 		}
 	}

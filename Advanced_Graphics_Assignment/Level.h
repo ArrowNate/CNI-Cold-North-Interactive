@@ -78,6 +78,8 @@ protected:
 	float mMaxPlates = 15;
 	float y = 6;
 	float temp = 0;
+	float velx = .1;
+	float dirx = 1;
 
 	int mDir = 1;
 	int mDirForwad = 1;
@@ -91,6 +93,8 @@ protected:
 	bool mLevelReset = false;
 	bool mLevelOver;
 	bool mNoAmmo;
+
+	
 
 public:
 	Level();
