@@ -41,10 +41,15 @@ void GameOverScreen::Update() {
 
 		if (m_pInputManager->getmousePosx() >= 0.008 && m_pInputManager->getmousePosx() <= 0.48 && m_pInputManager->getmousePosy() >= -0.48 && m_pInputManager->getmousePosy() <= -0.02) {
 			std::cout << "Going to Next Level" << std::endl;
+			//int test = 0;
+			//test = (test += 1);
 			//ScreenSelected = 2;
 			//m_pAudioManager->PauseMusic();
+			//m_pLevelManager->Reset();
 			m_pLevelManager->NextLevel();
+			//m_pLevelManager->setCurrentLevel(test);
 			ScreenSelected = 1;
+
 			
 		}
 	}
@@ -97,5 +102,10 @@ int GameOverScreen::SelectedScreen()
 void GameOverScreen::setSelectedScreen(int Screen)
 {
 	ScreenSelected = Screen;
+}
+
+void GameOverScreen::CurrentLevel(int currentlevel) {
+	currentlevel = (currentlevel + 1);
+	m_pLevelManager->setCurrentLevel(currentlevel);
 }
 

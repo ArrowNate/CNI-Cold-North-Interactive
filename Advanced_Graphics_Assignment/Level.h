@@ -79,7 +79,9 @@ protected:
 	float y = 6;
 	float temp = 0;
 	float velx = .1;
+	float vely = .1;
 	float dirx = 1;
+	float diry = 1;
 
 	int mDir = 1;
 	int mDirForwad = 1;

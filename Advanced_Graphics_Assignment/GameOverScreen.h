@@ -24,6 +24,8 @@ public:
     int SelectedScreen();
     void setSelectedScreen(int Screen);
 
+    void CurrentLevel(int currentlevel);
+
     void Render();
     void Update();
     void ReturnToMainMenu();
