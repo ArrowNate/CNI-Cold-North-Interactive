@@ -12,8 +12,6 @@ private:
 	bool mInBounds;
 	bool mOutBounds;
 	
-	float randx = (rand() % 20 + -10) * 0.1;
-	float randy = (rand() % 20 + -10) * 0.1;
 
 	float velx = .1;
 	float dirx = 1;
@@ -25,6 +23,8 @@ public:
 	void Update();
 	void LateUpdate();
 	void Render();
+
+	bool HitBounds();
 
 	float RandomMovement();
 };

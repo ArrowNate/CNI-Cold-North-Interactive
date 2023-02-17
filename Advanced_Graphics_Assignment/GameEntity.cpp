@@ -117,3 +117,11 @@ void GameEntity::Translate(Vector3 vec, Space space) {
 void GameEntity::Rotate(float amount) {
 	Rotation(mRotation + amount);
 }
+
+void GameEntity::HitBounds(bool hitbound) {
+	 mHitBoundry = hitbound;
+}
+
+bool GameEntity::HitBounds() const{
+	return mHitBoundry;
+}

@@ -22,6 +22,7 @@ Level2::Level2()
 	for (int i = 0; i < mMaxPlates; i++) { // first part is decleration, second part is the number of iterations/loops, third is to increment/move on, it can go to the opposite direction, can be different ways.
 		m_pPlates[i] = new Model("Assets/Models/Plate.obj"); // extantiating variable, each element in the array
 		m_pPlates[i]->Active(true);
+		m_pPlates[i]->HitBounds(false);
 		
 		
 		if (i % 5 == 0) {// if the remainder of the division is 0
@@ -87,64 +88,27 @@ Level2::~Level2() {
 void Level2::Update() {
 	m_pHUD->Update();
 
-	
-	float vely = .1;
-	
-	float diry = 1;
 
 	for (int i = 0; i < mMaxPlates; i++) {
-		
-		 
-		
-		if (m_pPlates[i]->Position().x >= -11.5 || m_pPlates[i]->Position().x <= 11.5 || m_pPlates[i]->Position().y >= -4.9 || m_pPlates[i]->Position().y <= 4.2)
-		{
-			m_pPlates[i]->ModelTranslate(velx * dirx, 0, 0);
-		//	//std::cout << "Plates inBounds" << std::endl;
-		//	mInBounds = true;
-		}
-		if (m_pPlates[i]->Position().x <= -11.5 || m_pPlates[i]->Position().x >= 11.5 /*|| m_pPlates[i]->Position().y <= -4.9 || m_pPlates[i]->Position().y >= 4.2*/) 
-		{
 
-			//-RandomMovement();
-			//m_pPlates[i]->ModelTranslate(-randx * 2, -randy * 2, 0);
+		if (m_pPlates[i]->Position().x >= 13.5)
+		{
 			std::cout << "Hitting Plates Bounds" << std::endl;
-			//std::cout << randx << std::endl;
-			//mOutBounds = true;
-			dirx *= -1;
-			//float diry = -1;
-			/*float randx = -(rand() % 20 + -10) * 0.1;
-			float randy = -(rand() % 20 + -10) * 0.1;*/
+			m_pPlates[i]->HitBounds(true);
 		}
 
-		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_A) == GLFW_PRESS) {
-			m_pPlates[i]->Translate(Vector3(-.1f, 0, 0));
-			std::cout << "x Position is: " << m_pPlates[i]->Position().x << std::endl;
+		if (m_pPlates[i]->Position().x <= -13.5) {
+			m_pPlates[i]->HitBounds(false);
 		}
-		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_D) == GLFW_PRESS) {
-			m_pPlates[i]->Translate(Vector3(.1f, 0, 0));
-			std::cout << "x Position is: " << m_pPlates[i]->Position().x << std::endl;
+
+		if (m_pPlates[i]->HitBounds()) {
+			m_pPlates[i]->ModelTranslate(velx * dirx * -1, 0, 0);
 		}
-		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_W) == GLFW_PRESS) {
-			m_pPlates[i]->Translate(Vector3(0, .1f, 0));
-			std::cout << "y Position is: " << m_pPlates[i]->Position().y << std::endl;
-		}
-		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_S) == GLFW_PRESS) {
-			m_pPlates[i]->Translate(Vector3(0, -.1f, 0));
-			std::cout << "y Position is: " << m_pPlates[i]->Position().y << std::endl;
-		}
-		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_E) == GLFW_PRESS) {
-			m_pPlates[i]->ModelTranslate(0, 0, -.1f);
-			std::cout << "z Position is: " << m_pPlates[i]->Position().z << std::endl;
-		}
-		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_Q) == GLFW_PRESS) {
-			m_pPlates[i]->ModelTranslate(0, 0, 0.1f);
-			std::cout << "z Position is: " << m_pPlates[i]->Position().z << std::endl;
+
+		if (!m_pPlates[i]->HitBounds()) {
+			m_pPlates[i]->ModelTranslate(velx * dirx * 1, 0, 0);
 		}
 	}
-
-	
-
-	//std::cout << RandomMovement() << std::endl;
 
 	if (m_pHUD->GetTime() == 0) {
 		mLevelOver = true;

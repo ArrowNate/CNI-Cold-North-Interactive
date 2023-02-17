@@ -29,6 +29,8 @@ protected:
 	bool mActive;
 	GameEntity* mParent;
 
+	bool mHitBoundry;
+
 public:
 	GameEntity(float x = 0.0f, float y = 0.0f, float z = 0.0f);
 	//GameEntity(float x = 0.0f, float y = 0.0f); // might delete, dont know if we need.
@@ -49,6 +51,9 @@ public:
 
 	void Active(bool active);
 	bool Active() const;
+
+	void HitBounds(bool hitbound);
+	bool HitBounds() const;
 
 	void Parent(GameEntity* parent);
 	GameEntity* Parent() const;
