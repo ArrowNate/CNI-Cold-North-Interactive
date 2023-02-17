@@ -1,15 +1,11 @@
 #ifndef LEVEL4_H
-#define LEVEL4_h
+#define LEVEL4_H
 
 #include "Level.h"
 
 class Level4 : public Level
 {
 private:
-
-
-
-
 
 	float velx = .1;
 	float dirx = 1;

@@ -23,10 +23,10 @@ Level::Level()
 	m_pCannon->ModelScale(-0.11f, -0.11f, -0.11f);*/
 
 	m_pStand = new Model("Assets/Models/BasicStand2.obj");
-	m_pStand->Position(-0.9f, -1.0f, 0.59f);
+	m_pStand->Position(-0.9f, -1.0f, 1.29f);
 
-	m_pSpeaker = new Model("Assets/Models/Speaker.obj");
-	m_pSpeaker->Position(-6, -3.0, -8.7);
+	m_pSpeaker = new Model("Assets/Models/NewSpeaker.obj");
+	m_pSpeaker->Position(-5.0, -0.3, -3.0);
 
 	m_pBall = new Model("Assets/Models/Tennis_Ball.obj");
 	m_pBall->Position(mBallStartx, mBallStarty, mBallStartz);

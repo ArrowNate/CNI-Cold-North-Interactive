@@ -6,10 +6,9 @@
 #include "Level2.h"
 #include "Level3.h"
 #include "Level4.h"
+#include "Level5.h"
 #include "InputManager.h"
 
-
-// I am not sure if I still need to add deltaTime for this. Richard used a while statement in class however this was in the main.cpp and I don't think this should be handled by LevelManager or Level class.
 
 class LevelManager {
 
