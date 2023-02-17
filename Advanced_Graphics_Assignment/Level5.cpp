@@ -24,8 +24,8 @@ Level5::Level5() {
 	m_pStand = new Model("Assets/Models/KnightsMap.obj");
 	m_pStand->Position(0.01f, -1.1, 1.2);
 
-	m_pSpeaker = new Model("Assets/Models/Speaker.obj");
-	m_pSpeaker->Position(-6, -4.4, -8.7);
+	m_pSpeaker = new Model("Assets/Models/NewSpeaker.obj");
+	m_pSpeaker->Position(-4.5, -3.0, -7.0);
 
 	m_pBall = new Model("Assets/Models/Tennis_Ball.obj");
 	m_pBall->Position(mBallStartx, mBallStarty, mBallStartz);
@@ -126,7 +126,7 @@ void Level5::Update() {
 	BallMovement();
 
 
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_A) == GLFW_PRESS) {
+	/*if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_A) == GLFW_PRESS) {
 		m_pStand->Translate(Vector3(-.1f, 0, 0));
 		std::cout << "x Position is: " << m_pStand->Position().x << std::endl;
 	}
@@ -149,7 +149,7 @@ void Level5::Update() {
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_Q) == GLFW_PRESS) {
 		m_pStand->ModelTranslate(0, 0, 0.1f);
 		std::cout << "z Position is: " << m_pStand->Position().z << std::endl;
-	}
+	}*/
 }
 
 void Level5::LateUpdate() {
@@ -175,7 +175,10 @@ void Level5::Render() {
 	//----------------------THIS IS OUR VIEWPORT----------------------
 
 	m_pStand->Render(mStand);
+
+	glEnable(GL_CULL_FACE);
 	m_pSpeaker->Render(mSpeaker);
+	glDisable(GL_CULL_FACE);
 
 	for (int i = 0; i < mMaxPlates; i++) {
 
@@ -189,7 +192,7 @@ void Level5::Render() {
 		m_pBall->Render(mBall);
 	}
 
-	//m_pCannon->Render(mCannon);
+	/*m_pCannon->Render(mCannon);*/
 
 	m_pHUD->Draw();
 }

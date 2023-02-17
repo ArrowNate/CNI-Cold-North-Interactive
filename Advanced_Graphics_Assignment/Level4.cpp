@@ -1,7 +1,7 @@
 #include "Level4.h"
 
 Level4::Level4() {
-
+	
 	m_pInputManager = InputManager::Instance();
 	m_pAudioManager = AudioManager::Instance();
 	m_pGraphics = Graphics::Instance();
@@ -24,8 +24,8 @@ Level4::Level4() {
 	m_pStand = new Model("Assets/Models/PJWback.obj");
 	m_pStand->Position(0.01f, -1.1, 1.2);
 
-	m_pSpeaker = new Model("Assets/Models/Speaker.obj");
-	m_pSpeaker->Position(-6, -4.4, -8.7);
+	m_pSpeaker = new Model("Assets/Models/NewSpeaker.obj");
+	m_pSpeaker->Position(-4.5, -3.0, -7.0);
 
 	m_pBall = new Model("Assets/Models/Tennis_Ball.obj");
 	m_pBall->Position(mBallStartx, mBallStarty, mBallStartz);
@@ -166,6 +166,7 @@ void Level4::LateUpdate() {
 void Level4::Render() {
 	
 	modelShader.Use();
+	
 	//----------------------THIS IS OUR VIEWPORT----------------------
 	Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
 
@@ -176,7 +177,6 @@ void Level4::Render() {
 	//----------------------THIS IS OUR VIEWPORT----------------------
 
 	m_pStand->Render(mStand);
-	m_pSpeaker->Render(mSpeaker);
 
 	for (int i = 0; i < mMaxPlates; i++) {
 
@@ -191,6 +191,36 @@ void Level4::Render() {
 	}
 
 	//m_pCannon->Render(mCannon);
+	
+	glEnable(GL_CULL_FACE);
+	m_pSpeaker->Render(mSpeaker);
+	glDisable(GL_CULL_FACE);
 
+	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_A) == GLFW_PRESS) {
+		m_pSpeaker->Translate(Vector3(-.1f, 0, 0));
+		std::cout << "x Position is: " << m_pSpeaker->Position().x << std::endl;
+	}
+	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_D) == GLFW_PRESS) {
+		m_pSpeaker->Translate(Vector3(.1f, 0, 0));
+		std::cout << "x Position is: " << m_pSpeaker->Position().x << std::endl;
+	}
+	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_W) == GLFW_PRESS) {
+		m_pSpeaker->Translate(Vector3(0, .1f, 0));
+		std::cout << "y Position is: " << m_pSpeaker->Position().y << std::endl;
+	}
+	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_S) == GLFW_PRESS) {
+		m_pSpeaker->Translate(Vector3(0, -.1f, 0));
+		std::cout << "y Position is: " << m_pSpeaker->Position().y << std::endl;
+	}
+	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_E) == GLFW_PRESS) {
+		m_pSpeaker->ModelTranslate(0, 0, -.1f);
+		std::cout << "z Position is: " << m_pSpeaker->Position().z << std::endl;
+	}
+	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_Q) == GLFW_PRESS) {
+		m_pSpeaker->ModelTranslate(0, 0, 0.1f);
+		std::cout << "z Position is: " << m_pSpeaker->Position().z << std::endl;
+	}
+	
 	m_pHUD->Draw();
+	
 }

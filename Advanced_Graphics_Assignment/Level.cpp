@@ -26,7 +26,7 @@ Level::Level()
 	m_pStand->Position(-0.9f, -1.0f, 1.29f);
 
 	m_pSpeaker = new Model("Assets/Models/NewSpeaker.obj");
-	m_pSpeaker->Position(-5.0, -0.3, -3.0);
+	m_pSpeaker->Position(-4.5, -3.0, -7.0);
 
 	m_pBall = new Model("Assets/Models/Tennis_Ball.obj");
 	m_pBall->Position(mBallStartx, mBallStarty, mBallStartz);
@@ -99,8 +99,8 @@ Level::~Level()
 	m_pBall = nullptr;
 	delete m_pBall;
 
-	m_pCannon = nullptr;
-	delete m_pCannon;
+	/*m_pCannon = nullptr;
+	delete m_pCannon;*/
 }
 
 
@@ -172,6 +172,7 @@ void Level::LateUpdate()
 
 void Level::Render()
 {
+	glDisable(GL_CULL_FACE);
 	modelShader.Use();
 	//----------------------THIS IS OUR VIEWPORT----------------------
 	Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
@@ -183,7 +184,10 @@ void Level::Render()
 	//----------------------THIS IS OUR VIEWPORT----------------------
 
 	m_pStand->Render(mStand);
+
+	glEnable(GL_CULL_FACE);
 	m_pSpeaker->Render(mSpeaker);
+	glDisable(GL_CULL_FACE);
 
 	for (int i = 0; i < mMaxPlates; i++) {
 
@@ -197,7 +201,7 @@ void Level::Render()
 		m_pBall->Render(mBall);
 	}
 
-	//m_pCannon->Render(mCannon);
+	/*m_pCannon->Render(mCannon);*/
 
 	m_pHUD->Draw();
 }

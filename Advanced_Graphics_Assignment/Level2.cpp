@@ -11,8 +11,8 @@ Level2::Level2()
 	m_pStand = new Model("Assets/Models/BrickWallFaceLevel.obj");
 	m_pStand->Position(-0.2f, -1.1, 0.8);
 
-	m_pSpeaker = new Model("Assets/Models/Speaker.obj");
-	m_pSpeaker->Position(-6, -2.6, -8.7);
+	m_pSpeaker = new Model("Assets/Models/NewSpeaker.obj");
+	m_pSpeaker->Position(-4.5, -3.0, -7.0);
 
 	m_pBall = new Model("Assets/Models/Tennis_Ball.obj");
 	m_pBall->Position(mBallStartx, mBallStarty, mBallStartz);
@@ -176,7 +176,10 @@ void Level2::Render() {
 	//----------------------THIS IS OUR VIEWPORT----------------------
 
 	m_pStand->Render(mStand);
+
+	glEnable(GL_CULL_FACE);
 	m_pSpeaker->Render(mSpeaker);
+	glDisable(GL_CULL_FACE);
 
 	for (int i = 0; i < mMaxPlates; i++) {
 

@@ -120,6 +120,7 @@ void StartScreen::Update()
 
 void StartScreen::Render() 
 {
+	
 	m_pBackground->Draw();
 	m_pLogo->Draw();
 
