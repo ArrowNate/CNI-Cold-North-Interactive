@@ -15,7 +15,7 @@ private:
     int ScreenSelected;
     static LevelManager* sInstance;
 
-    //HUD* m_pHUD;
+    /*HUD* m_pHUD;*/
     Level* m_pLevel1;
 
     std::vector<Level*> m_pLevels; // This vector stores the levels managed by the LevelManager.

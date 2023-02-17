@@ -21,7 +21,7 @@ Level::Level()
 	m_pCannon->Position(-0.6f, -1.2f, 1.3);
 	m_pCannon->ModelScale(-0.11f, -0.11f, -0.11f);*/
 
-	m_pStand = new Model("Assets/Models/Stand.obj");
+	m_pStand = new Model("Assets/Models/Level3.obj");
 	m_pStand->Position(-1.1f, -4.5, -7);
 
 	m_pSpeaker = new Model("Assets/Models/Speaker.obj");
