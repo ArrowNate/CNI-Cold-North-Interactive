@@ -22,11 +22,11 @@ Level::Level()
 	m_pCannon->Position(-0.6f, -1.2f, 1.3);
 	m_pCannon->ModelScale(-0.11f, -0.11f, -0.11f);*/
 
-	m_pStand = new Model("Assets/Models/Level3.obj");
-	m_pStand->Position(-1.1f, -4.5, -7);
+	m_pStand = new Model("Assets/Models/BasicStand2.obj");
+	m_pStand->Position(-0.9f, -1.0f, 0.59f);
 
 	m_pSpeaker = new Model("Assets/Models/Speaker.obj");
-	m_pSpeaker->Position(-6, -2.6, -8.7);
+	m_pSpeaker->Position(-6, -3.0, -8.7);
 
 	m_pBall = new Model("Assets/Models/Tennis_Ball.obj");
 	m_pBall->Position(mBallStartx, mBallStarty, mBallStartz);
@@ -131,30 +131,30 @@ void Level::Update()
 	BallMovement();
 
 	
-	/*if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_A) == GLFW_PRESS) {
-		m_PBoard->Translate(Vector3( - .1f, 0, 0));
-		std::cout << "x Position is: " << m_PBoard->Position().x << std::endl;
+	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_A) == GLFW_PRESS) {
+		m_pStand->Translate(Vector3(-.1f, 0, 0));
+		std::cout << "x Position is: " << m_pStand->Position().x << std::endl;
 	}
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_D) == GLFW_PRESS) {
-		m_PBoard->Translate(Vector3(.1f, 0, 0));
-		std::cout << "x Position is: " << m_PBoard->Position().x << std::endl;
+		m_pStand->Translate(Vector3(.1f, 0, 0));
+		std::cout << "x Position is: " << m_pStand->Position().x << std::endl;
 	}
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_W) == GLFW_PRESS) {
-		m_PBoard->Translate(Vector3(0, .1f, 0));
-		std::cout << "y Position is: " << m_PBoard->Position().y << std::endl;
+		m_pStand->Translate(Vector3(0, .1f, 0));
+		std::cout << "y Position is: " << m_pStand->Position().y << std::endl;
 	}
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_S) == GLFW_PRESS) {
-		m_PBoard->Translate(Vector3(0, -.1f, 0));
-		std::cout << "y Position is: " << m_PBoard->Position().y << std::endl;
+		m_pStand->Translate(Vector3(0, -.1f, 0));
+		std::cout << "y Position is: " << m_pStand->Position().y << std::endl;
 	}
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_E) == GLFW_PRESS) {
-		m_PBoard->ModelTranslate(0, 0, -.1f);
-		std::cout << "z Position is: " << m_PBoard->Position().z << std::endl;
+		m_pStand->ModelTranslate(0, 0, -.1f);
+		std::cout << "z Position is: " << m_pStand->Position().z << std::endl;
 	}
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_Q) == GLFW_PRESS) {
-		m_PBoard->ModelTranslate(0, 0, 0.1f);
-		std::cout << "z Position is: " << m_PBoard->Position().z << std::endl;
-	}*/
+		m_pStand->ModelTranslate(0, 0, 0.1f);
+		std::cout << "z Position is: " << m_pStand->Position().z << std::endl;
+	}
 
 }
 
