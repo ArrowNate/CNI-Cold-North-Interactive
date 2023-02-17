@@ -23,9 +23,12 @@ ScreenManager::ScreenManager()
 {
 	mCurrentScreen = Start;
 	m_pStartScreen = new StartScreen();
+	m_pLevelManager = new LevelManager();
 	m_pCredits = new Credits();
-	m_pPlayScreen = new PlayScreen();
+	//m_pPlayScreen = new PlayScreen();
 	m_pSplashScreen = new SplashScreen();
+	m_pGameOverScreen = new GameOverScreen();
+	
 
 	//Screens.push_back(m_pStartScreen);
 	//Screens.push_back(m_pPlayScreen);
@@ -43,8 +46,10 @@ void ScreenManager::Update()
 	case Start:
 		m_pStartScreen->Update();
 		m_pCredits->setSelectedScreen(0);
-		m_pPlayScreen->setSelectedScreen(1);
+		m_pLevelManager->setSelectedScreen(1);
 		ScreenChoice = m_pStartScreen->SelectedScreen();
+		//m_pLevelManager->~LevelManager();
+		
 		break;
 
 	case Credit:
@@ -54,9 +59,12 @@ void ScreenManager::Update()
 		break;
 
 	case Play:
-		m_pPlayScreen->Update();
+		m_pLevelManager->Update();
 		m_pStartScreen->setSelectedScreen(2);
-		ScreenChoice = m_pPlayScreen->SelectedScreen();
+		m_pGameOverScreen->setSelectedScreen(4);
+		ScreenChoice = m_pLevelManager->SelectedScreen();
+		
+
 		break;
 
 	case Splash:
@@ -64,13 +72,19 @@ void ScreenManager::Update()
 		//m_pSplashScreen->setSelectedScreen(2);
 		ScreenChoice = m_pSplashScreen->SelectedScreen();
 		break;
+
+	case GameOver:
+		m_pGameOverScreen->Update();
+		//m_pStartScreen->setSelectedScreen(2);
+		ScreenChoice = m_pGameOverScreen->SelectedScreen();
+		break;
 	}
 }
 
 void ScreenManager::LateUpdate() {
 
 	if (ScreenChoice == Play) {
-		m_pPlayScreen->LateUpdate();
+		m_pLevelManager->LateUpdate();
 	}
 	
 }
@@ -87,11 +101,15 @@ void ScreenManager::Render()
 		break;
 
 	case Play:
-		m_pPlayScreen->Render();
+		m_pLevelManager->Render();
 		break;
 
 	case Splash:
 		m_pSplashScreen->Render();
+		break;
+
+	case GameOver:
+		m_pGameOverScreen->Render();
 		break;
 	}
 }
@@ -104,6 +122,9 @@ ScreenManager::~ScreenManager()
 	delete m_pCredits;
 	m_pCredits = nullptr;
 
-	delete m_pPlayScreen;
-	m_pPlayScreen = nullptr;
+	delete m_pLevelManager;
+	m_pLevelManager = nullptr;
+
+	delete m_pGameOverScreen;
+	m_pGameOverScreen = nullptr;
 }

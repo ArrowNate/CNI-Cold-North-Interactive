@@ -13,10 +13,16 @@ public:
 	~HUD();
 
 	void Score();
+	void DecreaseAmmo();
+
+	int GetShots();
+	int GetTime();
 
 	void Update();
 	void Draw();
 	void DecreaseTimer();
+
+	void Reset();
 
 private:
 	Texture* m_pHUDBorder;
@@ -32,6 +38,7 @@ private:
 	InputManager* m_pInputManager;
 
 	int Point;
+	int Shots;
 
 };
 

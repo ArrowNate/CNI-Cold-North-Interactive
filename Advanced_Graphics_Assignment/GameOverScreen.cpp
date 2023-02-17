@@ -5,6 +5,9 @@ GameOverScreen::GameOverScreen() {
 	m_pFont = new Font("Assets/Fonts/CarneyText.ttf");
 	m_pGameOverBackground = new Texture("Assets/Textures/GameOverBackground.png", 1.0, 1.0, -1.0, -1.0, GL_RGBA);
 	m_pButtons = new Buttons();
+
+	ScreenSelected = 4;
+	
 }
 
 GameOverScreen::~GameOverScreen() {
@@ -21,6 +24,17 @@ GameOverScreen::~GameOverScreen() {
 
 void GameOverScreen::Update() {
 
+	if (glfwGetMouseButton(Graphics::Instance()->GetWindow(), GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
+		std::cout << "click" << std::endl;
+		//ScreenSelected = 2;
+
+		if (m_pInputManager->getmousePosx() >= -0.48 && m_pInputManager->getmousePosx() <= 0.48 && m_pInputManager->getmousePosy() >= -0.48 && m_pInputManager->getmousePosy() <= -0.02) {
+			std::cout << "Nice" << std::endl;
+			ScreenSelected = 2;
+			//m_pAudioManager->PauseMusic();
+		}
+	}
+	
 }
 
 void GameOverScreen::ReturnToMainMenu() {
@@ -56,5 +70,18 @@ void GameOverScreen::Render() {
 }
 
 
+int GameOverScreen::SelectedMode()
+{
+	return ScreenChoice;
+}
 
+int GameOverScreen::SelectedScreen()
+{
+	return ScreenSelected;
+}
+
+void GameOverScreen::setSelectedScreen(int Screen)
+{
+	ScreenSelected = Screen;
+}
 

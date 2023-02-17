@@ -10,6 +10,7 @@ HUD::HUD() {
 	
 	timeLeft = 3000;
 	Point = 0;
+	Shots = 15;
 }
 
 HUD::~HUD() {
@@ -33,13 +34,17 @@ void HUD::DecreaseTimer() {
 	if (timeLeft != 0) {
 		m_pHUDBorder->Draw();
 	}
-	else {
+	/*if (timeLeft == 0) {
 		m_pGameOverScreen->Render();
-	}
+	}*/
 }
 
 void HUD::Update() {
 	DecreaseTimer();
+
+	/*if (timeLeft == 0) {
+		m_pGameOverScreen->Update();
+	}*/
 }
 
 void HUD::Score()
@@ -47,10 +52,16 @@ void HUD::Score()
 	Point += 100;
 }
 
+
+void HUD::DecreaseAmmo()
+{
+	Shots -= 1;
+}
+
+
 void HUD::Draw() {
-	Update();
 	
-	if (timeLeft != 0) {
+	//if (timeLeft != 0) {
 
 		const int thickness = 2; // This is the thickness of the border around the text
 
@@ -66,7 +77,7 @@ void HUD::Draw() {
 
 				// border color
 				m_pFont->RenderText("SCORE: " + std::to_string(Point), 35 + i, 733 + j, 1.4, glm::vec3(1.0f, 1.0f, 1.0f));
-				m_pFont->RenderText("SHOTS LEFT: ", 650 + i, 738 + j, 1.2, glm::vec3(1.0f, 1.0f, 1.0f)); // These handle the border which is offset slightly from 
+				m_pFont->RenderText("SHOTS LEFT: " + std::to_string(Shots), 650 + i, 738 + j, 1.2, glm::vec3(1.0f, 1.0f, 1.0f)); // These handle the border which is offset slightly from
 				m_pFont->RenderText("TIME: " + std::to_string(timeLeft), 7 + i, 10 + j, 1.2, glm::vec3(1.0f, 1.0f, 1.0f));     // regular text. Gives the illusion of the border.
 
 			}
@@ -74,11 +85,31 @@ void HUD::Draw() {
 
 		// font color
 		m_pFont->RenderText("SCORE: " + std::to_string(Point), 35, 733, 1.4, glm::vec3(0.0f, 0.0f, 0.0f)); // (1.0f,0.7f,0.0f - b.orange), (1.0f, 0.0f, 0.0f - red), (0.0f, 0.7f, 1.0f 
-		m_pFont->RenderText("SHOTS LEFT: ", 650, 738, 1.2, glm::vec3(0.0f, 0.0f, 0.0f)); // (0.0f, 0.0f, 1.0f - blue), (1.0f, 1.0f, 1.0f - white), (0.0f, 0.0f, 0.0f 
+		m_pFont->RenderText("SHOTS LEFT: " + std::to_string(Shots), 650, 738, 1.2, glm::vec3(0.0f, 0.0f, 0.0f)); // (0.0f, 0.0f, 1.0f - blue), (1.0f, 1.0f, 1.0f - white), (0.0f, 0.0f, 0.0f
 		m_pFont->RenderText("TIME: " + std::to_string(timeLeft), 7, 10, 1.2, glm::vec3(0.0f, 0.0f, 0.0f));
 		// black)
-	}
+	//}
+
+	/*if (timeLeft == 0) {
+		m_pGameOverScreen->Render();
+	}*/
 }
 
 
+
+
+
+int HUD::GetShots() {
+	return Shots;
+}
+
+int HUD::GetTime() {
+	return timeLeft;
+}
+
+void HUD::Reset() {
+	Point = 0;
+	Shots = 15;
+	timeLeft = 30;
+}
 

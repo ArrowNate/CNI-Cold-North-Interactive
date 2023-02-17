@@ -76,6 +76,8 @@ void StartScreen::setSelectedScreen(int Screen)
 
 void StartScreen::Update() 
 {
+
+
 	if (PlaySong == true) {
 		m_pAudioManager->PlayMusic();
 		PlaySong = false;
@@ -97,7 +99,23 @@ void StartScreen::Update()
 
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_ENTER) == GLFW_PRESS) {
 		ScreenSelected = ScreenChoice;
+		m_pAudioManager->PauseMusic();
 	}
+
+	if (glfwGetMouseButton(Graphics::Instance()->GetWindow(), GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
+		std::cout << "click" << std::endl;
+
+		if (m_pInputManager->getmousePosx() >= -0.42 && m_pInputManager->getmousePosx() <= 0.42 && m_pInputManager->getmousePosy() >= -0.13 && m_pInputManager->getmousePosy() <= 0.04) {
+			std::cout << "Nice" << std::endl;
+			ScreenSelected = 1;
+		}
+		else if (m_pInputManager->getmousePosx() >= -0.42 && m_pInputManager->getmousePosx() <= 0.42 && m_pInputManager->getmousePosy() >= -0.47 && m_pInputManager->getmousePosy() <= -0.3)
+		{
+			ScreenSelected = 0;
+		}
+	}
+
+	
 }
 
 void StartScreen::Render() 
