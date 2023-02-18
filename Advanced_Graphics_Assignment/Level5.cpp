@@ -54,10 +54,10 @@ Level5::Level5() {
 			m_pPlates[i]->Position(mPlatesx, y, mPlatesz);
 		}
 
-		if (mLevelReset = false) {
-			//m_pPlates[i]->Active(true);
-			std::cout << " Plates reset" << std::endl;
-		}
+		//if (mLevelReset = false) {
+		//	//m_pPlates[i]->Active(true);
+		//	std::cout << " Plates reset" << std::endl;
+		//}
 
 		m_pPlates[i]->ModelTranslate(0, 11, 0);
 		temp++;
@@ -111,9 +111,9 @@ void Level5::Update() {
 
 	}
 
-	if (mLevelOver == true) {
+	/*if (mLevelOver == true) {
 		std::cout << "Should go to game over" << std::endl;
-	}
+	}*/
 
 
 	if (PlaySong == true) {

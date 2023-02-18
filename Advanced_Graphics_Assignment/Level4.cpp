@@ -117,7 +117,7 @@ void Level4::Update() {
 
 			if (m_pPlates[i]->Position().x >= 13.5)
 			{
-				std::cout << "Hitting Plates Bounds" << std::endl;
+				//std::cout << "Hitting Plates Bounds" << std::endl;
 				m_pPlates[i]->HitBounds(true);
 			}
 			else if (m_pPlates[i]->Position().x <= -13.5) {
