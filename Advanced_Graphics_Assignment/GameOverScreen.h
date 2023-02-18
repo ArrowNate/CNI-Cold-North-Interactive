@@ -9,11 +9,6 @@
 #include "LevelManager.h"
 #include "Buttons.h"
 
-
-
-
-
-
 class GameOverScreen : GameEntity
 {
 public:

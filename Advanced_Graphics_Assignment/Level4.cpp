@@ -108,7 +108,7 @@ Level4::Level4() {
 			std::cout << " Plates reset" << std::endl;
 		}
 
-		m_pPlates[i]->ModelTranslate(0, 11, 0);
+		m_pPlates[i]->ModelTranslate(0, 22, 0);
 		temp++;
 	}
 }
@@ -291,69 +291,4 @@ void Level4::Render() {
 	//m_pCannon->Render(mCannon);
 
 	m_pHUD->Draw();
-}
-
-void newCircle(float x, float z, float radius)
-{
-
-	glBegin(GL_LINE_STRIP);
-	for (float i = 0.0; i < 2 * 3.14159; i += 0.05)
-	{
-		glVertex3f(x + cos(i) * radius, 0, z + sin(i) * radius);
-		glTranslatef(x + cos(i) * radius, 0, z + sin(i) * radius);
-	}
-
-	glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-	glm::mat4 view = camera.GetViewMatrix();
-	modelShader.SetMat4("projection", projection);
-	modelShader.SetMat4("view", view);
-	//----------------------THIS IS OUR VIEWPORT----------------------
-
-	m_pStand->Render(mStand);
-
-	for (int i = 0; i < mMaxPlates; i++) {
-
-		if (m_pPlates[i]->Active()) {
-			m_pPlates[i]->Render(mPlates);
-		}
-	}
-
-	if (mActive)
-	{
-		m_pBall->Render(mBall);
-	}
-
-	//m_pCannon->Render(mCannon);
-	
-	glEnable(GL_CULL_FACE);
-	m_pSpeaker->Render(mSpeaker);
-	glDisable(GL_CULL_FACE);
-
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_A) == GLFW_PRESS) {
-		m_pSpeaker->Translate(Vector3(-.1f, 0, 0));
-		std::cout << "x Position is: " << m_pSpeaker->Position().x << std::endl;
-	}
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_D) == GLFW_PRESS) {
-		m_pSpeaker->Translate(Vector3(.1f, 0, 0));
-		std::cout << "x Position is: " << m_pSpeaker->Position().x << std::endl;
-	}
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_W) == GLFW_PRESS) {
-		m_pSpeaker->Translate(Vector3(0, .1f, 0));
-		std::cout << "y Position is: " << m_pSpeaker->Position().y << std::endl;
-	}
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_S) == GLFW_PRESS) {
-		m_pSpeaker->Translate(Vector3(0, -.1f, 0));
-		std::cout << "y Position is: " << m_pSpeaker->Position().y << std::endl;
-	}
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_E) == GLFW_PRESS) {
-		m_pSpeaker->ModelTranslate(0, 0, -.1f);
-		std::cout << "z Position is: " << m_pSpeaker->Position().z << std::endl;
-	}
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_Q) == GLFW_PRESS) {
-		m_pSpeaker->ModelTranslate(0, 0, 0.1f);
-		std::cout << "z Position is: " << m_pSpeaker->Position().z << std::endl;
-	}
-	
-	m_pHUD->Draw();
-	
 }
