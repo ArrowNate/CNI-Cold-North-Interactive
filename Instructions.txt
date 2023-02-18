@@ -1,0 +1,5 @@
+Click or W,S ENTER to navigate menus.
+
+Space to shoot.
+
+Mouse to aim and controll ball.

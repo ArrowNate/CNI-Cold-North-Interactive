@@ -1,0 +1,1 @@
+Go to Properties-> config Properties-> Debugging -> Working Directory = $(SolutionDir)
