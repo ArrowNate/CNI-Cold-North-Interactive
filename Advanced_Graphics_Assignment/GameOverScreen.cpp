@@ -2,6 +2,8 @@
 
 GameOverScreen::GameOverScreen() {
 
+	m_pLevelManager = new LevelManager();
+
 	m_pFont = new Font("Assets/Fonts/CarneyText.ttf");
 	m_pGameOverBackground = new Texture("Assets/Textures/GameOverBackground.png", 1.0, 1.0, -1.0, -1.0, GL_RGBA);
 	m_pButtons = new Buttons();
@@ -11,6 +13,9 @@ GameOverScreen::GameOverScreen() {
 }
 
 GameOverScreen::~GameOverScreen() {
+
+	LevelManager::Release();
+	m_pLevelManager = nullptr;
 
 	delete m_pFont;
 	m_pFont = nullptr;
@@ -28,10 +33,24 @@ void GameOverScreen::Update() {
 		std::cout << "click" << std::endl;
 		//ScreenSelected = 2;
 
-		if (m_pInputManager->getmousePosx() >= -0.48 && m_pInputManager->getmousePosx() <= 0.48 && m_pInputManager->getmousePosy() >= -0.48 && m_pInputManager->getmousePosy() <= -0.02) {
-			std::cout << "Nice" << std::endl;
+		if (m_pInputManager->getmousePosx() >= -0.48 && m_pInputManager->getmousePosx() <= -0.011 && m_pInputManager->getmousePosy() >= -0.48 && m_pInputManager->getmousePosy() <= -0.02) {
+			std::cout << "Going to Menu" << std::endl;
 			ScreenSelected = 2;
 			//m_pAudioManager->PauseMusic();
+		}
+
+		if (m_pInputManager->getmousePosx() >= 0.008 && m_pInputManager->getmousePosx() <= 0.48 && m_pInputManager->getmousePosy() >= -0.48 && m_pInputManager->getmousePosy() <= -0.02) {
+			std::cout << "Going to Next Level" << std::endl;
+			//int test = 0;
+			//test = (test += 1);
+			//ScreenSelected = 2;
+			//m_pAudioManager->PauseMusic();
+			//m_pLevelManager->Reset();
+			m_pLevelManager->NextLevel();
+			//m_pLevelManager->setCurrentLevel(test);
+			ScreenSelected = 1;
+
+			
 		}
 	}
 	
@@ -83,5 +102,10 @@ int GameOverScreen::SelectedScreen()
 void GameOverScreen::setSelectedScreen(int Screen)
 {
 	ScreenSelected = Screen;
+}
+
+void GameOverScreen::CurrentLevel(int currentlevel) {
+	currentlevel = (currentlevel + 1);
+	m_pLevelManager->setCurrentLevel(currentlevel);
 }
 

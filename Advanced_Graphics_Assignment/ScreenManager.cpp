@@ -37,6 +37,7 @@ ScreenManager::ScreenManager()
 
 	ScreenChoice = Start;
 
+	//mLevelReset = true;
 }
 
 void ScreenManager::Update()
@@ -48,8 +49,7 @@ void ScreenManager::Update()
 		m_pCredits->setSelectedScreen(0);
 		m_pLevelManager->setSelectedScreen(1);
 		ScreenChoice = m_pStartScreen->SelectedScreen();
-		//m_pLevelManager->~LevelManager();
-		
+		//mLevelReset = false;
 		break;
 
 	case Credit:
@@ -64,6 +64,7 @@ void ScreenManager::Update()
 		m_pGameOverScreen->setSelectedScreen(4);
 		ScreenChoice = m_pLevelManager->SelectedScreen();
 		
+		
 
 		break;
 
@@ -76,7 +77,11 @@ void ScreenManager::Update()
 	case GameOver:
 		m_pGameOverScreen->Update();
 		//m_pStartScreen->setSelectedScreen(2);
+		m_pStartScreen->setSelectedScreen(2);
+		m_pLevelManager->setSelectedScreen(1);
 		ScreenChoice = m_pGameOverScreen->SelectedScreen();
+		
+	
 		break;
 	}
 }

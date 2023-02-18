@@ -13,8 +13,7 @@ private:
 	bool mOutBounds;
 	
 
-	float velx = .1;
-	float dirx = 1;
+	
 
 public:
 	Level2();

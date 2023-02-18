@@ -9,8 +9,6 @@ Level3::Level3()
 	m_pHUD = new HUD();
 	m_pTimer = Timer::Instance();
 
-	//ScreenSelected = 1;
-
 	PlaySong = true;
 	mActive = false;
 	mReloaded = true;
@@ -32,13 +30,10 @@ Level3::Level3()
 
 	modelShader = Shader("Assets/Shaders/modelLoading.vs", "Assets/Shaders/modelLoading.fs");
 
-	//mLevelReset = false;
-
-
-
 	for (int i = 0; i < mMaxPlates; i++) { // first part is decleration, second part is the number of iterations/loops, third is to increment/move on, it can go to the opposite direction, can be different ways.
 		m_pPlates[i] = new Model("Assets/Models/Plate.obj"); // extantiating variable, each element in the array
 		m_pPlates[i]->Active(true);
+		m_pPlates[i]->HitBounds(false);
 
 
 		if (i % 5 == 0) {// if the remainder of the division is 0
@@ -106,6 +101,68 @@ Level3::~Level3()
 void Level3::Update()
 {
 	m_pHUD->Update();
+	//float mRandVelx = (rand() % -2 + 1 * .1);
+	for (int i = 0; i < mMaxPlates; i++) {
+
+		if (i % 3 == 0) {
+			velx = 0.2;
+		}
+
+		if (i % 4 == 0) {
+			vely = 0.2;
+		}
+
+		if (m_pPlates[i]->Position().x >= 13.5)
+		{
+			std::cout << "Hitting Plates Bounds" << std::endl;
+			m_pPlates[i]->HitBounds(true);
+		}
+		else if (m_pPlates[i]->Position().x <= -13.5) {
+			m_pPlates[i]->HitBounds(false);
+		}
+
+		if (m_pPlates[i]->Position().y >= 8)
+		{
+			std::cout << "Hitting Plates Bounds" << std::endl;
+			m_pPlates[i]->HitBounds(true);
+		}
+		else if (m_pPlates[i]->Position().y <= -8) {
+			m_pPlates[i]->HitBounds(false);
+		}
+
+		if (m_pPlates[i]->HitBounds()) {
+			m_pPlates[i]->ModelTranslate(velx * dirx * -2, vely * diry * -1, 0);
+		}
+		else if (!m_pPlates[i]->HitBounds()) {
+			m_pPlates[i]->ModelTranslate(velx * dirx * 2, vely * diry * 1, 0);
+		}
+
+		/*if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_A) == GLFW_PRESS) {
+			m_pPlates[i]->Translate(Vector3(-.1f, 0, 0));
+			std::cout << "x Position is: " << m_pPlates[i]->Position().x << std::endl;
+		}
+		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_D) == GLFW_PRESS) {
+			m_pPlates[i]->Translate(Vector3(.1f, 0, 0));
+			std::cout << "x Position is: " << m_pPlates[i]->Position().x << std::endl;
+		}
+		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_W) == GLFW_PRESS) {
+			m_pPlates[i]->Translate(Vector3(0, .1f, 0));
+			std::cout << "y Position is: " << m_pPlates[i]->Position().y << std::endl;
+		}
+		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_S) == GLFW_PRESS) {
+			m_pPlates[i]->Translate(Vector3(0, -.1f, 0));
+			std::cout << "y Position is: " << m_pPlates[i]->Position().y << std::endl;
+		}
+		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_E) == GLFW_PRESS) {
+			m_pPlates[i]->ModelTranslate(0, 0, -.1f);
+			std::cout << "z Position is: " << m_pPlates[i]->Position().z << std::endl;
+		}
+		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_Q) == GLFW_PRESS) {
+			m_pPlates[i]->ModelTranslate(0, 0, 0.1f);
+			std::cout << "z Position is: " << m_pPlates[i]->Position().z << std::endl;
+		}*/
+	}
+	
 
 	if (m_pHUD->GetTime() == 0) {
 		mLevelOver = true;
@@ -125,32 +182,6 @@ void Level3::Update()
 	Shoot();
 
 	BallMovement();
-
-
-	/*if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_A) == GLFW_PRESS) {
-		m_pStand->Translate(Vector3( - .1f, 0, 0));
-		std::cout << "x Position is: " << m_pStand->Position().x << std::endl;
-	}
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_D) == GLFW_PRESS) {
-		m_pStand->Translate(Vector3(.1f, 0, 0));
-		std::cout << "x Position is: " << m_pStand->Position().x << std::endl;
-	}
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_W) == GLFW_PRESS) {
-		m_pStand->Translate(Vector3(0, .1f, 0));
-		std::cout << "y Position is: " << m_pStand->Position().y << std::endl;
-	}
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_S) == GLFW_PRESS) {
-		m_pStand->Translate(Vector3(0, -.1f, 0));
-		std::cout << "y Position is: " << m_pStand->Position().y << std::endl;
-	}
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_E) == GLFW_PRESS) {
-		m_pStand->ModelTranslate(0, 0, -.1f);
-		std::cout << "z Position is: " << m_pStand->Position().z << std::endl;
-	}
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_Q) == GLFW_PRESS) {
-		m_pStand->ModelTranslate(0, 0, 0.1f);
-		std::cout << "z Position is: " << m_pStand->Position().z << std::endl;
-	}*/
 
 }
 

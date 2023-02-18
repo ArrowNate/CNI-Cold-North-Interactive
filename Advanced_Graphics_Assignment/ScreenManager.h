@@ -6,7 +6,7 @@
 #include "PlayScreen.h"
 #include "Credits.h"
 #include "SplashScreen.h"
-#include "LevelManager.h"
+//#include "LevelManager.h"
 #include "GameOverScreen.h"
 //#include "Graphics.h"
 
@@ -21,6 +21,7 @@ private:
 	StartScreen* m_pStartScreen;
 	LevelManager* m_pLevelManager;
 	GameOverScreen* m_pGameOverScreen;
+	Level* m_pLevel;
 	//PlayScreen* m_pPlayScreen;
 
 	Credits* m_pCredits;
@@ -28,6 +29,8 @@ private:
 	std::vector<GameEntity*>Screens;
 
 	int ScreenChoice;
+
+	bool mLevelReset;
 
 private:
 	ScreenManager();

@@ -3,9 +3,19 @@
 #include "Level.h"
 
 
-class Level3 :
-    public Level
+class Level3 : public Level
 {
+private:
+
+    /*float mRandVelx = rand() % -20 + 10 * .001;
+    float mRandVely = rand() % -20 + 10 * .001;
+    float mRandDirx = rand() % -20 + 10 * .001;
+    float mRandDiry = rand() % -20 + 10 * .001;*/
+
+    
+    float mRandVely = rand() % -20 + 10 * .01;
+    float mRandDirx = rand() % -20 + 10 * .001;
+    float mRandDiry = rand() % -20 + 10 * .001;
 
 public:
 
