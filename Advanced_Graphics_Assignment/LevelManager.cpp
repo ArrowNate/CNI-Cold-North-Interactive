@@ -66,14 +66,9 @@ void LevelManager::Update() {
         ScreenSelected = 4;
         m_pLevels[mCurrentLevel]->Reset();
         NextLevel();
-        std::cout << mCurrentLevel << std::endl;
+        //std::cout << mCurrentLevel << std::endl;
     }
 
-    if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_G) == GLFW_PRESS) {
-        std::cout << "pressed g" << std::endl;
-        NextLevel();
-        
-    }
 
     //This should allow any level that is currently being used (mCurrentLevel) to update anything required such as player movement or enemy movement and stuff like that.
 }

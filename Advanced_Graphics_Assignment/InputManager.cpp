@@ -55,9 +55,9 @@ void InputManager::mouseButtonCallBack(GLFWwindow* window, int button, int actio
 	if (button == GLFW_MOUSE_BUTTON_LEFT == GLFW_PRESS)
 	{
 		//getMouseButtonPressed = true;
-		std::cout << "Left button press" << std::endl;
+		/*std::cout << "Left button press" << std::endl;
 		std::cout << xClip << std::endl;
-		std::cout << yClip << std::endl;
+		std::cout << yClip << std::endl;*/
 
 		int screenWidth, screenHeight;
 		glfwGetWindowSize(window, &screenWidth, &screenHeight);
@@ -128,7 +128,7 @@ void InputManager::mouse_callback(GLFWwindow* window, double xPos, double yPos)
 void InputManager::processInput(GLFWwindow* window)
 {
 
-	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+	/*if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 	{
 		glfwSetWindowShouldClose(window, true);
 	}
@@ -157,7 +157,7 @@ void InputManager::processInput(GLFWwindow* window)
 	if (state == GLFW_PRESS)
 	{
 		std::cout << "Z" << std::endl;
-	}
+	}*/
 }
 
 void InputManager::Update()

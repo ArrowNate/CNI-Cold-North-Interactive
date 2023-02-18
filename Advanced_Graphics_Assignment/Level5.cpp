@@ -32,7 +32,7 @@ Level5::Level5() {
 
 	modelShader = Shader("Assets/Shaders/modelLoading.vs", "Assets/Shaders/modelLoading.fs");
 
-	//mLevelReset = false;
+	mLevelReset = false;
 
 
 
@@ -54,10 +54,10 @@ Level5::Level5() {
 			m_pPlates[i]->Position(mPlatesx, y, mPlatesz);
 		}
 
-		if (mLevelReset = false) {
-			//m_pPlates[i]->Active(true);
-			std::cout << " Plates reset" << std::endl;
-		}
+		//if (mLevelReset = false) {
+		//	//m_pPlates[i]->Active(true);
+		//	std::cout << " Plates reset" << std::endl;
+		//}
 
 		m_pPlates[i]->ModelTranslate(0, 11, 0);
 		temp++;
@@ -98,8 +98,8 @@ Level5::~Level5() {
 	m_pBall = nullptr;
 	delete m_pBall;
 
-	m_pCannon = nullptr;
-	delete m_pCannon;
+	/*m_pCannon = nullptr;
+	delete m_pCannon;*/
 }
 
 void Level5::Update() {
@@ -111,9 +111,9 @@ void Level5::Update() {
 
 	}
 
-	if (mLevelOver == true) {
+	/*if (mLevelOver == true) {
 		std::cout << "Should go to game over" << std::endl;
-	}
+	}*/
 
 
 	if (PlaySong == true) {
@@ -125,31 +125,6 @@ void Level5::Update() {
 
 	BallMovement();
 
-
-	/*if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_A) == GLFW_PRESS) {
-		m_pStand->Translate(Vector3(-.1f, 0, 0));
-		std::cout << "x Position is: " << m_pStand->Position().x << std::endl;
-	}
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_D) == GLFW_PRESS) {
-		m_pStand->Translate(Vector3(.1f, 0, 0));
-		std::cout << "x Position is: " << m_pStand->Position().x << std::endl;
-	}
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_W) == GLFW_PRESS) {
-		m_pStand->Translate(Vector3(0, .1f, 0));
-		std::cout << "y Position is: " << m_pStand->Position().y << std::endl;
-	}
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_S) == GLFW_PRESS) {
-		m_pStand->Translate(Vector3(0, -.1f, 0));
-		std::cout << "y Position is: " << m_pStand->Position().y << std::endl;
-	}
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_E) == GLFW_PRESS) {
-		m_pStand->ModelTranslate(0, 0, -.1f);
-		std::cout << "z Position is: " << m_pStand->Position().z << std::endl;
-	}
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_Q) == GLFW_PRESS) {
-		m_pStand->ModelTranslate(0, 0, 0.1f);
-		std::cout << "z Position is: " << m_pStand->Position().z << std::endl;
-	}*/
 }
 
 void Level5::LateUpdate() {

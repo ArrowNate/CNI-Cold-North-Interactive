@@ -49,10 +49,10 @@ Level3::Level3()
 			m_pPlates[i]->Position(mPlatesx, y, mPlatesz);
 		}
 
-		if (mLevelReset = false) {
-			//m_pPlates[i]->Active(true);
-			std::cout << " Plates reset" << std::endl;
-		}
+		//if (mLevelReset = false) {
+		//	//m_pPlates[i]->Active(true);
+		//	std::cout << " Plates reset" << std::endl;
+		//}
 
 		m_pPlates[i]->ModelTranslate(0, 11, 0);
 		temp++;
@@ -114,7 +114,7 @@ void Level3::Update()
 
 		if (m_pPlates[i]->Position().x >= 13.5)
 		{
-			std::cout << "Hitting Plates Bounds" << std::endl;
+			//std::cout << "Hitting Plates Bounds" << std::endl;
 			m_pPlates[i]->HitBounds(true);
 		}
 		else if (m_pPlates[i]->Position().x <= -13.5) {
@@ -123,7 +123,7 @@ void Level3::Update()
 
 		if (m_pPlates[i]->Position().y >= 8)
 		{
-			std::cout << "Hitting Plates Bounds" << std::endl;
+			//std::cout << "Hitting Plates Bounds" << std::endl;
 			m_pPlates[i]->HitBounds(true);
 		}
 		else if (m_pPlates[i]->Position().y <= -8) {
@@ -136,31 +136,6 @@ void Level3::Update()
 		else if (!m_pPlates[i]->HitBounds()) {
 			m_pPlates[i]->ModelTranslate(velx * dirx * 2, vely * diry * 1, 0);
 		}
-
-		/*if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_A) == GLFW_PRESS) {
-			m_pPlates[i]->Translate(Vector3(-.1f, 0, 0));
-			std::cout << "x Position is: " << m_pPlates[i]->Position().x << std::endl;
-		}
-		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_D) == GLFW_PRESS) {
-			m_pPlates[i]->Translate(Vector3(.1f, 0, 0));
-			std::cout << "x Position is: " << m_pPlates[i]->Position().x << std::endl;
-		}
-		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_W) == GLFW_PRESS) {
-			m_pPlates[i]->Translate(Vector3(0, .1f, 0));
-			std::cout << "y Position is: " << m_pPlates[i]->Position().y << std::endl;
-		}
-		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_S) == GLFW_PRESS) {
-			m_pPlates[i]->Translate(Vector3(0, -.1f, 0));
-			std::cout << "y Position is: " << m_pPlates[i]->Position().y << std::endl;
-		}
-		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_E) == GLFW_PRESS) {
-			m_pPlates[i]->ModelTranslate(0, 0, -.1f);
-			std::cout << "z Position is: " << m_pPlates[i]->Position().z << std::endl;
-		}
-		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_Q) == GLFW_PRESS) {
-			m_pPlates[i]->ModelTranslate(0, 0, 0.1f);
-			std::cout << "z Position is: " << m_pPlates[i]->Position().z << std::endl;
-		}*/
 	}
 	
 
@@ -169,9 +144,9 @@ void Level3::Update()
 
 	}
 
-	if (mLevelOver == true) {
+	/*if (mLevelOver == true) {
 		std::cout << "Should go to game over" << std::endl;
-	}
+	}*/
 
 
 	if (PlaySong == true) {

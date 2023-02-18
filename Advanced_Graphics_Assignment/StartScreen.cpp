@@ -82,11 +82,6 @@ void StartScreen::Update()
 		m_pAudioManager->PlayMusic();
 		PlaySong = false;
 	}
-
-	if (m_pInputManager->MouseButtonPressed())
-	{
-		std::cout << "click" << std::endl;
-	}
 	
 	m_pInputManager->processInput(Graphics::Instance()->GetWindow());
 
@@ -103,10 +98,10 @@ void StartScreen::Update()
 	}
 
 	if (glfwGetMouseButton(Graphics::Instance()->GetWindow(), GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
-		std::cout << "click" << std::endl;
-
+		//std::cout << "click" << std::endl;
+		m_pAudioManager->PauseMusic();
 		if (m_pInputManager->getmousePosx() >= -0.42 && m_pInputManager->getmousePosx() <= 0.42 && m_pInputManager->getmousePosy() >= -0.13 && m_pInputManager->getmousePosy() <= 0.04) {
-			std::cout << "Nice" << std::endl;
+			//std::cout << "Nice" << std::endl;
 			ScreenSelected = 1;
 		}
 		else if (m_pInputManager->getmousePosx() >= -0.42 && m_pInputManager->getmousePosx() <= 0.42 && m_pInputManager->getmousePosy() >= -0.47 && m_pInputManager->getmousePosy() <= -0.3)

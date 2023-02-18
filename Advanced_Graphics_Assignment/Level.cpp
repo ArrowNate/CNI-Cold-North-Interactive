@@ -10,8 +10,6 @@ Level::Level()
 	m_pHUD = new HUD();
 	m_pTimer = Timer::Instance();
 
-	//ScreenSelected = 1;
-
 	PlaySong = true;
 	mActive = false;
 	mReloaded = true;
@@ -32,10 +30,6 @@ Level::Level()
 	m_pBall->Position(mBallStartx, mBallStarty, mBallStartz);
 
 	modelShader = Shader("Assets/Shaders/modelLoading.vs", "Assets/Shaders/modelLoading.fs");
-
-	//mLevelReset = false;
-
-
 
 	for (int i = 0; i < mMaxPlates; i++) { // first part is decleration, second part is the number of iterations/loops, third is to increment/move on, it can go to the opposite direction, can be different ways.
 		m_pPlates[i] = new Model("Assets/Models/Plate.obj"); // extantiating variable, each element in the array
@@ -115,11 +109,6 @@ void Level::Update()
 		mLevelOver = true;
 		
 	}
-		
-	if (mLevelOver == true) {
-		std::cout << "Should go to game over" << std::endl;
-	}
-	
 
 	if (PlaySong == true) {
 		m_pAudioManager->PlayMusic3D("Assets/Music/WindmillHut.mp3", -5, 0, 0);
@@ -131,7 +120,7 @@ void Level::Update()
 	BallMovement();
 
 	
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_A) == GLFW_PRESS) {
+	/*if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_A) == GLFW_PRESS) {
 		m_pStand->Translate(Vector3(-.1f, 0, 0));
 		std::cout << "x Position is: " << m_pStand->Position().x << std::endl;
 	}
@@ -154,7 +143,7 @@ void Level::Update()
 	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_Q) == GLFW_PRESS) {
 		m_pStand->ModelTranslate(0, 0, 0.1f);
 		std::cout << "z Position is: " << m_pStand->Position().z << std::endl;
-	}
+	}*/
 
 }
 
@@ -201,7 +190,7 @@ void Level::Render()
 		m_pBall->Render(mBall);
 	}
 
-	/*m_pCannon->Render(mCannon);*/
+	//m_pCannon->Render(mCannon);
 
 	m_pHUD->Draw();
 }
@@ -223,7 +212,7 @@ void Level::Collide(GameEntity* objectOne, GameEntity* objectTwo) {
 void Level::SphereCollide(GameEntity* objectOne, GameEntity* objectTwo) {
 
 	if (m_pCollision->CheckSphereCollision(objectOne, objectTwo)) {
-		std::cout << " collion success" << std::endl;
+		//std::cout << " collion success" << std::endl;
 		//m_pAudioManager->PlayMusic2("Assets/Music/PlateBreak.wav", false);
 		m_pAudioManager->PlayMusic3D("Assets/Music/PlateBreak.wav", objectTwo->Position().x, objectTwo->Position().y, -1, false);
 
@@ -242,7 +231,7 @@ void Level::Reset() {
 	m_pHUD->Reset();
 	for (int i = 0; i < mMaxPlates; i++) {
 			m_pPlates[i]->Active(true);
-			std::cout << " Plates reset" << std::endl;
+			//std::cout << " Plates reset" << std::endl;
 	}
 	PlaySong = true;
 	mLevelOver = false;
@@ -273,12 +262,12 @@ void Level::Shoot()
 				m_pBall->Position(mBallStartx, mBallStarty, mBallStartz);
 
 			}
-			std::cout << "SPACE" << std::endl;
+			//std::cout << "SPACE" << std::endl;
 		}
 	}
 	else {
 		mNoAmmo = true;
-		std::cout << "NO AMMO" << std::endl;
+		//std::cout << "NO AMMO" << std::endl;
 	}
 }
 
@@ -292,12 +281,6 @@ void Level::BallMovement()
 		}
 		else if (mControl = true) {
 			m_pBall->ModelTranslate(m_pInputManager->getmousePosx() * mDir, m_pInputManager->getmousePosy() * mDir, mBallzVel * mDir);
-		}
-
-		if (m_pBall->Position().z >= -37)
-		{
-			std::cout << m_pBall->Position().z << std::endl;
-
 		}
 
 		if (m_pBall->Position().z >= mBallFrontBounds) {
@@ -317,7 +300,7 @@ void Level::BallMovement()
 		if (m_pBall->Position().z <= mBallBoardBounds) {
 			mControl = false;
 			m_pAudioManager->PlayMusic3D("Assets/Music/Thud.wav", m_pBall->Position().x, m_pBall->Position().y, 0, false);
-			std::cout << " ball should turn" << std::endl;
+			//std::cout << " ball should turn" << std::endl;
 		}
 	}
 	else if (!mActive) {
