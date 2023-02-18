@@ -73,11 +73,11 @@ Level4::Level4() {
 	m_pCannon->Position(-0.6f, -1.2f, 1.3);
 	m_pCannon->ModelScale(-0.11f, -0.11f, -0.11f);*/
 
-	m_pStand = new Model("Assets/Models/Level3.obj");
+	m_pStand = new Model("Assets/Models/PJWback.obj");
 	m_pStand->Position(0.11f, -1.1, 1.6);
 
-	m_pSpeaker = new Model("Assets/Models/Speaker.obj");
-	m_pSpeaker->Position(-6, -4.4, -8.7);
+	m_pSpeaker = new Model("Assets/Models/NewSpeaker.obj");
+	m_pSpeaker->Position(-4.5, -3.0, -7.0);
 
 	m_pBall = new Model("Assets/Models/Tennis_Ball.obj");
 	m_pBall->Position(mBallStartx, mBallStarty, mBallStartz);

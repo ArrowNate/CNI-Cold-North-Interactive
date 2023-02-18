@@ -7,7 +7,7 @@ SplashScreen::SplashScreen()
 	m_pAudioManager = AudioManager::Instance();
 	m_pGraphics = Graphics::Instance();
 	mSplashTotalTime = 1.0f;
-	mSplashTimer = 0.0f;
+	mSplashTimer = 6.0f;
 	mSplashDone = false;
 	PlayIntro = true;
 
