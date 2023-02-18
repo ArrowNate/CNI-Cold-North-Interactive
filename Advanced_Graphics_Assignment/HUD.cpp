@@ -10,7 +10,7 @@ HUD::HUD() {
 	
 	timeLeft = 45;
 	Point = 0;
-	Shots = 20;
+	Shots = 15;
 }
 
 HUD::~HUD() {

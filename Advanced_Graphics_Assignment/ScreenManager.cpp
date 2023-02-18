@@ -80,8 +80,6 @@ void ScreenManager::Update()
 		m_pStartScreen->setSelectedScreen(2);
 		m_pLevelManager->setSelectedScreen(1);
 		ScreenChoice = m_pGameOverScreen->SelectedScreen();
-		
-	
 		break;
 	}
 }

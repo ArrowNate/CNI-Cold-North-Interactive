@@ -30,17 +30,17 @@ GameOverScreen::~GameOverScreen() {
 void GameOverScreen::Update() {
 
 	if (glfwGetMouseButton(Graphics::Instance()->GetWindow(), GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
-		std::cout << "click" << std::endl;
+		//std::cout << "click" << std::endl;
 		//ScreenSelected = 2;
 
 		if (m_pInputManager->getmousePosx() >= -0.48 && m_pInputManager->getmousePosx() <= -0.011 && m_pInputManager->getmousePosy() >= -0.48 && m_pInputManager->getmousePosy() <= -0.02) {
-			std::cout << "Going to Menu" << std::endl;
+			//std::cout << "Going to Menu" << std::endl;
 			ScreenSelected = 2;
 			//m_pAudioManager->PauseMusic();
 		}
 
 		if (m_pInputManager->getmousePosx() >= 0.008 && m_pInputManager->getmousePosx() <= 0.48 && m_pInputManager->getmousePosy() >= -0.48 && m_pInputManager->getmousePosy() <= -0.02) {
-			std::cout << "Going to Next Level" << std::endl;
+			//std::cout << "Going to Next Level" << std::endl;
 			//int test = 0;
 			//test = (test += 1);
 			//ScreenSelected = 2;

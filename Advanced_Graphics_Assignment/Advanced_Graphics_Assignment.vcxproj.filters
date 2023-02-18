@@ -1,161 +1,193 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="AssetManager.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="AudioManager.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Collision.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Credits.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Font.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="GameEntity.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="GameManager.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="HUD.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="InputManager.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Level.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="LevelManager.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="Main.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Mesh.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Model.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayScreen.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="ScreenManager.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Shader.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="StartScreen.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="stb_image.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Texture.cpp">
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="glad.c">
       <Filter>Header</Filter>
     </ClCompile>
     <ClCompile Include="Timer.cpp" />
-    <ClCompile Include="GameOverScreen.cpp" />
-    <ClCompile Include="SplashScreen.cpp" />
-    <ClCompile Include="Buttons.cpp" />
-    <ClCompile Include="Timer.cpp" />
-    <ClCompile Include="Level2.cpp" />
-    <ClCompile Include="Level3.cpp" />
-    <ClCompile Include="Level4.cpp" />
-    <ClCompile Include="Level5.cpp" />
+    <ClCompile Include="Timer.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="AssetManager.cpp">
+      <Filter>Source\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioManager.cpp">
+      <Filter>Source\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>Source\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>Source\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelManager.cpp">
+      <Filter>Source\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenManager.cpp">
+      <Filter>Source\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Level.cpp">
+      <Filter>Source\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="Level2.cpp">
+      <Filter>Source\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="Level3.cpp">
+      <Filter>Source\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="Level4.cpp">
+      <Filter>Source\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="Level5.cpp">
+      <Filter>Source\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverScreen.cpp">
+      <Filter>Source\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayScreen.cpp">
+      <Filter>Source\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="SplashScreen.cpp">
+      <Filter>Source\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="StartScreen.cpp">
+      <Filter>Source\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="Credits.cpp">
+      <Filter>Source\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="Font.cpp">
+      <Filter>Source\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics.cpp">
+      <Filter>Source\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Source\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>Source\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Source\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="stb_image.cpp">
+      <Filter>Source\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Source\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>Source\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEntity.cpp">
+      <Filter>Source\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD.cpp">
+      <Filter>Source\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Buttons.cpp">
+      <Filter>Source\Graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AssetManager.h">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="AudioManager.h">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Camera.h">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Collision.h">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Credits.h">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Font.h">
-      <Filter>Header</Filter>
-    </ClInclude>
     <ClInclude Include="ft2build.h">
       <Filter>Header</Filter>
     </ClInclude>
-    <ClInclude Include="GameEntity.h">
+    <ClInclude Include="Timer.h" />
+    <ClInclude Include="Timer.h">
       <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetManager.h">
+      <Filter>Header\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioManager.h">
+      <Filter>Header\Managers</Filter>
     </ClInclude>
     <ClInclude Include="GameManager.h">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics.h">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="HUD.h">
-      <Filter>Header</Filter>
+      <Filter>Header\Managers</Filter>
     </ClInclude>
     <ClInclude Include="InputManager.h">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Level.h">
-      <Filter>Header</Filter>
+      <Filter>Header\Managers</Filter>
     </ClInclude>
     <ClInclude Include="LevelManager.h">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="MathHelper.h">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Mesh.h">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Model.h">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayScreen.h">
-      <Filter>Header</Filter>
+      <Filter>Header\Managers</Filter>
     </ClInclude>
     <ClInclude Include="ScreenManager.h">
-      <Filter>Header</Filter>
+      <Filter>Header\Managers</Filter>
     </ClInclude>
-    <ClInclude Include="Shader.h">
-      <Filter>Header</Filter>
+    <ClInclude Include="Credits.h">
+      <Filter>Header\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverScreen.h">
+      <Filter>Header\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayScreen.h">
+      <Filter>Header\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="SplashScreen.h">
+      <Filter>Header\Screens</Filter>
     </ClInclude>
     <ClInclude Include="StartScreen.h">
-      <Filter>Header</Filter>
+      <Filter>Header\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>Header\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="Level2.h">
+      <Filter>Header\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="Level3.h">
+      <Filter>Header\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="Level4.h">
+      <Filter>Header\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="Level5.h">
+      <Filter>Header\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Header\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics.h">
+      <Filter>Header\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Header\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>Header\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>Header\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="stb_image.h">
-      <Filter>Header</Filter>
+      <Filter>Header\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Texture.h">
-      <Filter>Header</Filter>
+      <Filter>Header\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="Timer.h" />
-    <ClInclude Include="GameOverScreen.h" />
-    <ClInclude Include="SplashScreen.h" />
-    <ClInclude Include="Buttons.h" />
-    <ClInclude Include="Timer.h" />
-    <ClInclude Include="Level2.h" />
-    <ClInclude Include="Level3.h" />
-    <ClInclude Include="Level4.h" />
-    <ClInclude Include="Level5.h" />
+    <ClInclude Include="Font.h">
+      <Filter>Header\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Header\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEntity.h">
+      <Filter>Header\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="MathHelper.h">
+      <Filter>Header\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Buttons.h">
+      <Filter>Header\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD.h">
+      <Filter>Header\Graphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header">
@@ -163,6 +195,36 @@
     </Filter>
     <Filter Include="Source">
       <UniqueIdentifier>{76d006eb-398c-4aef-b22e-c464cfff4be8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header\Managers">
+      <UniqueIdentifier>{322b4fe7-2bba-4988-b3df-1ac04ab21448}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header\Screens">
+      <UniqueIdentifier>{4589588c-e535-454c-a286-55718a7063fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header\Levels">
+      <UniqueIdentifier>{e6945139-6916-4e5d-8f0a-e3cd636262a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header\Graphics">
+      <UniqueIdentifier>{5bd2993d-3732-4c66-ab3b-30bd9cd7edbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header\Physics">
+      <UniqueIdentifier>{5070150b-ba2f-4904-89f3-95beba49ab7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Managers">
+      <UniqueIdentifier>{a71f70ca-b586-4a65-809f-756ef85b9ba0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Levels">
+      <UniqueIdentifier>{0882c7ef-af65-4f68-bd8c-3dd97e2f8fe7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Graphics">
+      <UniqueIdentifier>{20f76640-7722-4c64-8a56-804ee9bd7292}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Screens">
+      <UniqueIdentifier>{a31a479a-2128-435a-a2d2-cb93592210c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Physics">
+      <UniqueIdentifier>{6ce6afb7-cd67-4c4e-a622-67d882d0978b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

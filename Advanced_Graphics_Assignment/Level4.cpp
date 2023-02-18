@@ -54,63 +54,16 @@ Level4::Level4() {
 			m_pPlates[i]->Position(mPlatesx, y, mPlatesz);
 		}
 
-		if (mLevelReset = false) {
-			//m_pPlates[i]->Active(true);
-			std::cout << " Plates reset" << std::endl;
-		}
+		//if (mLevelReset = false) {
+		//	//m_pPlates[i]->Active(true);
+		//	std::cout << " Plates reset" << std::endl;
+		//}
 
 		m_pPlates[i]->ModelTranslate(0, 11, 0);
 		temp++;
 	}
 
-	PlaySong = true;
-	mActive = false;
-	mReloaded = true;
-	mLevelOver = false;
-	mNoAmmo = false;
 
-	/*m_pCannon = new Model("Assets/Models/Pirate_Cannon.obj");
-	m_pCannon->Position(-0.6f, -1.2f, 1.3);
-	m_pCannon->ModelScale(-0.11f, -0.11f, -0.11f);*/
-
-	m_pStand = new Model("Assets/Models/Level3.obj");
-	m_pStand->Position(0.11f, -1.1, 1.6);
-
-	m_pSpeaker = new Model("Assets/Models/Speaker.obj");
-	m_pSpeaker->Position(-6, -4.4, -8.7);
-
-	m_pBall = new Model("Assets/Models/Tennis_Ball.obj");
-	m_pBall->Position(mBallStartx, mBallStarty, mBallStartz);
-
-	modelShader = Shader("Assets/Shaders/modelLoading.vs", "Assets/Shaders/modelLoading.fs");
-
-	for (int i = 0; i < mMaxPlates; i++) { // first part is decleration, second part is the number of iterations/loops, third is to increment/move on, it can go to the opposite direction, can be different ways.
-		m_pPlates[i] = new Model("Assets/Models/Plate.obj"); // extantiating variable, each element in the array
-		m_pPlates[i]->Active(true);
-		m_pPlates[i]->HitBounds(false);
-
-
-		if (i % 5 == 0) {// if the remainder of the division is 0
-			y = y - 3.5;
-			temp = 0;
-		}
-
-		if (i != 0) {
-			m_pPlates[i]->Position(mPlatesx + (temp * 5.25), y, mPlatesz);
-
-		}
-		else {
-			m_pPlates[i]->Position(mPlatesx, y, mPlatesz);
-		}
-
-		if (mLevelReset = false) {
-			//m_pPlates[i]->Active(true);
-			std::cout << " Plates reset" << std::endl;
-		}
-
-		m_pPlates[i]->ModelTranslate(0, 22, 0);
-		temp++;
-	}
 }
 
 Level4::~Level4() {
@@ -149,8 +102,8 @@ Level4::~Level4() {
 	m_pBall = nullptr;
 	delete m_pBall;
 
-	m_pCannon = nullptr;
-	delete m_pCannon;
+	/*m_pCannon = nullptr;
+	delete m_pCannon;*/
 }
 
 void Level4::Update() {
@@ -179,30 +132,6 @@ void Level4::Update() {
 			}
 		}
 
-		/*if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_A) == GLFW_PRESS) {
-			m_pPlates[i]->Translate(Vector3(-.1f, 0, 0));
-			std::cout << "x Position is: " << m_pPlates[i]->Position().x << std::endl;
-		}
-		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_D) == GLFW_PRESS) {
-			m_pPlates[i]->Translate(Vector3(.1f, 0, 0));
-			std::cout << "x Position is: " << m_pPlates[i]->Position().x << std::endl;
-		}
-		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_W) == GLFW_PRESS) {
-			m_pPlates[i]->Translate(Vector3(0, .1f, 0));
-			std::cout << "y Position is: " << m_pPlates[i]->Position().y << std::endl;
-		}
-		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_S) == GLFW_PRESS) {
-			m_pPlates[i]->Translate(Vector3(0, -.1f, 0));
-			std::cout << "y Position is: " << m_pPlates[i]->Position().y << std::endl;
-		}
-		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_E) == GLFW_PRESS) {
-			m_pPlates[i]->ModelTranslate(0, 0, -.1f);
-			std::cout << "z Position is: " << m_pPlates[i]->Position().z << std::endl;
-		}
-		if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_Q) == GLFW_PRESS) {
-			m_pPlates[i]->ModelTranslate(0, 0, 0.1f);
-			std::cout << "z Position is: " << m_pPlates[i]->Position().z << std::endl;
-		}*/
 	}
 
 	if (m_pHUD->GetTime() == 0) {
@@ -210,9 +139,9 @@ void Level4::Update() {
 
 	}
 
-	if (mLevelOver == true) {
+	/*if (mLevelOver == true) {
 		std::cout << "Should go to game over" << std::endl;
-	}
+	}*/
 
 
 	if (PlaySong == true) {
@@ -224,30 +153,6 @@ void Level4::Update() {
 
 	BallMovement();
 
-	/*if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_A) == GLFW_PRESS) {
-		m_pStand->Translate(Vector3(-.1f, 0, 0));
-		std::cout << "x Position is: " << m_pStand->Position().x << std::endl;
-	}
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_D) == GLFW_PRESS) {
-		m_pStand->Translate(Vector3(.1f, 0, 0));
-		std::cout << "x Position is: " << m_pStand->Position().x << std::endl;
-	}
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_W) == GLFW_PRESS) {
-		m_pStand->Translate(Vector3(0, .1f, 0));
-		std::cout << "y Position is: " << m_pStand->Position().y << std::endl;
-	}
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_S) == GLFW_PRESS) {
-		m_pStand->Translate(Vector3(0, -.1f, 0));
-		std::cout << "y Position is: " << m_pStand->Position().y << std::endl;
-	}
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_E) == GLFW_PRESS) {
-		m_pStand->ModelTranslate(0, 0, -.1f);
-		std::cout << "z Position is: " << m_pStand->Position().z << std::endl;
-	}
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_Q) == GLFW_PRESS) {
-		m_pStand->ModelTranslate(0, 0, 0.1f);
-		std::cout << "z Position is: " << m_pStand->Position().z << std::endl;
-	}*/
 }
 
 void Level4::LateUpdate() {

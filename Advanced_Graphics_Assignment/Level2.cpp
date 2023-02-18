@@ -8,6 +8,10 @@ Level2::Level2()
 	m_pCollision = new Collision();
 	m_pHUD = new HUD();
 
+	/*m_pCannon = new Model("Assets/Models/Pirate_Cannon.obj");
+	m_pCannon->Position(-0.6f, -1.2f, 1.3);
+	m_pCannon->ModelScale(-0.11f, -0.11f, -0.11f);*/
+
 	m_pStand = new Model("Assets/Models/BrickWallFaceLevel.obj");
 	m_pStand->Position(-0.2f, -1.1, 0.8);
 
@@ -38,10 +42,10 @@ Level2::Level2()
 			m_pPlates[i]->Position(mPlatesx, y, mPlatesz);
 		}
 
-		if (mLevelReset = false) {
-			//m_pPlates[i]->Active(true);
-			std::cout << " Plates reset" << std::endl;
-		}
+		//if (mLevelReset = false) {
+		//	//m_pPlates[i]->Active(true);
+		//	std::cout << " Plates reset" << std::endl;
+		//}
 
 		m_pPlates[i]->ModelTranslate(0, 11, 0);
 		temp++;
@@ -93,7 +97,6 @@ void Level2::Update() {
 
 		if (m_pPlates[i]->Position().x >= 13.5)
 		{
-			/*std::cout << "Hitting Plates Bounds" << std::endl;*/
 			m_pPlates[i]->HitBounds(true);
 		}
 		else if (m_pPlates[i]->Position().x <= -13.5) {
@@ -113,40 +116,10 @@ void Level2::Update() {
 
 	}
 
-	if (mLevelOver == true) {
-		std::cout << "Should go to game over" << std::endl;
-	}
-
-
 	if (PlaySong == true) {
 		m_pAudioManager->PlayMusic3D("Assets/Music/WindmillHut.mp3", -5, 0, 0);
 		PlaySong = false;
 	}
-
-	/*if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_A) == GLFW_PRESS) {
-		m_pStand->Translate(Vector3(-.1f, 0, 0));
-		std::cout << "x Position is: " << m_pStand->Position().x << std::endl;
-	}
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_D) == GLFW_PRESS) {
-		m_pStand->Translate(Vector3(.1f, 0, 0));
-		std::cout << "x Position is: " << m_pStand->Position().x << std::endl;
-	}
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_W) == GLFW_PRESS) {
-		m_pStand->Translate(Vector3(0, .1f, 0));
-		std::cout << "y Position is: " << m_pStand->Position().y << std::endl;
-	}
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_S) == GLFW_PRESS) {
-		m_pStand->Translate(Vector3(0, -.1f, 0));
-		std::cout << "y Position is: " << m_pStand->Position().y << std::endl;
-	}
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_E) == GLFW_PRESS) {
-		m_pStand->ModelTranslate(0, 0, -.1f);
-		std::cout << "z Position is: " << m_pStand->Position().z << std::endl;
-	}
-	if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_Q) == GLFW_PRESS) {
-		m_pStand->ModelTranslate(0, 0, 0.1f);
-		std::cout << "z Position is: " << m_pStand->Position().z << std::endl;
-	}*/
 
 	Shoot();
 
