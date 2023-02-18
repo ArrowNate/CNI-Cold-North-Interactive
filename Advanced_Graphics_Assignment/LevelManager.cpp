@@ -58,7 +58,6 @@ void LevelManager::Update() {
 
     if (glfwGetKey(Graphics::Instance()->GetWindow(), GLFW_KEY_BACKSPACE) == GLFW_PRESS) {
         ScreenSelected = 2;
-       m_pLevel1->Reset();
        m_pLevels[mCurrentLevel]->Reset();
     }
 
