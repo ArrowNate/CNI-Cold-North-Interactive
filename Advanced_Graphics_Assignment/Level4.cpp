@@ -71,7 +71,7 @@ Level4::Level4() {
 	m_pStand->Position(0.11f, -1.1, 1.6);
 
 	m_pSpeaker = new Model("Assets/Models/NewSpeaker.obj");
-	m_pSpeaker->Position(-4.5, -3.0, -7.0);
+	m_pSpeaker->Position(-4.5, -3.3, -7.0);
 
 	m_pBall = new Model("Assets/Models/Tennis_Ball.obj");
 	m_pBall->Position(mBallStartx, mBallStarty, mBallStartz);
@@ -220,7 +220,10 @@ void Level4::Render() {
 	//----------------------THIS IS OUR VIEWPORT----------------------
 
 	m_pStand->Render(mStand);
+
+	glEnable(GL_CULL_FACE);
 	m_pSpeaker->Render(mSpeaker);
+	glDisable(GL_CULL_FACE);
 
 	for (int i = 0; i < mMaxPlates; i++) {
 
